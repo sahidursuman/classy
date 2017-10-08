@@ -1,5 +1,0 @@
-en:
-  devise:
-    registrations:
-      new:
-        sign_up: "Sign up"
