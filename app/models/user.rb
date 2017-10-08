@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attr_accessor :login
+
   has_one :training_center_management
   has_many :branch_managements
   has_many :training_center_requests
@@ -16,6 +18,17 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   enum role: [:admin, :moderator, :center_manager, :branch_manager, :member]
+
+  class << self
+    def find_for_database_authentication warden_conditions
+      conditions = warden_conditions.dup
+      if login = conditions.delete(:login).try(:downcase)
+        where(conditions.to_hash).where(username: login).or(User.where email: login).first
+      elsif conditions.has_key?(:username) || conditions.has_key?(:email)
+        where(conditions.to_hash).first
+      end
+    end
+  end
 
   private
   def generate_username

@@ -3,3 +3,6 @@ en:
     registrations:
       new:
         sign_up: "Sign up"
+    sessions:
+      new:
+        log_in: "Log in"
