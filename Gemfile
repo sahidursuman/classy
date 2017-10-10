@@ -20,7 +20,11 @@ group :development, :test do
   gem "rspec-rails", "~> 3.6"
   gem "factory_girl_rails", "~> 4.0"
   gem "faker"
-  gem "shoulda-matchers"
+  gem "pry-rails"
+end
+
+group :test do
+   gem "shoulda-matchers"
 end
 
 group :development do
@@ -34,3 +38,4 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise"
 gem "config"
+gem "stringex"
