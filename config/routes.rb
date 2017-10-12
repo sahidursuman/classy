@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :training_centers, only: :show do
     resources :branches, only: :index
   end
+
+  resources :branches, only: :show
 end

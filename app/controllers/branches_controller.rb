@@ -5,4 +5,8 @@ class BranchesController < ApplicationController
     @branches = @q.result
     @support = Supports::TrainingCenter.new training_center
   end
+
+  def show
+    @branch = Branch.active.friendly_find params[:id]
+  end
 end
