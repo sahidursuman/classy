@@ -28,15 +28,28 @@ puts "Creating normal users"
 end
 
 training_types = TrainingType.all.includes :categories
-puts "Creating training center"
-30.times.each do |i|
+districts = District.all.includes :city
+puts "Creating training center and its branches"
+30.times.each do
   training_type = training_types.sample
   training_center = TrainingCenter.create! name: Faker::Educator.university,
     training_type: training_type,
-    status: TrainingCenter.statuses.keys.sample,
+    status: TrainingCenter.statuses.values.sample,
     description: Faker::Lorem.paragraphs.join("\n")
 
-  training_type.categories.sample(rand(3) + 1).each do |category|
+  category_count = rand(3) + 1
+  training_type.categories.sample(category_count).each do |category|
     training_center.training_center_categories.create! category: category
+  end
+
+  branches_count = rand(10) + 1
+  branches_count.times.each do
+    district = districts.sample
+    training_center.branches.create! name: training_center.name + " - " + district.name,
+      status: Branch.statuses.values.sample,
+      description: Faker::Lorem.paragraphs.join("\n"),
+      address: Faker::Address.street_address,
+      district: district,
+      city: district.city
   end
 end

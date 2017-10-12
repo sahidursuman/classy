@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
-  resources :training_centers, only: :show
+  resources :training_centers, only: :show do
+    resources :branches, only: :index
+  end
 end
