@@ -39,3 +39,5 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise"
 gem "config"
 gem "stringex"
+gem "ransack", github: "activerecord-hackery/ransack"
+gem "jquery-rails"

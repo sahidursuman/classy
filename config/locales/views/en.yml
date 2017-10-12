@@ -21,3 +21,8 @@ en:
         confirm_new_password: Confirm new password
         change_my_password: Change my password
         characters_minimum: chacracters minium
+        log_in: "Log in"
+  branches:
+    index:
+      select_city: "Select city"
+      filter: "Filter"

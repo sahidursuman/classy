@@ -1,3 +1,7 @@
+<%= form_for :q, url: training_center_branches_path, method: :get, remote: true do |f| %>
+  <%= f.select :city_slug_eq, @support.city_options, {include_blank: t(".select_city")} %>
+  <%= f.submit t(".filter") %>
+<% end %>
 <table class="table">
   <thead>
     <th>Name</th>
@@ -5,7 +9,7 @@
     <th>District</th>
     <th>City</th>
   </thead>
-  <tbody>
+  <tbody id="branch_list">
     <%= render partial: :branch, collection: @branches, as: :branch %>
   </tbody>
 </table>
