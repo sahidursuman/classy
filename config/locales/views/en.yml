@@ -1,8 +1,23 @@
 en:
+  home_pages:
+    index:
+      log_out: Log out
+      log_in: Log in
+      welcome_message: Welcome to Classy
   devise:
     registrations:
       new:
-        sign_up: "Sign up"
+        sign_up: Sign up
     sessions:
       new:
-        log_in: "Log in"
+        log_in: Log in
+    passwords:
+      new:
+        forgot_your_password: Forgot your password?
+        send_me: Send me reset password instructions
+      edit:
+        change_your_password: Change your password
+        new_password: New password
+        confirm_new_password: Confirm new password
+        change_my_password: Change my password
+        characters_minimum: chacracters minium
