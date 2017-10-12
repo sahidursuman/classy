@@ -22,6 +22,9 @@ en:
         change_my_password: Change my password
         characters_minimum: chacracters minium
         log_in: "Log in"
+  training_centers:
+    show:
+      branch_list: "Branch list"
   branches:
     index:
       select_city: "Select city"
