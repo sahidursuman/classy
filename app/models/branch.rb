@@ -5,4 +5,6 @@ class Branch < ApplicationRecord
   has_many :branch_managements
   has_many :reviews
   has_many :comments
+
+  enum status: [:active, :inactive]
 end
