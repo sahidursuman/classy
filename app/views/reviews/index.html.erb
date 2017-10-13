@@ -1,0 +1,15 @@
+<table class="table">
+  <thead>
+    <th><%= User.human_attribute_name :full_name %></th>
+    <th><%= Review.human_attribute_name :title %></th>
+    <th><%= Review.human_attribute_name :summary_rating %></th>
+    <th><%= Review.human_attribute_name :rating_criterion_1 %></th>
+    <th><%= Review.human_attribute_name :rating_criterion_2 %></th>
+    <th><%= Review.human_attribute_name :rating_criterion_3 %></th>
+    <th><%= Review.human_attribute_name :rating_criterion_4 %></th>
+    <th><%= Review.human_attribute_name :rating_criterion_5 %></th>
+  </thead>
+  <tbody>
+    <%= render partial: :review, collection: @reviews, as: :review %>
+  </tbody>
+</table>

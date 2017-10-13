@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :branches, only: :index
   end
 
-  resources :branches, only: :show
+  resources :branches, only: :show do
+    resources :reviews, only: :index
+  end
 end
