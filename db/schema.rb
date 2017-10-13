@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012134053) do
+ActiveRecord::Schema.define(version: 20171013093509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,23 +86,29 @@ ActiveRecord::Schema.define(version: 20171012134053) do
     t.index ["city_id"], name: "index_districts_on_city_id"
   end
 
+  create_table "review_verifications", force: :cascade do |t|
+    t.bigint "review_id"
+    t.integer "status"
+    t.string "email"
+    t.string "phone_number"
+    t.string "response_message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_review_verifications_on_review_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "branch_id"
     t.string "title"
     t.text "content"
-    t.float "average_rating"
-    t.integer "rating_criteria_1"
-    t.integer "rating_criteria_2"
-    t.integer "rating_criteria_3"
-    t.integer "rating_criteria_4"
-    t.integer "rating_criteria_5"
+    t.float "summary_rating"
+    t.integer "rating_criterion_1"
+    t.integer "rating_criterion_2"
+    t.integer "rating_criterion_3"
+    t.integer "rating_criterion_4"
+    t.integer "rating_criterion_5"
     t.integer "status"
-    t.string "email_verify"
-    t.string "phone_number_verify"
-    t.integer "verifier_id"
-    t.datetime "verified_at"
-    t.string "note"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -209,6 +215,7 @@ ActiveRecord::Schema.define(version: 20171012134053) do
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
   add_foreign_key "districts", "cities"
+  add_foreign_key "review_verifications", "reviews"
   add_foreign_key "reviews", "branches"
   add_foreign_key "reviews", "users"
   add_foreign_key "training_center_categories", "categories"

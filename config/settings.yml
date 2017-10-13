@@ -11,3 +11,13 @@ user:
     max_length: 30
   last_name:
     max_length: 30
+review:
+  number_of_criteria: 5
+  criteria: [
+    {attr_name: rating_criterion_1, ratio: 20},
+    {attr_name: rating_criterion_2, ratio: 20},
+    {attr_name: rating_criterion_3, ratio: 20},
+    {attr_name: rating_criterion_4, ratio: 20},
+    {attr_name: rating_criterion_5, ratio: 20}
+  ]
+  rating_values: [1, 2, 3, 4, 5]

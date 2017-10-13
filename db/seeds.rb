@@ -53,3 +53,25 @@ puts "Creating training center and its branches"
       city: district.city
   end
 end
+
+puts "Creating reviews"
+normal_users = User.all
+Branch.find_each do |branch|
+  review_count = rand normal_users.size
+  normal_users.sample(review_count).each do |user|
+    review = branch.reviews.create! user: user,
+      title: Faker::Lorem.sentence,
+      content: Faker::Lorem.paragraphs.join("\n"),
+      rating_criterion_1: Settings.review.rating_values.sample,
+      rating_criterion_2: Settings.review.rating_values.sample,
+      rating_criterion_3: Settings.review.rating_values.sample,
+      rating_criterion_4: Settings.review.rating_values.sample,
+      rating_criterion_5: Settings.review.rating_values.sample,
+      status: Review.statuses.values.sample
+    verification_status = review.verified? ? :verified : [:forwarded, :rejected].sample
+    review.review_verifications.create! email: user.email,
+      phone_number: Faker::PhoneNumber.cell_phone,
+      status: verification_status,
+      response_message: Faker::Lorem.sentence
+  end
+end
