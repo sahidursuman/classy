@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Supports::TrainingCenter do
-  let(:training_center){double TrainingCenter}
+  let(:training_center){double Center}
   let(:support){Supports::TrainingCenter.new training_center}
 
   describe "#city_options" do

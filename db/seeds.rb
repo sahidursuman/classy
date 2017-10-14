@@ -21,7 +21,7 @@ puts "Creating normal users"
   User.create! email: "member#{i}@gmail.com",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    role: :member,
+    role: :normal_user,
     password: "123456",
     password_confirmation: "123456",
     confirmed_at: Time.zone.now
@@ -29,24 +29,28 @@ end
 
 training_types = TrainingType.all.includes :categories
 districts = District.all.includes :city
-puts "Creating training center and its branches"
-30.times.each do
+puts "Creating training center"
+20.times.each do
   training_type = training_types.sample
-  training_center = TrainingCenter.create! name: Faker::Educator.university,
+  center = Center.create! name: Faker::Educator.university,
     training_type: training_type,
-    status: TrainingCenter.statuses.values.sample,
+    status: :active,
     description: Faker::Lorem.paragraphs.join("\n")
 
   category_count = rand(3) + 1
   training_type.categories.sample(category_count).each do |category|
-    training_center.training_center_categories.create! category: category
+    center.center_categories.create! category: category
   end
+end
 
+
+puts "Create branches"
+Center.find_each do |center|
   branches_count = rand(10) + 1
   branches_count.times.each do
     district = districts.sample
-    training_center.branches.create! name: training_center.name + " - " + district.name,
-      status: Branch.statuses.values.sample,
+    center.branches.create! name: center.name + " - " + district.name,
+      status: :active,
       description: Faker::Lorem.paragraphs.join("\n"),
       address: Faker::Address.street_address,
       district: district,
@@ -54,8 +58,46 @@ puts "Creating training center and its branches"
   end
 end
 
+puts "Create center managers"
+total_center_manager = 0
+Center.find_each do |center|
+  manager_count = rand(3) + 1
+  manager_count.times.each do
+    total_center_manager += 1
+    user = User.create! email: "centermanager#{total_center_manager}@gmail.com",
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      role: :center_manager,
+      password: "123456",
+      password_confirmation: "123456",
+      confirmed_at: Time.zone.now
+    center.center_managements.create! user: user
+  end
+end
+
+centers = Center.all.includes :branches
+puts "Create branch managers"
+total_branch_manager = 0
+centers.each do |center|
+  manger_count = rand 3
+  branch_count = center.branches.size
+  manger_count.times.each do
+    total_branch_manager += 1
+    user = User.create! email: "branchmanager#{total_branch_manager}@gmail.com",
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      role: :branch_manager,
+      password: "123456",
+      password_confirmation: "123456",
+      confirmed_at: Time.zone.now
+    center.branches.sample(rand(branch_count) + 1).each do |branch|
+      user.branch_managements.create! branch: branch
+    end
+  end
+end
+
 puts "Creating reviews"
-normal_users = User.all
+normal_users = User.normal_user
 Branch.find_each do |branch|
   review_count = rand normal_users.size
   normal_users.sample(review_count).each do |user|

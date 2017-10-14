@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171013093509) do
   end
 
   create_table "branches", force: :cascade do |t|
-    t.bigint "training_center_id"
+    t.bigint "center_id"
     t.string "name"
     t.string "avatar"
     t.integer "status"
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 20171013093509) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.index ["center_id"], name: "index_branches_on_center_id"
     t.index ["city_id"], name: "index_branches_on_city_id"
     t.index ["district_id"], name: "index_branches_on_district_id"
     t.index ["slug"], name: "index_branches_on_slug", unique: true
-    t.index ["training_center_id"], name: "index_branches_on_training_center_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -52,6 +52,50 @@ ActiveRecord::Schema.define(version: 20171013093509) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["training_type_id"], name: "index_categories_on_training_type_id"
+  end
+
+  create_table "center_categories", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "center_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_center_categories_on_category_id"
+    t.index ["center_id"], name: "index_center_categories_on_center_id"
+  end
+
+  create_table "center_managements", force: :cascade do |t|
+    t.bigint "center_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["center_id"], name: "index_center_managements_on_center_id"
+    t.index ["user_id"], name: "index_center_managements_on_user_id"
+  end
+
+  create_table "center_requests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "center_name"
+    t.string "reference_website"
+    t.string "reference_fanpage"
+    t.string "phone_number"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_center_requests_on_user_id"
+  end
+
+  create_table "centers", force: :cascade do |t|
+    t.bigint "training_type_id"
+    t.string "name"
+    t.integer "status"
+    t.string "avatar"
+    t.text "description"
+    t.float "cached_average_rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_centers_on_slug", unique: true
+    t.index ["training_type_id"], name: "index_centers_on_training_type_id"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -116,50 +160,6 @@ ActiveRecord::Schema.define(version: 20171013093509) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "training_center_categories", force: :cascade do |t|
-    t.bigint "category_id"
-    t.bigint "training_center_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_training_center_categories_on_category_id"
-    t.index ["training_center_id"], name: "index_training_center_categories_on_training_center_id"
-  end
-
-  create_table "training_center_managements", force: :cascade do |t|
-    t.bigint "training_center_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["training_center_id"], name: "index_training_center_managements_on_training_center_id"
-    t.index ["user_id"], name: "index_training_center_managements_on_user_id"
-  end
-
-  create_table "training_center_requests", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "training_center_name"
-    t.string "reference_website"
-    t.string "reference_fanpage"
-    t.string "phone_number"
-    t.integer "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_training_center_requests_on_user_id"
-  end
-
-  create_table "training_centers", force: :cascade do |t|
-    t.bigint "training_type_id"
-    t.string "name"
-    t.integer "status"
-    t.string "avatar"
-    t.text "description"
-    t.float "cached_average_rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "slug"
-    t.index ["slug"], name: "index_training_centers_on_slug", unique: true
-    t.index ["training_type_id"], name: "index_training_centers_on_training_type_id"
-  end
-
   create_table "training_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -207,10 +207,16 @@ ActiveRecord::Schema.define(version: 20171013093509) do
 
   add_foreign_key "branch_managements", "branches"
   add_foreign_key "branch_managements", "users"
+  add_foreign_key "branches", "centers"
   add_foreign_key "branches", "cities"
   add_foreign_key "branches", "districts"
-  add_foreign_key "branches", "training_centers"
   add_foreign_key "categories", "training_types"
+  add_foreign_key "center_categories", "categories"
+  add_foreign_key "center_categories", "centers"
+  add_foreign_key "center_managements", "centers"
+  add_foreign_key "center_managements", "users"
+  add_foreign_key "center_requests", "users"
+  add_foreign_key "centers", "training_types"
   add_foreign_key "comments", "branches"
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
@@ -218,11 +224,5 @@ ActiveRecord::Schema.define(version: 20171013093509) do
   add_foreign_key "review_verifications", "reviews"
   add_foreign_key "reviews", "branches"
   add_foreign_key "reviews", "users"
-  add_foreign_key "training_center_categories", "categories"
-  add_foreign_key "training_center_categories", "training_centers"
-  add_foreign_key "training_center_managements", "training_centers"
-  add_foreign_key "training_center_managements", "users"
-  add_foreign_key "training_center_requests", "users"
-  add_foreign_key "training_centers", "training_types"
   add_foreign_key "votes", "users"
 end

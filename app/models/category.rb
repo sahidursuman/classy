@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
   belongs_to :training_type
-  has_many :training_center_categories
+  has_many :center_categories
 end

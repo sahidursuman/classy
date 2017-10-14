@@ -1,10 +1,10 @@
-class TrainingCenter < ApplicationRecord
+class Center < ApplicationRecord
   include FriendlyUrl
 
   belongs_to :training_type
-  has_many :training_center_managements
+  has_many :center_managements
   has_many :branches
-  has_many :training_center_categories
+  has_many :center_categories
   has_many :active_branches, ->{active}, class_name: Branch.name
 
   enum status: [:active, :inactive]

@@ -1,7 +1,7 @@
 class Branch < ApplicationRecord
   include FriendlyUrl
 
-  belongs_to :training_center
+  belongs_to :center
   belongs_to :city
   belongs_to :district
   has_many :branch_managements
@@ -12,5 +12,5 @@ class Branch < ApplicationRecord
 
   acts_as_url :name, url_attribute: :slug, sync_url: true
 
-  delegate :name, to: :training_center, prefix: true, allow_nil: true
+  delegate :name, to: :center, prefix: true, allow_nil: true
 end

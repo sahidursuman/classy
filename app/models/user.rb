@@ -1,23 +1,33 @@
 class User < ApplicationRecord
   attr_accessor :login
 
-  has_one :training_center_management
+  has_one :center_management
+  has_one :managed_center, through: :center_management, source: :center
   has_many :branch_managements
-  has_many :training_center_requests
+  has_many :managed_branches, through: :branch_managements, source: :branch
+  has_many :center_requests
   has_many :reviews
   has_many :comments
   has_many :votes
 
-  validates_presence_of :first_name, :last_name, :role
-  validates_length_of :first_name, maximum: Settings.user.first_name.max_length
-  validates_length_of :last_name, maximum: Settings.user.last_name.max_length
+  validates :first_name, presence: true, length: {maximum: Settings.user.first_name.max_length}
+  validates :last_name, presence: true, length: {maximum: Settings.user.last_name.max_length}
+  validates :role, presence: true
 
   before_create :generate_username
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  enum role: [:admin, :moderator, :center_manager, :branch_manager, :member]
+  enum role: [:admin, :moderator, :center_manager, :branch_manager, :normal_user]
+
+  def working_center
+    if center_manager?
+      managed_center
+    elsif branch_manager?
+      managed_branches.first.try :center
+    end
+  end
 
   class << self
     def find_for_database_authentication warden_conditions

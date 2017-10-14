@@ -1,2 +1,3 @@
 <%= @branch.name %><br/>
-<%= link_to @branch.training_center_name, @branch.training_center %>
+<%= link_to @branch.center_name, @branch.center %><br/>
+<%= link_to "Reviews", branch_reviews_path(@branch) %>
