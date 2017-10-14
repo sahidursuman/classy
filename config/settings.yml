@@ -21,3 +21,14 @@ review:
     {attr_name: rating_criterion_5, ratio: 20}
   ]
   rating_values: [1, 2, 3, 4, 5]
+validations:
+  review:
+    title:
+      max_length: 255
+      min_length: 20
+    content:
+      max_length: 10000
+      min_length: 20
+  review_verification:
+    email:
+      max_length: 255

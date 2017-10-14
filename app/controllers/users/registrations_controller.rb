@@ -2,7 +2,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: :create
 
   def create
-    build_resource sign_up_params.merge role: :member
+    build_resource sign_up_params.merge role: :normal_user
     if resource.save
       set_flash_message! :notice, :signed_up_but_unconfirmed
       redirect_to new_user_session_path

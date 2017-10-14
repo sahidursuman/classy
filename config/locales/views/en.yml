@@ -29,3 +29,9 @@ en:
     index:
       select_city: "Select city"
       filter: "Filter"
+  reviews:
+    new:
+      new_review: New review
+      review: Review
+    criterion_input:
+      rating: Rating

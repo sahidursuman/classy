@@ -18,3 +18,6 @@ en:
         rating_criterion_3: Third criteria
         rating_criterion_4: Fourth criteria
         rating_criterion_5: Fifth criteria
+      review_verification:
+        email: Email verify
+        phone_number: Phone number verify

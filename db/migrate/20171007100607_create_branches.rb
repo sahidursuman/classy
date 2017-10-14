@@ -1,7 +1,7 @@
 class CreateBranches < ActiveRecord::Migration[5.1]
   def change
     create_table :branches do |t|
-      t.references :training_center, foreign_key: true
+      t.references :center, foreign_key: true
       t.string :name
       t.string :avatar
       t.integer :status
