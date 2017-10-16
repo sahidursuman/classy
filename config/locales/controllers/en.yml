@@ -3,10 +3,13 @@ en:
   branch:
     reviews:
       create:
-        success: "Create review success"
-        failed: "Fail to create review"
+        success: Create review success
+        failed: Fail to create review
 
   reviews:
     update:
-      success: "Update review success"
-      failed: "Fail to update review"
+      success: Update review success
+      failed: Fail to update review
+    destroy:
+      success: Delete review success
+      failed: Fail to delete review

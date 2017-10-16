@@ -41,6 +41,7 @@ en:
         create: Create
       review:
         edit: Edit
+        delete: Delete
   reviews:
     new:
       new_review: New review
