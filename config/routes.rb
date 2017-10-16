@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   end
 
   resources :branches, only: :show do
-    resources :reviews, only: [:index, :new, :create]
+    scope module: :branch do
+      resources :reviews, only: [:index, :new, :create]
+    end
   end
+
+  resources :reviews, only: [:edit, :update]
 end

@@ -1,35 +1,37 @@
 class ReviewsController < ApplicationController
-  before_action :branch
-  before_action :authorize_user, only: [:new, :create]
+  before_action :review, :authorize_update_review, only: [:edit, :update]
 
-  def index
-    @reviews = branch.reviews.verified.recent_created.includes(:user).decorate
+  def edit
+    @edit_review_form = EditReviewForm.new review_attributes
   end
 
-  def new
-    @create_review_form = CreateReviewForm.new
-  end
-
-  def create
-    @create_review_form = CreateReviewForm.new review_params.merge user_id: current_user.id,
-      branch_id: @branch.id
-    if @create_review_form.save
-      redirect_to branch_reviews_path(@branch), success: "Create review success"
+  def update
+    @edit_review_form = EditReviewForm.new review_params.merge review: @review
+    if @edit_review_form.save
+      flash[:success] = t ".success"
+      redirect_to branch_reviews_path @review.branch
     else
-      render :new
+      flash.now[:failed] = t ".failed"
+      render :edit
     end
   end
 
   private
-  def branch
-    @branch = Branch.active.friendly_find params[:branch_id]
+  def review
+    @review = Review.find params[:id]
+  end
+
+  def review_attributes
+    EditReviewForm::PARAMS.inject({}) do |params, attribute|
+      params.merge attribute => @review.send(attribute)
+    end
   end
 
   def review_params
-    params.require(:create_review_form).permit CreateReviewForm::PARAMS
+    params.require(:edit_review_form).permit EditReviewForm::PARAMS
   end
 
-  def authorize_user
-    raise Pundit::NotAuthorizedError unless policy(@branch).can_review?
+  def authorize_update_review
+    raise Pundit::NotAuthorizedError unless policy(@review).update?
   end
 end

@@ -1,2 +1,12 @@
 en:
   not_authorized: You are not authorized to perform this action.
+  branch:
+    reviews:
+      create:
+        success: "Create review success"
+        failed: "Fail to create review"
+
+  reviews:
+    update:
+      success: "Update review success"
+      failed: "Fail to update review"
