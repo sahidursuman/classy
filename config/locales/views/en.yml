@@ -22,6 +22,10 @@ en:
         change_my_password: Change my password
         characters_minimum: chacracters minium
         log_in: "Log in"
+  shared:
+    reviews:
+      criterion_input:
+        rating: Rating
   training_centers:
     show:
       branch_list: "Branch list"
@@ -29,9 +33,17 @@ en:
     index:
       select_city: "Select city"
       filter: "Filter"
+  branch:
+    reviews:
+      index:
+        new_review: New review
+      new:
+        create: Create
+      review:
+        edit: Edit
   reviews:
     new:
       new_review: New review
       review: Review
-    criterion_input:
-      rating: Rating
+    edit:
+      update: Update

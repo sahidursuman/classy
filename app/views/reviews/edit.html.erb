@@ -1,0 +1,8 @@
+<h2><%= t ".edit_review" %></h2>
+<%= form_for @edit_review_form, url: review_path(@review), method: :put do |f| %>
+  <%= render "shared/reviews/review_form", f: f %>
+
+  <div class="form-group">
+    <%= f.submit t(".update") %>
+  </div>
+<% end %>

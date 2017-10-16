@@ -10,4 +10,8 @@ class ApplicationPolicy
   def member?
     user && (user.center_manager? || user.branch_manager? || user.normal_user?)
   end
+
+  def record_owner?
+    user && user.id == record.user.id
+  end
 end

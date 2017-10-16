@@ -1,19 +1,6 @@
 <h2><%= t ".new_review" %></h2>
 <%= form_for @create_review_form, url: branch_reviews_path(@branch), method: :post do |f| %>
-  <%=
-    render partial: "criterion_input", collection: (Settings.review.criteria.map &:attr_name),
-      as: :criterion, locals: {f: f, options: Settings.review.rating_values}
-  %>
-
-  <div class="form-group">
-    <%= f.label :title, Review.human_attribute_name(:title) %><br/>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :content, Review.human_attribute_name(:content) %><br/>
-    <%= f.text_area :content %>
-  </div>
+  <%= render "shared/reviews/review_form", f: f %>
 
   <div class="form-group">
     <%= f.label :email_verify, ReviewVerification.human_attribute_name(:email) %><br/>
@@ -27,6 +14,6 @@
   </div>
 
   <div class="form-group">
-    <%= f.submit t(".review") %>
+    <%= f.submit t(".create") %>
   </div>
 <% end %>
