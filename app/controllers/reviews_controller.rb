@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :review, :authorize_update_review, only: [:edit, :update]
+  before_action :review, :authorize_review
 
   def edit
     @edit_review_form = EditReviewForm.new review_attributes
@@ -16,9 +16,22 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    if @review.destroy
+      flash[:success] = t ".success"
+    else
+      flash[:failed] = t ".failed"
+    end
+    redirect_to branch_reviews_path @review.branch
+  end
+
   private
   def review
     @review = Review.find params[:id]
+  end
+
+  def authorize_review
+    authorize @review
   end
 
   def review_attributes
@@ -29,9 +42,5 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:edit_review_form).permit EditReviewForm::PARAMS
-  end
-
-  def authorize_update_review
-    raise Pundit::NotAuthorizedError unless policy(@review).update?
   end
 end

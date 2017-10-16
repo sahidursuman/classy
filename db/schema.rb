@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171013093509) do
+ActiveRecord::Schema.define(version: 20171016074517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,9 +115,10 @@ ActiveRecord::Schema.define(version: 20171013093509) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["branch_id"], name: "index_comments_on_branch_id"
-    t.index ["review_id"], name: "index_comments_on_review_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["branch_id"], name: "index_comments_on_branch_id", where: "(deleted_at IS NULL)"
+    t.index ["deleted_at"], name: "index_comments_on_deleted_at"
+    t.index ["review_id"], name: "index_comments_on_review_id", where: "(deleted_at IS NULL)"
+    t.index ["user_id"], name: "index_comments_on_user_id", where: "(deleted_at IS NULL)"
   end
 
   create_table "districts", force: :cascade do |t|
@@ -138,7 +139,9 @@ ActiveRecord::Schema.define(version: 20171013093509) do
     t.string "response_message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["review_id"], name: "index_review_verifications_on_review_id"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_review_verifications_on_deleted_at"
+    t.index ["review_id"], name: "index_review_verifications_on_review_id", where: "(deleted_at IS NULL)"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -156,8 +159,9 @@ ActiveRecord::Schema.define(version: 20171013093509) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["branch_id"], name: "index_reviews_on_branch_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["branch_id"], name: "index_reviews_on_branch_id", where: "(deleted_at IS NULL)"
+    t.index ["deleted_at"], name: "index_reviews_on_deleted_at"
+    t.index ["user_id"], name: "index_reviews_on_user_id", where: "(deleted_at IS NULL)"
   end
 
   create_table "training_types", force: :cascade do |t|

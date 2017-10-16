@@ -9,5 +9,6 @@
   <td><%= review.rating_criterion_5 %></td>
   <td>
     <%= link_to t(".edit"), edit_review_path(review) if policy(review).update? %>
+    <%= link_to t(".delete"), review_path(review), method: :delete if policy(review).destroy? %>
   </td>
 </tr>
