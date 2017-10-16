@@ -42,6 +42,7 @@ en:
       review:
         edit: Edit
         delete: Delete
+        show_comment: Show comment
   reviews:
     new:
       new_review: New review

@@ -117,3 +117,21 @@ Branch.find_each do |branch|
       response_message: Faker::Lorem.sentence
   end
 end
+
+puts "Creating comments"
+reviews = Review.limit(50).includes branch: :branch_managers
+reviews.each do |review|
+  review_count = rand 10
+  review_count.times do
+    if rand(2) == 0
+      UserComment.create! user: normal_users.sample,
+        content: Faker::Lorem.paragraph,
+        review: review
+    elsif branch_manager = review.branch.branch_managers.sample
+      CenterComment.create! user: branch_manager,
+        content: Faker::Lorem.paragraph,
+        review: review,
+        branch: review.branch
+    end
+  end
+end
