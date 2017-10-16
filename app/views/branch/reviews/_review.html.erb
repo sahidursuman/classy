@@ -1,14 +1,28 @@
-<tr>
-  <td><%= review.user_full_name %></td>
-  <td><%= review.title %></td>
-  <td><%= review.summary_rating %></td>
-  <td><%= review.rating_criterion_1 %></td>
-  <td><%= review.rating_criterion_2 %></td>
-  <td><%= review.rating_criterion_3 %></td>
-  <td><%= review.rating_criterion_4 %></td>
-  <td><%= review.rating_criterion_5 %></td>
-  <td>
-    <%= link_to t(".edit"), edit_review_path(review) if policy(review).update? %>
-    <%= link_to t(".delete"), review_path(review), method: :delete if policy(review).destroy? %>
-  </td>
-</tr>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <b><%= review.user_full_name %></b>
+    <td><%= review.title %></td>
+    <span class="pull-right">
+      <%= review.rating_criterion_1 %>
+      <%= review.rating_criterion_2 %>
+      <%= review.rating_criterion_4 %>
+      <%= review.rating_criterion_4 %>
+      <%= review.rating_criterion_5 %>
+    </span>
+    <br/>
+    <i><%= review.created_at %></i>
+  </div>
+  <div class="panel-body"><%= review.content %></div>
+  <div class="panel-footer">
+    <%= link_to t(".show_comment"), review_comments_path(review), remote: true %>
+    <span class="pull-right">
+      <%= link_to t(".edit"), edit_review_path(review) if policy(review).update? %>
+      <%=
+        if policy(review).destroy?
+          link_to t(".delete"), review_path(review), method: :delete, data: {confirm: "Are you sure?"}
+        end
+      %>
+    </span>
+  </div>
+</div>
+<div id="comments-review-<%= review.id %>"></div>

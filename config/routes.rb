@@ -15,5 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :reviews, only: [:edit, :update, :destroy]
+  resources :reviews, only: [:edit, :update, :destroy] do
+    resources :comments, only: :index
+  end
 end
