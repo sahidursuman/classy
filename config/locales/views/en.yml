@@ -26,6 +26,11 @@ en:
     reviews:
       criterion_input:
         rating: Rating
+    google_map:
+      branch_info:
+        email: Email
+        phone_number: Phone number
+        rating: Rating
   training_centers:
     show:
       branch_list: "Branch list"

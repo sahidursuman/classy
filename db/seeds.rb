@@ -47,14 +47,20 @@ end
 puts "Create branches"
 Center.find_each do |center|
   branches_count = rand(10) + 1
-  branches_count.times.each do
+  branches_count.times.each do |i|
     district = districts.sample
+    location = ["(21.063590, 105.842285)", "(21.080895, 105.749686)", "(21.026275, 105.812005)", "(20.986202, 105.839836)", "(21.108168, 105.814410)",
+      "(20.969633, 105.863441)", "(20.993302, 105.880452)", "(20.962160, 105.798326)", "(20.949449, 105.776151)", "(20.998405, 105.958812)", "(21.081203, 105.920982)"
+    ]
     center.branches.create! name: center.name + " - " + district.name,
       status: :active,
       description: Faker::Lorem.paragraphs.join("\n"),
       address: Faker::Address.street_address,
+      avatar: Faker::Avatar.image,
       district: district,
-      city: district.city
+      city: district.city,
+      coordinates: location[i],
+      cached_avarage_rating: rand(4) + 1
   end
 end
 

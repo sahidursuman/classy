@@ -32,3 +32,16 @@ validations:
   review_verification:
     email:
       max_length: 255
+google_map:
+  src: https://maps.googleapis.com/maps/api/js
+  key: AIzaSyAX6x28nsjEWmeL-10FkZZSo1yFmUfn3JU
+  libraries: places
+  sensor: false
+  language: vi
+  region: VN
+  tilt: 45
+  branch_info:
+    icon_url: /assets/80x20.jpg
+    avatar:
+      height: 100px
+      width: 100%
