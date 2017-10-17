@@ -1,0 +1,35 @@
+<div class="row" id="review-details-<%= review.id %>">
+  <%= render "shared/votes/vote_widget", review: review %>
+  <div class="col col-md-11">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <b><%= review.user_full_name %></b>
+        <td><%= review.title %></td>
+        <span class="pull-right">
+          <%= review.rating_criterion_1 %>
+          <%= review.rating_criterion_2 %>
+          <%= review.rating_criterion_4 %>
+          <%= review.rating_criterion_4 %>
+          <%= review.rating_criterion_5 %>
+        </span>
+        <br/>
+        <i><%= review.created_at %></i>
+      </div>
+      <div class="panel-body"><%= review.content %></div>
+      <div class="panel-footer">
+        <%= link_to t(".show_comments", comments_count: review.comments_count),
+          review_comments_path(review), remote: true  if review.show_comments? %>
+        <span class="pull-right">
+          <%= link_to t(".edit"), edit_review_path(review) if policy(review).update? %>
+          <%=
+            if policy(review).destroy?
+              link_to t(".delete"), review_path(review), method: :delete,
+                data: {confirm: t(".confirm_delete")}
+            end
+          %>
+        </span>
+      </div>
+    </div>
+    <div class="comment-list"></div>
+  </div>
+</div>

@@ -13,7 +13,9 @@
 
   <body>
     <div class="container">
-      <%= render "layouts/shared/flash" %>
+      <div id="flash-messages">
+        <%= render "layouts/shared/flash" %>
+      </div>
       <%= yield %>
     </div>
   </body>

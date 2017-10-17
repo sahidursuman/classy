@@ -55,6 +55,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    after_commit_action (1.1.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     arel (8.0.0)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
@@ -81,6 +84,10 @@ GEM
       activesupport (>= 3.0)
       deep_merge (~> 1.1.1)
       dry-validation (~> 0.10.4)
+    counter_culture (1.8.2)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      after_commit_action (~> 1.0)
     crass (1.0.2)
     deep_merge (1.1.1)
     descendants_tracker (0.0.4)
@@ -301,6 +308,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   config
+  counter_culture (~> 1.8)
   devise
   draper
   factory_girl_rails (~> 4.0)

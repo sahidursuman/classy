@@ -6,4 +6,6 @@ class Comment < ApplicationRecord
   scope :earlier_created, ->{order created_at: :asc}
 
   acts_as_paranoid
+
+  counter_culture :review
 end

@@ -10,4 +10,8 @@ class ReviewPolicy < ApplicationPolicy
   def destroy?
     record_owner?
   end
+
+  def can_vote?
+    user && !record_owner?
+  end
 end

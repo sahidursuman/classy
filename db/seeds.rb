@@ -125,7 +125,7 @@ Branch.find_each do |branch|
 end
 
 puts "Creating comments"
-reviews = Review.limit(50).includes branch: :branch_managers
+reviews = Review.verified.limit(50).includes :user, branch: :branch_managers
 reviews.each do |review|
   review_count = rand 10
   review_count.times do
@@ -139,5 +139,16 @@ reviews.each do |review|
         review: review,
         branch: review.branch
     end
+  end
+end
+
+puts "Creating votes"
+reviews.each do |review|
+  vote_count = rand 10
+  normal_users.sample(vote_count).each do |user|
+    next if user == review.user
+    Vote.create user: user,
+      review: review,
+      vote_type: Vote::vote_types.values.sample
   end
 end

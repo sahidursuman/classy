@@ -1,0 +1,6 @@
+<% if @vote_form.errors.blank? %>
+  $("#review-details-<%= @review.id %> .vote-widget")
+    .replaceWith("<%= j render 'shared/votes/vote_widget', review: @review %>");
+<% else %>
+  $("#flash-messages").html("<%= j render 'layouts/shared/flash' %>");
+<% end %>

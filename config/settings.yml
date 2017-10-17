@@ -21,6 +21,13 @@ review:
     {attr_name: rating_criterion_5, ratio: 20}
   ]
   rating_values: [1, 2, 3, 4, 5]
+vote:
+  vote_type_point:
+    up: 1
+    down: -1
+  display_vote_type:
+    up: ▲
+    down: ▼
 validations:
   review:
     title:

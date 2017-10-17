@@ -13,4 +13,5 @@
  *= require_self
  *= require css/bootstrap.min
  *= require map
+ *= require vote
  */

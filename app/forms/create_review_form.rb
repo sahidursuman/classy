@@ -1,5 +1,5 @@
 class CreateReviewForm
-  include Virtus
+  include Virtus.model
   include ActiveModel::Model
   include ReviewForm
   include ReviewVerificationForm

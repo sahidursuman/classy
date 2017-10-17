@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016074517) do
+ActiveRecord::Schema.define(version: 20171018122558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,6 +159,8 @@ ActiveRecord::Schema.define(version: 20171016074517) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "vote_points_cached", default: 0, null: false
+    t.integer "comments_count", default: 0, null: false
     t.index ["branch_id"], name: "index_reviews_on_branch_id", where: "(deleted_at IS NULL)"
     t.index ["deleted_at"], name: "index_reviews_on_deleted_at"
     t.index ["user_id"], name: "index_reviews_on_user_id", where: "(deleted_at IS NULL)"
@@ -202,10 +204,13 @@ ActiveRecord::Schema.define(version: 20171016074517) do
   create_table "votes", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "review_id"
-    t.integer "type"
+    t.integer "vote_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_votes_on_deleted_at"
     t.index ["review_id"], name: "index_votes_on_review_id"
+    t.index ["user_id", "review_id"], name: "index_votes_on_user_id_and_review_id", unique: true, where: "(deleted_at IS NULL)"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 

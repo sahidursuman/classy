@@ -1,0 +1,4 @@
+<%= content_tag :button, Settings.vote.display_vote_type.send(vote_type),
+  data: {type: vote_type, review: review.id},
+  class: "vote_review #{'voted' if review.current_user_voted_type == Vote::vote_types[vote_type]}"
+%>

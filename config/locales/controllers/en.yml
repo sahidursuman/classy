@@ -13,3 +13,9 @@ en:
     destroy:
       success: Delete review success
       failed: Fail to delete review
+  review:
+    votes:
+      create:
+        failed: "Fail to vote"
+      destroy:
+        failed: "Fail to unvote"
