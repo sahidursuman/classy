@@ -45,3 +45,5 @@ google_map:
     avatar:
       height: 100px
       width: 100%
+  branch:
+    zoom: 14

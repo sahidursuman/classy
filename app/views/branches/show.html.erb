@@ -1,3 +1,4 @@
 <%= @branch.name %><br/>
 <%= link_to @branch.center_name, @branch.center %><br/>
 <%= link_to "Reviews", branch_reviews_path(@branch) %>
+<%= render "shared/google_map/branch_map", branch: @branch %>
