@@ -1,0 +1,31 @@
+var map;
+var bounds = new google.maps.LatLngBounds();
+var mapOptions = {
+  mapTypeId: "roadmap"
+};
+
+map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+map.setTilt(<%= Settings.google_map.tilt %>);
+
+var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+<% branches.each do |branch| %>
+  var position = new google.maps.LatLng("<%= branch.coordinates.x %>", "<%= branch.coordinates.y %>");
+  bounds.extend(position);
+  marker = new google.maps.Marker({
+    position: position,
+    map: map,
+    title: "<%= branch.name %>",
+    label: "<%= branch.cached_avarage_rating %>",
+    icon: "<%= Settings.google_map.branch_info.icon_url %>"
+  });
+
+  google.maps.event.addListener(marker, "click", (function(marker, i) {
+    return function() {
+      infoWindow.setContent("<%= j render "shared/google_map/branch_info", branch: branch %>");
+      infoWindow.open(map, marker);
+    }
+  })(marker, i));
+
+  map.fitBounds(bounds);
+<% end %>

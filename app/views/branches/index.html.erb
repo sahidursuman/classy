@@ -13,3 +13,4 @@
     <%= render partial: :branch, collection: @branches, as: :branch %>
   </tbody>
 </table>
+<%= render "shared/google_map/branches_map", branches: @branches %>

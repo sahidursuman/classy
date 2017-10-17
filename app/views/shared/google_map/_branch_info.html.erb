@@ -1,0 +1,11 @@
+<div class="info_content">
+  <%= image_tag branch.avatar, height: Settings.google_map.branch_info.avatar.height,
+    width: Settings.google_map.branch_info.avatar.width %>
+  <h3><%= link_to branch.name, branch %></h3>
+  <h5><%= branch.address %></h5>
+  <p>
+    <b><%= t ".email" %>: </b><%= branch.email %></br>
+    <b><%= t ".phone_number" %>: </b><%= branch.phone_number %></br>
+    <b><%= t ".rating" %>: </b><%= branch.cached_avarage_rating %>
+  </p>
+</div>
