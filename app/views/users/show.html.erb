@@ -1,0 +1,8 @@
+<h1><%= t ".profile" %></h1>
+<%= image_tag @user.avatar %></br>
+<%= @user.full_name %></br>
+<%= @user.email %></br>
+<%= @user.phone_number %></br>
+<%= @user.role %></br>
+<%= link_to t(".edit_personal_information"), edit_my_page_personal_information_path %></br>
+<%= link_to t(".edit_account_information"), edit_my_page_account_information_path %></br>

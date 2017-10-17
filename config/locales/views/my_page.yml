@@ -1,0 +1,18 @@
+en:
+  my_page:
+    account_informations:
+      edit:
+        update: Update
+        back: Back
+        edit_account_information: Edit account information
+      update:
+        updated: Your profile has been updated successfully
+        failed: Failed
+    personal_informations:
+      edit:
+        edit_personal_information: Edit personal information
+        update: Update
+        cancel: Cancel
+      update:
+        updated: Your profile has been updated successfully
+        failed: Failed
