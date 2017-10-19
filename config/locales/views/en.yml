@@ -36,6 +36,13 @@ en:
         email: Email
         phone_number: Phone number
         rating: Rating
+  management:
+    branches:
+      index:
+        select_city: Select city
+        filter: Filter
+        select_status: Select status
+        index: Index
   training_centers:
     show:
       branch_list: "Branch list"

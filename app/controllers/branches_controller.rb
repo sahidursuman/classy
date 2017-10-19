@@ -1,9 +1,9 @@
 class BranchesController < ApplicationController
   def index
-    training_center = Center.active.friendly_find params[:center_id]
-    @q = training_center.active_branches.ransack params[:q]
+    center = Center.active.friendly_find params[:center_id]
+    @q = center.active_branches.ransack params[:q]
     @branches = @q.result
-    @support = Supports::TrainingCenter.new training_center
+    @support = Supports::Center.new center
   end
 
   def show

@@ -29,6 +29,14 @@ class User < ApplicationRecord
     end
   end
 
+  def branches_under_management
+    if center_manager?
+      managed_center.branches
+    elsif branch_manager?
+      managed_branches
+    end
+  end
+
   class << self
     def find_for_database_authentication warden_conditions
       conditions = warden_conditions.dup
