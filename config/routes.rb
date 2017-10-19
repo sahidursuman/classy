@@ -21,4 +21,8 @@ Rails.application.routes.draw do
       resource :votes, only: [:create, :destroy]
     end
   end
+
+  namespace :management do
+    resources :branches, only: :index
+  end
 end

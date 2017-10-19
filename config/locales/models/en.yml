@@ -21,3 +21,6 @@ en:
       review_verification:
         email: Email verify
         phone_number: Phone number verify
+      branch:
+        name: Name
+        status: Status
