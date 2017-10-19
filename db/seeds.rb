@@ -79,7 +79,8 @@ Center.find_each do |center|
       role: :center_manager,
       password: "123456",
       password_confirmation: "123456",
-      confirmed_at: Time.zone.now
+      confirmed_at: Time.zone.now,
+      avatar: Faker::Avatar.image
     center.center_managements.create! user: user
   end
 end
@@ -98,7 +99,8 @@ centers.each do |center|
       role: :branch_manager,
       password: "123456",
       password_confirmation: "123456",
-      confirmed_at: Time.zone.now
+      confirmed_at: Time.zone.now,
+      avatar: Faker::Avatar.image
     center.branches.sample(rand(branch_count) + 1).each do |branch|
       user.branch_managements.create! branch: branch
     end

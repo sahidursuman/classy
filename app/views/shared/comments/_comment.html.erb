@@ -2,7 +2,7 @@
   <div class="media-left">
   </div>
   <div class="media-body">
-    <b class="media-heading"><%= comment.owner_name %></b>
+    <b class="media-heading"><%= link_to comment.owner_name, comment.owner %></b>
     <p><%= comment.content %></p>
   </div>
 </div>
