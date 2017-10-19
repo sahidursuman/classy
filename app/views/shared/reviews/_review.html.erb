@@ -3,7 +3,7 @@
   <div class="col col-md-11">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <b><%= review.user_full_name %></b>
+        <b><%= link_to review.user_full_name, review.user %></b>
         <td><%= review.title %></td>
         <span class="pull-right">
           <%= review.rating_criterion_1 %>
