@@ -1,0 +1,23 @@
+<h2><%= t ".edit_personal_information" %></h2>
+
+<%= form_for(@user, url: my_page_personal_information_path) do |f| %>
+  <div class="field">
+    <%= f.label :phone_number, User.human_attribute_name(:phone_number) %><br />
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name, User.human_attribute_name(:first_name) %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, User.human_attribute_name(:last_name) %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t(".update") %>
+    <%= link_to t(".cancel"), user_path(@user), class: "btn btn-default" %>
+  </div>
+<% end %>

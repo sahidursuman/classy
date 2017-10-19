@@ -10,11 +10,16 @@ class User < ApplicationRecord
   has_many :comments
   has_many :votes
 
+  PERSONAL_INFORMATION_PARAMS = [:first_name, :last_name, :phone_number]
+  ACCOUNT_INFORMATION_PARAMS = [:username, :email, :current_password]
+
   validates :first_name, presence: true, length: {maximum: Settings.user.first_name.max_length}
   validates :last_name, presence: true, length: {maximum: Settings.user.last_name.max_length}
   validates :role, presence: true
+  validates :username, presence: true, uniqueness: true, on: :update
 
   before_create :generate_username
+  before_save :downcase_fields
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :confirmable
@@ -37,6 +42,10 @@ class User < ApplicationRecord
     end
   end
 
+  def to_param
+    username
+  end
+
   class << self
     def find_for_database_authentication warden_conditions
       conditions = warden_conditions.dup
@@ -45,6 +54,10 @@ class User < ApplicationRecord
       elsif conditions.has_key?(:username) || conditions.has_key?(:email)
         where(conditions.to_hash).first
       end
+    end
+
+    def friendly_find param
+      find_by! username: param.try(:downcase)
     end
   end
 
@@ -55,5 +68,9 @@ class User < ApplicationRecord
       break unless User.exists? username: username
       self.username = tmp_username << SecureRandom.hex(Settings.user.username.random_suffix_length)
     end
+  end
+
+  def downcase_fields
+     self.username = self.username.try :downcase
   end
 end

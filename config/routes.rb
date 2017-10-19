@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: "users/registrations"
   }
+  resources :users, only: :show
+
+  namespace :my_page do
+    resource :personal_information, only: [:edit, :update]
+    resource :account_information, only: [:edit, :update]
+  end
 
   resources :centers, only: :show do
     resources :branches, only: :index

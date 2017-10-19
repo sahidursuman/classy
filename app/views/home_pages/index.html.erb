@@ -1,6 +1,7 @@
 <h2><%= t ".welcome_message" %></h2>
 <% if user_signed_in? %>
-  <%= link_to t(".log_out"), destroy_user_session_path, method: :delete %>
+  <%= link_to t(".log_out"), destroy_user_session_path, method: :delete %></br>
+  <%= link_to t(".profile"), user_path(@current_user) %></br>
 <% else %>
   <%= link_to t(".log_in"), new_user_session_path %>
 <% end %>

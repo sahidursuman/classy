@@ -5,7 +5,8 @@ User.create! email: "admin@gmail.com",
   role: :admin,
   password: "123456",
   password_confirmation: "123456",
-  confirmed_at: Time.zone.now
+  confirmed_at: Time.zone.now,
+  avatar: Faker::Avatar.image
 
 puts "Creating moderator account"
 User.create! email: "moderator@gmail.com",
@@ -14,7 +15,8 @@ User.create! email: "moderator@gmail.com",
   role: :moderator,
   password: "123456",
   password_confirmation: "123456",
-  confirmed_at: Time.zone.now
+  confirmed_at: Time.zone.now,
+  avatar: Faker::Avatar.image
 
 puts "Creating normal users"
 10.times.each do |i|
@@ -24,7 +26,8 @@ puts "Creating normal users"
     role: :normal_user,
     password: "123456",
     password_confirmation: "123456",
-    confirmed_at: Time.zone.now
+    confirmed_at: Time.zone.now,
+    avatar: Faker::Avatar.image
 end
 
 training_types = TrainingType.all.includes :categories
