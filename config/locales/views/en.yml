@@ -26,6 +26,11 @@ en:
     reviews:
       criterion_input:
         rating: Rating
+      review:
+        edit: Edit
+        delete: Delete
+        show_comments: Show %{comments_count} comment
+        confirm_delete: "Are you sure to delete this review?"
     google_map:
       branch_info:
         email: Email
@@ -44,10 +49,6 @@ en:
         new_review: New review
       new:
         create: Create
-      review:
-        edit: Edit
-        delete: Delete
-        show_comment: Show comment
   reviews:
     new:
       new_review: New review

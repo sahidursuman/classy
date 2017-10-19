@@ -1,2 +1,5 @@
-<%= link_to t(".new_review"), new_branch_review_path(@branch) %>
-<%= render partial: :review, collection: @reviews, as: :review %>
+<%= link_to new_branch_review_path(@branch) do %>
+  <button type="button" class="btn btn-primary"><%= t ".new_review" %></button>
+<% end %>
+<hr/>
+<%= render partial: "shared/reviews/review", collection: @reviews, as: :review %>

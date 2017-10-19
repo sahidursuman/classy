@@ -6,8 +6,17 @@ class Review < ApplicationRecord
   has_many :review_verifications, dependent: :destroy
 
   scope :recent_created, ->{order created_at: :desc}
+  scope :with_voted_type_by_user, ->user do
+    joins("LEFT OUTER JOIN #{Vote.table_name}
+      ON #{Review.table_name}.id = #{Vote.table_name}.review_id AND #{Vote.table_name}.user_id = #{user.id}")
+      .select("#{Review.table_name}.*, #{Vote.table_name}.vote_type AS voted_type")
+  end
 
   enum status: [:unverified, :verified]
 
   acts_as_paranoid
+
+  def update_vote_points_cached
+    update_columns vote_points_cached: Vote.points_of_review(self)
+  end
 end

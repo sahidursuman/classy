@@ -1,6 +1,5 @@
-class CommentsController < ApplicationController
+class Review::CommentsController < Review::BaseController
   def index
-    @review = Review.verified.find params[:review_id]
     @comments = @review.comments.earlier_created.includes(:user, :branch).decorate
   end
 end

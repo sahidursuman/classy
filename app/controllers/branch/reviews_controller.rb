@@ -2,7 +2,7 @@ class Branch::ReviewsController < Branch::BaseController
   before_action :authorize_create_review, only: [:create, :update]
 
   def index
-    @reviews = @branch.reviews.verified.recent_created.includes(:user).decorate
+    @reviews = displayable_reviews.decorate
   end
 
   def new
@@ -28,5 +28,13 @@ class Branch::ReviewsController < Branch::BaseController
 
   def review_params
     params.require(:create_review_form).permit CreateReviewForm::PARAMS
+  end
+
+  def displayable_reviews
+    if user_signed_in?
+      @branch.reviews.verified.with_voted_type_by_user(current_user).recent_created.includes(:user)
+    else
+      @branch.reviews.verified.recent_created.includes(:user)
+    end
   end
 end
