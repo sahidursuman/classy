@@ -28,6 +28,8 @@ vote:
   display_vote_type:
     up: ▲
     down: ▼
+review_verification:
+  per_page: 20
 validations:
   review:
     title:

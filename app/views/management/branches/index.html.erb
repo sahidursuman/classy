@@ -1,8 +1,4 @@
-<%= form_for @q, url: management_branches_path, method: :get, remote: true do |f| %>
-  <%= f.select :city_slug_eq, @support.city_options, {include_blank: t(".select_city")} %>
-  <%= f.select :status_eq, branch_status_options, {include_blank: t(".select_status")}%>
-  <%= f.submit t(".filter") %>
-<% end %>
+<%= render "branch_filter", q: @q, city_options: @support.city_options %>
 <table class="table">
   <thead>
     <th><%= t ".index" %></th>

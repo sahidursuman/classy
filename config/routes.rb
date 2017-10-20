@@ -30,5 +30,6 @@ Rails.application.routes.draw do
 
   namespace :management do
     resources :branches, only: :index
+    resources :review_verifications, only: [:index, :update]
   end
 end

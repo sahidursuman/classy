@@ -43,10 +43,23 @@ en:
   management:
     branches:
       index:
+        index: Index
+      branch_filter:
         select_city: Select city
         filter: Filter
         select_status: Select status
+    review_verifications:
+      index:
         index: Index
+        branch_name: Branch name
+        action: Action
+      review_verification_filter:
+        select_status: Select status
+        filter: Filter
+        select_branch: Select branch
+      review_verification:
+        accept: Accept
+        reject: Reject
   training_centers:
     show:
       branch_list: "Branch list"
