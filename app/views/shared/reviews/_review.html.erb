@@ -17,8 +17,8 @@
       </div>
       <div class="panel-body"><%= review.content %></div>
       <div class="panel-footer">
-        <%= link_to t(".show_comments", comments_count: review.comments_count),
-          review_comments_path(review), remote: true  if review.show_comments? %>
+        <%= link_to t(".show_comments", count: review.comments_count),
+          review_comments_path(review), remote: true, class: "comments-count" %>
         <span class="pull-right">
           <%= link_to t(".edit"), edit_review_path(review) if policy(review).update? %>
           <%=
@@ -31,5 +31,14 @@
       </div>
     </div>
     <div class="comment-list"></div>
+    <div class="new-comment-form"></div>
+    <div class="pull-left">
+      <%=
+        if policy(review).can_comment?
+          link_to t(".new_comment"), new_review_comment_path(review),
+            remote: true, class: "new-comment"
+        end
+      %>
+    </div>
   </div>
 </div>

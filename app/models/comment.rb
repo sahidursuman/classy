@@ -8,4 +8,10 @@ class Comment < ApplicationRecord
   acts_as_paranoid
 
   counter_culture :review
+
+  PARAMS = [:content]
+
+  validates :content, presence: true, length: {minimum: Settings.validations.comment.content.min_length,
+    maximum: Settings.validations.comment.content.max_length, allow_blank: true}
+  validates :review, :user, presence: true
 end
