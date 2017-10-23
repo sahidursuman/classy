@@ -9,10 +9,10 @@
   <td><%= review_verification.branch_name %></td>
   <td>
     <% if review_verification.forwarded? %>
-      <%= link_to t(".accept"), management_review_verification_path(review_verification, status: :verified),
-        method: :put %>
-      <%= link_to t(".reject"), management_review_verification_path(review_verification, status: :rejected),
-        method: :put %>
+      <%= link_to t(".accept"), branches_management_review_verification_path(review_verification,
+        status: :verified), method: :put %>
+      <%= link_to t(".reject"), branches_management_review_verification_path(review_verification,
+        status: :rejected), method: :put %>
     <% end %>
   </td>
 </tr>

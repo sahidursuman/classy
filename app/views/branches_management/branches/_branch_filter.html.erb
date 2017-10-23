@@ -1,4 +1,4 @@
-<%= form_for @q, url: management_branches_path, method: :get do |f| %>
+<%= form_for @q, url: branches_management_branches_path, method: :get do |f| %>
   <%= f.select :city_slug_eq, city_options, {include_blank: t(".select_city")} %>
   <%= f.select :status_eq, branch_status_options, {include_blank: t(".select_status")}%>
   <%= f.submit t(".filter") %>
