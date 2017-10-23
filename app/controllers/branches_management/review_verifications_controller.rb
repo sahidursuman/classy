@@ -1,8 +1,8 @@
-class Management::ReviewVerificationsController < Management::BaseController
+class BranchesManagement::ReviewVerificationsController < BranchesManagement::BaseController
   before_action :review_verification, :authorize_verification, only: :update
 
   def index
-    branches = current_user.branches_under_management
+    branches = current_user.managed_branches
     @q = ReviewVerification.by_branch_ids(branches.pluck :id).ransack params[:q]
     @review_verifications = @q.result.recent_created.includes(:branch)
       .page(params[:page]).per Settings.review_verification.per_page
@@ -15,7 +15,7 @@ class Management::ReviewVerificationsController < Management::BaseController
     else
       flash[:failed] = t ".failed"
     end
-    redirect_back fallback_location: management_review_verifications_path
+    redirect_back fallback_location: branches_management_review_verifications_path
   end
 
   private

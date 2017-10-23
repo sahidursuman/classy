@@ -40,7 +40,7 @@ en:
         email: Email
         phone_number: Phone number
         rating: Rating
-  management:
+  center_management:
     branches:
       index:
         index: Index
