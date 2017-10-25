@@ -8,7 +8,7 @@ var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions)
 var marker = new google.maps.Marker({
   position: position,
   map: map,
-  title: "<%= branch.name %>",
+  title: "<%= branch.full_name %>",
   label: "<%= branch.cached_avarage_rating %>",
   icon: "<%= Settings.google_map.branch_info.icon_url %>"
 });

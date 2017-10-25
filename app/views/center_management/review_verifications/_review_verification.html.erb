@@ -6,7 +6,7 @@
   <td><%= review_verification.email %></td>
   <td><%= review_verification.phone_number %></td>
   <td><%= review_verification.status %></td>
-  <td><%= review_verification.branch_name %></td>
+  <td><%= review_verification.branch_full_name %></td>
   <td>
     <% if review_verification.forwarded? %>
       <%= link_to t(".accept"), center_management_review_verification_path(review_verification,

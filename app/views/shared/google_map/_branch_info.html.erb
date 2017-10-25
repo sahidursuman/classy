@@ -1,7 +1,7 @@
 <div class="info_content">
   <%= image_tag branch.avatar, height: Settings.google_map.branch_info.avatar.height,
     width: Settings.google_map.branch_info.avatar.width %>
-  <h3><%= link_to branch.name, branch %></h3>
+  <h3><%= link_to branch.full_name, branch %></h3>
   <h5><%= branch.address %></h5>
   <p>
     <b><%= t ".email" %>: </b><%= branch.email %></br>
