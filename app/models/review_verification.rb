@@ -15,7 +15,7 @@ class ReviewVerification < ApplicationRecord
 
   acts_as_paranoid
 
-  delegate :name, to: :branch, prefix: true
+  delegate :name, :full_name, to: :branch, prefix: true
 
   private
   def set_review_verified
