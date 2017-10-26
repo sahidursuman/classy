@@ -29,12 +29,16 @@ Rails.application.routes.draw do
   end
 
   namespace :center_management do
-    resources :branches, only: :index
+    resources :branches, only: [:index, :new, :create]
     resources :review_verifications, only: [:index, :update]
   end
 
   namespace :branches_management do
     resources :branches, only: :index
     resources :review_verifications, only: [:index, :update]
+  end
+
+  namespace :supports do
+    resources :districts, only: :index
   end
 end
