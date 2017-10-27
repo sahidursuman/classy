@@ -1,6 +1,7 @@
 en:
   dictionary:
     select_city: &select_city Select city
+    select_district: &select_district Select district
     preview: &preview Preview
     edit: &edit Edit
     finish: &finish Finish
@@ -54,13 +55,19 @@ en:
         select_city: *select_city
         filter: Filter
         select_status: Select status
+      branch:
+        edit: *edit
       new:
         create_new_branch: Create new branch
-        select_city: *select_city
-        preview: *preview
+      edit:
+        edit_branch: Edit branch %{name}
       preview:
         edit: *edit
         finish: *finish
+      form:
+        select_city: *select_city
+        select_district: *select_district
+        preview: *preview
     review_verifications:
       index:
         index: Index

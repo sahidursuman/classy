@@ -5,6 +5,7 @@
     <th><%= t ".index" %></th>
     <th><%= Branch.human_attribute_name :name %></th>
     <th><%= Branch.human_attribute_name :status %></th>
+    <th><%= t ".action" %></th>
   </thead>
   <tbody id="branch-list">
     <%= render partial: "branch", collection: @branches, as: :branch %>
