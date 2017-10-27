@@ -1,10 +1,10 @@
 class CenterManagement::BaseController < ApplicationController
-  before_action :authorize_user, :center
+  before_action :authorize_center_management!
 
   layout "management"
 
   private
-  def authorize_user
+  def authorize_center_management!
     raise Pundit::NotAuthorizedError unless current_user.try :center_manager?
   end
 

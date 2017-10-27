@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   namespace :center_management do
-    resources :branches, only: [:index, :new, :create]
+    resources :branches, except: :destroy
     resources :review_verifications, only: [:index, :update]
   end
 

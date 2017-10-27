@@ -9,6 +9,9 @@ en:
       create:
         success: Create branch success
         failed: Fail to create branch
+      update:
+        success: Update branch success
+        failed: Fail to update branch
   branches_management:
     review_verifications:
       update:

@@ -26,7 +26,7 @@ class Branch < ApplicationRecord
 
   enum status: [:active, :inactive]
 
-  acts_as_url :full_name, url_attribute: :slug, sync_url: true
+  acts_as_url :full_name, url_attribute: :slug, sync_url: true, callback_method: :before_save
 
   delegate :name, to: :center, prefix: true, allow_nil: true
   delegate :name, to: :city, prefix: true, allow_nil: true
