@@ -41,6 +41,15 @@ validations:
   review_verification:
     email:
       max_length: 255
+  branch:
+    avatar:
+      max_size: 3.megabytes
+    name:
+      max_length: 50
+    address:
+      max_length: 100
+    description:
+      max_length: 1000
 google_map:
   src: https://maps.googleapis.com/maps/api/js
   key: AIzaSyAX6x28nsjEWmeL-10FkZZSo1yFmUfn3JU
@@ -56,3 +65,6 @@ google_map:
       width: 100%
   branch:
     zoom: 14
+business_avatar:
+  versions:
+    medium: [400, 200]

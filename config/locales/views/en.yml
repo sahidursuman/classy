@@ -1,4 +1,9 @@
 en:
+  dictionary:
+    select_city: &select_city Select city
+    preview: &preview Preview
+    edit: &edit Edit
+    finish: &finish Finish
   home_pages:
     index:
       log_out: Log out
@@ -44,10 +49,18 @@ en:
     branches:
       index:
         index: Index
+        create_new_branch: Create new branch
       branch_filter:
-        select_city: Select city
+        select_city: *select_city
         filter: Filter
         select_status: Select status
+      new:
+        create_new_branch: Create new branch
+        select_city: *select_city
+        preview: *preview
+      preview:
+        edit: *edit
+        finish: *finish
     review_verifications:
       index:
         index: Index

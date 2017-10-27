@@ -1,0 +1,25 @@
+<%= image_tag @branch.avatar %><br/>
+<b><%= Branch.human_attribute_name :name %></b>: <%= @branch.name %><br/>
+<b><%= Branch.human_attribute_name :full_name %></b>: <%= @branch.full_name %><br/>
+<b><%= Branch.human_attribute_name :city %></b>: <%= @branch.city_name %><br/>
+<b><%= Branch.human_attribute_name :district %></b>: <%= @branch.district_name %><br/>
+<b><%= Branch.human_attribute_name :address %></b>: <%= @branch.address %><br/>
+<b><%= Branch.human_attribute_name :full_address %></b>: <%= @branch.full_address %><br/>
+<b><%= Branch.human_attribute_name :email %></b>: <%= @branch.email %><br/>
+<b><%= Branch.human_attribute_name :phone_number %></b>: <%= @branch.phone_number %><br/>
+<%= render "shared/google_map/branch_map", branch: @branch %>
+
+<%= form_for [:center_management, @branch] do |f| %>
+  <%= f.hidden_field :avatar %>
+  <%= f.hidden_field :avatar_cache %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :city_id %>
+  <%= f.hidden_field :district_id %>
+  <%= f.hidden_field :address %>
+  <%= f.hidden_field :description %>
+  <%= f.hidden_field :email %>
+  <%= f.hidden_field :phone_number %>
+
+  <%= f.button t(".edit"), name: :step, value: :start %>
+  <%= f.button t(".finish"), name: :step, value: :finish %>
+<% end %>

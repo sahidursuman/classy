@@ -10,7 +10,7 @@ map.setTilt(<%= Settings.google_map.tilt %>);
 var infoWindow = new google.maps.InfoWindow(), marker, i;
 
 <% branches.each do |branch| %>
-  var position = new google.maps.LatLng("<%= branch.coordinates.x %>", "<%= branch.coordinates.y %>");
+  var position = new google.maps.LatLng("<%= branch.latitude %>", "<%= branch.longitude %>");
   bounds.extend(position);
   marker = new google.maps.Marker({
     position: position,
