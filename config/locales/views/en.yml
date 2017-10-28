@@ -80,6 +80,13 @@ en:
       review_verification:
         accept: Accept
         reject: Reject
+    centers:
+      new:
+        preview: *preview
+        select_training_type: Select training type
+      preview:
+        edit: *edit
+        finish: *finish
   training_centers:
     show:
       branch_list: "Branch list"

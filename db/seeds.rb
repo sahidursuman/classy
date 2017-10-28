@@ -47,14 +47,24 @@ puts "Creating training center"
 end
 
 
+sample_locations = [
+  {latitude: 21.063590, longitude: 105.842285},
+  {latitude: 21.080895, longitude: 105.749686},
+  {latitude: 21.026275, longitude: 105.812005},
+  {latitude: 20.986202, longitude: 105.839836},
+  {latitude: 21.108168, longitude: 105.814410},
+  {latitude: 20.969633, longitude: 105.863441},
+  {latitude: 20.993302, longitude: 105.880452},
+  {latitude: 20.962160, longitude: 105.798326},
+  {latitude: 20.949449, longitude: 105.776151},
+  {latitude: 20.998405, longitude: 105.958812},
+  {latitude: 21.081203, longitude: 105.920982}
+]
 puts "Create branches"
 Center.find_each do |center|
   branches_count = rand(10) + 1
   branches_count.times.each do |i|
     district = districts.sample
-    location = ["(21.063590, 105.842285)", "(21.080895, 105.749686)", "(21.026275, 105.812005)", "(20.986202, 105.839836)", "(21.108168, 105.814410)",
-      "(20.969633, 105.863441)", "(20.993302, 105.880452)", "(20.962160, 105.798326)", "(20.949449, 105.776151)", "(20.998405, 105.958812)", "(21.081203, 105.920982)"
-    ]
     center.branches.create! name: district.name,
       status: :active,
       description: Faker::Lorem.paragraphs.join("\n"),
@@ -62,7 +72,9 @@ Center.find_each do |center|
       avatar: Faker::Avatar.image,
       district: district,
       city: district.city,
-      coordinates: location[i],
+      latitude: sample_locations[i][:latitude],
+      longitude: sample_locations[i][:longitude],
+      phone_number: Faker::Number.number(10),
       cached_avarage_rating: rand(4) + 1
   end
 end

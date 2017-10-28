@@ -50,6 +50,17 @@ validations:
       max_length: 100
     description:
       max_length: 1000
+  center:
+    logo:
+      max_size: 3.megabytes
+    avatar:
+      max_size: 3.megabytes
+    name: 
+      max_length: 50
+    description:
+      max_length: 1000
+    email: 
+      max_length: 255
 google_map:
   src: https://maps.googleapis.com/maps/api/js
   key: AIzaSyAX6x28nsjEWmeL-10FkZZSo1yFmUfn3JU
@@ -68,3 +79,6 @@ google_map:
 business_avatar:
   versions:
     medium: [400, 200]
+avatar:
+  versions:
+    medium: [200, 200]

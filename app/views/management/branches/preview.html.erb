@@ -9,7 +9,7 @@
 <b><%= Branch.human_attribute_name :phone_number %></b>: <%= @branch.phone_number %><br/>
 <%= render "shared/google_map/branch_map", branch: @branch %>
 
-<%= form_for [:center_management, @branch] do |f| %>
+<%= form_for [:management, @branch] do |f| %>
   <%= f.hidden_field :avatar %>
   <%= f.hidden_field :avatar_cache %>
   <%= f.hidden_field :name %>

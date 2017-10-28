@@ -1,8 +1,6 @@
 class Branch < ApplicationRecord
   include FriendlyUrl
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-  VALID_PHONE_NUMBER_REGEX = /\A([-\u2212\u30fc]*[\d０-９]){10,11}\z/
   ATTRIBUTES = [:name, :avatar, :avatar_cache, :description, :city_id, :district_id,
     :address, :phone_number, :email]
 
@@ -18,8 +16,8 @@ class Branch < ApplicationRecord
   validates :name, presence: true, length: {maximum: Settings.validations.branch.name.max_length}
   validates :city_id, :district_id, presence: true
   validates :address, presence: true, length: {maximum: Settings.validations.branch.address.max_length}
-  validates :phone_number, presence: true, format: {with: VALID_PHONE_NUMBER_REGEX, allow_blank: true}
-  validates :email, format: {with: VALID_EMAIL_REGEX, allow_blank: true}
+  validates :phone_number, presence: true, phone_number_format: true
+  validates :email, email_format: true
   validates :description, length: {maximum: Settings.validations.branch.description.max_length}
 
   before_validation :geocode, if: :require_geocode?

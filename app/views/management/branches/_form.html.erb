@@ -10,13 +10,13 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :city, Branch.human_attribute_name(:city) %>
+  <%= f.label :city_id, Branch.human_attribute_name(:city) %>
   <%= f.select :city_id, @support.city_options, {include_blank: t(".select_city")},
     class: "city_selection" %>
 </div>
 
 <div class="form-group">
-  <%= f.label :district, Branch.human_attribute_name(:district) %>
+  <%= f.label :district_id, Branch.human_attribute_name(:district) %>
   <%= f.select :district_id, @support.district_options, {include_blank: t(".select_district")},
     class: "district_selection" %>
 </div>

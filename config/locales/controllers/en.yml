@@ -12,6 +12,10 @@ en:
       update:
         success: Update branch success
         failed: Fail to update branch
+    centers:
+      update:
+        success: Update center success
+        failed: Fail to update center
   branch:
     reviews:
       create:
