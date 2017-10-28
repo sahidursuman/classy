@@ -1,4 +1,6 @@
-<%= link_to t(".create_new_branch"), new_center_management_branch_path %>
+<% if current_user.center_manager? %>
+  <%= link_to t(".create_new_branch"), new_management_branch_path %>
+<% end %>
 <%= render "branch_filter", q: @q, city_options: @support.city_options %>
 <table class="table">
   <thead>

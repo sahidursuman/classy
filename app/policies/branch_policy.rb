@@ -3,6 +3,10 @@ class BranchPolicy < ApplicationPolicy
     member? && (user.normal_user? ? true : user.working_center.id != record.id)
   end
 
+  def new?
+    user.try :center_manager?
+  end
+
   def edit?
     can_modify?
   end

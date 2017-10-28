@@ -16,6 +16,6 @@ class ApplicationPolicy
   end
 
   def manager?
-    user && (user.center_manager? || user.branch_manager?)
+    user.try :is_manager?
   end
 end

@@ -1,4 +1,4 @@
 <h2><%= t ".edit_branch", name: @branch.name_was %></h2>
-<%= form_for [:center_management, @branch] do |f| %>
+<%= form_for [:management, @branch] do |f| %>
   <%= render "form", f: f %>
 <% end %>
