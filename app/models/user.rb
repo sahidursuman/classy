@@ -46,6 +46,10 @@ class User < ApplicationRecord
     username
   end
 
+  def is_manager?
+    center_manager? || branch_manager?
+  end
+
   class << self
     def find_for_database_authentication warden_conditions
       conditions = warden_conditions.dup

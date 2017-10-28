@@ -1,9 +1,8 @@
-class CenterManagement::BranchesController < CenterManagement::BaseController
+class Management::BranchesController < Management::BaseController
   include Wicked::Wizard
   include SetupWizard
 
   before_action :setup_wizard, only: [:create, :update]
-  before_action :center, only: [:index, :new, :create]
   before_action :branch, :authorize_edit_permission!, only: [:edit, :update]
 
   steps :start, :preview, :finish
@@ -11,17 +10,17 @@ class CenterManagement::BranchesController < CenterManagement::BaseController
   def index
     @q = current_user.managed_center.branches.ransack params[:q]
     @branches = @q.result
-    @support = ::Supports::Center.new @center
+    @support = ::Supports::Center.new center
   end
 
   def new
-    @branch = @center.branches.build
+    @branch = Branch.new
     branch_support
   end
 
   def create
-    @branch = @center.branches.build branch_params.merge status: :active
-    wicked_step
+    @branch = center.branches.build branch_params.merge status: :active
+    wicked_steps
   end
 
   def edit
@@ -30,10 +29,14 @@ class CenterManagement::BranchesController < CenterManagement::BaseController
 
   def update
     @branch.assign_attributes branch_params
-    wicked_step
+    wicked_steps
   end
 
   private
+  def center
+    current_user.working_center
+  end
+
   def branch
     @branch = Branch.friendly_find params[:id]
   end
@@ -46,7 +49,7 @@ class CenterManagement::BranchesController < CenterManagement::BaseController
     params.require(:branch).permit Branch::ATTRIBUTES
   end
 
-  def wicked_step
+  def wicked_steps
     case step
     when :start
       branch_support
@@ -75,7 +78,7 @@ class CenterManagement::BranchesController < CenterManagement::BaseController
   def finish_step
     if @branch.save
       flash[:success] = t ".success"
-      redirect_to center_management_branches_path
+      redirect_to management_branches_path
     else
       branch_support
       flash.now[:failed] = t ".failed"

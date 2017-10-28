@@ -46,7 +46,7 @@ en:
         email: Email
         phone_number: Phone number
         rating: Rating
-  center_management:
+  management:
     branches:
       index:
         index: Index

@@ -1,6 +1,6 @@
 en:
   not_authorized: You are not authorized to perform this action.
-  center_management:
+  management:
     review_verifications:
       update:
         success: Verify review success
@@ -12,11 +12,6 @@ en:
       update:
         success: Update branch success
         failed: Fail to update branch
-  branches_management:
-    review_verifications:
-      update:
-        success: Verify review success
-        failed: Fail to verify review
   branch:
     reviews:
       create:
