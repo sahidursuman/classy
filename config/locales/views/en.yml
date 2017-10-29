@@ -39,13 +39,21 @@ en:
       review:
         edit: Edit
         delete: Delete
-        show_comments: Show %{comments_count} comment
+        show_comments: &show_comments
+          zero: No comments
+          one: Show 1 comment
+          other: Show %{count} comments
         confirm_delete: "Are you sure to delete this review?"
+        new_comment: New comment
     google_map:
       branch_info:
         email: Email
         phone_number: Phone number
         rating: Rating
+    comments:
+      new_comment:
+        post: Post
+        add_comment_placeholder: Add a public comment...
   management:
     branches:
       index:
@@ -111,3 +119,8 @@ en:
       profile: Profile
       edit_personal_information: Edit personal information
       edit_account_information: Edit account information
+  review:
+    comments:
+      create:
+        show_comments: *show_comments
+        failed: Fail to create comment

@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:edit, :update, :destroy] do
     scope module: :review do
-      resources :comments, only: :index
+      resources :comments, only: [:index, :new, :create]
       resource :votes, only: [:create, :destroy]
     end
   end

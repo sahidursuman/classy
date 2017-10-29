@@ -31,6 +31,10 @@ vote:
 review_verification:
   per_page: 20
 validations:
+  comment:
+    content:
+      max_length: 255
+      min_length: 20
   review:
     title:
       max_length: 255
@@ -55,11 +59,11 @@ validations:
       max_size: 3.megabytes
     avatar:
       max_size: 3.megabytes
-    name: 
+    name:
       max_length: 50
     description:
       max_length: 1000
-    email: 
+    email:
       max_length: 255
 google_map:
   src: https://maps.googleapis.com/maps/api/js

@@ -16,4 +16,5 @@
 //= require jquery_ujs
 //= require js/bootstrap.min
 //= require vote
+//= require comment
 //

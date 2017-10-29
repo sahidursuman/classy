@@ -21,7 +21,7 @@ class CommentDecorator < ApplicationDecorator
     if object.is_a? UserComment
       user.full_name
     else
-      branch.name
+      branch.full_name
     end
   end
 end

@@ -14,4 +14,8 @@ class ReviewPolicy < ApplicationPolicy
   def can_vote?
     user && !record_owner?
   end
+
+  def can_comment?
+    user
+  end
 end
