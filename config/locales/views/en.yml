@@ -5,6 +5,7 @@ en:
     preview: &preview Preview
     edit: &edit Edit
     finish: &finish Finish
+    delete: &delete Delete
   home_pages:
     index:
       log_out: Log out
@@ -54,6 +55,9 @@ en:
       new_comment:
         post: Post
         add_comment_placeholder: Add a public comment...
+      comment:
+        confirm_delete: Are you sure to delete this comment?
+        delete: *delete
   management:
     branches:
       index:
@@ -127,3 +131,6 @@ en:
       create:
         show_comments: *show_comments
         failed: Fail to create comment
+  comments:
+    destroy:
+      show_comments: *show_comments

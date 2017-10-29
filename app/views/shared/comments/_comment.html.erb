@@ -1,9 +1,19 @@
-<div class="media">
-  <div class="media-left">
+<div id="comment-<%= comment.id %>">
+  <div class="media">
+    <div class="media-left">
+    </div>
+    <div class="media-body">
+      <b class="media-heading"><%= link_to comment.owner_name, comment.owner %></b>
+      <p><%= comment.content %></p>
+      <span class="pull-right">
+        <%=
+          if policy(comment.object).destroy?
+            link_to t(".delete"), comment_path(comment), remote: true,
+              method: :delete, data: {confirm: t(".confirm_delete")}
+          end
+        %>
+      </span>
+    </div>
   </div>
-  <div class="media-body">
-    <b class="media-heading"><%= link_to comment.owner_name, comment.owner %></b>
-    <p><%= comment.content %></p>
-  </div>
+  <hr/>
 </div>
-<hr/>
