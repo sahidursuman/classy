@@ -1,0 +1,23 @@
+<%= image_tag @center.logo %>
+<hr/>
+<%= image_tag @center.avatar %>
+<hr/>
+<b><%= Branch.human_attribute_name :name %></b>: <%= @center.name %><br/>
+<b><%= Branch.human_attribute_name :training_type %></b>: <%= @center.training_type_name %><br/>
+<b><%= Branch.human_attribute_name :email %></b>: <%= @center.email %><br/>
+<b><%= Branch.human_attribute_name :phone_number %></b>: <%= @center.phone_number %><br/>
+
+<%= form_for [:management, @center] do |f| %>
+  <%= f.hidden_field :logo %>
+  <%= f.hidden_field :logo_cache %>
+  <%= f.hidden_field :avatar %>
+  <%= f.hidden_field :avatar_cache %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :training_type_id %>
+  <%= f.hidden_field :description %>
+  <%= f.hidden_field :email %>
+  <%= f.hidden_field :phone_number %>
+
+  <%= f.button t(".edit"), name: :step, value: :start %>
+  <%= f.button t(".finish"), name: :step, value: :finish %>
+<% end %>
