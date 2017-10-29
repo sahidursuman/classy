@@ -102,6 +102,9 @@ en:
     index:
       select_city: "Select city"
       filter: "Filter"
+    show:
+      edit: *edit
+      reviews: Reviews
   branch:
     reviews:
       index:
