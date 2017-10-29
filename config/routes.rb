@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :comments, only: :destroy
+
   namespace :management do
     resources :branches, except: :destroy
     resources :review_verifications, only: [:index, :update]
