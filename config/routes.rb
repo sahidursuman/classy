@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :comments, only: :destroy
+  resources :comments, only: [:edit, :update, :destroy]
 
   namespace :management do
     resources :branches, except: :destroy

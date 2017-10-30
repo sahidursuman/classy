@@ -1,0 +1,4 @@
+<%= text_area_tag :content, comment.content, class: "edit-comment-content" %>
+<%= button_tag t(".cancel"), data: {comment: comment.id}, class: "btn-cancel-comment" %>
+<%= button_tag t(".save"), data: {comment: comment.id}, class: "btn-save-comment" %>
+<div class="comment-error-messages"></div>

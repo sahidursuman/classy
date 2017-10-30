@@ -1,0 +1,6 @@
+<% if @comment.errors.blank? %>
+  $("#comment-<%= @comment.id %>")
+    .html("<%= j (render 'shared/comments/comment', comment: @comment) %>");
+<% else %>
+  $(".comment-error-messages").html("<%= j render 'layouts/shared/flash' %>");
+<% end %>

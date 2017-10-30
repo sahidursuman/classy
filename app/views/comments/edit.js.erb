@@ -1,0 +1,3 @@
+$("#comment-<%= @comment.id %> .edit-comment-form")
+  .html("<%= j (render 'shared/comments/edit_comment', comment: @comment) %>");
+$("#comment-<%= @comment.id %> .comment-form").hide();

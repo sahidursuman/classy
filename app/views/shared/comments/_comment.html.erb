@@ -1,11 +1,16 @@
 <div id="comment-<%= comment.id %>">
-  <div class="media">
+  <div class="media comment-form">
     <div class="media-left">
     </div>
     <div class="media-body">
       <b class="media-heading"><%= link_to comment.owner_name, comment.owner %></b>
       <p><%= comment.content %></p>
       <span class="pull-right">
+        <%=
+          if policy(comment.object).edit?
+            link_to t(".edit"), edit_comment_path(comment), remote: true
+          end
+        %>
         <%=
           if policy(comment.object).destroy?
             link_to t(".delete"), comment_path(comment), remote: true,
@@ -15,5 +20,6 @@
       </span>
     </div>
   </div>
+  <div class="edit-comment-form"></div>
   <hr/>
 </div>
