@@ -17,4 +17,4 @@
 //= require js/bootstrap.min
 //= require vote
 //= require comment
-//
+//= require auto_submit_form
