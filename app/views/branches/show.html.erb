@@ -1,5 +1,5 @@
-<%= @branch.name %><br/>
-<%= link_to @branch.center_name, @branch.center %><br/>
+<%= @branch.full_name %><br/>
+<%= link_to @branch.center_name, center_path(@branch.center_route_params) %><br/>
 <%= link_to t(".reviews"), branch_reviews_path(@branch) %></br>
 <%= link_to t(".edit"), edit_management_branch_path(@branch) if policy(@branch).edit? %>
 <%= render "shared/google_map/branch_map", branch: @branch %>

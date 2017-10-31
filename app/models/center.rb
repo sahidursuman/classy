@@ -1,5 +1,5 @@
 class Center < ApplicationRecord
-  include FriendlyUrl
+  extend FriendlyFind
 
   ATTRIBUTES = [:name, :training_type_id, :logo, :avatar, :description, :email, :phone_number]
 
@@ -28,4 +28,8 @@ class Center < ApplicationRecord
   mount_uploader :logo, AvatarUploader
 
   delegate :name, to: :training_type, prefix: true, allow_nil: true
+
+  def route_params
+    {center_slug: slug}
+  end
 end

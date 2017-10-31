@@ -1,5 +1,5 @@
 class Branch < ApplicationRecord
-  include FriendlyUrl
+  extend FriendlyFind
 
   ATTRIBUTES = [:name, :avatar, :avatar_cache, :description, :city_id, :district_id,
     :address, :phone_number, :email]
@@ -20,13 +20,14 @@ class Branch < ApplicationRecord
   validates :email, email_format: true
   validates :description, length: {maximum: Settings.validations.branch.description.max_length}
 
-  before_validation :geocode, if: :require_geocode?
+  after_validation :geocode, if: :require_geocode?
 
   enum status: [:active, :inactive]
 
-  acts_as_url :full_name, url_attribute: :slug, sync_url: true, callback_method: :before_save
+  acts_as_url :name, url_attribute: :slug, scope: :center_id, sync_url: true, 
+    callback_method: :before_save
 
-  delegate :name, to: :center, prefix: true, allow_nil: true
+  delegate :name, :route_params, to: :center, prefix: true, allow_nil: true
   delegate :name, to: :city, prefix: true, allow_nil: true
   delegate :name, to: :district, prefix: true, allow_nil: true
 
@@ -34,12 +35,12 @@ class Branch < ApplicationRecord
 
   mount_uploader :avatar, BusinessAvatarUploader
 
-  def full_name
-    center.name + " - " + name
-  end
-
   def full_address
     [address, district_name, city_name].join ", "
+  end
+
+  def route_params
+    {center_slug: center.slug, branch_slug: slug}
   end
 
   private

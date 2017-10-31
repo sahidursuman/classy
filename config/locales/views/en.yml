@@ -99,9 +99,10 @@ en:
       preview:
         edit: *edit
         finish: *finish
-  training_centers:
-    show:
-      branch_list: "Branch list"
+  center:
+    branches:
+      index:
+        select_city: *select_city
   branches:
     index:
       select_city: "Select city"
