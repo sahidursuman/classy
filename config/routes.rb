@@ -11,11 +11,7 @@ Rails.application.routes.draw do
     resource :account_information, only: [:edit, :update]
   end
 
-  resources :centers, only: :show do
-    resources :branches, only: :index
-  end
-
-  resources :branches, only: :show do
+  resources :branches, only: :index do
     scope module: :branch do
       resources :reviews, only: [:index, :new, :create]
     end

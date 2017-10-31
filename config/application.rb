@@ -11,6 +11,7 @@ module Classy
     config.load_defaults 5.1
     config.i18n.load_path += Dir["#{Rails.root.to_s}/config/locales/**/*.{rb,yml}"]
     config.eager_load_paths += Dir[Rails.root.join("app", "forms", "concerns")]
+    config.paths["config/routes.rb"] << Rails.root.join("config", "routes", "rule.rb")
     # config.i18n.default_locale = :vi
     config.time_zone = "Hanoi"
   end

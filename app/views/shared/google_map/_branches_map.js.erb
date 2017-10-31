@@ -22,7 +22,7 @@ var infoWindow = new google.maps.InfoWindow(), marker, i;
 
   google.maps.event.addListener(marker, "click", (function(marker, i) {
     return function() {
-      infoWindow.setContent("<%= j render "shared/google_map/branch_info", branch: branch %>");
+      infoWindow.setContent("<%= j render 'shared/google_map/branch_info', branch: branch %>");
       infoWindow.open(map, marker);
     }
   })(marker, i));

@@ -1,5 +1,5 @@
-<%= form_for :q, url: center_branches_path, method: :get, remote: true,
-  html: {class: "auto-submit-form"} do |f| %>
+<%= form_for :q, url: center_branches_path(@center.route_params), method: :get, 
+  remote: true, html: {class: "auto-submit-form"} do |f| %>
   <%= f.select :city_slug_eq, @support.active_branches_city_options,
     {include_blank: t(".select_city")} %>
 <% end %>
