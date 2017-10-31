@@ -114,12 +114,11 @@ en:
     reviews:
       index:
         new_review: New review
-      new:
-        create: Create
   reviews:
     new:
       new_review: New review
       review: Review
+      create: Create
     edit:
       update: Update
   users:

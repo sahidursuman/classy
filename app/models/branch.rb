@@ -24,7 +24,7 @@ class Branch < ApplicationRecord
 
   enum status: [:active, :inactive]
 
-  acts_as_url :name, url_attribute: :slug, scope: :center_id, sync_url: true, 
+  acts_as_url :name, url_attribute: :slug, scope: :center_id, sync_url: true,
     callback_method: :before_save
 
   delegate :name, :route_params, to: :center, prefix: true, allow_nil: true
@@ -40,7 +40,7 @@ class Branch < ApplicationRecord
   end
 
   def route_params
-    {center_slug: center.slug, branch_slug: slug}
+    center.route_params.merge branch_slug: slug
   end
 
   private

@@ -16,12 +16,10 @@ en:
       update:
         success: Update center success
         failed: Fail to update center
-  branch:
-    reviews:
-      create:
-        success: Create review success
-        failed: Fail to create review
   reviews:
+    create:
+      success: Create review success
+      failed: Fail to create review
     update:
       success: Update review success
       failed: Fail to update review
