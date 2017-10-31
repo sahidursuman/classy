@@ -3,6 +3,7 @@ class Branch::BaseController < ApplicationController
 
   private
   def branch
-    @branch = Branch.active.friendly_find params[:branch_id]
+    center = Center.active.friendly_find params[:center_slug]
+    @branch = center.active_branches.friendly_find params[:branch_slug]
   end
 end

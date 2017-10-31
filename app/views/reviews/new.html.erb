@@ -1,5 +1,5 @@
 <h2><%= t ".new_review" %></h2>
-<%= form_for @create_review_form, url: branch_reviews_path(@branch), method: :post do |f| %>
+<%= form_for @create_review_form, url: reviews_path(branch_id: @branch.id), method: :post do |f| %>
   <%= render "shared/reviews/review_form", f: f %>
 
   <div class="form-group">
