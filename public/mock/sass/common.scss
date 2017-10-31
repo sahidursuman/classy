@@ -1,0 +1,142 @@
+.scroll-red::-webkit-scrollbar-track {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+.scroll-red::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+}
+.scroll-red::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #F54337;
+  background-image: -webkit-linear-gradient(45deg,
+                    rgba(255, 255, 255, .2) 25%,
+                    transparent 25%,
+                    transparent 50%,
+                    rgba(255, 255, 255, .2) 50%,
+                    rgba(255, 255, 255, .2) 75%,
+                    transparent 75%,
+                    transparent);
+}
+html,body {
+  height: 100%;
+  background: #F4F3F2;
+}
+@media (min-width: 768px) {
+  .h-100-percent-desktop {
+    height: 100%;
+  }
+}
+.pd-0 {
+  padding: 0;
+}
+.mg-0 {
+  margin: 0px;
+}
+.mg-top-10 {
+  margin-top: 10px;
+}
+.mg-right-0 {
+  margin-right: 0;
+}
+.pointer {
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .fixed-desktop {
+    position: fixed;
+  }
+}
+.btn-yellow {
+  color: #4a4a4a;
+  text-shadow: 0 0 1px #ababab;
+  background: #fdd835;
+}
+.btn-facebook {
+  color: #fff  !important;
+  text-shadow: 0 0 1px #000;
+  background: #2151B2;
+}
+.btn-google {
+  color: #fff !important;
+  text-shadow: 0 0 1px #000;
+  background: #D41701;
+}
+.dropdown-pull-right {
+  float: right !important;
+  right: 0;
+  left: auto;
+  .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+}
+#content-wrapper {
+  margin-top: 76px;
+}
+@media (min-width: 768px) {
+  #content-wrapper {
+    margin-top: 50px;
+  }
+}
+
+.box-wrapper {
+  .box-header {
+    color: #000;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0px 5px;
+    background: #eee;
+  }
+  .box-body {
+    .title {
+      font-size: 12px;
+      color: #999;
+      display: block;
+      background: #f8f8f8;
+      padding: 0px 5px;
+    }
+    .body {
+      overflow: auto;
+      max-height: 295px;
+      cursor: pointer;
+      .box-body-ele {
+        padding: 0px 5px;
+        border-bottom: 1px solid #F7F7F7;
+        clear: both;
+        * {
+        cursor: pointer;
+          text-decoration: none;
+        }
+        label {
+          color: #000;
+        }
+        span {
+          float: right;
+          color: #999;
+        }
+      }
+      .box-body-ele:hover {
+        label {
+          color: #cf2127;
+        }
+      }
+    }
+    .active {
+      background: #D02128;
+      * {
+        color: #fff !important;
+      }
+    }
+  }
+}
+.classy-rate {
+  text-align: center;
+  .score {
+    color: #333;
+    font-size: 60px;
+    font-weight: 100;
+    line-height: 64px;
+  }
+}
