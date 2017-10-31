@@ -1,0 +1,74 @@
+.classy-nav {
+  position: fixed !important;
+  top:0;
+  z-index: 3;
+  background: #F4F3F2;
+  border-bottom: 1px solid #ccc;
+  height: 76px;
+  display: block;
+  position: relative;
+  .classy-ele {
+    float: left;
+  }
+  .classy-nav-logo {
+    display: none;
+  }
+  .classy-nav-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    .dropdown {
+      float: right;
+    }
+    .login {
+      margin-bottom: 5px;
+      .btn {
+        width: 200px;
+        padding: 6px 0;
+        text-align: center;
+      }
+    }
+    .dropdown-menu {
+      padding: 5px 3px 0 3px;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .classy-nav {
+    height: 50px;
+    display: table;
+    width: 100%;
+    .classy-ele {
+      display: table-cell;
+      vertical-align: middle;
+      float: none;
+    }
+    .classy-nav-logo {
+      width: 16%;
+      img {
+        height: 35px;
+        border-radius: 4px;
+      }
+    }
+    .classy-nav-button {
+      width: 7%;
+    }
+    .classy-nav-login {
+      position: initial;
+      .dropdown {
+        float: right;
+      }
+      .login {
+        margin-bottom: 5px;
+        .btn {
+          width: 200px;
+          padding: 6px 0;
+          text-align: center;
+        }
+      }
+      .dropdown-menu {
+        padding: 5px 3px 0 3px;
+      }
+    }
+  }
+}
