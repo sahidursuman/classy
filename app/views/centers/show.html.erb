@@ -1,3 +1,4 @@
 <%= @center.name %><br/>
-<%= link_to t(".branch_list"), center_branches_path(@center.route_params) %>
+<%= link_to t(".branch_list"), center_branches_path(@center.route_params) %><br/>
+<%= link_to t(".reviews"), center_reviews_path(@center.route_params) %>
 <%= render "shared/google_map/branches_map", branches: @branches %>

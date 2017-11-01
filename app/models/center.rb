@@ -11,6 +11,7 @@ class Center < ApplicationRecord
   has_many :cities, ->{distinct}, through: :branches
   has_many :active_branches_cities, ->{distinct}, through: :active_branches,
     source: :city
+  has_many :reviews, through: :branches
 
   validates :logo, file_size: {less_than_or_equal_to: eval(Settings.validations.center.logo.max_size)}
   validates :avatar, file_size: {less_than_or_equal_to: eval(Settings.validations.center.avatar.max_size)}

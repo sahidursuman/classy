@@ -4,7 +4,11 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <b><%= link_to review.user_full_name, review.user %></b>
-        <td><%= review.title %></td>
+        <%= 
+          if local_assigns[:display_branch]
+            link_to review.branch_name, branch_path(review.branch_route_params)
+          end
+        %>
         <span class="pull-right">
           <%= review.rating_criterion_1 %>
           <%= review.rating_criterion_2 %>
@@ -15,7 +19,10 @@
         <br/>
         <i><%= review.created_at %></i>
       </div>
-      <div class="panel-body"><%= review.content %></div>
+      <div class="panel-body">
+        <p><b><%= review.title %></b></p>
+        <%= review.content %>
+      </div>
       <div class="panel-footer">
         <%= link_to t(".show_comments", count: review.comments_count),
           review_comments_path(review), remote: true, class: "comments-count" %>
