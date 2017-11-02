@@ -2,7 +2,7 @@
   <button type="button" class="btn btn-primary"><%= t ".new_review" %></button>
 <% end %>
 <hr/>
-<%= form_for @q, url: branch_reviews_path(@branch), method: :get, remote: true,
+<%= form_for @q, url: branch_reviews_path(@branch.route_params), method: :get, remote: true,
   html: {class: "auto-submit-form"} do |f| %>
   <%= f.select :sorts, review_sorting_options %>
 <% end %>

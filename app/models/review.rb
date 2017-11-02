@@ -20,6 +20,8 @@ class Review < ApplicationRecord
 
   acts_as_paranoid
 
+  delegate :name, :route_params, to: :branch, prefix: true, allow_nil: true
+
   def update_vote_points_cached
     update_columns vote_points_cached: Vote.points_of_review(self)
   end
