@@ -14,11 +14,13 @@ class User < ApplicationRecord
 
   PERSONAL_INFORMATION_PARAMS = [:first_name, :last_name, :phone_number]
   ACCOUNT_INFORMATION_PARAMS = [:username, :email, :current_password]
+  AVATAR_PARAMS = [:avatar]
 
   validates :first_name, presence: true, length: {maximum: Settings.user.first_name.max_length}
   validates :last_name, presence: true, length: {maximum: Settings.user.last_name.max_length}
   validates :role, presence: true
   validates :username, presence: true, uniqueness: true, on: :update
+  validates :avatar, file_size: {less_than_or_equal_to: eval(Settings.validations.user.avatar.max_size)}
 
   before_create :generate_username
   before_save :downcase_fields
@@ -27,6 +29,8 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   enum role: [:admin, :moderator, :center_manager, :branch_manager, :normal_user]
+
+  mount_uploader :avatar, AvatarUploader
 
   def working_center
     if center_manager?

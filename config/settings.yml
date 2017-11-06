@@ -65,6 +65,9 @@ validations:
       max_length: 1000
     email:
       max_length: 255
+  user:
+    avatar:
+      max_size: 3.megabytes
 google_map:
   src: https://maps.googleapis.com/maps/api/js
   key: AIzaSyAX6x28nsjEWmeL-10FkZZSo1yFmUfn3JU

@@ -126,6 +126,7 @@ en:
       profile: Profile
       edit_personal_information: Edit personal information
       edit_account_information: Edit account information
+      edit_avatar: Edit avatar
   review:
     comments:
       create:
