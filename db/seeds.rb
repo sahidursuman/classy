@@ -6,7 +6,7 @@ User.create! email: "admin@gmail.com",
   password: "123456",
   password_confirmation: "123456",
   confirmed_at: Time.zone.now,
-  avatar: Faker::Avatar.image
+  avatar: open("app/assets/images/default-avatar.png")
 
 puts "Creating moderator account"
 User.create! email: "moderator@gmail.com",
@@ -16,7 +16,7 @@ User.create! email: "moderator@gmail.com",
   password: "123456",
   password_confirmation: "123456",
   confirmed_at: Time.zone.now,
-  avatar: Faker::Avatar.image
+  avatar: open("app/assets/images/default-avatar.png")
 
 puts "Creating normal users"
 10.times.each do |i|
@@ -27,7 +27,7 @@ puts "Creating normal users"
     password: "123456",
     password_confirmation: "123456",
     confirmed_at: Time.zone.now,
-    avatar: Faker::Avatar.image
+    avatar: open("app/assets/images/default-avatar.png")
 end
 
 training_types = TrainingType.all.includes :categories
@@ -92,7 +92,7 @@ Center.find_each do |center|
       password: "123456",
       password_confirmation: "123456",
       confirmed_at: Time.zone.now,
-      avatar: Faker::Avatar.image
+      avatar: open("app/assets/images/default-avatar.png")
     center.center_managements.create! user: user
   end
 end
@@ -112,7 +112,7 @@ centers.each do |center|
       password: "123456",
       password_confirmation: "123456",
       confirmed_at: Time.zone.now,
-      avatar: Faker::Avatar.image
+      avatar: open("app/assets/images/default-avatar.png")
     center.branches.sample(rand(branch_count) + 1).each do |branch|
       user.branch_managements.create! branch: branch
     end

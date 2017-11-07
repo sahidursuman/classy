@@ -1,18 +1,31 @@
 en:
+  dictionary:
+    update: &update Update
+    cancel: &cancel Cancel
+    updated: &updated Your profile has been updated successfully
   my_page:
     account_informations:
       edit:
-        update: Update
-        back: Back
+        update: *update
+        cancel: *cancel
         edit_account_information: Edit account information
       update:
-        updated: Your profile has been updated successfully
-        failed: Failed
+        updated: *updated
+        faield: Failed to update your account information
+
     personal_informations:
       edit:
         edit_personal_information: Edit personal information
-        update: Update
-        cancel: Cancel
+        update: *update
+        cancel: *cancel
       update:
-        updated: Your profile has been updated successfully
-        failed: Failed
+        updated: *updated
+        failed: Failed to update your personal information
+    avatars:
+      edit:
+        edit_avatar: Edit avatar
+        update: *update
+        cancel: *cancel
+      update:
+        updated: *updated
+        failed: Failed to update your avatar

@@ -18,3 +18,4 @@
 //= require vote
 //= require comment
 //= require auto_submit_form
+//= require preview_image_upload

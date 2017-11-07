@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :my_page do
     resource :personal_information, only: [:edit, :update]
     resource :account_information, only: [:edit, :update]
+    resource :avatar, only: [:edit, :update]
   end
 
   resources :reviews, except: :index do

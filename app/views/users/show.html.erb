@@ -4,5 +4,8 @@
 <%= @user.email %></br>
 <%= @user.phone_number %></br>
 <%= @user.role %></br>
-<%= link_to t(".edit_personal_information"), edit_my_page_personal_information_path if policy(@user).update? %></br>
-<%= link_to t(".edit_account_information"), edit_my_page_account_information_path if policy(@user).update? %></br>
+<%  if policy(@user).update? %>
+  <%= link_to t(".edit_personal_information"), edit_my_page_personal_information_path %></br>
+  <%= link_to t(".edit_account_information"), edit_my_page_account_information_path %></br>
+  <%= link_to t(".edit_avatar"), edit_my_page_avatar_path %></br>
+<% end %>
