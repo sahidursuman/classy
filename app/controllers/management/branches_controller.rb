@@ -9,7 +9,7 @@ class Management::BranchesController < Management::BaseController
 
   def index
     @q = current_user.managed_center.branches.ransack params[:q]
-    @branches = @q.result
+    @branches = @q.result.decorate
     @support = ::Supports::Center.new center
   end
 
@@ -38,7 +38,7 @@ class Management::BranchesController < Management::BaseController
   end
 
   def branch
-    @branch = Branch.friendly_find params[:id]
+    @branch = Branch.find params[:id]
   end
 
   def authorize_edit_permission!
@@ -67,6 +67,7 @@ class Management::BranchesController < Management::BaseController
 
   def preview_step
     if @branch.valid?
+      @branch = @branch.decorate
       render_wizard
     else
       branch_support

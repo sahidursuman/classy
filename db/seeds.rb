@@ -1,3 +1,5 @@
+Rake::Task["master_data:import"].invoke
+
 puts "Creating admin account"
 User.create! email: "admin@gmail.com",
   first_name: Faker::Name.first_name,
@@ -30,20 +32,15 @@ puts "Creating normal users"
     avatar: open("app/assets/images/default-avatar.png")
 end
 
-training_types = TrainingType.all.includes :categories
+center_categories = CenterCategory.all
 districts = District.all.includes :city
-puts "Creating training center"
+puts "Creating center"
 20.times.each do
-  training_type = training_types.sample
+  center_category = center_categories.sample
   center = Center.create! name: Faker::Educator.university,
-    training_type: training_type,
+    center_category: center_category,
     status: :active,
     description: Faker::Lorem.paragraphs.join("\n")
-
-  category_count = rand(3) + 1
-  training_type.categories.sample(category_count).each do |category|
-    center.center_categories.create! category: category
-  end
 end
 
 

@@ -1,4 +1,4 @@
-class ReviewDecorator < Draper::Decorator
+class ReviewDecorator < ApplicationDecorator
   attr_accessor :voted_type
 
   include Draper::LazyHelpers
