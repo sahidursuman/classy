@@ -17,8 +17,9 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :training_type_id, Center.human_attribute_name(:training_type) %>
-    <%= f.select :training_type_id, @support.training_type_options, {include_blank: t(".select_training_type")} %>
+    <%= f.label :category_id, Center.human_attribute_name(:center_category) %>
+    <%= f.select :category_id, @support.center_category_options, 
+      {include_blank: t(".select_center_category")} %>
   </div>
 
   <div class="form-group">

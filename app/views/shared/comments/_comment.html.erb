@@ -3,7 +3,7 @@
     <div class="media-left">
     </div>
     <div class="media-body">
-      <b class="media-heading"><%= link_to comment.owner_name, comment.owner %></b>
+      <b class="media-heading"><%= link_to comment.owner_full_name, comment.owner_path %></b>
       <p><%= comment.content %></p>
       <span class="pull-right">
         <%=

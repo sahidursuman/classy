@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030145750) do
+ActiveRecord::Schema.define(version: 20171111173146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,19 +49,11 @@ ActiveRecord::Schema.define(version: 20171030145750) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.bigint "training_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["training_type_id"], name: "index_categories_on_training_type_id"
-  end
-
-  create_table "center_categories", force: :cascade do |t|
-    t.bigint "category_id"
-    t.bigint "center_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_center_categories_on_category_id"
-    t.index ["center_id"], name: "index_center_categories_on_center_id"
+    t.string "type"
+    t.bigint "parent_id"
+    t.index ["parent_id"], name: "index_categories_on_parent_id"
   end
 
   create_table "center_managements", force: :cascade do |t|
@@ -86,7 +78,6 @@ ActiveRecord::Schema.define(version: 20171030145750) do
   end
 
   create_table "centers", force: :cascade do |t|
-    t.bigint "training_type_id"
     t.string "name"
     t.integer "status"
     t.string "avatar"
@@ -98,8 +89,9 @@ ActiveRecord::Schema.define(version: 20171030145750) do
     t.string "logo"
     t.string "email"
     t.string "phone_number"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_centers_on_category_id"
     t.index ["slug"], name: "index_centers_on_slug", unique: true
-    t.index ["training_type_id"], name: "index_centers_on_training_type_id"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -170,12 +162,6 @@ ActiveRecord::Schema.define(version: 20171030145750) do
     t.index ["user_id"], name: "index_reviews_on_user_id", where: "(deleted_at IS NULL)"
   end
 
-  create_table "training_types", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "first_name"
@@ -223,13 +209,10 @@ ActiveRecord::Schema.define(version: 20171030145750) do
   add_foreign_key "branches", "centers"
   add_foreign_key "branches", "cities"
   add_foreign_key "branches", "districts"
-  add_foreign_key "categories", "training_types"
-  add_foreign_key "center_categories", "categories"
-  add_foreign_key "center_categories", "centers"
   add_foreign_key "center_managements", "centers"
   add_foreign_key "center_managements", "users"
   add_foreign_key "center_requests", "users"
-  add_foreign_key "centers", "training_types"
+  add_foreign_key "centers", "categories"
   add_foreign_key "comments", "branches"
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"

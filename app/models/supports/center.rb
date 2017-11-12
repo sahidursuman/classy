@@ -13,7 +13,7 @@ class Supports::Center
     @active_branches_city_options ||= center.active_branches_cities.pluck :name, :slug
   end
 
-  def training_type_options
-    @training_type_options ||= TrainingType.pluck :name, :id
+  def center_category_options
+    @center_category_options ||= CenterCategory.pluck :name, :id
   end
 end

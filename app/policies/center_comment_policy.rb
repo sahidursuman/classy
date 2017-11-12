@@ -8,7 +8,7 @@ class CenterCommentPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.manage_branch? record.branch
+    user && user.manage_branch?(record.branch)
   end
 
   private

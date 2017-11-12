@@ -1,9 +1,9 @@
 class Center < ApplicationRecord
   extend FriendlyFind
 
-  ATTRIBUTES = [:name, :training_type_id, :logo, :avatar, :description, :email, :phone_number]
+  ATTRIBUTES = [:name, :category_id, :logo, :avatar, :description, :email, :phone_number]
 
-  belongs_to :training_type
+  belongs_to :center_category, foreign_key: :category_id
   has_many :center_managements
   has_many :branches
   has_many :center_categories
@@ -16,7 +16,7 @@ class Center < ApplicationRecord
   validates :logo, file_size: {less_than_or_equal_to: eval(Settings.validations.center.logo.max_size)}
   validates :avatar, file_size: {less_than_or_equal_to: eval(Settings.validations.center.avatar.max_size)}
   validates :name, presence: true, length: {maximum: Settings.validations.center.name.max_length}
-  validates :training_type_id, presence: true
+  validates :category_id, presence: true
   validates :description, length: {maximum: Settings.validations.center.description.max_length}
   validates :email, email_format: true, length: {maximum: Settings.validations.center.email.max_length}
   validates :phone_number, phone_number_format: true
@@ -28,7 +28,7 @@ class Center < ApplicationRecord
   mount_uploader :avatar, BusinessAvatarUploader
   mount_uploader :logo, AvatarUploader
 
-  delegate :name, to: :training_type, prefix: true, allow_nil: true
+  delegate :name, to: :center_category, prefix: true, allow_nil: true
 
   def route_params
     {center_slug: slug}
