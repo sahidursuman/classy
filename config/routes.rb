@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resource :personal_information, only: [:edit, :update]
     resource :account_information, only: [:edit, :update]
     resource :avatar, only: [:edit, :update]
+    resource :password, only: [:edit, :update]
   end
 
   resources :reviews, except: :index do

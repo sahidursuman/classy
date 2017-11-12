@@ -15,6 +15,7 @@ class User < ApplicationRecord
   PERSONAL_INFORMATION_PARAMS = [:first_name, :last_name, :phone_number]
   ACCOUNT_INFORMATION_PARAMS = [:username, :email, :current_password]
   AVATAR_PARAMS = [:avatar]
+  PASSWORD_PARAMS = [:password, :password_confirmation, :current_password]
 
   validates :first_name, presence: true, length: {maximum: Settings.user.first_name.max_length}
   validates :last_name, presence: true, length: {maximum: Settings.user.last_name.max_length}
