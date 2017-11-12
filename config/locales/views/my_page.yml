@@ -29,3 +29,11 @@ en:
       update:
         updated: *updated
         failed: Failed to update your avatar
+    passwords:
+      edit:
+        edit_password: Edit password
+        update: *update
+        cancel: *cancel
+      update:
+        updated: *updated
+        failed: Failed to update your password

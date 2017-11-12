@@ -1,0 +1,23 @@
+<h2><%= t ".edit_password" %></h2>
+
+<%= form_for(@user, url: my_page_password_path) do |f| %>
+  <div class="field">
+    <%= f.label :password, User.human_attribute_name(:password) %><br/>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, User.human_attribute_name(:password_) %><br/>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password, User.human_attribute_name(:current_password) %><br/>
+    <%= f.password_field :current_password %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t(".update") %>
+    <%= link_to t(".cancel"), user_path(@user), class: "btn btn-default" %>
+  </div>
+<% end %>
