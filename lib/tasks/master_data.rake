@@ -6,6 +6,8 @@ namespace :master_data do
     models.each do |model|
       import_master_data model
     end
+    sql_query = "SELECT setval('categories_id_seq', (SELECT max(id) FROM categories));"
+    ActiveRecord::Base.connection.execute sql_query
   end
 end
 
