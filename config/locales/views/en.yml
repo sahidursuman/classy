@@ -103,6 +103,9 @@ en:
     courses:
       new:
         new_course: New course
+      edit: 
+        edit_course: Edit course
+      form:        
         preview: *preview
       preview:
         edit: *edit

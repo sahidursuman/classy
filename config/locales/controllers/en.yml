@@ -20,6 +20,9 @@ en:
       create:
         success: Create course success
         failed: Fail to create course
+      update:
+        success: Update course success
+        failed: Fail to update course
   reviews:
     create:
       success: Create review success

@@ -3,7 +3,8 @@ class Management::CoursesController < Management::BaseController
   include SetupWizard
   
   before_action :authenticate_center_manager!, :center
-  before_action :setup_wizard, only: :create
+  before_action :setup_wizard, only: [:create, :update]
+  before_action :course, :authorize_modify_course!, only: [:edit, :update]
 
   steps :start, :preview, :finish
 
@@ -17,9 +18,26 @@ class Management::CoursesController < Management::BaseController
     wicked_steps
   end
 
+  def edit
+    support_for_course
+  end
+
+  def update
+    @course.assign_attributes course_params
+    wicked_steps
+  end
+
   private
   def course_params
     params.require(:course).permit Course::ATTRIBUTES
+  end
+
+  def course 
+    @course = Course.find params[:id]
+  end
+
+  def authorize_modify_course!
+    authorize @course
   end
 
   def wicked_steps
