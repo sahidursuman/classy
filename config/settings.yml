@@ -68,6 +68,15 @@ validations:
   user:
     avatar:
       max_size: 3.megabytes
+  course:
+    name:
+      max_length: 255
+    input:
+      max_length: 255
+    output: 
+      max_length: 255
+    description:
+      max_length: 10000
 google_map:
   src: https://maps.googleapis.com/maps/api/js
   key: AIzaSyAX6x28nsjEWmeL-10FkZZSo1yFmUfn3JU

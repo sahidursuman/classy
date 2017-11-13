@@ -1,5 +1,14 @@
 Rake::Task["master_data:import"].invoke
 
+puts "Create temporary 'course_small_categories'"
+CourseBigCategory.all.each do |category| 
+  count = Faker::Number.between 3, 5
+  count.times do |i|
+    category.course_small_categories.create! name: category.name + " - level #{i + 1}"
+  end
+end
+
+
 puts "Creating admin account"
 User.create! email: "admin@gmail.com",
   first_name: Faker::Name.first_name,
@@ -58,6 +67,7 @@ sample_locations = [
   {latitude: 21.081203, longitude: 105.920982}
 ]
 puts "Create branches"
+Branch.skip_callback :validation, :after, :geocode
 Center.find_each do |center|
   branches_count = rand(10) + 1
   branches_count.times.each do |i|
@@ -75,6 +85,7 @@ Center.find_each do |center|
       cached_avarage_rating: rand(4) + 1
   end
 end
+Branch.set_callback :validation, :after, :geocode
 
 puts "Create center managers"
 total_center_manager = 0
@@ -94,7 +105,7 @@ Center.find_each do |center|
   end
 end
 
-centers = Center.all.includes :branches
+centers = Center.all.includes :branches, :center_category
 puts "Create branch managers"
 total_branch_manager = 0
 centers.each do |center|
@@ -166,3 +177,21 @@ reviews.each do |review|
       vote_type: Vote::vote_types.values.sample
   end
 end
+
+puts "Creating courses"
+centers.each do |center|
+  course_count = Faker::Number.between 5, 10
+  course_categories = center.center_category.course_categories
+  course_count.times do |i|
+    course_category_count = Faker::Number.between 1, 3
+    course = center.courses.create! name: "Course #{center.center_category.name} k#{i+1}",
+      input: Faker::Lorem.sentence,
+      output: Faker::Lorem.sentence,
+      description: Faker::Lorem.paragraphs.join("\n"),
+      price: Faker::Number.between(20, 500) * 10_000
+    course_categories.sample(course_category_count).each do |category|
+      course.course_classifications.create! category_id: category.id
+    end
+  end
+end
+

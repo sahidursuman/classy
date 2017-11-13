@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :branches, except: :destroy
     resources :review_verifications, only: [:index, :update]
     resource :center, only: [:edit, :update]
+    resources :courses, only: [:new, :create]
   end
 
   namespace :supports do

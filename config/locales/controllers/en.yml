@@ -16,6 +16,10 @@ en:
       update:
         success: Update center success
         failed: Fail to update center
+    courses:
+      create:
+        success: Create course success
+        failed: Fail to create course
   reviews:
     create:
       success: Create review success

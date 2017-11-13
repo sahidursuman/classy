@@ -1,0 +1,37 @@
+<p>
+  <b><%= Course.human_attribute_name :name %></b>
+  <%= @course.name %>
+</p>
+<p>
+  <b><%= Course.human_attribute_name :category %></b>
+  <%= @course.category_list %>
+</p>
+<p>
+  <b><%= Course.human_attribute_name :input %></b><br/>
+  <%= custom_simple_format @course.input %>
+</p>
+<p>
+  <b><%= Course.human_attribute_name :output %></b><br/>
+  <%= custom_simple_format @course.output %>
+</p>
+<p>
+  <b><%= Course.human_attribute_name :description %></b><br/>
+  <%= custom_simple_format @course.description %>
+</p>
+<p>
+  <b><%= Course.human_attribute_name :price %></b>
+  <%= @course.price %>
+</p>
+<%= form_for [:management, @course] do |f| %>
+  <%= f.hidden_field :name %>
+  <% @course.categories.each do |category| %>
+    <%= f.hidden_field :category_ids, multiple: true, value: category.id %>
+  <% end %>
+  <%= f.hidden_field :input %>
+  <%= f.hidden_field :output %>
+  <%= f.hidden_field :description %>
+  <%= f.hidden_field :price %>
+
+  <%= f.button t(".edit"), type: :submit, name: :step, value: :start %>
+  <%= f.button t(".finish"), type: :submit, name: :step, value: :finish %>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111173146) do
+ActiveRecord::Schema.define(version: 20171112171925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,27 @@ ActiveRecord::Schema.define(version: 20171111173146) do
     t.index ["user_id"], name: "index_comments_on_user_id", where: "(deleted_at IS NULL)"
   end
 
+  create_table "course_classifications", force: :cascade do |t|
+    t.bigint "course_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_course_classifications_on_category_id"
+    t.index ["course_id"], name: "index_course_classifications_on_course_id"
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.bigint "center_id"
+    t.string "name"
+    t.string "input"
+    t.string "output"
+    t.text "description"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["center_id"], name: "index_courses_on_center_id"
+  end
+
   create_table "districts", force: :cascade do |t|
     t.string "name"
     t.bigint "city_id"
@@ -216,6 +237,9 @@ ActiveRecord::Schema.define(version: 20171111173146) do
   add_foreign_key "comments", "branches"
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
+  add_foreign_key "course_classifications", "categories"
+  add_foreign_key "course_classifications", "courses"
+  add_foreign_key "courses", "centers"
   add_foreign_key "districts", "cities"
   add_foreign_key "review_verifications", "reviews"
   add_foreign_key "reviews", "branches"

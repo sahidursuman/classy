@@ -2,7 +2,7 @@ class Management::CentersController < Management::BaseController
   include Wicked::Wizard
   include SetupWizard
 
-  before_action :authorize_center_manager!, :center
+  before_action :authenticate_center_manager!, :center
   before_action :setup_wizard, only: :update
 
   steps :start, :preview, :finish
@@ -17,16 +17,8 @@ class Management::CentersController < Management::BaseController
   end
 
   private
-  def authorize_center_manager!
-    raise Pundit::NotAuthorizedError unless current_user.center_manager?
-  end
-
   def center_support
     @support = Supports::Center.new @center
-  end
-
-  def center
-    @center = current_user.managed_center
   end
 
   def center_params
