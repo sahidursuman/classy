@@ -8,6 +8,7 @@ class Review < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :votes
   has_many :review_verifications, dependent: :destroy
+  has_many :reports, as: :reportable, dependent: :destroy
 
   scope :recent_created, ->{order created_at: :desc}
   scope :with_voted_type_by_user, ->user do

@@ -4,7 +4,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <b><%= link_to review.user_full_name, review.user %></b>
-        <%= 
+        <%=
           if local_assigns[:display_branch]
             link_to review.branch_name, branch_path(review.branch_route_params)
           end
@@ -15,6 +15,10 @@
           <%= review.rating_criterion_4 %>
           <%= review.rating_criterion_4 %>
           <%= review.rating_criterion_5 %>
+          </br>
+          <%= link_to t(".report"),
+            new_report_path(report: {reportable_id: review.id, reportable_type: review.model_name}),
+            remote: true, class: "btn-new-report" %>
         </span>
         <br/>
         <i><%= review.created_at %></i>

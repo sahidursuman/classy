@@ -152,6 +152,18 @@ ActiveRecord::Schema.define(version: 20171115112156) do
     t.index ["city_id"], name: "index_districts_on_city_id"
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "content"
+    t.bigint "reportable_id"
+    t.string "reportable_type"
+    t.integer "status", default: 0
+    t.text "response_message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
   create_table "review_verifications", force: :cascade do |t|
     t.bigint "review_id"
     t.integer "status"
@@ -246,6 +258,7 @@ ActiveRecord::Schema.define(version: 20171115112156) do
   add_foreign_key "courses", "categories"
   add_foreign_key "courses", "centers"
   add_foreign_key "districts", "cities"
+  add_foreign_key "reports", "users"
   add_foreign_key "review_verifications", "reviews"
   add_foreign_key "reviews", "branches"
   add_foreign_key "reviews", "users"

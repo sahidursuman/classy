@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "home_pages#index"
+  get '/404', :to => redirect("/404.html")
 
   devise_for :users, controllers: {
     registrations: "users/registrations"
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [:edit, :update, :destroy]
+  resources :reports, only: [:new, :create]
 
   namespace :management do
     resources :branches, except: :destroy
@@ -34,7 +36,7 @@ Rails.application.routes.draw do
     resources :categories, only: :index
   end
 
-  namespace :search do 
+  namespace :search do
     resources :centers, only: :index
     resources :url_makers, only: :index
   end
