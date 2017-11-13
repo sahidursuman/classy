@@ -1,0 +1,32 @@
+<div class="form-group">
+  <%= f.label :name, Course.human_attribute_name(:name) %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="form-group">
+  <%= f.label :category, Course.human_attribute_name(:category) %>
+  <%= f.select :category_ids, support.course_category_options, {}, multiple: true,
+    class: "select2-course-categories" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :input, Course.human_attribute_name(:input) %>
+  <%= f.text_area :input %>
+</div>
+
+<div class="form-group">
+  <%= f.label :output, Course.human_attribute_name(:output) %>
+  <%= f.text_area :output %>
+</div>
+
+<div class="form-group">
+  <%= f.label :description, Course.human_attribute_name(:description) %>
+  <%= f.text_area :description %>
+</div>
+
+<div class="form-group">
+  <%= f.label :price, Course.human_attribute_name(:price) %>
+  <%= f.text_field :price %>
+</div>
+
+<%= f.button t(".preview"), type: :submit, name: :step, value: :preview %>
