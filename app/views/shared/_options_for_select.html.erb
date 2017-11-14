@@ -1,1 +1,8 @@
-<%= options_for_select data.unshift [blank_option, ""] %>
+<%=
+  if local_assigns[:blank_option].present? 
+    options_for_select data.unshift [blank_option, ""]
+  else 
+    options_for_select data
+  end
+%>
+

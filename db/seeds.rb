@@ -1,10 +1,10 @@
 Rake::Task["master_data:import"].invoke
 
-puts "Create temporary 'course_small_categories'"
-CourseBigCategory.all.each do |category| 
+puts "Create temporary 'course_sub_categories'"
+CourseCategory.all.each do |category| 
   count = Faker::Number.between 3, 5
   count.times do |i|
-    category.course_small_categories.create! name: category.name + " - level #{i + 1}"
+    category.course_sub_categories.create! name: category.name + " - level #{i + 1}"
   end
 end
 
@@ -181,17 +181,18 @@ end
 puts "Creating courses"
 centers.each do |center|
   course_count = Faker::Number.between 5, 10
-  course_categories = center.center_category.course_categories
+  course_categories = center.center_category.course_categories 
   course_count.times do |i|
-    course_category_count = Faker::Number.between 1, 3
-    course = center.courses.create! name: "Course #{center.center_category.name} k#{i+1}",
+    course_category = course_categories.sample
+    course_sub_category_ids = course_category.course_sub_categories
+      .ids.sample(Faker::Number.between 1, 3)
+    course = center.courses.create! name: "Course #{course_category.name} k#{i+1}",
+      category_id: course_category.id,
       input: Faker::Lorem.sentence,
       output: Faker::Lorem.sentence,
       description: Faker::Lorem.paragraphs.join("\n"),
-      price: Faker::Number.between(20, 500) * 10_000
-    course_categories.sample(course_category_count).each do |category|
-      course.course_classifications.create! category_id: category.id
-    end
+      price: Faker::Number.between(20, 500) * 10_000,
+      course_sub_category_ids: course_sub_category_ids
   end
 end
 

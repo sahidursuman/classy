@@ -6,10 +6,15 @@ class Supports::Course
   end
 
   def course_category_options
-    @course_category_options ||= course.center.center_category.course_big_categories
-      .includes(:course_small_categories).inject([]) do |options, big_category|
-      options.append([big_category.name, big_category.id]) + 
-        big_category.course_small_categories.map{|category| [category.name, category.id]}
+    @course_category_options ||= course.center.center_category.course_categories
+      .pluck :name, :id
+  end
+
+  def course_sub_category_options 
+    @course_sub_category_options ||= if course.course_category.present?
+      course.course_category.course_sub_categories.pluck :name, :id
+    else
+      []
     end
   end
 end

@@ -3,8 +3,12 @@
   <%= @course.name %>
 </p>
 <p>
-  <b><%= Course.human_attribute_name :category %></b>
-  <%= @course.category_list %>
+  <b><%= Course.human_attribute_name :course_category %></b>
+  <%= @course.course_category.name %>
+</p>
+<p>
+  <b><%= Course.human_attribute_name :course_sub_categories %></b>
+  <%= @course.tmp_course_sub_category_list %>
 </p>
 <p>
   <b><%= Course.human_attribute_name :input %></b><br/>
@@ -24,8 +28,9 @@
 </p>
 <%= form_for [:management, @course] do |f| %>
   <%= f.hidden_field :name %>
-  <% @course.categories.each do |category| %>
-    <%= f.hidden_field :category_ids, multiple: true, value: category.id %>
+  <%= f.hidden_field :category_id %>
+  <% @course.tmp_course_sub_category_ids.each do |id| %>
+    <%= f.hidden_field :tmp_course_sub_category_ids, multiple: true, value: id %>
   <% end %>
   <%= f.hidden_field :input %>
   <%= f.hidden_field :output %>
