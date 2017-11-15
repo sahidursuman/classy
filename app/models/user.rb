@@ -33,6 +33,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  friendly_findable :username
+
   def working_center
     if center_manager?
       managed_center
@@ -69,10 +71,6 @@ class User < ApplicationRecord
       elsif conditions.has_key?(:username) || conditions.has_key?(:email)
         where(conditions.to_hash).first
       end
-    end
-
-    def friendly_find param
-      find_by! username: param.try(:downcase)
     end
   end
 

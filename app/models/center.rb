@@ -1,6 +1,4 @@
 class Center < ApplicationRecord
-  extend FriendlyFind
-
   ATTRIBUTES = [:name, :category_id, :logo, :avatar, :description, :email, :phone_number]
 
   belongs_to :center_category, foreign_key: :category_id
@@ -30,6 +28,8 @@ class Center < ApplicationRecord
   mount_uploader :logo, AvatarUploader
 
   delegate :name, to: :center_category, prefix: true, allow_nil: true
+
+  friendly_findable :slug
 
   def route_params
     {center_slug: slug}
