@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112171925) do
+ActiveRecord::Schema.define(version: 20171114115254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,8 @@ ActiveRecord::Schema.define(version: 20171112171925) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_courses_on_category_id"
     t.index ["center_id"], name: "index_courses_on_center_id"
   end
 
@@ -239,6 +241,7 @@ ActiveRecord::Schema.define(version: 20171112171925) do
   add_foreign_key "comments", "users"
   add_foreign_key "course_classifications", "categories"
   add_foreign_key "course_classifications", "courses"
+  add_foreign_key "courses", "categories"
   add_foreign_key "courses", "centers"
   add_foreign_key "districts", "cities"
   add_foreign_key "review_verifications", "reviews"

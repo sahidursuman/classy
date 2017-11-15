@@ -19,6 +19,7 @@ class Management::CoursesController < Management::BaseController
   end
 
   def edit
+    @course.tmp_course_sub_category_ids = @course.course_sub_category_ids
     support_for_course
   end
 
@@ -29,7 +30,7 @@ class Management::CoursesController < Management::BaseController
 
   private
   def course_params
-    params.require(:course).permit Course::ATTRIBUTES
+    @course_params ||= params.require(:course).permit Course::ATTRIBUTES
   end
 
   def course 
@@ -64,7 +65,8 @@ class Management::CoursesController < Management::BaseController
   end
 
   def finish_step
-    if @course.save
+    course_params[:course_sub_category_ids] = course_params.delete :tmp_course_sub_category_ids
+    if @course.update_attributes course_params
       flash[:success] = t ".success"
       redirect_to root_path
     else

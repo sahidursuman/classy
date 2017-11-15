@@ -2,7 +2,7 @@ require "csv"
 
 namespace :master_data do
   task import: :environment do
-    models = %i[cities districts center_categories course_big_categories]
+    models = %i[cities districts center_categories course_categories]
     models.each do |model|
       import_master_data model
     end

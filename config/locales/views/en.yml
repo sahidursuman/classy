@@ -6,7 +6,7 @@ en:
     edit: &edit Edit
     finish: &finish Finish
     delete: &delete Delete
-  select_course_category: Select course category
+  select_course_sub_category: Select course sub category
   home_pages:
     index:
       log_out: Log out
@@ -107,6 +107,7 @@ en:
         edit_course: Edit course
       form:        
         preview: *preview
+        select_course_category: Select course category
       preview:
         edit: *edit
         finish: *finish

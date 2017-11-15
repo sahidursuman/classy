@@ -4,9 +4,15 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :category, Course.human_attribute_name(:category) %>
-  <%= f.select :category_ids, support.course_category_options, {}, multiple: true,
-    class: "select2-course-categories" %>
+  <%= f.label :category_id, Course.human_attribute_name(:course_category) %>
+  <%= f.select :category_id, support.course_category_options, 
+    {include_blank: t(".select_course_category")}, class: "course_category_selection" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :tmp_course_sub_category_ids, Course.human_attribute_name(:course_sub_categories) %>
+  <%= f.select :tmp_course_sub_category_ids, support.course_sub_category_options, {}, 
+    multiple: true, class: "select2_course_sub_categories" %>
 </div>
 
 <div class="form-group">
