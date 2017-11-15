@@ -5,5 +5,5 @@ class District < ApplicationRecord
   acts_as_url :name, url_attribute: :key_name, scope: :city_id, sync_url: true,
     callback_method: :before_save
 
-  friendly_finable :key_name
+  friendly_findable :key_name
 end
