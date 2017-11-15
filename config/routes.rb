@@ -33,4 +33,9 @@ Rails.application.routes.draw do
     resources :districts, only: :index
     resources :course_sub_categories, only: :index
   end
+
+  namespace :search do 
+    resources :centers, only: :index
+    resources :url_makers, only: :index
+  end
 end

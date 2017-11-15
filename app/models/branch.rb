@@ -1,6 +1,4 @@
 class Branch < ApplicationRecord
-  extend FriendlyFind
-
   ATTRIBUTES = [:name, :avatar, :avatar_cache, :description, :city_id, :district_id,
     :address, :phone_number, :email]
 
@@ -34,6 +32,8 @@ class Branch < ApplicationRecord
   geocoded_by :full_address
 
   mount_uploader :avatar, BusinessAvatarUploader
+
+  friendly_findable :slug
 
   def full_address
     [address, district_name, city_name].join ", "
