@@ -1,0 +1,7 @@
+<% if @report.errors.blank? %>
+  $("#flash-messages").html("<%= j render 'layouts/shared/flash' %>");
+  $("#report-modal").modal("hide");
+<% else %>
+  $(".report-form").html("<%= j render 'shared/reports/report_form', report: @report %>");
+  $(".report-error-messages").html("<%= j render 'layouts/shared/flash' %>");
+<% end %>

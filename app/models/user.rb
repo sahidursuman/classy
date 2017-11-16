@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :user_comments, class_name: UserComment.name
   has_many :center_comments, class_name: CenterComment.name
   has_many :votes
+  has_many :reports
 
   PERSONAL_INFORMATION_PARAMS = [:first_name, :last_name, :phone_number]
   ACCOUNT_INFORMATION_PARAMS = [:username, :email, :current_password]

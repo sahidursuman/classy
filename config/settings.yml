@@ -73,10 +73,14 @@ validations:
       max_length: 255
     input:
       max_length: 255
-    output: 
+    output:
       max_length: 255
     description:
       max_length: 10000
+  report:
+    content:
+      max_length: 1000
+      min_length: 10
 google_map:
   src: https://maps.googleapis.com/maps/api/js
   key: AIzaSyAX6x28nsjEWmeL-10FkZZSo1yFmUfn3JU

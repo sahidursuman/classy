@@ -18,4 +18,13 @@ class ReviewPolicy < ApplicationPolicy
   def can_comment?
     user
   end
+
+  def can_report?
+    user && !reported?
+  end
+
+  private
+  def reported?
+    Report.exists? user_id: user, reportable: record
+  end
 end

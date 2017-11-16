@@ -7,6 +7,7 @@ en:
     finish: &finish Finish
     delete: &delete Delete
     select_course_category: &select_course_category Select course category
+    report: &report Report
   select_course_sub_category: Select course sub category
   select_districts: Select districts
   home_pages:
@@ -49,6 +50,14 @@ en:
           other: Show %{count} comments
         confirm_delete: "Are you sure to delete this review?"
         new_comment: New comment
+        report: *report
+    reports:
+      report_modal:
+        report: *report
+      report_form:
+        add_report_reason_placeholder: Tell us reason why you want to report?
+        report: *report
+        cancel: Cancel
     google_map:
       branch_info:
         email: Email
@@ -105,9 +114,9 @@ en:
     courses:
       new:
         new_course: New course
-      edit: 
+      edit:
         edit_course: Edit course
-      form:        
+      form:
         preview: *preview
         select_course_category: *select_course_category
       preview:
@@ -146,6 +155,10 @@ en:
       create:
         show_comments: *show_comments
         failed: Fail to create comment
+  reports:
+    create:
+      recorded: Thank for your report, we will review and inform you soon.
+      failed: Failed to create report.
   comments:
     destroy:
       show_comments: *show_comments
@@ -153,5 +166,5 @@ en:
     centers:
       index:
         search: Search
-      course_detail_filter: 
+      course_detail_filter:
         select_course_category: *select_course_category
