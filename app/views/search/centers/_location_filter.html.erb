@@ -3,6 +3,6 @@
     class: "form-control city_filter" %>
 </div>
 <div class="form-group">
-  <%= f.select :districts_key_name_eq_any, support.district_options,
-    {}, multiple: true, class: "select2_districts" %>
+  <%= f.select :district_key_name_eq, support.district_options,
+    {include_blank: t(".all_disticts")}, class: "form-control district_filter" %>
 </div>

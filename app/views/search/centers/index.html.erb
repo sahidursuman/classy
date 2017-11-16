@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row" style="margin-top: 100px;">
   <div class="col col-md-3">
-    <%= form_for @search_centers_form, url: search_url_makers_path, method: :get do |f| %>
+    <%= form_for @centers_search_form, url: search_url_makers_path, method: :get do |f| %>
       <%= render "location_filter", f: f, support: @support %>
       <hr/>
       <%= render "course_detail_filter", f: f, support: @support %>
-      <%= f.submit t(".search") %>
+      <%= f.submit t(".search"), class: "btn btn-primary pull-right" %>
     <% end %>
   </div>
   <div class="col col-md-9">
