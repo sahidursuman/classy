@@ -18,7 +18,7 @@ group :development, :test do
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
   gem "rspec-rails", "~> 3.6"
-  gem "factory_girl_rails", "~> 4.0"
+  gem "factory_bot_rails"
   gem "faker"
   gem "pry-rails"
 end
@@ -34,7 +34,7 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
 end
 
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "tzinfo-data"
 
 gem "devise"
 gem "config"
