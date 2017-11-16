@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   namespace :supports do
     resources :districts, only: :index
-    resources :course_sub_categories, only: :index
+    resources :categories, only: :index
   end
 
   namespace :search do 

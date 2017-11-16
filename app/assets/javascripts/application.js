@@ -19,3 +19,6 @@
 //= require comment
 //= require auto_submit_form
 //= require preview_image_upload
+//= require js/select2.full
+//= require search_centers
+//= require load_dynamic_options
