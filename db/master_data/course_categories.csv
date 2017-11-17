@@ -1,17 +1,17 @@
-id,name,parent_id
-5,Tiếng Anh trẻ em,1
-6,Tiếng Anh giao tiếp từ cơ bản đến nâng cao,1
-7,Tiếng Anh luyện thi ielts,1
-8,Tiếng Anh luyện thi toeic,1
-9,Tiếng Anh luyện thi bằng châu âu ( B1),1
-10,Tiếng Anh luyện thi toefl,1
-11,Tiếng Nhật giao tiếp,2
-12,Tiếng Nhật Luyện thi chứng chỉ,2
-13,Tiếng Nhật cho người đi làm,2
-14,Tiếng Trung giao tiếp,3
-15,Tiếng Trung ôn thi HSK (1-6),3
-16,Học hán ngữ,3
-17,Tiếng Hàn giao tiếp,4
-18,"Tiếng Hàn xuất khẩu lao động, du học",4
-19,Tiếng Hàn cho doanh nghiệp,4
-20,"Tiếng Hàn luyện thi Topik",4
+id,name,parent_id,key_name
+5,Trẻ em,1,tieng-anh-tre-em
+6,Giao tiếp,1,tieng-anh-giao-tiep
+7,Luyện thi ielts,1,luyen-thi-ielts
+8,Luyện thi toeic,1,luyen-thi-toeic
+9,Luyện thi bằng châu âu (B1),1,luyen-thi-bang-chau-au-b1
+10,Luyện thi toefl,1,luyen-thi-toefl
+11,Giao tiếp,2,tieng-nhat-giao-tiep
+12,Luyện thi chứng chỉ JLPT,2,luyen-thi-JLPT
+13,Cho người đi làm,2,tieng-nhat-cho-nguoi-di-lam
+14,Giao tiếp,3,tieng-trung-giao-tiep
+15,ôn thi HSK (1-6),3,tieng-trung-on-thi-HSK
+16,Học hán ngữ,3,hoc-han-ngu
+17,Giao tiếp,4,tieng-han-giao-tiep
+18,"Xuất khẩu lao động, du học",4,tieng-han-xuat-khau-lao-dong-du-hoc
+19,Tiếng Hàn cho doanh nghiệp,4,tieng-han-doanh-nghiep
+20,Luyện thi Topik,4,luyen-thi-topik
