@@ -3,10 +3,9 @@ class Category < ApplicationRecord
     optional: true
   has_many :child_categories, class_name: Category.name, foreign_key: :parent_id
 
-  scope :by_ids, ->(ids){where id: ids}
+  validates :key_name, uniqueness: {case_sensitive: false}
 
-  acts_as_url :name, url_attribute: :key_name, scope: :parent_id, sync_url: true, 
-    callback_method: :before_save
+  scope :by_ids, ->(ids){where id: ids}
 
   friendly_findable :key_name
 

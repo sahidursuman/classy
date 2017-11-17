@@ -11,12 +11,12 @@ $(document).on("turbolinks:load", function(){
 
   $(".center_category_filter").change(function(){
     var center_category_key_name = $(this).val();
-    load_data_for_select("categories", [center_category_key_name], "key_name", ".course_category_filter");
+    load_data_for_select("categories", center_category_key_name, "key_name", ".course_category_filter");
   });
 
   $(".course_category_filter").change(function(){
-    var key_names = [$(".center_category_filter").val(), $(this).val()];
-    load_data_for_select("categories", key_names, "key_name", ".select2_course_sub_categories")
+    var course_category_key_name = $(this).val();
+    load_data_for_select("categories", course_category_key_name, "key_name", ".select2_course_sub_categories")
   });
 
   $(".course_category_selection").change(function(){

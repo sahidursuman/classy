@@ -4,7 +4,8 @@ puts "Create temporary 'course_sub_categories'"
 CourseCategory.all.each do |category| 
   count = Faker::Number.between 3, 5
   count.times do |i|
-    category.course_sub_categories.create! name: "Level #{i + 1}"
+    category.course_sub_categories.create! name: "Level #{i + 1}",
+      key_name: category.key_name + "-level-#{i + 1}"
   end
 end
 

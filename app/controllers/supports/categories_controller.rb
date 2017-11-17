@@ -10,10 +10,8 @@ class Supports::CategoriesController < ApplicationController
 
   private 
   def find_category
-    @category = if params[:value_attribute].to_sym == :id
-      Category.find_by id: params[:findable_params]
-    else
-      Category.by_key_names params[:findable_params]
+    @category = if params[:findable_params].present?
+      Category.find_by params[:value_attribute] => params[:findable_params]
     end
   end
 end
