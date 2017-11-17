@@ -1,4 +1,4 @@
-class Supports::SearchCenters
+class Supports::CentersSearchForm
   attr_reader :search_form
 
   def initialize search_form

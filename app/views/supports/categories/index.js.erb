@@ -1,2 +1,2 @@
-$("<%= params[:target_element] %>").html("<%= j render 'shared/options_for_select', data: @categories, \
-  blank_option: t('.select_category') %>");
+$("<%= params[:target_element] %>").html('<%= j render "shared/options_for_select", data: @categories, \
+  blank_option: t(".#{params[:blank_option]}") if params[:blank_option].present? %>');

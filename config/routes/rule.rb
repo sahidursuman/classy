@@ -12,4 +12,10 @@ Rails.application.routes.draw do
     constraints: BranchConstraint.new
   get ":center_slug/:branch_slug/reviews", to: "branch/reviews#index", as: "branch_reviews",
     constraints: BranchConstraint.new
+
+  search_controller = "search/centers#index"
+  get "search/:city_name/:district_name/:category_name", to: search_controller,
+    constraints: CityDistrictConstraint.new(CategoryConstraint.new)
+  get "search/:city_name/:category_name", to: search_controller,
+    constraints: CityConstraint.new(CategoryConstraint.new)
 end
