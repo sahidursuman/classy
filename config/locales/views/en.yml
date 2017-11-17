@@ -16,6 +16,7 @@ en:
     report: &report Report
     login_as: &login_as You are logged in as %{name}
     filter: &filter Filter
+    reviews: &reviews Reviews
   select_course_sub_category: Select course sub category
   select_districts: Select districts
   home_pages:
@@ -79,6 +80,7 @@ en:
       comment:
         confirm_delete: Are you sure to delete this comment?
         delete: *delete
+        report: *report
   management:
     branches:
       index:
@@ -140,6 +142,9 @@ en:
   centers:
     show:
       edit: *edit
+      report: *report
+      branch_list: Branch list
+      reviews: *reviews
   center:
     branches:
       index:
@@ -154,7 +159,8 @@ en:
       filter: "Filter"
     show:
       edit: *edit
-      reviews: Reviews
+      reviews: *reviews
+      report: *report
   branch:
     reviews:
       index:
