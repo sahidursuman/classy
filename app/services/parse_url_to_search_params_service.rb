@@ -2,7 +2,7 @@ class ParseUrlToSearchParamsService
   attr_reader :params, :search_params
 
   CATEGORY_SEARCH_PARAMS = [:center_category_key_name_eq, :course_category_key_name_eq, 
-    :course_sub_category_key_name_eq]
+    :course_sub_categories_key_name_eq]
 
   def initialize params
     @params = params

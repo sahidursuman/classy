@@ -102,3 +102,6 @@ business_avatar:
 avatar:
   versions:
     medium: [200, 200]
+center_search:
+  center_per_page: 5
+  max_branches_on_result: 1

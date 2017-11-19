@@ -1,8 +1,8 @@
 <div class="form-group">
-  <%= f.select :city_key_name_eq, support.city_options, {}, 
+  <%= f.select :city_key_name_eq, search_form.city_options, {}, 
     class: "form-control city_filter" %>
 </div>
 <div class="form-group">
-  <%= f.select :district_key_name_eq, support.district_options,
+  <%= f.select :district_key_name_eq, search_form.district_options,
     {include_blank: t(".all_disticts")}, class: "form-control district_filter" %>
 </div>

@@ -15,12 +15,13 @@ $(document).on("turbolinks:load", function(){
     var center_category_key_name = $(this).val();
     load_data_for_select("categories", center_category_key_name, "key_name", 
       ".course_category_filter", "all_course_categories");
+    $(".course_category_filter").trigger("change");
   });
 
   $(".course_category_filter").change(function(){
     var course_category_key_name = $(this).val();
     load_data_for_select("categories", course_category_key_name, "key_name", 
-      ".course_sub_category_filter", "all_course_sub_categories")
+      ".course_sub_category_filter", "all_course_sub_categories");
   });
 
   $(".course_category_selection").change(function(){

@@ -31,6 +31,9 @@ class Center < ApplicationRecord
 
   friendly_findable :slug
 
+  ransack_alias :city_key_name, :active_branches_city_key_name
+  ransack_alias :district_key_name, :active_branches_district_key_name
+
   def route_params
     {center_slug: slug}
   end
