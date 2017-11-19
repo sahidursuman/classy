@@ -122,6 +122,9 @@ en:
       preview:
         edit: *edit
         finish: *finish
+  centers:
+    show:
+      edit: *edit
   center:
     branches:
       index:

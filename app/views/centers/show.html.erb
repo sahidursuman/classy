@@ -1,3 +1,10 @@
+<span class="pull-right">
+  <%=
+    if policy(@center).can_edit?
+      link_to t(".edit"), edit_management_center_path
+    end
+  %>
+</span>
 <%= @center.name %><br/>
 <%= link_to t(".branch_list"), center_branches_path(@center.route_params) %><br/>
 <%= link_to t(".reviews"), center_reviews_path(@center.route_params) %>
