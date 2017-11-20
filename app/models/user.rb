@@ -27,8 +27,8 @@ class User < ApplicationRecord
   before_create :generate_username
   before_save :downcase_fields
 
-  devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+    :trackable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   enum role: [:admin, :moderator, :center_manager, :branch_manager, :normal_user]
 
@@ -71,6 +71,20 @@ class User < ApplicationRecord
         where(conditions.to_hash).where(username: login).or(User.where email: login).first
       elsif conditions.has_key?(:username) || conditions.has_key?(:email)
         where(conditions.to_hash).first
+      end
+    end
+
+    def from_omniauth auth
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = auth.info.email
+        user.first_name = auth.info.first_name
+        user.last_name = auth.info.last_name
+        user.avatar = auth.info.image
+        user.role = :normal_user
+        user.password = Devise.friendly_token[0, 20]
+        user.skip_confirmation!
       end
     end
   end
