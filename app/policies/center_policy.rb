@@ -5,6 +5,6 @@ class CenterPolicy < ApplicationPolicy
 
   private
   def can_modify?
-    user.center_manager? && (user.working_center == record)
+    user && user.center_manager? && (user.working_center == record)
   end
 end

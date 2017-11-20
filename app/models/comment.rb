@@ -15,4 +15,6 @@ class Comment < ApplicationRecord
   validates :content, presence: true, length: {minimum: Settings.validations.comment.content.min_length,
     maximum: Settings.validations.comment.content.max_length, allow_blank: true}
   validates :review, :user, presence: true
+
+  delegate :branch_route_params, to: :review, allow_nil: true
 end

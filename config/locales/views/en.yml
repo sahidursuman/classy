@@ -1,4 +1,10 @@
 en:
+  in_review: In review
+  reviewed: Reviewed
+  Center: Center
+  Branch: Branch
+  Review: Review
+  Comment: Comment
   dictionary:
     select_city: &select_city Select city
     select_district: &select_district Select district
@@ -156,6 +162,7 @@ en:
       edit_account_information: Edit account information
       edit_avatar: Edit avatar
       edit_password: Edit password
+      my_reports: My reports
     omniauth_callbacks:
       facebook:
         login_as: *login_as
@@ -179,7 +186,7 @@ en:
         search: Search
       course_detail_filter:
         select_course_category: *select_course_category
-      branch_results: 
+      branch_results:
         branch_name: "Branch %{name}"
         number_of_branch: "%{number} branches"
         in_location: "in %{location}."
