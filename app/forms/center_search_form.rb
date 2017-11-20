@@ -52,24 +52,25 @@ class CenterSearchForm
   end
 
   def city_options 
-    @city_options ||= City.pluck :name, :key_name
+    @city_options ||= City.priority_desc.pluck :name, :key_name
   end
 
   def center_category_options 
-    @center_category_options ||= CenterCategory.pluck :name, :key_name
+    @center_category_options ||= CenterCategory.priority_desc.pluck :name, :key_name
   end
 
   def district_options
-    @district_options ||= city.districts.pluck :name, :key_name
+    @district_options ||= city.districts.priority_desc.pluck :name, :key_name
   end
 
   def course_category_options 
-    @course_category_options ||= center_category.course_categories.pluck :name, :key_name
+    @course_category_options ||= center_category.course_categories.priority_desc
+      .pluck :name, :key_name
   end
 
   def course_sub_category_options
     @course_sub_category_options ||= if course_category
-      course_category.course_sub_categories.pluck :name, :key_name
+      course_category.course_sub_categories.priority_desc.pluck :name, :key_name
     else
       []
     end

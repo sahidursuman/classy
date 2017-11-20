@@ -1,5 +1,5 @@
-id,name,key_name
-1,Tiếng Anh,tieng-anh
-2,Tiếng Nhật,tieng-nhat
-3,Tiếng Trung,tieng-trung
-4,Tiếng Hàn,tieng-han
+id,name,key_name,priority
+1,Tiếng Anh,tieng-anh,10
+2,Tiếng Nhật,tieng-nhat,9
+3,Tiếng Trung,tieng-trung,8
+4,Tiếng Hàn,tieng-han,7

@@ -6,6 +6,7 @@ class Category < ApplicationRecord
   validates :key_name, uniqueness: {case_sensitive: false}
 
   scope :by_ids, ->(ids){where id: ids}
+  scope :priority_desc, ->{order priority: :desc}
 
   friendly_findable :key_name
 

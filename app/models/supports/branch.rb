@@ -11,7 +11,7 @@ class Supports::Branch
 
   def district_options
     @district_options ||= if branch.city.present?
-      branch.city.districts.pluck :name, :id
+      branch.city.districts.priority_desc.pluck :name, :id
     else
       []
     end
