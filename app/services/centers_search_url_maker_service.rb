@@ -16,7 +16,7 @@ class CentersSearchUrlMakerService
   end
 
   def category_key_name
-    search_params[:course_sub_category_key_name_eq].presence ||
+    search_params[:course_sub_categories_key_name_eq].presence ||
       search_params[:course_category_key_name_eq].presence ||
       search_params[:center_category_key_name_eq].presence
   end

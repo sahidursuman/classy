@@ -179,3 +179,7 @@ en:
         search: Search
       course_detail_filter:
         select_course_category: *select_course_category
+      branch_results: 
+        branch_name: "Branch %{name}"
+        number_of_branch: "%{number} branches"
+        in_location: "in %{location}."

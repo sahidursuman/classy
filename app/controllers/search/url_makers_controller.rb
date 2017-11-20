@@ -6,6 +6,6 @@ class Search::UrlMakersController < ApplicationController
 
   private
   def search_params
-    params.require(:centers_search_form).permit CentersSearchForm::SEARCHABLE_ATTRIBUTES
+    params.require(:center_search_form).permit CenterSearchForm::SEARCHABLE_ATTRIBUTES
   end
 end
