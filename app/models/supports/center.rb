@@ -10,10 +10,11 @@ class Supports::Center
   end
 
   def active_branches_city_options
-    @active_branches_city_options ||= center.active_branches_cities.pluck :name, :key_name
+    @active_branches_city_options ||= center.active_branches_cities.priority_desc
+      .pluck(:name, :key_name).uniq
   end
 
   def center_category_options
-    @center_category_options ||= CenterCategory.pluck :name, :id
+    @center_category_options ||= CenterCategory.priority_desc.pluck :name, :id
   end
 end

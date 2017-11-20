@@ -2,7 +2,7 @@ class Supports::CategoriesController < ApplicationController
   def index
     find_category
     @categories = if @category.present?
-      @category.child_categories.pluck :name, params[:value_attribute]
+      @category.child_categories.priority_desc.pluck :name, params[:value_attribute]
     else
       []
     end

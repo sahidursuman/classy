@@ -7,7 +7,7 @@ class Center < ApplicationRecord
   has_many :center_categories
   has_many :active_branches, ->{active}, class_name: Branch.name
   has_many :cities, ->{distinct}, through: :branches
-  has_many :active_branches_cities, ->{distinct}, through: :active_branches,
+  has_many :active_branches_cities, through: :active_branches,
     source: :city
   has_many :reviews, through: :branches
   has_many :courses
