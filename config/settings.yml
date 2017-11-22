@@ -30,6 +30,8 @@ vote:
     down: ▼
 review_verification:
   per_page: 20
+report:
+  target_models: [Center, Branch, Review, Comment]
 validations:
   comment:
     content:

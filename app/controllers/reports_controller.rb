@@ -8,7 +8,7 @@ class ReportsController < ApplicationController
   def create
     build_report
     if @report.save
-      flash[:success] = t ".recorded"
+      flash.now[:success] = t ".recorded"
     else
       flash.now[:failed] = t ".failed"
     end

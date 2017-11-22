@@ -37,3 +37,21 @@ en:
       update:
         updated: *updated
         failed: Failed to update your password
+    reports:
+      index:
+        index: Index
+        target: Target
+        action: Action
+      report_filter:
+        filter: Filter
+        select_report_target: Select report target
+        select_status: Select status
+      report:
+        thank_you: Thank for your report, we will review and inform you soon!
+        you_reported: You reported a
+        delete: Delete
+        confirm_delete: Are you sure to delete this report?
+        classy: Classy
+      destroy:
+        deleted: Your report has been deleted successfully!
+        failed: Fail to delete report.

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resource :account_information, only: [:edit, :update]
     resource :avatar, only: [:edit, :update]
     resource :password, only: [:edit, :update]
+    resources :reports, only: [:index, :destroy]
   end
 
   resources :reviews, except: :index do
