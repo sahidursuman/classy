@@ -11,3 +11,4 @@
 //= require skycons
 //= require_directory ../../../../vendor/assets/Flot/jquery-flot
 //= require js/gentelella
+//= require auto_submit_form

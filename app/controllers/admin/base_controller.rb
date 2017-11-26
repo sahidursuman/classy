@@ -5,6 +5,6 @@ class Admin::BaseController < ApplicationController
 
   private
   def authenticate_admin!
-    raise Pundit::NotAuthorized unless current_user.try(:is_admin?)
+    raise Pundit::NotAuthorizedError unless current_user.try :is_system_admin?
   end
 end

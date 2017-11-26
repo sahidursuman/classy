@@ -18,4 +18,8 @@ class ApplicationPolicy
   def manager?
     user.try :is_manager?
   end
+
+  def system_admin?
+    user && user.is_system_admin?
+  end
 end

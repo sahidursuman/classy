@@ -6,6 +6,7 @@
  *= require css/gentelella.min
  *= require css/nprogress
  *= require css/bootstrap-progressbar-3.3.4.min
+ *= require admin/custom
  */
 
 body .container.body .right_col {

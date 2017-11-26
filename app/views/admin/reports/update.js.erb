@@ -1,0 +1,9 @@
+<% if @report.errors.blank? %>
+  $("#flash-messages").html("<%= j render 'layouts/shared/flash' %>");
+  $("#report-<%= @report.id %> .response-message").text('<%= @report.response_message.squish %>');
+  $("#report-<%= @report.id %> .status").text("<%= @report.display_status %>");
+  $("#response-report-modal").modal("hide");
+<% else %>
+  $(".response-report-form").html("<%= j render 'response_report_form', report: @report, status: @report.status %>");
+  $(".response-report-error-messages").html("<%= j render 'layouts/shared/flash' %>");
+<% end %>

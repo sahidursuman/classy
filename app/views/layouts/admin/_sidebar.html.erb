@@ -37,7 +37,9 @@
             <% end %>
           </li>
           <li class="<%= content_for :sidebar_reports_activation %>">
-            <a><i class="fa fa-file-text-o"></i><%= t ".reports" %></a>
+            <%= link_to admin_reports_path do %>
+              <i class="fa fa-file-text-o"></i><%= t ".reports" %>
+            <% end %>
           </li>
         </ul>
       </div>

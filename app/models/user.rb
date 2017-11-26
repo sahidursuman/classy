@@ -31,7 +31,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :trackable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
-  enum role: [:admin, :moderator, :center_manager, :branch_manager, :normal_user]
+  enum role: [:root, :moderator, :center_manager, :branch_manager, :normal_user]
 
   mount_uploader :avatar, AvatarUploader
 
@@ -75,6 +75,10 @@ class User < ApplicationRecord
 
   def unread_notification_counter
     received_notifications.unread.count
+  end
+  
+  def is_system_admin?
+    moderator? || root?
   end
 
   class << self

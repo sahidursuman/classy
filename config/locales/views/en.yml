@@ -1,6 +1,8 @@
 en:
   in_review: In review
   reviewed: Reviewed
+  rejected: Rejected
+  accepted: Accepted
   Center: Center
   Branch: Branch
   Review: Review
@@ -20,6 +22,11 @@ en:
     filter: &filter Filter
     reviews: &reviews Reviews
     number_of_branch_in_cities: &number_of_branch_in_cities "%{number_of_branch} branches in %{cities}."
+    in_review: &in_review In review
+    reviewed: &reviewed Reviewed
+    rejected: &rejected Rejected
+    accepted: &accepted Accepted
+    cancel: &cancel Cancel
   select_course_sub_category: Select course sub category
   select_districts: Select districts
   layouts:
@@ -79,7 +86,12 @@ en:
       report_form:
         add_report_reason_placeholder: Tell us reason why you want to report?
         report: *report
-        cancel: Cancel
+        cancel: *cancel
+    google_map:
+      branch_info:
+        email: Email
+        phone_number: Phone number
+        rating: Rating
     comments:
       new_comment:
         post: Post
@@ -99,7 +111,7 @@ en:
         create_new_branch: Create new branch
       branch_filter:
         select_city: *select_city
-        filter: Filter
+        filter: *filter
         select_status: Select status
       branch:
         edit: *edit
@@ -121,7 +133,7 @@ en:
         action: Action
       review_verification_filter:
         select_status: Select status
-        filter: Filter
+        filter: *filter
         select_branch: Select branch
       review_verification:
         accept: Accept
@@ -172,7 +184,7 @@ en:
   branches:
     index:
       select_city: "Select city"
-      filter: "Filter"
+      filter: *filter
     show:
       edit: *edit
       reviews: *reviews
@@ -230,3 +242,35 @@ en:
         summary_rating_desc: Rating
         minimum_tuition_fee_asc: Tuition fee Asc
         minimum_tuition_fee_desc: Tuition fee Desc
+        minimum_price_asc: Price Asc
+        minimum_price_desc: Price Desc
+        number_of_branch: "%{number} branches"
+        in_location: "in %{location}."
+  admin:
+    reports:
+      update:
+        failed: Fail to response report.
+        success: You have responsed successfully
+      response_report_modal:
+        response_report: Response report
+      response_report_form:
+        add_response_report_placeholder: Add response message
+        report: *report
+        cancel: *cancel
+      report:
+        thank_you: Thank for your report, we will review and inform you soon!
+        response: Response
+        in_review: *in_review
+        reviewed: *reviewed
+      report_filter:
+        filter: *filter
+        select_status: Select status
+        select_report_target: Select report target
+        in_review: *in_review
+        reviewed: *reviewed
+        accepted: *accepted
+        rejected: *rejected
+        Center: Center
+        Branch: Branch
+        Review: Review
+        Comment: Comment
