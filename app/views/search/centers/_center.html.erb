@@ -1,1 +1,9 @@
-<%= link_to center.name, center_path(center.route_params) %>
+<div>
+  <%= link_to center.name, center_path(center.route_params) %>
+  <br/>
+  <%= render "branch_results", center: center, branches: center.branches %>
+  <br/>
+  <%= t ".#{center.count_course > 1 ? 'price_from' : 'price'}" %>:
+  <%= center.min_course_price %>
+</div>
+<hr/>

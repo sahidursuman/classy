@@ -1,4 +1,4 @@
-class Search::CentersController < ApplicationController 
+class Search::CentersController < ApplicationController
   def index
     search_params = ActionController::Parameters.new ParseUrlToSearchParamsService.new(params)
       .perform

@@ -188,5 +188,7 @@ en:
         select_course_category: *select_course_category
       branch_results:
         branch_name: "Branch %{name}"
-        number_of_branch: "%{number} branches"
-        in_location: "in %{location}."
+        number_of_branch_in_cities: "%{number_of_branch} branches in %{cities}."
+      center:
+        price: Price
+        price_from: Price from

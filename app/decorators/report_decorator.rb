@@ -1,8 +1,6 @@
 class ReportDecorator < ApplicationDecorator
   include Draper::LazyHelpers
 
-  delegate_all
-
   def display_report_target
     target = object.reportable
     case target.model_name

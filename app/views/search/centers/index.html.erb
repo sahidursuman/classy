@@ -8,8 +8,7 @@
     <% end %>
   </div>
   <div class="col col-md-9 col-sm-9">
-    <%= render "search_results", center_results: @search.results, 
-      search_form: @search_form %>
+    <%= render "search_results", centers: @search.centers, search_form: @search_form %>
     <div>
       <%= paginate @search.centers %>
     </div>
