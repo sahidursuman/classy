@@ -12,10 +12,14 @@ class Course < ApplicationRecord
   validates :name, presence: true, length: {maximum: Settings.validations.course.name.max_length}
   validates :input, presence: true, length: {maximum: Settings.validations.course.input.max_length}
   validates :output, presence: true, length: {maximum: Settings.validations.course.output.max_length}
-  validates :description, presence: true, 
+  validates :description, presence: true,
     length: {maximum: Settings.validations.course.description.max_length}
   validates :price, numericality: {only_integer: true, allow_blank: true}
   validates :category_id, presence: true
+
+  scope :min_price_on_center, -> do
+    group(:center_id).select "center_id, MIN(price) as min_price, COUNT(*) as count_course"
+  end
 
   accepts_nested_attributes_for :course_classifications, allow_destroy: true
 end

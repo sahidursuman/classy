@@ -1,11 +1,8 @@
-<br/>
 <% if branches.size == Settings.center_search.max_branches_on_result %>
   <% branches.first.tap do |branch| %>
-    <%= link_to t(".branch_name", name: branch.name), branch_path(branch.route_params) %>:
     <%= branch.full_address %>
   <% end %>
 <% else %>
-  <%= link_to t(".number_of_branch", number: branches.size), 
-    center_branches_path(center.route_params.merge q: search_form.location_conditions) %>
-  <%= t ".in_location", location: search_form.location %>
+  <%= t ".number_of_branch_in_cities", number_of_branch: branches.size,
+    cities: center.city_names %>
 <% end %>
