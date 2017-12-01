@@ -8,6 +8,6 @@ module ReviewHelper
   end
 
   def review_sorting_options
-    Review::SORTING_OPTIONS.map {|option| [t(".#{option[:name]}"), option[:value]]}
+    Review::SORT_OPTIONS.map {|option| [t(".#{option}"), option]}
   end
 end
