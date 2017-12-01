@@ -39,3 +39,8 @@ en:
         failed: "Fail to vote"
       destroy:
         failed: "Fail to unvote"
+  center:
+    reviews:
+      create:
+        success: Create review success
+        failed: Fail to create review

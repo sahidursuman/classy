@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121093955) do
+ActiveRecord::Schema.define(version: 20171201184601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -199,7 +199,11 @@ ActiveRecord::Schema.define(version: 20171121093955) do
     t.datetime "updated_at", null: false
     t.integer "vote_points_cached", default: 0, null: false
     t.integer "comments_count", default: 0, null: false
+    t.bigint "center_id"
+    t.string "phone_number_verifiable"
+    t.string "email_verifiable"
     t.index ["branch_id"], name: "index_reviews_on_branch_id", where: "(deleted_at IS NULL)"
+    t.index ["center_id"], name: "index_reviews_on_center_id"
     t.index ["deleted_at"], name: "index_reviews_on_deleted_at"
     t.index ["user_id"], name: "index_reviews_on_user_id", where: "(deleted_at IS NULL)"
   end
@@ -269,6 +273,7 @@ ActiveRecord::Schema.define(version: 20171121093955) do
   add_foreign_key "reports", "users"
   add_foreign_key "review_verifications", "reviews"
   add_foreign_key "reviews", "branches"
+  add_foreign_key "reviews", "centers"
   add_foreign_key "reviews", "users"
   add_foreign_key "votes", "users"
 end

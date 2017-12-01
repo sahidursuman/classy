@@ -1,7 +1,7 @@
 Rake::Task["master_data:import"].invoke
 
 puts "Create temporary 'course_sub_categories'"
-CourseCategory.all.each do |category| 
+CourseCategory.all.each do |category|
   count = Faker::Number.between 3, 5
   count.times do |i|
     category.course_sub_categories.create! name: "Level #{i + 1}",
@@ -130,10 +130,11 @@ end
 
 puts "Creating reviews"
 normal_users = User.normal_user
-Branch.find_each do |branch|
+centers.each do |center|
   review_count = rand normal_users.size
   normal_users.sample(review_count).each do |user|
-    review = branch.reviews.create! user: user,
+    center.reviews.create! user: user,
+      branch: center.branches.sample,
       title: Faker::Lorem.sentence,
       content: Faker::Lorem.paragraphs.join("\n"),
       rating_criterion_1: Settings.review.rating_values.sample,
@@ -141,12 +142,9 @@ Branch.find_each do |branch|
       rating_criterion_3: Settings.review.rating_values.sample,
       rating_criterion_4: Settings.review.rating_values.sample,
       rating_criterion_5: Settings.review.rating_values.sample,
+      phone_number_verifiable: Faker::Number.number(10),
+      email_verifiable: user.email,
       status: Review.statuses.values.sample
-    verification_status = review.verified? ? :verified : [:forwarded, :rejected].sample
-    review.review_verifications.create! email: user.email,
-      phone_number: Faker::PhoneNumber.cell_phone,
-      status: verification_status,
-      response_message: Faker::Lorem.sentence
   end
 end
 
@@ -182,7 +180,7 @@ end
 puts "Creating courses"
 centers.each do |center|
   course_count = Faker::Number.between 5, 10
-  course_categories = center.center_category.course_categories 
+  course_categories = center.center_category.course_categories
   course_count.times do |i|
     course_category = course_categories.sample
     course_sub_category_ids = course_category.course_sub_categories
