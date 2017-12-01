@@ -1,0 +1,4 @@
+<div class="form-group">
+  <%= f.label criterion, Review.human_attribute_name(criterion) %>
+  <%= f.select criterion, options, {include_blank: t(".rating")} %>
+</div>

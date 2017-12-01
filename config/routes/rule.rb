@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   get ":center_slug", to: "centers#show", as: "center", constraints: CenterConstraint.new
   get ":center_slug/reviews", to: "center/reviews#index", as: "center_reviews",
-    constraints: CenterConstraint.new 
+    constraints: CenterConstraint.new
+  get ":center_slug/new-review/", to: "center/reviews#new", as: "new_center_review",
+    constraints: CenterConstraint.new
+  post ":center_slug/new-review/", to: "center/reviews#create", as: "center_review",
+    constraints: CenterConstraint.new
   get ":center_slug/branches", to: "center/branches#index", as: "center_branches",
     constraints: CenterConstraint.new
   get ":center_slug/:branch_slug", to: "branches#show", as: "branch",
