@@ -3,7 +3,7 @@ class Center::ReviewsController < Center::BaseController
 
   def index
     @q = displayable_reviews.ransack params[:q]
-    @q.sorts = default_sorting_option if @q.sorts.empty?
+    @q.order_by ||= Review::SORT_OPTIONS.first
     @reviews = @q.result.includes(:user, branch: :center).decorate
   end
 
@@ -40,9 +40,5 @@ class Center::ReviewsController < Center::BaseController
     else
       @center.reviews.verified
     end
-  end
-
-  def default_sorting_option
-    Review::SORTING_OPTIONS.first[:value]
   end
 end

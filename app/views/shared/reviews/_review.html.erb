@@ -4,11 +4,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <b><%= link_to review.user_full_name, review.user %></b>
-        <%=
-          if local_assigns[:display_branch]
-            link_to review.branch_name, branch_path(review.branch_route_params)
-          end
-        %>
+        <%= review.branch_name %>
         <span class="pull-right">
           <%= review.rating_criterion_1 %>
           <%= review.rating_criterion_2 %>

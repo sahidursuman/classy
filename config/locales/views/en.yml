@@ -137,6 +137,10 @@ en:
     branches:
       index:
         select_city: *select_city
+    reviews:
+      index:
+        recent_created: Newest
+        vote_points_desc: Most voting
   branches:
     index:
       select_city: "Select city"
