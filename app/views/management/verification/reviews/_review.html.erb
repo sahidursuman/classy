@@ -1,0 +1,18 @@
+<tr>
+  <td>
+    <%= index_on_pagination review_counter,
+      assigns["reviews"].current_page, Settings.review_verification.per_page %>
+  </td>
+  <td><%= review.email_verifiable %></td>
+  <td><%= review.phone_number_verifiable %></td>
+  <td><%= t ".#{review.status}" %></td>
+  <td><%= review.branch_name %></td>
+  <td>
+    <% if review.unverified? %>
+      <%= link_to t(".accept"),
+        management_verification_review_path(review, status: :verified), method: :put %>
+      <%= link_to t(".reject"),
+        management_verification_review_path(review, status: :rejected), method: :put %>
+    <% end %>
+  </td>
+</tr>

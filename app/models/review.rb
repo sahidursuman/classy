@@ -3,6 +3,8 @@ class Review < ApplicationRecord
   ATTRIBUTES_TO_CREATE = [:branch_id, :rating_criterion_1, :rating_criterion_2,
     :rating_criterion_3, :rating_criterion_4, :rating_criterion_5, :title, :content,
     :email_verifiable, :phone_number_verifiable]
+  PARAMS_VERIFY = [:status]
+
   belongs_to :center
   belongs_to :user
   belongs_to :branch, optional: true
@@ -10,6 +12,9 @@ class Review < ApplicationRecord
   has_many :votes
   has_many :review_verifications, dependent: :destroy
   has_many :reports, as: :reportable, dependent: :destroy
+
+  before_save :calculate_summary_rating
+  after_update :update_center_summary_rating_cached, if: :influence_center_rating?
 
   validates :title, presence: true, length: {minimum: Settings.validations.review.title.min_length,
     maximum: Settings.validations.review.title.max_length, allow_blank: true}
@@ -45,5 +50,20 @@ class Review < ApplicationRecord
     def ransackable_scopes auth_object = nil
       %i(order_by)
     end
+  end
+
+  private
+  def calculate_summary_rating
+    self.summary_rating = Settings.review.criteria.inject(0) do |summary, criterion|
+      summary + public_send(criterion.attr_name) * criterion.ratio
+    end / 100.to_f
+  end
+
+  def influence_center_rating?
+    verified? && (saved_change_to_status? || saved_change_to_summary_rating?)
+  end
+
+  def update_center_summary_rating_cached
+    center.update_summary_rating_cached
   end
 end
