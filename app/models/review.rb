@@ -1,9 +1,10 @@
 class Review < ApplicationRecord
   SORT_OPTIONS = [:recent_created, :vote_points_desc]
-  ATTRIBUTES_TO_CREATE = [:branch_id, :rating_criterion_1, :rating_criterion_2,
-    :rating_criterion_3, :rating_criterion_4, :rating_criterion_5, :title, :content,
-    :email_verifiable, :phone_number_verifiable]
+  ATTRIBUTES_TO_PERSIST_CONTENT = [:branch_id, :rating_criterion_1, :rating_criterion_2,
+    :rating_criterion_3, :rating_criterion_4, :rating_criterion_5, :title, :content]
+  ATTRIBUTES_TO_PERSIST_VERIFICATION = [:email_verifiable, :phone_number_verifiable]
   PARAMS_VERIFY = [:status]
+  ATTRIBUTES_TO_PERSIST_FULL = ATTRIBUTES_TO_PERSIST_CONTENT + ATTRIBUTES_TO_PERSIST_VERIFICATION
 
   belongs_to :center
   belongs_to :user
@@ -13,7 +14,7 @@ class Review < ApplicationRecord
   has_many :review_verifications, dependent: :destroy
   has_many :reports, as: :reportable, dependent: :destroy
 
-  before_save :calculate_summary_rating
+  before_save :calculate_summary_rating, if: :rating_criteria_changed?
   after_update :update_center_summary_rating_cached, if: :influence_center_rating?
 
   validates :title, presence: true, length: {minimum: Settings.validations.review.title.min_length,
@@ -53,6 +54,12 @@ class Review < ApplicationRecord
   end
 
   private
+  def rating_criteria_changed?
+    Settings.review.criteria.map(&:attr_name).any? do |criterion|
+      public_send "#{criterion}_changed?"
+    end
+  end
+
   def calculate_summary_rating
     self.summary_rating = Settings.review.criteria.inject(0) do |summary, criterion|
       summary + public_send(criterion.attr_name) * criterion.ratio

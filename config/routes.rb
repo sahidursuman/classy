@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :reports, only: [:index, :destroy]
   end
 
-  resources :reviews, except: :index do
+  resources :reviews, only: [:edit, :update, :destroy] do
     scope module: :review do
       resources :comments, only: [:index, :new, :create]
       resource :votes, only: [:create, :destroy]
