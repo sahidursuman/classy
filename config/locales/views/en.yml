@@ -15,6 +15,7 @@ en:
     select_course_category: &select_course_category Select course category
     report: &report Report
     login_as: &login_as You are logged in as %{name}
+    filter: &filter Filter
   select_course_sub_category: Select course sub category
   select_districts: Select districts
   home_pages:
@@ -130,6 +131,12 @@ en:
       preview:
         edit: *edit
         finish: *finish
+    verification:
+      reviews:
+        filter:
+          all_statuses: All statuses
+          all_branches: All branches
+          filter: *filter
   centers:
     show:
       edit: *edit

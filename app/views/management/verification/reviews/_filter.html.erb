@@ -1,0 +1,5 @@
+<%= form_for q, url: management_verification_reviews_path, method: :get do |f| %>
+  <%= f.select :status_eq, review_verification_status_options, {include_blank: t(".all_statuses")}%>
+  <%= f.select :branch_slug_eq, support.branch_options, {include_blank: t(".all_branches")} %>
+  <%= f.submit t(".filter") %>
+<% end %>

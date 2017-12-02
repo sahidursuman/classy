@@ -107,26 +107,26 @@ Center.find_each do |center|
 end
 
 centers = Center.all.includes :branches, :center_category
-puts "Create branch managers"
-total_branch_manager = 0
-centers.each do |center|
-  manger_count = rand 3
-  branch_count = center.branches.size
-  manger_count.times.each do
-    total_branch_manager += 1
-    user = User.create! email: "branchmanager#{total_branch_manager}@gmail.com",
-      first_name: Faker::Name.first_name,
-      last_name: Faker::Name.last_name,
-      role: :branch_manager,
-      password: "123456",
-      password_confirmation: "123456",
-      confirmed_at: Time.zone.now,
-      avatar: open("app/assets/images/default-avatar.png")
-    center.branches.sample(rand(branch_count) + 1).each do |branch|
-      user.branch_managements.create! branch: branch
-    end
-  end
-end
+# puts "Create branch managers"
+# total_branch_manager = 0
+# centers.each do |center|
+#   manger_count = rand 3
+#   branch_count = center.branches.size
+#   manger_count.times.each do
+#     total_branch_manager += 1
+#     user = User.create! email: "branchmanager#{total_branch_manager}@gmail.com",
+#       first_name: Faker::Name.first_name,
+#       last_name: Faker::Name.last_name,
+#       role: :branch_manager,
+#       password: "123456",
+#       password_confirmation: "123456",
+#       confirmed_at: Time.zone.now,
+#       avatar: open("app/assets/images/default-avatar.png")
+#     center.branches.sample(rand(branch_count) + 1).each do |branch|
+#       user.branch_managements.create! branch: branch
+#     end
+#   end
+# end
 
 puts "Creating reviews"
 normal_users = User.normal_user

@@ -1,11 +1,11 @@
 class Supports::ReviewVerification
-  attr_reader :branches
+  attr_reader :center
 
-  def initialize branches
-    @branches = branches
+  def initialize center
+    @center = center
   end
 
   def branch_options
-    @branch_options ||= branches.pluck :name, :slug
+    @branch_options ||= center.branches.pluck :name, :slug
   end
 end

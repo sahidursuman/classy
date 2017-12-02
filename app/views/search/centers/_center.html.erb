@@ -1,5 +1,6 @@
 <div>
   <%= link_to center.name, center_path(center.route_params) %>
+  <div class="pull-right"><%= center.summary_rating_cached || "--" %></div>
   <br/>
   <%= render "branch_results", center: center, branches: center.branches %>
   <br/>

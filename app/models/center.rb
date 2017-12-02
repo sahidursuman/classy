@@ -37,4 +37,9 @@ class Center < ApplicationRecord
   def route_params
     {center_slug: slug}
   end
+
+  def update_summary_rating_cached
+    center_rating = reviews.verified.select("SUM(summary_rating) / COUNT(*) AS rating")[0].rating
+    update_column :summary_rating_cached, center_rating
+  end
 end
