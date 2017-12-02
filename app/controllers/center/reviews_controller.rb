@@ -31,7 +31,7 @@ class Center::ReviewsController < Center::BaseController
   end
 
   def review_params
-    params.require(:review).permit Review::ATTRIBUTES_TO_CREATE
+    params.require(:review).permit Review::ATTRIBUTES_TO_PERSIST_FULL
   end
 
   def displayable_reviews

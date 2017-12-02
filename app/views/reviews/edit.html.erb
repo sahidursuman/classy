@@ -1,8 +1,13 @@
 <h2><%= t ".edit_review" %></h2>
-<%= form_for @edit_review_form, url: review_path(@review), method: :put do |f| %>
-  <%= render "shared/reviews/review_form", f: f %>
-
+<strong><%= Review.human_attribute_name :status %></strong>
+<%= @review.status %>
+<hr/>
+<%= form_for @review do |f| %>
+  <%= render "shared/reviews/content_form", f: f, support: @support %>
+  <% unless @review.verified? %>
+    <%= render "shared/reviews/verification_form", f: f %>
+  <% end %>
   <div class="form-group">
-    <%= f.submit t(".update") %>
+    <%= f.submit  %>
   </div>
 <% end %>

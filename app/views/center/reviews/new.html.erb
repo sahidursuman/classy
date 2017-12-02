@@ -1,29 +1,7 @@
 <h1><%= "new review" %></h1>
 <%= form_for @review, url: center_review_path do |f| %>
-  <div class="form-group">
-    <%= f.label :branch_id, Review.human_attribute_name(:branch) %>
-    <%= f.select :branch_id, @support.branch_options, {include_blank: t(".select_branch")} %>
-  </div>
-  <%= render partial: "criterion_input", collection: criterion_list,
-    as: :criterion, locals: {f: f, options: rating_values} %>
-  <hr/>
-  <div class="form-group">
-    <%= f.label :title, Review.human_attribute_name(:title) %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="form-group">
-    <%= f.label :content, Review.human_attribute_name(:content) %>
-    <%= f.text_area :content %>
-  </div>
-  <hr/>
-  <div class="form-group">
-    <%= f.label :email_verifiable, Review.human_attribute_name(:email_verifiable) %>
-    <%= f.email_field :email_verifiable %>
-  </div>
-  <div class="form-group">
-    <%= f.label :phone_number_verifiable, Review.human_attribute_name(:phone_number_verifiable) %>
-    <%= f.text_field :phone_number_verifiable %>
-  </div>
+  <%= render "shared/reviews/content_form", f: f, support: @support %>
+  <%= render "shared/reviews/verification_form", f: f %>
   <div class="form-group">
     <%= f.submit %>
   </div>
