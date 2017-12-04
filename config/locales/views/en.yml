@@ -203,3 +203,10 @@ en:
       center:
         price: Price
         price_from: Price from
+      search_control:
+        search: Search
+      sort_option:
+        recommendation_order: Recommendation
+        summary_rating_desc: Rating
+        minimum_price_asc: Price Asc
+        minimum_price_desc: Price Desc

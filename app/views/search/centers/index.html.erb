@@ -1,13 +1,14 @@
 <div class="row" style="margin-top: 100px;">
   <div class="col col-md-3 col-sm-3">
-    <%= form_for @search_form, url: search_centers_path, method: :get, remote: true,
-      html: {class: "center_search_form"} do |f| %>
-      <%= render "location_filter", f: f, search_form: @search_form %>
-      <hr/>
-      <%= render "course_detail_filter", f: f, search_form: @search_form %>
-    <% end %>
+    <%= render "search_control", search_form: @search_form %>
   </div>
   <div class="col col-md-9 col-sm-9">
+    <div class="sort_options">
+      <ul class="nav nav-pills nav-justified">
+        <%= render partial: "sort_option", collection: Center::SORT_OPTIONS, as: :option,
+          locals: {search_form: @search_form} %>
+      </ul>
+    </div>
     <div id="center_search_result">
       <%= render "search_results", centers: @search.centers, search_form: @search_form %>
     </div>

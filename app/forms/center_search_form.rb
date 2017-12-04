@@ -3,13 +3,18 @@ class CenterSearchForm
   include ActiveModel::Model
 
   attr_accessor :city_key_name_eq, :district_key_name_eq, :center_category_key_name_eq,
-    :course_category_key_name_eq, :course_sub_categories_key_name_eq
+    :course_category_key_name_eq, :course_sub_categories_key_name_eq, :order_by
 
   SEARCHABLE_ATTRIBUTES = [:city_key_name_eq, :district_key_name_eq, :center_category_key_name_eq,
-    :course_category_key_name_eq, :course_sub_categories_key_name_eq]
+    :course_category_key_name_eq, :course_sub_categories_key_name_eq, :order_by]
 
   delegate :name, to: :city, prefix: true, allow_nil: true
   delegate :name, to: :district, prefix: true, allow_nil: true
+
+  def initialize attributes = {}
+    super attributes
+    assign_default_values
+  end
 
   def search_by_district?
     district_key_name_eq.present?
@@ -74,5 +79,18 @@ class CenterSearchForm
     else
       []
     end
+  end
+
+  def to_search_params
+    SEARCHABLE_ATTRIBUTES.inject({}) do |params, attribute|
+      params.merge attribute.to_sym => public_send(attribute)
+    end
+  end
+
+  private
+  def assign_default_values
+    @city_key_name_eq ||= City.priority_desc.first.key_name
+    @center_category_key_name_eq ||= CenterCategory.priority_desc.first.key_name
+    @order_by = order_by.try(:to_sym).presence_in(Center::SORT_OPTIONS) || Center::SORT_OPTIONS.first
   end
 end

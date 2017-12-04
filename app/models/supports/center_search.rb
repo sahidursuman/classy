@@ -1,14 +1,15 @@
 class Supports::CenterSearch
-  attr_reader :search_params, :page
+  attr_reader :search_params, :page, :search_form
 
   CENTER_SEARCH_ATTRIBUTES = [:city_key_name_eq, :district_key_name_eq,
-    :center_category_key_name_eq]
+    :center_category_key_name_eq, :order_by]
   COURSE_SEARCH_ATTRIBUTES = [:course_category_key_name_eq, :course_sub_categories_key_name_eq]
   BRANCH_SEARCH_ATTRIBUTES = [:city_key_name_eq, :district_key_name_eq]
 
-  def initialize search_params, page = nil
-    @search_params = search_params
+  def initialize search_form, page = nil
+    @search_form = search_form
     @page = page
+    @search_params = search_form.to_search_params
   end
 
   def centers
@@ -29,15 +30,15 @@ class Supports::CenterSearch
 
   private
   def center_search_params
-    @center_search_params ||= search_params.permit CENTER_SEARCH_ATTRIBUTES
+    @center_search_params ||= permit_params CENTER_SEARCH_ATTRIBUTES
   end
 
   def course_search_params
-    @course_search_params ||= search_params.permit COURSE_SEARCH_ATTRIBUTES
+    @course_search_params ||= permit_params COURSE_SEARCH_ATTRIBUTES
   end
 
   def branch_search_params
-    @branch_search_params ||= search_params.permit BRANCH_SEARCH_ATTRIBUTES
+    @branch_search_params ||= permit_params BRANCH_SEARCH_ATTRIBUTES
   end
 
   def center_conditions
@@ -58,5 +59,9 @@ class Supports::CenterSearch
 
   def without_search_params? params
     params.values.all? &:blank?
+  end
+
+  def permit_params permitable_attributes
+    search_params.select{|key,_| permitable_attributes.include? key}
   end
 end
