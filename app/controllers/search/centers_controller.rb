@@ -1,8 +1,13 @@
 class Search::CentersController < ApplicationController
   def index
-    search_params = ActionController::Parameters.new ParseUrlToSearchParamsService.new(params)
-      .perform
-    @search_form = CenterSearchForm.new search_params.permit!
-    @search = Supports::CenterSearch.new search_params, params[:page]
+    @search_form = CenterSearchForm.new center_search_params
+    @search = Supports::CenterSearch.new center_search_params, params[:page]
+  end
+
+  private
+  def center_search_params
+    params.require(:center_search_form).permit CenterSearchForm::SEARCHABLE_ATTRIBUTES
+  rescue
+    ActionController::Parameters.new.permit!
   end
 end

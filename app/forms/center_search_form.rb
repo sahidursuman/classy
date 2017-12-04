@@ -5,7 +5,7 @@ class CenterSearchForm
   attr_accessor :city_key_name_eq, :district_key_name_eq, :center_category_key_name_eq,
     :course_category_key_name_eq, :course_sub_categories_key_name_eq
 
-  SEARCHABLE_ATTRIBUTES = [:city_key_name_eq, :district_key_name_eq, :center_category_key_name_eq, 
+  SEARCHABLE_ATTRIBUTES = [:city_key_name_eq, :district_key_name_eq, :center_category_key_name_eq,
     :course_category_key_name_eq, :course_sub_categories_key_name_eq]
 
   delegate :name, to: :city, prefix: true, allow_nil: true
@@ -23,9 +23,9 @@ class CenterSearchForm
     [district_name, city_name].compact.join ", "
   end
 
-  def city 
+  def city
     @city ||= if city_key_name_eq.present?
-      City.friendly_find city_key_name_eq 
+      City.friendly_find city_key_name_eq
     else
       City.first
     end
@@ -51,11 +51,11 @@ class CenterSearchForm
     end
   end
 
-  def city_options 
+  def city_options
     @city_options ||= City.priority_desc.pluck :name, :key_name
   end
 
-  def center_category_options 
+  def center_category_options
     @center_category_options ||= CenterCategory.priority_desc.pluck :name, :key_name
   end
 
@@ -63,7 +63,7 @@ class CenterSearchForm
     @district_options ||= city.districts.priority_desc.pluck :name, :key_name
   end
 
-  def course_category_options 
+  def course_category_options
     @course_category_options ||= center_category.course_categories.priority_desc
       .pluck :name, :key_name
   end
