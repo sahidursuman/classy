@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => "/cable"
   root "home_pages#index"
   get '/404', :to => redirect("/404.html")
 

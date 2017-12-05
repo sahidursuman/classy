@@ -13,6 +13,7 @@ class Review < ApplicationRecord
   has_many :votes
   has_many :review_verifications, dependent: :destroy
   has_many :reports, as: :reportable, dependent: :destroy
+  has_many :notifications, as: :notifiable
 
   before_save :calculate_summary_rating, if: :rating_criteria_changed?
   after_update :update_center_summary_rating_cached, if: :influence_center_rating?
