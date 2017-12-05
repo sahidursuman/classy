@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :review
   belongs_to :branch, optional: true
   has_many :reports, as: :reportable, dependent: :destroy
+  has_many :notifications, as: :notifiable
 
   scope :earlier_created, ->{order created_at: :asc}
 

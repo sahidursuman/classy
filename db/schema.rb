@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202034907) do
+ActiveRecord::Schema.define(version: 20171205090624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,6 +153,18 @@ ActiveRecord::Schema.define(version: 20171202034907) do
     t.integer "priority", default: 0
     t.index ["city_id", "key_name"], name: "index_districts_on_city_id_and_key_name", unique: true
     t.index ["city_id"], name: "index_districts_on_city_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "recipient_id"
+    t.integer "action"
+    t.string "notifiable_type"
+    t.bigint "notifiable_id"
+    t.boolean "is_read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
+    t.index ["recipient_id"], name: "index_notifications_on_recipient_id"
   end
 
   create_table "reports", force: :cascade do |t|

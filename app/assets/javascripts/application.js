@@ -22,3 +22,4 @@
 //= require js/select2.full
 //= require center_search
 //= require load_dynamic_options
+//= require cable
