@@ -11,6 +11,10 @@ class CenterCommentPolicy < ApplicationPolicy
     user && user.manage_branch?(record.branch)
   end
 
+  def can_report?
+    member? && !user.manage_branch?(record.branch)
+  end
+
   private
   def can_modify?
     record_owner? && user.manage_branch?(record.branch)

@@ -4,6 +4,11 @@
     </div>
     <div class="media-body">
       <b class="media-heading"><%= link_to comment.owner_full_name, comment.owner_path %></b>
+      <span class="pull-right">
+        <%= link_to t(".report"),
+          new_report_path(report: {reportable_id: comment.id, reportable_type: comment.model_name}),
+          remote: true, class: "btn-new-report media-heading" %>
+      </span>
       <p><%= comment.content %></p>
       <span class="pull-right">
         <%=

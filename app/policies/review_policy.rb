@@ -20,11 +20,6 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def can_report?
-    user && !reported?
-  end
-
-  private
-  def reported?
-    Report.exists? user_id: user, reportable: record
+    member? && !record_owner?
   end
 end

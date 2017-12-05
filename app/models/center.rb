@@ -11,6 +11,7 @@ class Center < ApplicationRecord
     source: :city
   has_many :reviews
   has_many :courses
+  has_many :reports, as: :reportable, dependent: :destroy
 
   validates :logo, file_size: {less_than_or_equal_to: eval(Settings.validations.center.logo.max_size)}
   validates :avatar, file_size: {less_than_or_equal_to: eval(Settings.validations.center.avatar.max_size)}
