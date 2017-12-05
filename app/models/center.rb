@@ -1,5 +1,6 @@
 class Center < ApplicationRecord
   ATTRIBUTES = [:name, :category_id, :logo, :avatar, :description, :email, :phone_number]
+  SORT_OPTIONS = [:recommendation_order, :summary_rating_desc, :minimum_price_asc, :minimum_price_desc]
 
   belongs_to :center_category, foreign_key: :category_id
   has_many :center_managements
@@ -20,6 +21,12 @@ class Center < ApplicationRecord
   validates :description, length: {maximum: Settings.validations.center.description.max_length}
   validates :email, email_format: true, length: {maximum: Settings.validations.center.email.max_length}
   validates :phone_number, phone_number_format: true
+
+  scope :recommendation_order, ->{}
+  scope :summary_rating_desc, ->{order "summary_rating_cached DESC NULLS LAST"}
+  scope :minimum_price_asc, ->{order "min_course_price ASC NULLS LAST"}
+  scope :minimum_price_desc, ->{order "min_course_price DESC NULLS LAST"}
+  scope :order_by, ->(order_option){public_send order_option}
 
   enum status: [:active, :inactive]
 
@@ -42,5 +49,11 @@ class Center < ApplicationRecord
   def update_summary_rating_cached
     center_rating = reviews.verified.select("SUM(summary_rating) / COUNT(*) AS rating")[0].rating
     update_column :summary_rating_cached, center_rating
+  end
+
+  class << self
+    def ransackable_scopes auth_object = nil
+      %i(order_by)
+    end
   end
 end
