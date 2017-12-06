@@ -14,7 +14,6 @@ class Notification::NotifyCenterManagersService
       center.managers.each do |manager|
         notification = Notification.create! recipient: manager, notifiable: notifiable,
           action: action, user: creater, creatable: creatable
-        NotificationRelayJob.perform_now notification
       end
     end
   end

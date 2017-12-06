@@ -18,7 +18,7 @@ class Review < ApplicationRecord
 
   before_save :calculate_summary_rating, if: :rating_criteria_changed?
   after_update :update_center_summary_rating_cached, if: :influence_center_rating?
-  after_save :notify_new_review_verification, :request_re_verification?
+  after_save :notify_new_review_verification, if: :request_re_verification?
 
   validates :title, presence: true, length: {minimum: Settings.validations.review.title.min_length,
     maximum: Settings.validations.review.title.max_length, allow_blank: true}

@@ -6,6 +6,7 @@ class Review::VotesController < Review::BaseController
     if @vote_form.save
       @review = @review.reload.decorate
       @review.voted_type = Vote::vote_types[@vote_form.vote_type]
+      create_notification
     else
       flash.now[:failed] = t ".failed"
     end
@@ -27,5 +28,11 @@ class Review::VotesController < Review::BaseController
 
   def authorize_user
     raise Pundit::NotAuthorizedError unless policy(@review).can_vote?
+  end
+
+  def create_notification
+    action = @vote_form.vote_type == :up.to_s ? :review_voted_up : :review_voted_down
+    Notification.create notifiable: @review, recipient_id: @review.user_id, action: action,
+      user: current_user
   end
 end

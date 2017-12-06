@@ -9,6 +9,6 @@ App.notifications = App.cable.subscriptions.create("NotificationsChannel", {
 
   received: function(data) {
     // Called when there's incoming data on the websocket for this channel  }
-    alert("you get new review");
+    alert("you got new notification");
   }
 });
