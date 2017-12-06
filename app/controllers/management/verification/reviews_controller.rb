@@ -11,6 +11,7 @@ class Management::Verification::ReviewsController < Management::BaseController
   def update
     @review = Review.find params[:id]
     if @review.update_attributes review_verification_params
+      create_notification
       flash[:success] = t ".success"
     else
       flash[:failed] = t ".failed"
@@ -21,5 +22,11 @@ class Management::Verification::ReviewsController < Management::BaseController
   private
   def review_verification_params
     params.permit Review::PARAMS_VERIFY
+  end
+
+  def create_notification
+    action = @review.verified? ? :review_verified : :review_rejected
+    Notification.create notifiable: @review, recipient_id: @review.user_id, action: action,
+      user: current_user
   end
 end
