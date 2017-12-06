@@ -7,8 +7,7 @@ module ReviewVerificationForm
   attribute :phone_number_verify, String
 
   included do
-    validates :email_verify, presence: true, email_format: true,
-      length: {maximum: Settings.validations.review_verification.email.max_length}
+    validates :email_verify, presence: true, email_format: true
     validates :phone_number_verify, presence: true, phone_number_format: true
   end
 end
