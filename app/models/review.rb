@@ -13,10 +13,12 @@ class Review < ApplicationRecord
   has_many :votes
   has_many :review_verifications, dependent: :destroy
   has_many :reports, as: :reportable, dependent: :destroy
-  has_many :notifications, as: :notifiable
+  has_many :created_notifications, class_name: Notification.name, as: :creatable,
+    dependent: :destroy
 
   before_save :calculate_summary_rating, if: :rating_criteria_changed?
   after_update :update_center_summary_rating_cached, if: :influence_center_rating?
+  after_save :notify_new_review_verification, :request_re_verification?
 
   validates :title, presence: true, length: {minimum: Settings.validations.review.title.min_length,
     maximum: Settings.validations.review.title.max_length, allow_blank: true}
@@ -73,5 +75,13 @@ class Review < ApplicationRecord
 
   def update_center_summary_rating_cached
     center.update_summary_rating_cached
+  end
+
+  def request_re_verification?
+    unverified? && (saved_change_to_email_verifiable? || saved_change_to_phone_number_verifiable?)
+  end
+
+  def notify_new_review_verification
+    NotifyNewReviewVerificationJob.perform_later self
   end
 end

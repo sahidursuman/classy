@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
   resources :users, only: :show
-
   namespace :my_page do
     resource :personal_information, only: [:edit, :update]
     resource :account_information, only: [:edit, :update]

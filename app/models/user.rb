@@ -12,7 +12,8 @@ class User < ApplicationRecord
   has_many :center_comments, class_name: CenterComment.name
   has_many :votes
   has_many :reports
-  has_many :notifications, foreign_key: :recipient_id
+  has_many :received_notifications, class_name: User.name, foreign_key: :recipient_id
+  has_many :notifications
 
   PERSONAL_INFORMATION_PARAMS = [:first_name, :last_name, :phone_number]
   ACCOUNT_INFORMATION_PARAMS = [:username, :email, :current_password]

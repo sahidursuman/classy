@@ -14,5 +14,6 @@ module Classy
     config.paths["config/routes.rb"] << Rails.root.join("config", "routes", "rule.rb")
     # config.i18n.default_locale = :vi
     config.time_zone = "Hanoi"
+    config.active_job.queue_adapter = :sidekiq
   end
 end
