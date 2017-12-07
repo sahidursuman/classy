@@ -4,7 +4,7 @@
   </div>
   <div class="col col-md-9 col-sm-9">
     <div class="sort_options">
-      <ul class="nav nav-pills nav-justified">
+      <ul class="nav nav-pills">
         <%= render partial: "sort_option", collection: Center::SORT_OPTIONS, as: :option,
           locals: {search_form: @search_form} %>
       </ul>

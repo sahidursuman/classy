@@ -17,8 +17,8 @@ class Review < ApplicationRecord
     dependent: :destroy
 
   before_save :calculate_summary_rating, if: :rating_criteria_changed?
-  after_update :update_center_summary_rating_cached, if: :influence_center_rating?
-  after_save :notify_new_review_verification, if: :request_re_verification?
+  after_save :update_center_summary_rating_cached, if: :influence_center_rating?
+  after_save :notify_new_review_verification, if: :new_verification_request?
 
   validates :title, presence: true, length: {minimum: Settings.validations.review.title.min_length,
     maximum: Settings.validations.review.title.max_length, allow_blank: true}
@@ -77,7 +77,7 @@ class Review < ApplicationRecord
     center.update_summary_rating_cached
   end
 
-  def request_re_verification?
+  def new_verification_request?
     unverified? && (saved_change_to_email_verifiable? || saved_change_to_phone_number_verifiable?)
   end
 

@@ -12,10 +12,8 @@ Rails.application.routes.draw do
     constraints: CenterConstraint.new
   get ":center_slug/branches", to: "center/branches#index", as: "center_branches",
     constraints: CenterConstraint.new
-  get ":center_slug/:branch_slug", to: "branches#show", as: "branch",
-    constraints: BranchConstraint.new
-  get ":center_slug/:branch_slug/reviews", to: "branch/reviews#index", as: "branch_reviews",
-    constraints: BranchConstraint.new
+  get ":center_slug/courses", to: "center/courses#index", as: "center_courses",
+    constraints: CenterConstraint.new
 
   search_controller = "search/centers#index"
   get "search/:city_name/:district_name/:category_name", to: search_controller,

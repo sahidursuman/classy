@@ -1,8 +1,16 @@
-<%= form_for @q, url: center_reviews_path(@center.route_params), method: :get, remote: true,
-  html: {class: "auto-submit-form"} do |f| %>
-  <%= f.select :order_by, review_sorting_options %>
-<% end %>
-<div id="review-list">
-  <%= render partial: "shared/reviews/review", collection: @reviews, as: :review %>
+<% content_for :center_reviews_activation, "active" %>
+<div class="row">
+  <div class="col-md-2">
+    <%= render "center/shared/menu", center: @center %>
+  </div>
+  <div class="col-md-10">
+    <%= form_for @q, url: center_reviews_path(@center.route_params), method: :get, remote: true,
+      html: {class: "auto-submit-form"} do |f| %>
+    <%= f.select :order_by, review_sorting_options %>
+    <% end %>
+    <div id="review-list">
+      <%= render partial: "shared/reviews/review", collection: @reviews, as: :review %>
+    </div>
+    <div class="report-modal"></div>
+  </div>
 </div>
-<div class="report-modal"></div>
