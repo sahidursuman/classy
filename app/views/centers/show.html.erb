@@ -1,3 +1,4 @@
+<% content_for :center_home_page_activation, "active" %>
 <span class="pull-right">
   <%=
     if policy(@center).can_edit?
@@ -10,8 +11,10 @@
     end
   %>
 </span>
-<%= @center.name %><br/>
-<%= link_to t(".branch_list"), center_branches_path(@center.route_params) %><br/>
-<%= link_to t(".reviews"), center_reviews_path(@center.route_params) %>
-<%= render "shared/google_map/branches_map", branches: @branches %>
+<h1><%= @center.name %></h1>
 <div class="report-modal"></div>
+<div class="row">
+  <div class="col-md-2">
+    <%= render "center/shared/menu", center: @center %>
+  </div>
+</div>

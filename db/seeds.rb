@@ -129,6 +129,7 @@ centers = Center.all.includes :branches, :center_category
 # end
 
 puts "Creating reviews"
+Review.skip_callback :save, :after, :notify_new_review_verification
 normal_users = User.normal_user
 centers.each do |center|
   review_count = rand normal_users.size
@@ -147,6 +148,7 @@ centers.each do |center|
       status: Review.statuses.values.sample
   end
 end
+Review.set_callback :save, :after, :notify_new_review_verification
 
 puts "Creating comments"
 reviews = Review.verified.limit(50).includes :user, branch: :branch_managers
@@ -191,7 +193,8 @@ centers.each do |center|
       output: Faker::Lorem.sentence,
       description: Faker::Lorem.paragraphs.join("\n"),
       price: Faker::Number.between(20, 500) * 10_000,
-      course_sub_category_ids: course_sub_category_ids
+      course_sub_category_ids: course_sub_category_ids,
+      duration: "#{Faker::Number.between 1, 5} months"
   end
 end
 

@@ -5,6 +5,7 @@ en:
   Branch: Branch
   Review: Review
   Comment: Comment
+  currency_unit: ₫
   dictionary:
     select_city: &select_city Select city
     select_district: &select_district Select district

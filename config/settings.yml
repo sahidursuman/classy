@@ -20,6 +20,7 @@ review:
     - {attr_name: rating_criterion_4, ratio: 20}
     - {attr_name: rating_criterion_5, ratio: 20}
   rating_values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  summary_rating_precision: 1
 vote:
   vote_type_point:
     up: 1
