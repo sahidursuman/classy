@@ -4,7 +4,10 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <b><%= link_to review.user_full_name, review.user %></b>
-        <%= review.branch_name %>
+        <% if local_assigns[:center_displayed] %>
+          <br/>
+          <%= link_to review.center_name, center_path(review.center_route_params) %>
+        <% end %>
         <span class="pull-right">
           <strong><%= review.summary_rating %></strong>
           <%= review.rating_criterion_1 %>
@@ -18,7 +21,7 @@
             remote: true, class: "btn-new-report" %>
         </span>
         <br/>
-        <i><%= review.created_at %></i>
+        <i><%= time_as_format review.created_at %></i>
       </div>
       <div class="panel-body">
         <p><b><%= review.title %></b></p>

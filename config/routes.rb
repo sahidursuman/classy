@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-  resources :users, only: :show
+
   namespace :my_page do
     resource :personal_information, only: [:edit, :update]
     resource :account_information, only: [:edit, :update]
@@ -44,5 +44,11 @@ Rails.application.routes.draw do
   namespace :search do
     resources :centers, only: :index
     resources :url_makers, only: :index
+  end
+
+  resources :users, only: :show do
+    scope module: :user do
+      resources :reviews, only: :index
+    end
   end
 end

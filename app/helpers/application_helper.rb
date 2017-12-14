@@ -18,4 +18,8 @@ module ApplicationHelper
       "--"
     end
   end
+
+  def time_as_format time, format = :default
+    l time, format: format
+  end
 end
