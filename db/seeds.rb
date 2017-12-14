@@ -189,12 +189,15 @@ centers.each do |center|
       .ids.sample(Faker::Number.between 1, 3)
     course = center.courses.create! name: "Course #{course_category.name} k#{i+1}",
       category_id: course_category.id,
-      input: Faker::Lorem.sentence,
-      output: Faker::Lorem.sentence,
-      description: Faker::Lorem.paragraphs.join("\n"),
-      price: Faker::Number.between(20, 500) * 10_000,
-      course_sub_category_ids: course_sub_category_ids,
-      duration: "#{Faker::Number.between 1, 5} months"
+      intended_student: Faker::Lorem.paragraphs.join("\n"),
+      target: Faker::Lorem.paragraphs.join("\n"),
+      sessions: Faker::Number.between(10, 50),
+      duration: Faker::Number.between(2, 5),
+      curriculum: Faker::Lorem.paragraphs.join("\n"),
+      teaching_methods: Faker::Lorem.paragraphs.join("\n"),
+      class_size: Faker::Number.between(1, 30),
+      tuition_fee: Faker::Number.between(20, 500) * 10_000,
+      course_sub_category_ids: course_sub_category_ids
   end
 end
 

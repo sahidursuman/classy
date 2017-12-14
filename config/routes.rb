@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resources :branches, except: :destroy
     resources :review_verifications, only: [:index, :update]
     resource :center, only: [:edit, :update]
-    resources :courses, except: [:index, :show, :destroy]
+    resources :courses, except: [:show, :destroy]
     namespace :verification do
       resources :reviews, only: [:index, :update]
     end

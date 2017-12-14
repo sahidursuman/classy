@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207034535) do
+ActiveRecord::Schema.define(version: 20171214091145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,14 +133,18 @@ ActiveRecord::Schema.define(version: 20171207034535) do
   create_table "courses", force: :cascade do |t|
     t.bigint "center_id"
     t.string "name"
-    t.string "input"
-    t.string "output"
-    t.text "description"
-    t.integer "price"
+    t.integer "tuition_fee"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
-    t.string "duration"
+    t.text "intended_student"
+    t.text "target"
+    t.text "curriculum"
+    t.text "teaching_methods"
+    t.integer "class_size"
+    t.float "duration"
+    t.integer "sessions"
+    t.string "slug"
     t.index ["category_id"], name: "index_courses_on_category_id"
     t.index ["center_id"], name: "index_courses_on_center_id"
   end
