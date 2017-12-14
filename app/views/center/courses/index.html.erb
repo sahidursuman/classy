@@ -9,7 +9,7 @@
         <th><%= Course.human_attribute_name :name %></th>
         <th><%= Course.human_attribute_name :category %></th>
         <th><%= Course.human_attribute_name :duration %></th>
-        <th><%= Course.human_attribute_name :price %></th>
+        <th><%= Course.human_attribute_name :tuition_fee %></th>
       </thead>
       <tbody>
         <%= render partial: :course, collection: @courses, as: :course %>

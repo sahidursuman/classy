@@ -4,7 +4,7 @@
   <br/>
   <%= render "branch_results", center: center, branches: center.branches %>
   <br/>
-  <%= t ".#{center.count_course > 1 ? 'price_from' : 'price'}" %>:
-  <%= currency_format center.min_course_price %>
+  <%= t ".#{center.count_course > 1 ? 'tuition_fee_from' : 'tuition_fee'}" %>:
+  <%= currency_format center.min_course_tuition_fee %>
 </div>
 <hr/>
