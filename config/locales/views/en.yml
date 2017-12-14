@@ -208,12 +208,12 @@ en:
         branch_name: "Branch %{name}"
         number_of_branch_in_cities: "%{number_of_branch} branches in %{cities}."
       center:
-        price: Price
-        price_from: Price from
+        tuition_fee: Tuition fee
+        tuition_fee_from: Tuition fee from
       search_control:
         search: Search
       sort_option:
         recommendation_order: Recommendation
         summary_rating_desc: Rating
-        minimum_price_asc: Price Asc
-        minimum_price_desc: Price Desc
+        minimum_tuition_fee_asc: Tuition fee Asc
+        minimum_tuition_fee_desc: Tuition fee Desc

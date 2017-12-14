@@ -1,6 +1,7 @@
 class Center < ApplicationRecord
   ATTRIBUTES = [:name, :category_id, :logo, :avatar, :description, :email, :phone_number]
-  SORT_OPTIONS = [:recommendation_order, :summary_rating_desc, :minimum_price_asc, :minimum_price_desc]
+  SORT_OPTIONS = [:recommendation_order, :summary_rating_desc, :minimum_tuition_fee_asc,
+    :minimum_tuition_fee_desc]
 
   belongs_to :center_category, foreign_key: :category_id
   has_many :center_managements
@@ -26,8 +27,8 @@ class Center < ApplicationRecord
 
   scope :recommendation_order, ->{}
   scope :summary_rating_desc, ->{order "summary_rating_cached DESC NULLS LAST"}
-  scope :minimum_price_asc, ->{order "min_course_price ASC NULLS LAST"}
-  scope :minimum_price_desc, ->{order "min_course_price DESC NULLS LAST"}
+  scope :minimum_tuition_fee_asc, ->{order "min_course_tuition_fee ASC NULLS LAST"}
+  scope :minimum_tuition_fee_desc, ->{order "min_course_tuition_fee DESC NULLS LAST"}
   scope :order_by, ->(order_option){public_send order_option}
 
   enum status: [:active, :inactive]

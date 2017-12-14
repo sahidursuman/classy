@@ -32,8 +32,8 @@ class Course < ApplicationRecord
     less_than_or_equal_to: Settings.validations.course.class_size.maximum,
     allow_blank: true}
 
-  scope :min_price_on_center, -> do
-    group(:center_id).select "center_id, MIN(price) as min_price, COUNT(*) as count_course"
+  scope :min_tuition_fee_on_center, -> do
+    group(:center_id).select "center_id, MIN(tuition_fee) as min_tuition_fee, COUNT(*) as count_course"
   end
 
   accepts_nested_attributes_for :course_classifications, allow_destroy: true
