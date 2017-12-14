@@ -1,12 +1,10 @@
 class Management::CoursesController < Management::BaseController
-  include Wicked::Wizard
-  include SetupWizard
-  
-  before_action :authenticate_center_manager!, :center
-  before_action :setup_wizard, only: [:create, :update]
+  before_action :center
   before_action :course, :authorize_modify_course!, only: [:edit, :update]
 
-  steps :start, :preview, :finish
+  def index
+    @courses = @center.courses.includes(:course_category)
+  end
 
   def new
     @course = @center.courses.build
@@ -14,8 +12,16 @@ class Management::CoursesController < Management::BaseController
   end
 
   def create
+    custome_category_params
     @course = @center.courses.build course_params
-    wicked_steps
+    if @course.save
+      flash[:success] = t ".success"
+      redirect_to management_courses_path
+    else
+      support_for_course
+      flash.now[:failed] = t ".failed"
+      render :new
+    end
   end
 
   def edit
@@ -24,8 +30,15 @@ class Management::CoursesController < Management::BaseController
   end
 
   def update
-    @course.assign_attributes course_params
-    wicked_steps
+    custome_category_params
+    if @course.update_attributes course_params
+     flash[:success] = t ".success"
+     redirect_to management_courses_path
+    else
+      support_for_course
+      flash.now[:failed] = t ".failed"
+      render :edit
+    end
   end
 
   private
@@ -33,7 +46,7 @@ class Management::CoursesController < Management::BaseController
     @course_params ||= params.require(:course).permit Course::ATTRIBUTES
   end
 
-  def course 
+  def course
     @course = Course.find params[:id]
   end
 
@@ -41,47 +54,8 @@ class Management::CoursesController < Management::BaseController
     authorize @course
   end
 
-  def wicked_steps
-    case step
-    when :start
-      support_for_course
-      render_start_step
-    when :preview
-      preview_step
-    when :finish
-      finish_step
-    end
-  end
-
-  def preview_step
-    if @course.valid?
-      @course = @course.decorate
-      render_wizard
-    else
-      support_for_course
-      flash.now[:failed] = t ".failed"
-      render_start_step
-    end
-  end
-
-  def finish_step
+  def custome_category_params
     course_params[:course_sub_category_ids] = course_params.delete :tmp_course_sub_category_ids
-    if @course.update_attributes course_params
-      flash[:success] = t ".success"
-      redirect_to root_path
-    else
-      support_for_course
-      flash.now[:failed] = t ".failed"
-      render_start_step
-    end
-  end
-
-  def render_start_step
-    if @course.new_record?
-      render :new
-    else
-      render :edit
-    end
   end
 
   def support_for_course

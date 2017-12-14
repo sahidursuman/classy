@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     constraints: CenterConstraint.new
   get ":center_slug/courses", to: "center/courses#index", as: "center_courses",
     constraints: CenterConstraint.new
+  get ":center_slug/courses/:course_slug", to: "center/courses#show", as: "center_course",
+    constraints: CenterCourseConstraint.new
 
   search_controller = "search/centers#index"
   get "search/:city_name/:district_name/:category_name", to: search_controller,

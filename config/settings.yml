@@ -72,12 +72,20 @@ validations:
   course:
     name:
       max_length: 255
-    input:
-      max_length: 255
-    output:
-      max_length: 255
     description:
       max_length: 10000
+    sessions:
+      minimum: 1
+      maximum: 1000
+    duration:
+      minimum: 0.1
+      maximum: 100
+    tuition_fee:
+      minimum: 0
+      maximum: 1_000_000_000
+    class_size:
+      minimum: 1
+      maximum: 1000
   report:
     content:
       max_length: 1000
