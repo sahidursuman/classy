@@ -4,7 +4,7 @@ class Center::ReviewsController < Center::BaseController
   def index
     @q = displayable_reviews.ransack params[:q]
     @q.order_by ||= Review::SORT_OPTIONS.first
-    @reviews = @q.result.includes(:user, branch: :center).decorate
+    @reviews = @q.result.includes(:user).decorate
   end
 
   def new
