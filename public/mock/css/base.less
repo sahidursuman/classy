@@ -1,6 +1,7 @@
 html,body {
   height: 100%;
   background: @grey;
+  font-weight: @base_font_weight;
 }
 
 .grey-bg {
@@ -27,6 +28,10 @@ html,body {
   color: @dark-grey;
 }
 
+.text-darker-grey {
+  color: @darker-grey;
+}
+
 .bg-red {
   background-color: @red;
 }
@@ -41,4 +46,8 @@ html,body {
 
 .btn, .form-control {
   border-radius: 0 !important;
+}
+
+.form-control {
+  font-weight: @base_font_size;
 }
