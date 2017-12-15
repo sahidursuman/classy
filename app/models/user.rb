@@ -15,9 +15,8 @@ class User < ApplicationRecord
   has_many :received_notifications, class_name: User.name, foreign_key: :recipient_id
   has_many :notifications
 
-  PERSONAL_INFORMATION_PARAMS = [:first_name, :last_name, :phone_number]
+  PROFILE_PARAMS = [:first_name, :last_name, :phone_number, :avatar, :avatar_cache]
   ACCOUNT_INFORMATION_PARAMS = [:username, :email, :current_password]
-  AVATAR_PARAMS = [:avatar]
   PASSWORD_PARAMS = [:password, :password_confirmation, :current_password]
 
   validates :first_name, presence: true, length: {maximum: Settings.user.first_name.max_length}

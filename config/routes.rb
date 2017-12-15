@@ -9,9 +9,8 @@ Rails.application.routes.draw do
   }
 
   namespace :my_page do
-    resource :personal_information, only: [:edit, :update]
-    resource :account_information, only: [:edit, :update]
-    resource :avatar, only: [:edit, :update]
+    resource :profile, only: [:edit, :update]
+    resource :account, only: [:edit, :update]
     resource :password, only: [:edit, :update]
     resources :reports, only: [:index, :destroy]
   end
