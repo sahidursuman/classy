@@ -1,0 +1,60 @@
+.review-points {
+  bottom: 15px;
+  position: absolute;
+
+  .center-rate {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: @base_font_size + 2;
+    color: @white;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .detail-point {
+    font-size: @base_font_size + 1;
+  }
+
+  li {
+    display: table-cell;
+    padding: 0 5px;
+  }
+}
+
+.list-tool {
+  li {
+    list-style: none;
+    padding: 5px;
+    border-bottom: solid 1px @light-grey;
+
+    a {
+      color: #666666;
+      padding-left: 10px;
+      display: block;
+    }
+
+    &.active {
+      border-left: solid 1px @cyan;
+
+      a {
+        color: @cyan;
+      }
+    }
+  }
+}
+
+.center-general-info {
+  position: relative;
+
+  h1 {
+    font-size: @base_font_size + 12;
+    text-transform: none;
+    font-weight: @base_font_weight;
+  }
+
+  hr {
+    bottom: 70px;
+    position: absolute;
+  }
+}
