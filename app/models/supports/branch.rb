@@ -6,7 +6,7 @@ class Supports::Branch
   end
 
   def city_options
-    @city_options ||= City.pluck :name, :id
+    @city_options ||= City.priority_desc.pluck :name, :id
   end
 
   def district_options
