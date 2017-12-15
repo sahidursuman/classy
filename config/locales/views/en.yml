@@ -69,11 +69,6 @@ en:
         add_report_reason_placeholder: Tell us reason why you want to report?
         report: *report
         cancel: Cancel
-    google_map:
-      branch_info:
-        email: Email
-        phone_number: Phone number
-        rating: Rating
     comments:
       new_comment:
         post: Post

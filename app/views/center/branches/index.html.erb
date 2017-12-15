@@ -9,17 +9,18 @@
       <%= f.select :city_key_name_eq, @support.active_branches_city_options,
         {include_blank: t(".select_city")} %>
     <% end %>
-    <table class="table">
-      <thead>
-        <th>Name</th>
-        <th>Address</th>
-        <th>District</th>
-        <th>City</th>
-      </thead>
-      <tbody id="branch_list">
-        <%= render partial: :branch, collection: @branches, as: :branch %>
-      </tbody>
-    </table>
-    <%= render "shared/google_map/branches_map", branches: @branches %>
+    <div class="row">
+      <div class="col-md-4">
+        <ul id="branch_list" style="padding-left: 20px;">
+          <%= render partial: :branch, collection: @branches, as: :branch %>
+        </ul>
+      </div>
+      <div class="col-md-8">
+        <div id="branch_map_wrapper">
+          <div id="map_canvas" class="mapping"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<script type="text/javascript">draw_branch_map();</script>

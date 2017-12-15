@@ -1,6 +1,9 @@
-<tr>
-  <td><%= branch.full_name %></td>
-  <td><%= branch.address %></td>
-  <td><%= branch.district.name %></td>
-  <td><%= branch.city.name %></td>
-</tr>
+<li>
+  <strong><%= branch.full_name %></strong><br/>
+  <%= branch.full_address %><br/>
+  <tel><%= branch.phone_number %>
+  <%= link_to "#", class: "branch_on_map", data: branch.map_data do %>
+    <%= t ".view_on_map" %>
+  <% end %>
+</li>
+<br/>
