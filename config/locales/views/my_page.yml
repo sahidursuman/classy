@@ -4,7 +4,7 @@ en:
     cancel: &cancel Cancel
     updated: &updated Your profile has been updated successfully
   my_page:
-    account_informations:
+    accounts:
       edit:
         update: *update
         cancel: *cancel
@@ -13,7 +13,7 @@ en:
         updated: *updated
         faield: Failed to update your account information
 
-    personal_informations:
+    profiles:
       edit:
         edit_personal_information: Edit personal information
         update: *update

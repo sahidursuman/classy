@@ -1,9 +1,9 @@
-class MyPage::PersonalInformationsController < MyPage::BaseController
+class MyPage::AccountsController < MyPage::BaseController
   def edit
   end
 
   def update
-    if @user.update_attributes user_params
+    if @user.update_with_password user_params
       flash[:success] = t ".updated"
       redirect_to user_path(@user)
     else
@@ -14,6 +14,6 @@ class MyPage::PersonalInformationsController < MyPage::BaseController
 
   private
   def user_params
-    params.require(:user).permit User::PERSONAL_INFORMATION_PARAMS
+    params.require(:user).permit User::ACCOUNT_INFORMATION_PARAMS
   end
 end
