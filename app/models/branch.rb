@@ -17,6 +17,8 @@ class Branch < ApplicationRecord
 
   before_save :geocode, if: :require_geocode?
 
+  scope :order_name_asc, ->{order name: :asc}
+
   enum status: [:active, :inactive]
 
   acts_as_url :name, url_attribute: :slug, scope: :center_id, sync_url: true,

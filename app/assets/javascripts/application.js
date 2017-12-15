@@ -23,3 +23,4 @@
 //= require center_search
 //= require load_dynamic_options
 //= require cable
+//= require center_map
