@@ -68,7 +68,7 @@ sample_locations = [
   {latitude: 21.081203, longitude: 105.920982}
 ]
 puts "Create branches"
-Branch.skip_callback :validation, :after, :geocode
+Branch.skip_callback :save, :before, :geocode
 Center.find_each do |center|
   branches_count = rand(10) + 1
   branches_count.times.each do |i|
@@ -86,7 +86,7 @@ Center.find_each do |center|
       cached_avarage_rating: rand(4) + 1
   end
 end
-Branch.set_callback :validation, :after, :geocode
+Branch.set_callback :save, :before, :geocode
 
 puts "Create center managers"
 total_center_manager = 0
