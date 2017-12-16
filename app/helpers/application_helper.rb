@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def currency_format number
-    number_with_delimiter(number) + " " + t("currency_unit")
+    number_with_delimiter(number) + t("currency_unit")
   end
 
   def avarage_rating_format number
@@ -17,6 +17,10 @@ module ApplicationHelper
     else
       "--"
     end
+  end
+
+  def rating_label number
+    number.present? ? (number > Settings.review.avarage ? "high" : "low") : "none"
   end
 
   def time_as_format time, format = :default

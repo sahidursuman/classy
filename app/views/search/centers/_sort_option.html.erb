@@ -1,4 +1,4 @@
 <li class="center_sort_option <%= 'active' if option.to_s == search_form.order_by.to_s %>"
   data-value="<%= option %>">
-  <%= link_to t(".#{option}"), "#" %>
+  <a><%= t ".#{option}" %></a>
 </li>

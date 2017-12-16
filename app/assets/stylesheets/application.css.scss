@@ -11,8 +11,15 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
- *= require css/bootstrap.min
  *= require map
  *= require vote
  *= require css/select2
+ *= require css/bootstrap-v4.min
+ *= require css/theme-animation
+ *= require css/theme-style
+ *= require css/theme-typography.css
+ *= require css/theme-cyan-skin.css
+ *= require css/font-awesome.min
+ *= require css/fontello.min
+ *= require sass/common
  */

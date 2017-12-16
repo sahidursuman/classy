@@ -44,6 +44,8 @@ class Review < ApplicationRecord
 
   acts_as_paranoid
 
+  counter_culture :center, column_name: proc {|model| model.verified? ? "review_counter_cached" : nil}
+
   delegate :name, :route_params, to: :branch, prefix: true, allow_nil: true
   delegate :name, :route_params, to: :center, prefix: true, allow_nil: true
 
