@@ -1,0 +1,28 @@
+<div class="col-lg-2 col-md-2">
+  <ul class="list-tool pl-0">
+    <li class="<%= content_for :center_home_page_activation %>">
+      <%= link_to center_path(center.route_params) do %>
+        <%= t ".home_page" %>
+        <span class="fa fa-angle-right pt-2 text-muted" style="float: right;"></span>
+      <% end %>
+    </li>
+    <li class="<%= content_for :center_reviews_activation %>">
+      <%= link_to center_reviews_path(center.route_params) do %>
+        <%= t ".reviews" %>
+        <span class="fa fa-angle-right pt-2 text-muted" style="float: right;"></span>
+      <% end %>
+    </li>
+    <li class="<%= content_for :center_branches_activation %>">
+      <%= link_to center_branches_path(center.route_params) do %>
+        <%= t ".branches" %>
+        <span class="fa fa-angle-right pt-2 text-muted" style="float: right;"></span>
+      <% end %>
+    </li>
+    <li class="<%= content_for :center_courses_activation %>">
+      <%= link_to center_courses_path(center.route_params) do %>
+        <%= t ".courses" %>
+        <span class="fa fa-angle-right pt-2 text-muted" style="float: right;"></span>
+      <% end %>
+    </li>
+  </ul>
+</div>

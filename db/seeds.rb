@@ -50,7 +50,9 @@ puts "Creating center"
   center = Center.create! name: Faker::Educator.university,
     center_category: center_category,
     status: :active,
-    description: Faker::Lorem.paragraphs.join("\n")
+    description: Faker::Lorem.paragraphs.join("\n"),
+    phone_number: Faker::Number.number(10),
+    email: Faker::Internet.email
 end
 
 
