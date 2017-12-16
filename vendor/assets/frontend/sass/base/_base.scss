@@ -1,7 +1,8 @@
-html,body {
+html, body {
   height: 100%;
   background: $grey;
   font-weight: $base_font_weight;
+  color: $darkest-grey;
 }
 
 .grey-bg {
@@ -20,16 +21,16 @@ html,body {
   background-color: $green;
 }
 
-.bg-dark-grey {
+.bg-dark-grey, .bg-none {
   background-color: $dark-grey;
 }
 
-.text-dark-grey {
+.text-dark-grey, .text-none {
   color: $dark-grey;
 }
 
-.text-darker-grey {
-  color: $darker-grey;
+.text-darkest-grey {
+  color: $darkest-grey;
 }
 
 .bg-red {
@@ -49,5 +50,45 @@ html,body {
 }
 
 .form-control {
-  font-weight: $base_font_size;
+  font-weight: $base_font_weight!important;
+}
+
+.rounded {
+  border-radius: 50%!important;
+}
+
+.bg-excellent, .bg-high {
+  background-color: $green;
+}
+
+.bg-good, {
+  background-color: $light-blue;
+}
+
+.bg-medium {
+  background-color: $light-yellow;
+}
+
+.bg-bad, .bg-low {
+  background-color: $light-red;
+}
+
+.text-excellent, .text-high {
+  color: $green;
+}
+
+.text-good {
+  color: $light-blue;
+}
+
+.text-medium {
+  color: $light-yellow;
+}
+
+.text-bad, .text-low {
+  color: $light-red;
+}
+
+.bold {
+  font-weight: $base_font_weight + 100;
 }

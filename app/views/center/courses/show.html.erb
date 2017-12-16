@@ -1,55 +1,50 @@
 <% content_for :center_courses_activation, "active" %>
-<div class="row">
-  <div class="col-md-2">
-    <%= render "center/shared/menu", center: @center %>
+<div class="col-md-10">
+  <h2><%= @course.name %></h2>
+  <hr/>
+  <div>
+    <strong><%= Course.human_attribute_name :course_category %></strong>
+    <%= @course.course_category.name %>
   </div>
-  <div class="col-md-10">
-    <h2><%= @course.name %></h2>
-    <hr/>
-    <div>
-      <strong><%= Course.human_attribute_name :course_category %></strong>
-      <%= @course.course_category.name %>
-    </div>
-    <hr/>
-    <div>
-      <strong><%= Course.human_attribute_name :intended_student %></strong><br/>
-      <%= custom_simple_format @course.intended_student %>
-    </div>
-    <hr/>
-    <div>
-      <strong><%= Course.human_attribute_name :target %></strong><br/>
-      <%= custom_simple_format @course.target %>
-    </div>
-    <hr/>
-    <div>
-      <strong><%= Course.human_attribute_name :sessions %></strong>
-      <%= @course.sessions %>
-    </div>
-    <hr/>
-    <div>
-      <strong><%= Course.human_attribute_name :duration %></strong>
-      <%= number_with_precision @course.duration, strip_insignificant_zeros: true %>
-    </div>
-    <hr/>
-    <div>
-      <strong><%= Course.human_attribute_name :class_size %></strong>
-      <%= @course.class_size %>
-    </div>
-    <hr/>
-    <div>
-      <strong><%= Course.human_attribute_name :curriculum %></strong><br/>
-      <%= custom_simple_format @course.curriculum %>
-    </div>
-    <hr/>
-    <div>
-      <strong><%= Course.human_attribute_name :teaching_methods %></strong><br/>
-      <%= custom_simple_format @course.teaching_methods %>
-    </div>
-    <hr/>
-    <div>
-      <strong><%= Course.human_attribute_name :tuition_fee %></strong>
-      <%= currency_format @course.tuition_fee %>
-    </div>
-    <hr/>
+  <hr/>
+  <div>
+    <strong><%= Course.human_attribute_name :intended_student %></strong><br/>
+    <%= custom_simple_format @course.intended_student %>
   </div>
+  <hr/>
+  <div>
+    <strong><%= Course.human_attribute_name :target %></strong><br/>
+    <%= custom_simple_format @course.target %>
+  </div>
+  <hr/>
+  <div>
+    <strong><%= Course.human_attribute_name :sessions %></strong>
+    <%= @course.sessions %>
+  </div>
+  <hr/>
+  <div>
+    <strong><%= Course.human_attribute_name :duration %></strong>
+    <%= number_with_precision @course.duration, strip_insignificant_zeros: true %>
+  </div>
+  <hr/>
+  <div>
+    <strong><%= Course.human_attribute_name :class_size %></strong>
+    <%= @course.class_size %>
+  </div>
+  <hr/>
+  <div>
+    <strong><%= Course.human_attribute_name :curriculum %></strong><br/>
+    <%= custom_simple_format @course.curriculum %>
+  </div>
+  <hr/>
+  <div>
+    <strong><%= Course.human_attribute_name :teaching_methods %></strong><br/>
+    <%= custom_simple_format @course.teaching_methods %>
+  </div>
+  <hr/>
+  <div>
+    <strong><%= Course.human_attribute_name :tuition_fee %></strong>
+    <%= currency_format @course.tuition_fee %>
+  </div>
+  <hr/>
 </div>

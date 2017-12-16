@@ -19,6 +19,10 @@ module ApplicationHelper
     end
   end
 
+  def review_counter_format number
+    (number.present? && number > 0) ? number : "--"
+  end
+
   def rating_label number
     number.present? ? (number > Settings.review.avarage ? "high" : "low") : "none"
   end

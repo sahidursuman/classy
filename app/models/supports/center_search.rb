@@ -16,8 +16,8 @@ class Supports::CenterSearch
     @centers ||= ::Center.active.ransack_search_result(center_conditions).from("centers centers")
       .joins("INNER JOIN (#{course_search_sql}) course_search ON centers.id = course_search.center_id")
       .select("centers.*, course_search.min_tuition_fee as min_course_tuition_fee, course_search.count_course as count_course")
-      .includes(:cities, branches: :district)
-      .page(page).per(Settings.center_search.center_per_page).decorate
+      .page(page).per(Settings.center_search.center_per_page)
+      .includes(:cities, :branches, :courses, :course_categories).decorate
   end
 
   def course_results

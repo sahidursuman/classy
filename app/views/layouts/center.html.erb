@@ -12,7 +12,12 @@
           <div id="flash-messages">
             <%= render "layouts/shared/flash" %>
           </div>
-          <%= yield %>
+          <%= render "layouts/center/center_details", center: @center,
+            avarage_rating: @center_avarage_rating %>
+          <div class="row mt-4">
+            <%= render "layouts/center/center_side_bar", center: @center %>
+            <%= yield %>
+          </div>
         </div>
       </section>
 

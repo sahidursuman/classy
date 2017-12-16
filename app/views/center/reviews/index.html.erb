@@ -1,24 +1,19 @@
 <% content_for :center_reviews_activation, "active" %>
-<div class="row">
-  <div class="col-md-2">
-    <%= render "center/shared/menu", center: @center %>
-  </div>
-  <div class="col-md-10">
-    <%= render "branch_filter", center: @center, q: @q, support: @support %>
-    <div class="row">
-      <div class="col-md-8">
-        <div id="review-list">
-          <%= render partial: "shared/reviews/review", collection: @reviews, as: :review %>
-        </div>
-        <div id="review_pagination">
-          <%= paginate @reviews, remote: true %>
-        </div>
+<div class="col-md-10">
+  <%= render "branch_filter", center: @center, q: @q, support: @support %>
+  <div class="row">
+    <div class="col-md-8">
+      <div id="review-list">
+        <%= render partial: "shared/reviews/review", collection: @reviews, as: :review %>
       </div>
-      <div class="col-md-4">
-        <div id="review_statistics">
-          <%= render "review_statistics", support: @support %>
-        </div>
+      <div id="review_pagination">
+        <%= paginate @reviews, remote: true %>
       </div>
-    <div class="report-modal"></div>
-  </div>
+    </div>
+    <div class="col-md-4">
+      <div id="review_statistics">
+        <%= render "review_statistics", support: @support %>
+      </div>
+    </div>
+  <div class="report-modal"></div>
 </div>

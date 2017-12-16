@@ -18,8 +18,13 @@ en:
     login_as: &login_as You are logged in as %{name}
     filter: &filter Filter
     reviews: &reviews Reviews
+    number_of_branch_in_cities: &number_of_branch_in_cities "%{number_of_branch} branches in %{cities}."
   select_course_sub_category: Select course sub category
   select_districts: Select districts
+  layouts:
+    center:
+      center_details:
+        number_of_branch_in_cities: *number_of_branch_in_cities
   home_pages:
     index:
       log_out: Log out
@@ -199,12 +204,10 @@ en:
         search: Search
       course_detail_filter:
         select_course_category: *select_course_category
-      branch_results:
-        branch_name: "Branch %{name}"
-        number_of_branch_in_cities: "%{number_of_branch} branches in %{cities}."
       center:
         tuition_fee: Tuition fee
         tuition_fee_from: Tuition fee from
+        number_of_branch_in_cities: *number_of_branch_in_cities
       search_control:
         search: Search
       sort_option:
