@@ -11,7 +11,7 @@ module ApplicationHelper
     number_with_delimiter(number) + " " + t("currency_unit")
   end
 
-  def summary_rating_format number
+  def avarage_rating_format number
     if number.present?
       number_with_precision number, precision: Settings.review.summary_rating_precision
     else

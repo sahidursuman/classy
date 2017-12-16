@@ -55,6 +55,21 @@ class Review < ApplicationRecord
     def ransackable_scopes auth_object = nil
       %i(order_by)
     end
+
+    def avarage_rating
+      attribute_list = Settings.review.criteria.map(&:attr_name).push "summary_rating"
+      select_sql = attribute_list.map do |attribute|
+        "CAST (SUM(#{attribute}) AS FLOAT)/COUNT(*) as #{attribute}_avg"
+      end.join ", "
+      select(select_sql)[0]
+    end
+
+    def classification
+      Settings.review.levels.inject({}) do |result, level|
+        review_counted = result.values.reduce 0, :+
+        result.merge level.name.to_sym => ransack(summary_rating_gteq: level.standard).result.count - review_counted
+      end.merge total: count
+    end
   end
 
   private

@@ -1,0 +1,6 @@
+<% support.review_classification.each do |key, value| %>
+  <div><%= key %>:<%= value %></div>
+<% end %>
+<%= render partial: "rating_criterion_avarage", collection: criterion_list, as: :rating_criterion,
+  locals: {avarage_rating_criteria: support.avarage_rating_criteria} %>
+<strong><%= avarage_rating_format support.avarage_rating_criteria.summary_rating_avg %></strong>

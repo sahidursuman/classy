@@ -12,6 +12,7 @@ user:
   last_name:
     max_length: 30
 review:
+  per_page: 10
   number_of_criteria: 5
   criteria:
     - {attr_name: rating_criterion_1, ratio: 20}
@@ -21,6 +22,11 @@ review:
     - {attr_name: rating_criterion_5, ratio: 20}
   rating_values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   summary_rating_precision: 1
+  levels:
+    - {name: excellent, standard: 9}
+    - {name: good, standard: 7.5}
+    - {name: medium, standard: 5}
+    - {name: bad, standard: 0}
 vote:
   vote_type_point:
     up: 1

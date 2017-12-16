@@ -1,7 +1,9 @@
 class ReviewDecorator < ApplicationDecorator
+  extend Paginatable
+  include Draper::LazyHelpers
+
   attr_accessor :voted_type
 
-  include Draper::LazyHelpers
 
   decorates_association :user
 
