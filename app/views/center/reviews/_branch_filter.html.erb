@@ -1,0 +1,5 @@
+<%= form_for q, url: center_reviews_path(center.route_params), method: :get, remote: true,
+  html: {class: "auto-submit-form"} do |f| %>
+  <%= f.select :order_by, review_sorting_options %>
+  <%= f.select :branch_slug_eq, support.branch_options, {include_blank: t(".all_branches")} %>
+<% end %>

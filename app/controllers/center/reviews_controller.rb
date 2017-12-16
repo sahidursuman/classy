@@ -4,7 +4,8 @@ class Center::ReviewsController < Center::BaseController
   def index
     @q = displayable_reviews.ransack params[:q]
     @q.order_by ||= Review::SORT_OPTIONS.first
-    @reviews = @q.result.includes(:user).decorate
+    @reviews = @q.result.page(params[:page]).per(Settings.review.per_page).includes(:user).decorate
+    @support = Supports::CenterReview.new @center, params[:q]
   end
 
   def new

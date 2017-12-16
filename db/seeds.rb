@@ -31,7 +31,7 @@ User.create! email: "moderator@gmail.com",
   avatar: open("app/assets/images/default-avatar.png")
 
 puts "Creating normal users"
-10.times.each do |i|
+15.times.each do |i|
   User.create! email: "member#{i}@gmail.com",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -75,15 +75,12 @@ Center.find_each do |center|
     district = districts.sample
     center.branches.create! name: district.name,
       status: :active,
-      description: Faker::Lorem.paragraphs.join("\n"),
       address: Faker::Address.street_address,
-      avatar: Faker::Avatar.image,
       district: district,
       city: district.city,
       latitude: sample_locations[i][:latitude],
       longitude: sample_locations[i][:longitude],
-      phone_number: Faker::Number.number(10),
-      cached_avarage_rating: rand(4) + 1
+      phone_number: Faker::Number.number(10)
   end
 end
 Branch.set_callback :save, :before, :geocode
@@ -132,20 +129,23 @@ puts "Creating reviews"
 Review.skip_callback :save, :after, :notify_new_review_verification
 normal_users = User.normal_user
 centers.each do |center|
-  review_count = rand normal_users.size
-  normal_users.sample(review_count).each do |user|
-    center.reviews.create! user: user,
-      branch: center.branches.sample,
-      title: Faker::Lorem.sentence,
-      content: Faker::Lorem.paragraphs.join("\n"),
-      rating_criterion_1: Settings.review.rating_values.sample,
-      rating_criterion_2: Settings.review.rating_values.sample,
-      rating_criterion_3: Settings.review.rating_values.sample,
-      rating_criterion_4: Settings.review.rating_values.sample,
-      rating_criterion_5: Settings.review.rating_values.sample,
-      phone_number_verifiable: Faker::Number.number(10),
-      email_verifiable: user.email,
-      status: Review.statuses.values.sample
+  center.branches.each do |branch|
+    review_count = rand normal_users.size
+    normal_users.sample(review_count).each do |user|
+      status = rand(4) > 0 ? :verified : [:unverified, :rejected].sample
+      center.reviews.create! user: user,
+        branch: branch,
+        title: Faker::Lorem.sentence,
+        content: Faker::Lorem.paragraphs.join("\n"),
+        rating_criterion_1: Settings.review.rating_values.sample,
+        rating_criterion_2: Settings.review.rating_values.sample,
+        rating_criterion_3: Settings.review.rating_values.sample,
+        rating_criterion_4: Settings.review.rating_values.sample,
+        rating_criterion_5: Settings.review.rating_values.sample,
+        phone_number_verifiable: Faker::Number.number(10),
+        email_verifiable: user.email,
+        status: status
+    end
   end
 end
 Review.set_callback :save, :after, :notify_new_review_verification
