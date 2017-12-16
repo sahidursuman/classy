@@ -27,6 +27,7 @@ review:
     - {name: good, standard: 7.5}
     - {name: medium, standard: 5}
     - {name: bad, standard: 0}
+  avarage: 5
 vote:
   vote_type_point:
     up: 1

@@ -1,10 +1,14 @@
-<%= form_for search_form, url: search_centers_path, method: :get, remote: true,
-  html: {id: "center_search_form"} do |f| %>
-  <%= render "location_filter", f: f, search_form: @search_form %>
-  <hr/>
-  <%= render "course_detail_filter", f: f, search_form: @search_form %>
-  <%= f.hidden_field :order_by %>
-  <div class="form-group">
-    <%= f.submit t(".search") %>
-  </div>
-<% end %>
+<div class="white-bg">
+  <%= form_for search_form, url: search_centers_path, method: :get, remote: true,
+    html: {id: "center_search_form"} do |f| %>
+    <%= render "location_filter", f: f, search_form: @search_form %>
+    <%= render "course_detail_filter", f: f, search_form: @search_form %>
+    <%= f.hidden_field :order_by %>
+    <div class="filter-block">
+      <%= f.button class: "btn btn-default btn-search mb-3 m-0" do %>
+        <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+        <%= t ".search" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

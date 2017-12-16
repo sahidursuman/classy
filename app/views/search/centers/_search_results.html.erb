@@ -1,8 +1,6 @@
 <% if centers.present? %>
-  <div>
-    <%= render partial: "center", collection: centers, as: :center,
-      locals: {search_form: search_form} %>
-  </div>
+  <%= render partial: "center", collection: centers, as: :center,
+    locals: {search_form: search_form} %>
 <% else %>
   <%= t ".not_found" %>
 <% end %>
