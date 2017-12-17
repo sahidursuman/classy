@@ -14,7 +14,7 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
-//= require js/bootstrap.min
+//= require dist/js/bootstrap.min
 //= require vote
 //= require comment
 //= require auto_submit_form
