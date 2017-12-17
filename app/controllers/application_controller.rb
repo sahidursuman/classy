@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 
   private
   def require_sign_in!
+    return if user_signed_in?
     flash[:alert] = t "require_sign_in"
     store_location_for :user, request.referer
     respond_to do |format|
