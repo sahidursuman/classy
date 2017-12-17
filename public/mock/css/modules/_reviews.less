@@ -23,9 +23,22 @@
       padding-top: 5px;
       margin-right: 5px;
     }
-    .new-comment {
-      padding-top: 10px!important;
-=
+    &.new-comment {
+      padding-top: 1px;
+      .comment-body {
+        margin-top: 10px;
+        textarea {
+          width: 98%;
+          padding-right: 50px;
+          padding: .375rem .75rem;
+          border: 1px solid @light-grey;
+        }
+      }
+      button {
+        height: 33px;
+        margin-left: -50px;
+        margin-top: -16px;
+      }
     }
   }
 }
