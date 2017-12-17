@@ -3,3 +3,4 @@ $("#review-list").html("<%= j render partial: 'shared/reviews/review', collectio
   as: :review, locals: {display_branch: true} %>");
 $("#review_statistics").html("<%= j render 'review_statistics', support: @support %>");
 $("#review_pagination").html("<%= j paginate @reviews, remote: true %>");
+draw_review_chart();

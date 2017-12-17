@@ -11,22 +11,6 @@ module ApplicationHelper
     number_with_delimiter(number) + t("currency_unit")
   end
 
-  def avarage_rating_format number
-    if number.present?
-      number_with_precision number, precision: Settings.review.summary_rating_precision
-    else
-      "--"
-    end
-  end
-
-  def review_counter_format number
-    (number.present? && number > 0) ? number : "--"
-  end
-
-  def rating_label number
-    number.present? ? (number > Settings.review.avarage ? "high" : "low") : "none"
-  end
-
   def time_as_format time, format = :default
     l time, format: format
   end

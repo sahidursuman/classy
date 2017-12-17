@@ -51,3 +51,88 @@
     <div class="new-comment-form"></div>
   </div>
 </div>
+<div class="row white-bg wrap-review mb-3 pb-2" id="review-details-<%= review.id %>">
+  <div class="review-content">
+    <div class="col-md-12 col-lg-12">
+      <%= render "shared/reviews/header", review: review %>
+    </div>
+    <div class="col-md-12 col-lg-12 px-0">
+      <hr class="m-0">
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <%= render partial: "shared/reviews/rating_criterion", collection: criterion_list, as: :criterion,
+        locals: {review: review} %>
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <hr class="mb-2">
+      <div class="mb-1 bold"><%= review.title %></div>
+      <div class="text-justify"><%= custom_simple_format review.content %></div>
+    </div>
+    <%= render "shared/reviews/branch_info", branch: review.branch if review.branch.present? %>
+    <div class="col-md-12 col-lg-12 px-0">
+      <hr class="my-2">
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <button class="icon-vote active white-bg text-darker-grey" data-toggle="tooltip" title="Upvote" data-placement="top">
+        <i class="fa fa-angle-up" aria-hidden="true"></i>
+      </button>
+      <span class="bold vote-point">+114</span>
+      <button class="icon-vote white-bg text-darker-grey" data-toggle="tooltip" title="Downvote" data-placement="bottom">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </button>
+      <a href="#" class="text-darker-grey pl-5"><i class="fa fa-commenting-o" aria-hidden="true"></i> <span>Xem 10 câu trả lời</span></a>
+    </div>
+  </div>
+  <div class="col-md-12 col-lg-12">
+    <hr class="mt-2 mb-3">
+    <div class="comment clearfix mb-1">
+      <div class="btn-group pull-right wrap-actions">
+        <button type="button" class="hidden-group-actions mt-0 pt-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <button class="dropdown-item" type="button">Edit</button>
+          <button class="dropdown-item" type="button">Delete</button>
+        </div>
+      </div>
+      <div class="comment-avatar pb-3">
+        <img class="rounded-circle" src="https://image.freepik.com/free-vector/colorful-abstract-background-with-squares_1035-3033.jpg" alt="avatar">
+      </div>
+      <div class="comment-body text-justify clearfix">
+        <p class="mb-0 pr-4">
+          <span class="bold">Do Hong Son</span>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        </p>
+        <span class="comment-meta">12:31 03/12/201</span>
+      </div>
+    </div>
+    <div class="comment clearfix mb-1">
+      <div class="btn-group pull-right wrap-actions">
+        <button type="button" class="hidden-group-actions mt-0 pt-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <button class="dropdown-item" type="button">Edit</button>
+          <button class="dropdown-item" type="button">Delete</button>
+        </div>
+      </div>
+      <div class="comment-avatar pb-3">
+        <img class="rounded-circle" src="https://image.freepik.com/free-vector/colorful-abstract-background-with-squares_1035-3033.jpg" alt="avatar">
+      </div>
+      <div class="comment-body text-justify clearfix">
+        <p class="mb-0 pr-4">
+          <span class="bold">Do Hong Son</span>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incation ullamco laboris nisi ut aliquip ex ea commodo
+        </p>
+        <span class="comment-meta">12:31 03/12/201</span>
+      </div>
+    </div>
+    <div class="comment clearfix pb-2">
+      <div class="comment-avatar pb-3 col-md-2 col-lg-2 no-padding">
+        <img class="rounded-circle" src="https://image.freepik.com/free-vector/colorful-abstract-background-with-squares_1035-3033.jpg" alt="avatar">
+      </div>
+      <div class="col-md-10 col-lg-10 p-0 new-comment comment-body">
+        <textarea class="form-control" rows="1" placeholder="Viết 1 bình luận..."></textarea>
+      </div>
+    </div>
+  </div>
+</div>

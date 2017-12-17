@@ -1,6 +1,28 @@
-<% support.review_classification.each do |key, value| %>
-  <div><%= key %>:<%= value %></div>
-<% end %>
-<%= render partial: "rating_criterion_avarage", collection: criterion_list, as: :rating_criterion,
-  locals: {avarage_rating_criteria: support.avarage_rating_criteria} %>
-<strong><%= avarage_rating_format support.avarage_rating_criteria.summary_rating_avg %></strong>
+<div class="bg-white pt-3">
+  <div class="text-center bold">
+    <i class="fa fa-file-text" aria-hidden="true"></i>
+    <%= review_counter_format support.review_classification[:total] %>
+    <%= t ".reviews " %>
+  </div>
+  <hr class="mt-2">
+  <div class="row">
+    <div class="chart-container col-md-5 col-lg-5 offset-md-1 offset-lg-1">
+      <canvas id="review-chart"></canvas>
+    </div>
+    <div class="col-md-6 col-lg-6">
+      <%= render partial: "review_level", collection: review_level_list, as: :level,
+        locals: {classification: support.review_classification} %>
+    </div>
+  </div>
+  <hr class="mb-1 pb-2">
+  <div>
+    <%= render partial: "rating_criterion_avarage", collection: criterion_list, as: :rating_criterion,
+      locals: {avarage_rating_criteria: support.avarage_rating_criteria} %>
+  </div>
+  <hr class="">
+  <div class="text-center pb-3">
+    <span class="text-<%= rating_label support.avarage_rating_criteria.summary_rating_avg %> bold">
+      <%= avarage_rating_format support.avarage_rating_criteria.summary_rating_avg %>
+    </span>
+  </div>
+</div>
