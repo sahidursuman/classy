@@ -36,8 +36,7 @@ class Center < ApplicationRecord
 
   acts_as_url :name, url_attribute: :slug, sync_url: true, callback_method: :before_save
 
-  mount_uploader :avatar, BusinessAvatarUploader
-  mount_uploader :logo, AvatarUploader
+  mount_uploader :avatar, AvatarUploader
 
   delegate :name, to: :center_category, prefix: true, allow_nil: true
 

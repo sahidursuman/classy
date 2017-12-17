@@ -1,4 +1,4 @@
 <% if @comments.present? %>
-  $("#review-details-<%= @review.id %> .comment-list")
-    .html("<%= j render partial: 'shared/comments/comment', collection: @comments, as: :comment %>");
+  $("#review-details-<%= @review.id %> .comment_list")
+    .html("<%= j render 'shared/reviews/comment_list', comments: @comments %>");
 <% end %>

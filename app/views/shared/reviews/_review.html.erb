@@ -1,35 +1,8 @@
 <div class="row" id="review-details-<%= review.id %>">
-  <%= render "shared/votes/vote_widget", review: review %>
+
   <div class="col col-md-11">
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <b><%= link_to review.user_full_name, review.user %></b>
-        <% if local_assigns[:center_displayed] %>
-          <br/>
-          <%= link_to review.center_name, center_path(review.center_route_params) %>
-        <% end %>
-        <span class="pull-right">
-          <strong><%= review.summary_rating %></strong>
-          <%= review.rating_criterion_1 %>
-          <%= review.rating_criterion_2 %>
-          <%= review.rating_criterion_3 %>
-          <%= review.rating_criterion_4 %>
-          <%= review.rating_criterion_5 %>
-          </br>
-          <%= link_to t(".report"),
-            new_report_path(report: {reportable_id: review.id, reportable_type: review.model_name}),
-            remote: true, class: "btn-new-report" %>
-        </span>
-        <br/>
-        <i><%= time_as_format review.created_at %></i>
-      </div>
-      <div class="panel-body">
-        <p><b><%= review.title %></b></p>
-        <%= review.content %>
-      </div>
       <div class="panel-footer">
-        <%= link_to t(".show_comments", count: review.comments_count),
-          review_comments_path(review), remote: true, class: "comments-count" %>
         <%=
           if policy(review).can_comment?
             link_to t(".new_comment"), new_review_comment_path(review),
@@ -73,66 +46,14 @@
       <hr class="my-2">
     </div>
     <div class="col-md-12 col-lg-12">
-      <button class="icon-vote active white-bg text-darker-grey" data-toggle="tooltip" title="Upvote" data-placement="top">
-        <i class="fa fa-angle-up" aria-hidden="true"></i>
-      </button>
-      <span class="bold vote-point">+114</span>
-      <button class="icon-vote white-bg text-darker-grey" data-toggle="tooltip" title="Downvote" data-placement="bottom">
-        <i class="fa fa-angle-down" aria-hidden="true"></i>
-      </button>
-      <a href="#" class="text-darker-grey pl-5"><i class="fa fa-commenting-o" aria-hidden="true"></i> <span>Xem 10 câu trả lời</span></a>
+      <%= render "shared/votes/vote_widget", review: review %>
+      <% if review.comments_count > 0 %>
+        <%= link_to t(".show_comments", count: review.comments_count),
+          review_comments_path(review), remote: true, class: "comments-count pull-right pt-1" %>
+      <% end %>
+      <a href="#" class="text-darker-grey pl-3"><i class="fa fa-commenting-o" aria-hidden="true"></i> <span>Xem 10 câu trả lời</span></a>
     </div>
   </div>
-  <div class="col-md-12 col-lg-12">
-    <hr class="mt-2 mb-3">
-    <div class="comment clearfix mb-1">
-      <div class="btn-group pull-right wrap-actions">
-        <button type="button" class="hidden-group-actions mt-0 pt-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
-        <div class="dropdown-menu dropdown-menu-right">
-          <button class="dropdown-item" type="button">Edit</button>
-          <button class="dropdown-item" type="button">Delete</button>
-        </div>
-      </div>
-      <div class="comment-avatar pb-3">
-        <img class="rounded-circle" src="https://image.freepik.com/free-vector/colorful-abstract-background-with-squares_1035-3033.jpg" alt="avatar">
-      </div>
-      <div class="comment-body text-justify clearfix">
-        <p class="mb-0 pr-4">
-          <span class="bold">Do Hong Son</span>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        </p>
-        <span class="comment-meta">12:31 03/12/201</span>
-      </div>
-    </div>
-    <div class="comment clearfix mb-1">
-      <div class="btn-group pull-right wrap-actions">
-        <button type="button" class="hidden-group-actions mt-0 pt-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
-        <div class="dropdown-menu dropdown-menu-right">
-          <button class="dropdown-item" type="button">Edit</button>
-          <button class="dropdown-item" type="button">Delete</button>
-        </div>
-      </div>
-      <div class="comment-avatar pb-3">
-        <img class="rounded-circle" src="https://image.freepik.com/free-vector/colorful-abstract-background-with-squares_1035-3033.jpg" alt="avatar">
-      </div>
-      <div class="comment-body text-justify clearfix">
-        <p class="mb-0 pr-4">
-          <span class="bold">Do Hong Son</span>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incation ullamco laboris nisi ut aliquip ex ea commodo
-        </p>
-        <span class="comment-meta">12:31 03/12/201</span>
-      </div>
-    </div>
-    <div class="comment clearfix pb-2">
-      <div class="comment-avatar pb-3 col-md-2 col-lg-2 no-padding">
-        <img class="rounded-circle" src="https://image.freepik.com/free-vector/colorful-abstract-background-with-squares_1035-3033.jpg" alt="avatar">
-      </div>
-      <div class="col-md-10 col-lg-10 p-0 new-comment comment-body">
-        <textarea class="form-control" rows="1" placeholder="Viết 1 bình luận..."></textarea>
-      </div>
-    </div>
+  <div class="col-md-12 col-lg-12 comment_list">
   </div>
 </div>

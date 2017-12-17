@@ -3,8 +3,8 @@ module ApplicationHelper
     (page - 1) * per_page + counter + 1
   end
 
-  def custom_simple_format text
-    simple_format strip_tags text
+  def custom_simple_format text, options = {}
+    simple_format strip_tags(text), {}, options
   end
 
   def currency_format number

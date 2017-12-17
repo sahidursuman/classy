@@ -1,11 +1,5 @@
-<div class="col col-md-1 vote-widget">
-  <div class="panel panel-default text-center">
-    <div class="panel-heading">
-      <%= render "shared/votes/vote_button", review: review, vote_type: :up %>
-    </div>
-    <div class="panel-body"><%= review.vote_points_cached %></div>
-    <div class="panel-footer">
-      <%= render "shared/votes/vote_button", review: review, vote_type: :down %>
-    </div>
-  </div>
-</div>
+<span class="vote-widget">
+  <%= render "shared/votes/vote_button", review: review, vote_type: :up %>
+  <span class="bold vote-point"><%= review.vote_points_cached %></span>
+  <%= render "shared/votes/vote_button", review: review, vote_type: :down %>
+</span>

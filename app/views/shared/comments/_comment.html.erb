@@ -1,30 +1,23 @@
-<div id="comment-<%= comment.id %>">
-  <div class="media comment-form">
-    <div class="media-left">
-    </div>
-    <div class="media-body">
-      <b class="media-heading"><%= link_to comment.owner_full_name, comment.owner_path %></b>
-      <span class="pull-right">
-        <%= link_to t(".report"),
-          new_report_path(report: {reportable_id: comment.id, reportable_type: comment.model_name}),
-          remote: true, class: "btn-new-report media-heading" %>
-      </span>
-      <p><%= comment.content %></p>
-      <span class="pull-right">
-        <%=
-          if policy(comment.object).edit?
-            link_to t(".edit"), edit_comment_path(comment), remote: true
-          end
-        %>
-        <%=
-          if policy(comment.object).destroy?
-            link_to t(".delete"), comment_path(comment), remote: true,
-              method: :delete, data: {confirm: t(".confirm_delete")}
-          end
-        %>
-      </span>
+<div class="comment clearfix mb-1" id="comment-<%= comment.id %>">
+  <div class="btn-group pull-right wrap-actions">
+    <button type="button" class="hidden-group-actions mt-0 pt-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+    <div class="dropdown-menu dropdown-menu-right">
+      <button class="dropdown-item" type="button">Edit</button>
+      <button class="dropdown-item" type="button">Delete</button>
     </div>
   </div>
-  <div class="edit-comment-form"></div>
-  <hr/>
+  <div class="comment-avatar pb-3">
+    <%= link_to comment.owner_path do %>
+      <%= image_tag comment.owner.avatar.small.url, class: "rounded-circle" %>
+    <% end %>
+  </div>
+  <div class="comment-body text-justify clearfix">
+    <p class="mb-0 pr-4">
+      <%= link_to comment.owner_path do %>
+        <span class="bold"><b><%= comment.owner_name %></b></span>
+      <% end %>
+      <%= custom_simple_format comment.content, wrapper_tag: :span %>
+    </p>
+    <span class="comment-meta"><%= time_as_format comment.created_at %></span>
+  </div>
 </div>
