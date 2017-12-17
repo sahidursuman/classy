@@ -1,4 +1,4 @@
-<div>
-  <%= Review.human_attribute_name rating_criterion %>:
-  <%= avarage_rating_format avarage_rating_criteria.public_send "#{rating_criterion}_avg" %>
+<div class="col-md-12 col-lg-12">
+  <%= render "shared/reviews/rating_progress", criterion: rating_criterion,
+    rating: avarage_rating_criteria.public_send("#{rating_criterion}_avg") %>
 </div>

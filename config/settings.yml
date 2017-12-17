@@ -28,6 +28,7 @@ review:
     - {name: medium, standard: 5}
     - {name: bad, standard: 0}
   avarage: 5
+  max_rating: 10
 vote:
   vote_type_point:
     up: 1
@@ -117,6 +118,7 @@ business_avatar:
 avatar:
   versions:
     medium: [200, 200]
+    small: [50, 50]
 center_search:
   center_per_page: 5
   max_branches_on_result: 1

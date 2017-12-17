@@ -154,6 +154,11 @@ en:
       index:
         recent_created: Newest
         vote_points_desc: Most voting
+      review_level:
+        excellent: Excellent
+        good: Good
+        medium: Medium
+        bad: Bad
   branches:
     index:
       select_city: "Select city"

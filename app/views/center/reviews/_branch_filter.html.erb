@@ -1,5 +1,15 @@
-<%= form_for q, url: center_reviews_path(center.route_params), method: :get, remote: true,
-  html: {class: "auto-submit-form"} do |f| %>
-  <%= f.select :order_by, review_sorting_options %>
-  <%= f.select :branch_slug_eq, support.branch_options, {include_blank: t(".all_branches")} %>
-<% end %>
+<div class="sort-options">
+  <div class="collap-filter-nav review_filter">
+    <%= form_for q, url: center_reviews_path(center.route_params), method: :get, remote: true,
+      html: {class: "auto-submit-form"} do |f| %>
+      <ul class="filter-nav mb-0 pl-0 text-center">
+        <li class="pull-right m-1">
+          <%= f.select :branch_slug_eq, support.branch_options, {include_blank: t(".all_branches")},
+            class: "form-control" %>
+        </li>
+        <li class="active p-1"><a>Mới nhất</a></li>
+        <li class="p-1"><a>Hữu ích nhất</a></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
