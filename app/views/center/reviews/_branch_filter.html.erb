@@ -7,8 +7,9 @@
           <%= f.select :branch_slug_eq, support.branch_options, {include_blank: t(".all_branches")},
             class: "form-control" %>
         </li>
-        <li class="active p-1"><a>Mới nhất</a></li>
-        <li class="p-1"><a>Hữu ích nhất</a></li>
+        <li class="pull-right m-1">
+          <%= f.select :order_by, review_sorting_options, {}, class: "form-control" %>
+        </li>
       </ul>
     <% end %>
   </div>

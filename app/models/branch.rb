@@ -7,7 +7,6 @@ class Branch < ApplicationRecord
   has_many :branch_managements
   has_many :branch_managers, through: :branch_managements, source: :user
   has_many :reviews
-  has_many :comments
 
   validates :name, presence: true, length: {maximum: Settings.validations.branch.name.max_length}
   validates :city_id, :district_id, presence: true

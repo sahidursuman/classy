@@ -161,11 +161,10 @@ reviews.each do |review|
       UserComment.create! user: normal_users.sample,
         content: Faker::Lorem.paragraph,
         review: review
-    elsif branch_manager = review.branch.branch_managers.sample
-      CenterComment.create! user: branch_manager,
+    elsif center_manager = review.center.managers.sample
+      CenterComment.create! user: center_manager,
         content: Faker::Lorem.paragraph,
-        review: review,
-        branch: review.branch
+        review: review
     end
   end
 end

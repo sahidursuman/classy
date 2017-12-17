@@ -82,6 +82,10 @@ en:
         confirm_delete: Are you sure to delete this comment?
         delete: *delete
         report: *report
+    votes:
+      vote_button:
+        up: Vote up
+        down: Vote down
   management:
     branches:
       index:

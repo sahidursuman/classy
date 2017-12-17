@@ -6,7 +6,7 @@ class Review::CommentsController < Review::BaseController
   end
 
   def index
-    @comments = @review.comments.earlier_created.includes(:user, :branch).decorate
+    @comments = @review.comments.earlier_created.includes(:user, :center).decorate
   end
 
   def create

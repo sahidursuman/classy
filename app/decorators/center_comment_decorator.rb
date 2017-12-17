@@ -1,9 +1,11 @@
 class CenterCommentDecorator < CommentDecorator
-  decorates_association :branch
-  
-  delegate :full_name, to: :branch, prefix: :owner
-  
+  delegate :name, to: :center, prefix: :owner
+
   def owner_path
-    branch_path branch.route_params
+    center_path center.route_params
+  end
+
+  def owner
+    center
   end
 end
