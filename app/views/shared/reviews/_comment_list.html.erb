@@ -1,15 +1,5 @@
- <hr class="mt-2 mb-2">
-<%= render partial: "shared/comments/comment", collection: comments, as: :comment %>
+<hr class="mt-2 mb-2">
 <% if user_signed_in? %>
-  <div class="comment new-comment clearfix">
-    <div class="comment-avatar pb-3">
-      <img class="rounded-circle" src="https://image.freepik.com/free-vector/colorful-abstract-background-with-squares_1035-3033.jpg" alt="avatar">
-    </div>
-    <div class="comment-body text-justify clearfix">
-      <textarea class="" rows="1" placeholder="Viết 1 bình luận..."></textarea>
-      <button class="btn btn-primary">
-        <i class="fa fa-paper-plane"></i>
-      </button>
-    </div>
-  </div>
+  <%= render "shared/reviews/new_comment", review: review, new_comment: new_comment %>
 <% end %>
+<%= render partial: "shared/comments/comment", collection: comments, as: :comment %>

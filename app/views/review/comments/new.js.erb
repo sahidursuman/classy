@@ -1,3 +1,3 @@
-$("#review-details-<%= @review.id %> .new-comment-form")
-  .html("<%= j (render 'shared/comments/new_comment', review: @review) %>");
-$("#review-details-<%= @review.id %> .new-comment").hide();
+$("#review-details-<%= @review.id %> .comment_list")
+  .html("<%= j render 'shared/reviews/comment_list', review: @review, comments: @comments, \
+    new_comment: @comment %>");

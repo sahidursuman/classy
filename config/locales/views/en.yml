@@ -67,6 +67,8 @@ en:
         confirm_delete: "Are you sure to delete this review?"
         new_comment: New comment
         report: *report
+      new_comment:
+        new_comment_placeholder: "Your comment..."
     reports:
       report_modal:
         report: *report

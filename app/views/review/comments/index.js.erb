@@ -1,4 +1,3 @@
-<% if @comments.present? %>
-  $("#review-details-<%= @review.id %> .comment_list")
-    .html("<%= j render 'shared/reviews/comment_list', comments: @comments %>");
-<% end %>
+$("#review-details-<%= @review.id %> .comment_list")
+  .html("<%= j render 'shared/reviews/comment_list', review: @review, comments: @comments, \
+    new_comment: @comment %>");

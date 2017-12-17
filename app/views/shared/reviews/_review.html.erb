@@ -1,29 +1,3 @@
-<div class="row" id="review-details-<%= review.id %>">
-
-  <div class="col col-md-11">
-    <div class="panel panel-default">
-      <div class="panel-footer">
-        <%=
-          if policy(review).can_comment?
-            link_to t(".new_comment"), new_review_comment_path(review),
-              remote: true, class: "new-comment"
-          end
-        %>
-        <span class="pull-right">
-          <%= link_to t(".edit"), edit_review_path(review) if policy(review).update? %>
-          <%=
-            if policy(review).destroy?
-              link_to t(".delete"), review_path(review), method: :delete,
-                data: {confirm: t(".confirm_delete")}
-            end
-          %>
-        </span>
-      </div>
-    </div>
-    <div class="comment-list"></div>
-    <div class="new-comment-form"></div>
-  </div>
-</div>
 <div class="row white-bg wrap-review mb-3 pb-2" id="review-details-<%= review.id %>">
   <div class="review-content">
     <div class="col-md-12 col-lg-12">
@@ -51,7 +25,10 @@
         <%= link_to t(".show_comments", count: review.comments_count),
           review_comments_path(review), remote: true, class: "comments-count pull-right pt-1" %>
       <% end %>
-      <a href="#" class="text-darker-grey pl-3"><i class="fa fa-commenting-o" aria-hidden="true"></i> <span>Xem 10 câu trả lời</span></a>
+      <%= link_to new_review_comment_path(review), class: "text-darker-grey pl-3", remote: true do %>
+        <i class="fa fa-commenting-o" aria-hidden="true"></i>
+        <span><%= t ".new_comment" %></span>
+      <% end %>
     </div>
   </div>
   <div class="col-md-12 col-lg-12 comment_list">
