@@ -796,7 +796,7 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button class="btn btn-default btn-new-review my-3" data-toggle="modal" data-target="#new-review-modal">
+                  <button class="btn btn-default btn-new-review my-3" data-toggle="modal" data-target="#new-review-modal" data-backdrop="static" data-keyboard="false">
                     <i class="fa fa-comment pr-2" aria-hidden="true"></i>
                     Đánh giá mới
                   </button>
@@ -876,92 +876,109 @@
 
   <div class="modal fade" id="new-review-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
+      <div class="modal-content no-radius">
         <div class="modal-header white-bg">
+          <div>
+            Viết đánh giá:
+          </div>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-              <div class="form-group">
-                <label class="bold">Chi nhánh</label>
-                <select class="form-control">
-                  <option>Select branch</option>
-                  <option>Duy Tân</option>
-                  <option>Relish</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-              <div class="form-group">
-                <div class="col-sm-5 no-padding">
-                  <label class="bold mr10">Chất lượng đội ngũ giáo viên</label>
+            <div class="col-md-12 col-lg-12 mb-3">
+              <div class="border-bottom">
+                <div class="form-group row">
+                    <span class="bold col-md-8 col-lg-8 col-form-label">Trung tâm tiếng Anh framgia</span>
+                    <div class="col-md-4 col-lg-4">
+                      <select class="form-control">
+                        <option>Select branch</option>
+                        <option>Duy Tân</option>
+                        <option>Relish</option>
+                      </select>
+                    </div>
                 </div>
-                <input class="criterial_slider" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
               </div>
             </div>
-            <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-              <div class="form-group">
-                <div class="col-sm-5 no-padding">
-                  <label class="bold mr10">Mức độ uy tín</label>
+            <div class="col-md-12 col-lg-12 mb-3">
+              <div class="border-bottom rating">
+                <div class="col-md-12 col-lg-12 px-0">
+                  <div class="form-group row">
+                    <label class="bold col-md-3 col-lg-3">Đội ngũ giáo viên</label>
+                    <div class="col-md-9 col-lg-9 wrap-slider">
+                      <input class="criterial_slider" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                      <span class="criterial_slider_val">-</span>
+                    </div>
+                  </div>
                 </div>
-                <input class="criterial_slider" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-              <div class="form-group">
-                <div class="col-sm-5 no-padding">
-                  <label class="bold mr10">Phương pháp đào tạo</label>
+                <div class="col-md-12 col-lg-12 px-0">
+                  <div class="form-group row">
+                    <label class="bold col-md-3 col-lg-3">Đội ngũ giáo viên</label>
+                    <div class="col-md-9 col-lg-9 wrap-slider">
+                      <input class="criterial_slider" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                      <span class="criterial_slider_val">-</span>
+                    </div>
+                  </div>
                 </div>
-                <input class="criterial_slider" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-              <div class="form-group">
-                <div class="col-sm-5 no-padding">
-                  <label class="bold mr10">Học phí và thời gian học </label>
+                <div class="col-md-12 col-lg-12 px-0">
+                  <div class="form-group row">
+                    <label class="bold col-md-3 col-lg-3">Đội ngũ giáo viên</label>
+                    <div class="col-md-9 col-lg-9 wrap-slider">
+                      <input class="criterial_slider" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                      <span class="criterial_slider_val">-</span>
+                    </div>
+                  </div>
                 </div>
-                <input class="criterial_slider" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-              <div class="form-group">
-                <div class="col-sm-5 no-padding">
-                  <label class="bold mr10">Cơ sở vật chất và hạ tầng</label>
+                <div class="col-md-12 col-lg-12 px-0">
+                  <div class="form-group row">
+                    <label class="bold col-md-3 col-lg-3">Đội ngũ giáo viên</label>
+                    <div class="col-md-9 col-lg-9 wrap-slider">
+                      <input class="criterial_slider" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                      <span class="criterial_slider_val">-</span>
+                    </div>
+                  </div>
                 </div>
-                <input class="criterial_slider" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
+                <div class="col-md-12 col-lg-12 px-0">
+                  <div class="form-group row">
+                    <label class="bold col-md-3 col-lg-3">Đội ngũ giáo viên</label>
+                    <div class="col-md-9 col-lg-9 wrap-slider">
+                      <input class="criterial_slider" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5"/>
+                      <span class="criterial_slider_val">-</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-              <div class="form-group">
-                <label class="bold">Tiêu đề</label>
-                <input type="text" class="form-control">
+            <div class="col-md-12 col-lg-12 mb-3">
+              <div class="border-bottom pb-2">
+                <div class="form-group">
+                  <input type="text" class="form-control bold" placeholder="Nhập tiêu đề ví dụ (Trung tâm thật như)">
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" rows="5" placeholder="Cảm nghĩ của bạn về trung tâm..."></textarea>
+                </div>
               </div>
             </div>
-            <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-              <div class="form-group">
-                <label class="bold">Nội dung</label>
-                <textarea class="form-control" rows="3"></textarea>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-              <div class="form-group">
-                <label class="bold">Email xác nhận</label>
-                <input type="email" class="form-control">
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-              <div class="form-group">
-                <label class="bold">Số điện thoại</label>
-                <input type="text" class="form-control">
+            <div class="col-md-12 col-lg-12">
+              <div>
+                <div class="form-group row">
+                  <label class="bold col-md-3 col-lg-3 col-form-label">Email xác nhận</label>
+                  <div class="col-md-9 col-lg-9">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="bold col-md-3 col-lg-3 col-form-label">Số điện thoại</label>
+                  <div class="col-md-9 col-lg-9">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-          <button type="button" class="btn">Tạo mới</button>
+          <button type="button" class="btn btn-gray" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-default">Tạo mới</button>
         </div>
       </div>
     </div>

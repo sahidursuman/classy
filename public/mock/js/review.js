@@ -30,4 +30,8 @@ $(document).ready(function() {
   //end of chart
 
   $(".criterial_slider").slider({});
+  $(".criterial_slider").on("change", function() {
+    var value = $(this).parent().find(".tooltip-main .tooltip-inner").text();
+    $(this).next(".criterial_slider_val").text(value);
+  });
 });
