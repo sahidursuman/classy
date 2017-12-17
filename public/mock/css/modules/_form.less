@@ -56,4 +56,15 @@
       width: 60px;
     }
   }
+  .input-inline {
+    input:not(:focus) {
+      &.first {
+        border-right: none;
+      }
+      &.second {
+        border-left: none;
+      }
+    }
+
+  }
 }
