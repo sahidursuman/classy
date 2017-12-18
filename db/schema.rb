@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216170033) do
+ActiveRecord::Schema.define(version: 20171218152727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,16 +81,18 @@ ActiveRecord::Schema.define(version: 20171216170033) do
     t.string "name"
     t.integer "status"
     t.string "avatar"
-    t.text "description"
+    t.text "overview"
     t.float "summary_rating_cached"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.string "logo"
+    t.string "cover_image"
     t.string "email"
     t.string "phone_number"
     t.bigint "category_id"
     t.integer "review_counter_cached", default: 0
+    t.text "teacher_staff_intro"
+    t.text "curriculum_overview"
     t.index ["category_id"], name: "index_centers_on_category_id"
     t.index ["slug"], name: "index_centers_on_slug", unique: true
   end

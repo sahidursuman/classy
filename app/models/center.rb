@@ -1,5 +1,8 @@
 class Center < ApplicationRecord
-  ATTRIBUTES = [:name, :category_id, :logo, :avatar, :description, :email, :phone_number]
+  ATTRIBUTES = [:name, :cover_image, :avatar, :overview, :email, :phone_number, :teacher_staff_intro,
+    :curriculum_overview]
+  ADMIN_PERSIT_PARAMS = [:name, :cover_image, :avatar, :overview, :email, :phone_number,
+    :teacher_staff_intro, :curriculum_overview, :category_id]
   SORT_OPTIONS = [:recommendation_order, :summary_rating_desc, :minimum_tuition_fee_asc,
     :minimum_tuition_fee_desc]
 
@@ -18,13 +21,16 @@ class Center < ApplicationRecord
   has_many :managers, through: :center_managements, source: :user
   has_many :course_categories, ->{distinct}, through: :courses
 
-  validates :logo, file_size: {less_than_or_equal_to: eval(Settings.validations.center.logo.max_size)}
+  validates :cover_image, file_size: {less_than_or_equal_to: eval(Settings.validations.center.logo.max_size)}
   validates :avatar, file_size: {less_than_or_equal_to: eval(Settings.validations.center.avatar.max_size)}
   validates :name, presence: true, length: {maximum: Settings.validations.center.name.max_length}
   validates :category_id, presence: true
-  validates :description, length: {maximum: Settings.validations.center.description.max_length}
-  validates :email, email_format: true, length: {maximum: Settings.validations.center.email.max_length}
-  validates :phone_number, phone_number_format: true
+  validates :overview, presence: true, length: {maximum: Settings.validations.center.description.max_length}
+  validates :curriculum_overview, :teacher_staff_intro,
+    length: {maximum: Settings.validations.center.description.max_length}
+  validates :email, presence: true, email_format: true,
+    length: {maximum: Settings.validations.center.email.max_length}
+  validates :phone_number, presence: true, phone_number_format: true
 
   scope :recommendation_order, ->{}
   scope :summary_rating_desc, ->{order "summary_rating_cached DESC NULLS LAST"}

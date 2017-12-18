@@ -32,7 +32,9 @@
             <a><i class="fa fa-user"></i><%= t ".users" %></a>
           </li>
           <li class="<%= content_for :sidebar_centers_activation %>">
-            <a><i class="fa fa-mortar-board"></i><%= t ".centers" %></a>
+            <%= link_to admin_centers_path do %>
+              <i class="fa fa-mortar-board"></i><%= t ".centers" %>
+            <% end %>
           </li>
           <li class="<%= content_for :sidebar_reports_activation %>">
             <a><i class="fa fa-file-text-o"></i><%= t ".reports" %></a>

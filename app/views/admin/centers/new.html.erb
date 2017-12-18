@@ -1,0 +1,88 @@
+<% content_for :sidebar_centers_activation, "active" %>
+<% content_for :page_title do %>
+  <div class="title_left">
+    <h3><%= t ".center_management" %></h3>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><%= t ".new_center" %></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <%= form_for [:admin, @center], html: {class: "form-horizontal form-label-left"} do |f|%>
+          <div class="form-group">
+            <%= f.label :name, class: "control-label col-md-2 col-sm-2 col-xs-12" do %>
+              <%= t ".name "%><span class="required">*</span>
+            <% end %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :category_id, class: "control-label col-md-2 col-sm-2 col-xs-12" do %>
+              <%= t ".category "%><span class="required">*</span>
+            <% end %>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+              <%= f.select :category_id, @support.center_category_options, {include_blank: t(".select_category")},
+                class: "form-control" %>
+            </div>
+          </div>
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <%= f.label :overview, class: "control-label col-md-2 col-sm-2 col-xs-12" do %>
+              <%= t ".overview "%><span class="required">*</span>
+            <% end %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_area :overview, class: "form-control", rows: 5 %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :curriculum_overview, class: "control-label col-md-2 col-sm-2 col-xs-12" do %>
+              <%= t ".curriculum_overview "%>
+            <% end %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_area :curriculum_overview, class: "form-control", rows: 5 %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :teacher_staff_intro, class: "control-label col-md-2 col-sm-2 col-xs-12" do %>
+              <%= t ".teacher_staff_intro "%>
+            <% end %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_area :teacher_staff_intro, class: "form-control", rows: 5 %>
+            </div>
+          </div>
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <%= f.label :phone_number, class: "control-label col-md-2 col-sm-2 col-xs-12" do %>
+              <%= t ".phone_number "%><span class="required">*</span>
+            <% end %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :phone_number, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, class: "control-label col-md-2 col-sm-2 col-xs-12" do %>
+              <%= t ".email "%><span class="required">*</span>
+            <% end %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.email_field :email, class: "form-control" %>
+            </div>
+          </div>
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
+              <%= link_to admin_centers_path, class: "btn btn-default no-radius" do %>
+                <%= t ".cancel" %>
+              <% end %>
+              <%= f.submit class: "btn btn-success no-radius" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

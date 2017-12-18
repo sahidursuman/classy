@@ -45,3 +45,8 @@ en:
       create:
         success: Create review success
         failed: Fail to create review
+  admin:
+    centers:
+      create:
+        success: Create center success
+        failed: Fail to create center
