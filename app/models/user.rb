@@ -69,6 +69,10 @@ class User < ApplicationRecord
     admin? || moderator?
   end
 
+  def full_name
+    first_name + " " + last_name
+  end
+
   class << self
     def find_for_database_authentication warden_conditions
       conditions = warden_conditions.dup

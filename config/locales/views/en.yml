@@ -7,6 +7,7 @@ en:
   Comment: Comment
   currency_unit: ₫
   dictionary:
+    app_name: &app_name Classy
     select_city: &select_city Select city
     select_district: &select_district Select district
     preview: &preview Preview
