@@ -1,0 +1,60 @@
+<div class="header-fourth clearfix">
+  <div class="main-navigation main-navigation--mega-menu  animated">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-right">
+      <ul class="nav personal-actions">
+        <li>
+          <div class="btn-group notifications">
+            <button type="button" class="btn white-bg dropdown-toggle dropdown-toggle--no-caret"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= render "layouts/shared/notification_icon",
+                counter: current_user.unread_notification_counter %>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right cart dropdown-animation"
+              aria-labelledby="header-drop-2">
+              <li class="">
+                <a href="/search.html">Trung tâm của bạn có 1 đánh giá mới</a>
+              </li>
+              <li class="">
+                <a href="#">Trung tâm của bạn có 1 đánh giá mới Trung tâm của bạn có 1 đánh giá mới Trung tâm của bạn có 1 đánh giá mới</a>
+              </li>
+              <li class="unread">
+                <a href="#">Trung tâm của bạn có 1 đánh giá mới Trung tâm của bạn có 1 đánh giá mới</a>
+              </li>
+              <li class="unread">
+                <a href="#">Trung tâm của bạn có 1 đánh giá mới</a>
+              </li>
+              <li class="unread">
+                <a href="#">Trung tâm của bạn có 1 đánh giá mới</a>
+              </li>
+              <li>
+                <a href="#">Xem tất cả thông báo</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="btn-group profile-actions">
+            <button type="button" class="btn btn-sm white-bg dropdown-toggle dropdown-toggle-split"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag current_user.avatar.small.url, class: "avatar rounded" %>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#"><i class="fa fa-cog pr-20"></i> Settings</a>
+              <%= link_to user_path(current_user), class: "dropdown-item" do %>
+                <i class="fa fa-user pr-20"></i>
+                <%= t ".profile" %>
+              <% end %>
+              <div class="dropdown-divider"></div>
+              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                <i class="fa fa-sign-out pr-20"></i>
+                <%= t ".log_out" %>
+              <% end %>
+              <a class="dropdown-item" href="#"></a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
