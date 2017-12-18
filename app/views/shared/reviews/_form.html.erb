@@ -1,0 +1,59 @@
+<%= form_for review, url: center_review_path, remote: true do |f| %>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12 col-lg-12 mb-3">
+        <div class="border-bottom">
+          <div class="form-group row">
+              <span class="bold col-md-8 col-lg-8 col-form-label">
+                <%= review.center.name %>
+              </span>
+              <div class="col-md-4 col-lg-4">
+                <%= f.select :branch_id, support.branch_options, {include_blank: t(".select_branch")},
+                  class: "form-control" %>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12 mb-3">
+        <div class="border-bottom rating">
+        <%= render partial: "shared/reviews/criterion_input", collection: criterion_list,
+          as: :criterion, locals: {f: f, options: rating_values} %>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12 mb-3">
+        <div class="border-bottom pb-2">
+          <div class="form-group">
+            <%= f.text_field :title, class: "form-control", placeholder: t(".title_holder") %>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :content, class: "form-control", rows: 5,
+              placeholder: t(".content_holder") %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12">
+        <div>
+          <div class="form-group row">
+            <%= f.label :phone_number_verifiable, class: "bold col-md-3 col-lg-3 col-form-label" %>
+            <div class="col-md-9 col-lg-9">
+              <%= f.text_field :phone_number_verifiable, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :email_verifiable, class: "bold col-md-3 col-lg-3 col-form-label" %>
+            <div class="col-md-9 col-lg-9">
+              <%= f.email_field :email_verifiable, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-gray" data-dismiss="modal">
+      <%= t ".cancel" %>
+    </button>
+    <%= f.submit class: "btn btn-default" %>
+  </div>
+<% end %>
+<script type="text/javascript">initBootstrapSlider()</script>

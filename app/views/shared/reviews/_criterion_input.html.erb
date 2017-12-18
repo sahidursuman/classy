@@ -1,4 +1,10 @@
-<div class="form-group">
-  <%= f.label criterion, Review.human_attribute_name(criterion) %>
-  <%= f.select criterion, options, {include_blank: t(".rating")} %>
+<div class="col-md-12 col-lg-12 px-0">
+  <div class="form-group row">
+    <%= f.label criterion, class: "bold col-md-3 col-lg-3" %>
+    <div class="col-md-9 col-lg-9 wrap-slider">
+      <%= f.text_field criterion, class: "criterial_slider",
+        data: {"slider-min" => 0, "slider-max" => 10, "slider-step" => 1, "slider-value" => 5} %>
+      <span class="criterial_slider_val">-</span>
+    </div>
+  </div>
 </div>

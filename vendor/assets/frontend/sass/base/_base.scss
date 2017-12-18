@@ -90,7 +90,37 @@ html, body {
 }
 
 .bold {
-  font-weight: $base_font_weight + 100;
+  font-weight: $base_font_weight + 100!important;
+}
+
+.modal-lg {
+  width: 700px;
+}
+
+.modal-content {
+  border: 0;
+  .modal-header {
+    padding: 10px 25px;;
+    border-radius: 0;
+    color: $white;
+    button {
+      color: $white;
+    }
+  }
+  .modal-body {
+    padding: 15px 25px;
+  }
+  .modal-footer {
+      padding: 0 25px;
+    .btn {
+      margin-bottom: 10px;
+      min-width: 110px;
+    }
+  }
+}
+
+input::placeholder {
+  color: $light-grey!important;
 }
 
 form {

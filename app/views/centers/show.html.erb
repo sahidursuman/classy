@@ -6,8 +6,10 @@
     end
 
     if policy(@center).can_report?
-      link_to t(".report"), new_report_path(report: {reportable_id: @center.id,
-        reportable_type: @center.model_name}), remote: true, class: "btn-new-report"
+
     end
   %>
 </span>
+<%=   link_to t(".report"), new_report_path(report: {reportable_id: @center.id,
+        reportable_type: @center.model_name}), remote: true, class: "btn-new-report" %>
+<div class="report-modal"></div>

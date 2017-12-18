@@ -70,6 +70,9 @@ en:
         report: *report
       new_comment:
         new_comment_placeholder: "Your comment..."
+      form:
+        title_holder: Your title
+        content_holder: Content holder
     reports:
       report_modal:
         report: *report

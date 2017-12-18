@@ -14,8 +14,9 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
-//= require dist/js/bootstrap.min
 //= require navbar
+//= require js/popper-v4.min
+//= require js/bootstrap-v4.min
 //= require vote
 //= require comment
 //= require auto_submit_form
