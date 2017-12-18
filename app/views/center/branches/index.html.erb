@@ -1,17 +1,25 @@
 <% content_for :center_branches_activation, "active" %>
-<div class="col-md-10">
-  <%= form_for :q, url: center_branches_path(@center.route_params), method: :get,
-    remote: true, html: {class: "auto-submit-form"} do |f| %>
-    <%= f.select :city_key_name_eq, @support.active_branches_city_options,
-      {include_blank: t(".select_city")} %>
-  <% end %>
+<div class="col-lg-10 col-md-10 page-branch">
   <div class="row">
-    <div class="col-md-4">
-      <ul id="branch_list" style="padding-left: 20px;">
-        <%= render partial: :branch, collection: @branches, as: :branch %>
-      </ul>
+    <div class="sort-options">
+      <div class="collap-filter-nav">
+        <ul class="filter-nav mb-0 pl-0 text-center">
+          <li class="pull-right m-1">
+            <%= form_for :q, url: center_branches_path(@center.route_params), method: :get,
+              remote: true, html: {class: "auto-submit-form"} do |f| %>
+              <%= f.select :city_key_name_eq, @support.active_branches_city_options,
+                {include_blank: t(".select_city")}, class: "form-control" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-5 mb-3 py-3 white-bg">
+      <div id="branch_list">
+        <%= render partial: "branch_group", collection: @branch_groups, as: :branch_group %>
+      </div>
+    </div>
+    <div class="col-md-7 mb-3 pr-0">
       <div id="branch_map_wrapper">
         <div id="map_canvas" class="mapping"></div>
       </div>
