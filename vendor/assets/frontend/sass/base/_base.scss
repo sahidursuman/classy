@@ -53,6 +53,12 @@ html, body {
   border-radius: 0 !important;
 }
 
+select.form-control  {
+  border: 0;
+  outline: 1px solid $grey-border;
+  outline-offset: -1px;
+}
+
 .form-control {
   font-weight: $base_font_weight!important;
 }
@@ -154,6 +160,21 @@ input::placeholder {
 
 form {
   margin: 0;
+}
+
+.mt-15 {
+  margin-top: 15px!important;
+}
+
+.mb-15 {
+  margin-bottom: 15px!important;
+}
+
+.table-colored.dark>thead>tr>th {
+  border-color: $light-black;
+  background-color: $light-black;
+  color: $darkest-grey;
+  font-weight: $base_font_weight + 100;
 }
 
 .sort-options {
