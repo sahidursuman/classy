@@ -10,11 +10,8 @@ class ReviewsController < ApplicationController
     request_re_verification
     if @review.save
       flash[:success] = t ".success"
-      redirect_to center_reviews_path @review.center.route_params
     else
       @support = Supports::Review.new @review
-      flash.now[:failed] = t ".failed"
-      render :edit
     end
   end
 
@@ -24,7 +21,9 @@ class ReviewsController < ApplicationController
     else
       flash[:failed] = t ".failed"
     end
-    redirect_to center_reviews_path @review.center.route_params
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
   end
 
   private

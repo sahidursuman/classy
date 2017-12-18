@@ -7,10 +7,16 @@
     <div class="btn-group wrap-actions text-right">
       <button type="button" class="hidden-group-actions mt-0 pt-0" data-toggle="dropdown" \
         aria-haspopup="true" aria-expanded="false">...</button>
-      <div class="dropdown-menu dropdown-menu-right">
-        <button class="dropdown-item" type="button">Edit</button>
-        <button class="dropdown-item" type="button">Delete</button>
-      </div>
+        <div class="dropdown-menu dropdown-menu-right">
+          <% if current_user.try(:id) == review.user_id %>
+            <%= link_to t(".edit"), edit_review_path(review), class: "dropdown-item",
+              remote: true %>
+            <%= link_to t(".delete"), review_path(review), method: :delete, class: "dropdown-item",
+              remote: true, data: {confirm: "Bạn chắc chắn muốn xóa review này?"} %>
+          <% else %>
+            <button class="dropdown-item" type="button">Report</button>
+          <% end %>
+        </div>
     </div>
   </div>
   <div class="comment-avatar">

@@ -60,6 +60,12 @@
       border-radius: 0;
       font-size: $base_font_size;
     }
+    button {
+      box-shadow: none;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+    }
     .profile-actions {
       .avatar {
         width: 27px;
@@ -67,18 +73,12 @@
         display: inline-block;
       }
       button {
-        box-shadow: none;
-        margin: 0;
-        padding: 0;
         display: inline-block;
       }
     }
 
     .notifications {
       button {
-        box-shadow: none;
-        margin: 0;
-        padding: 0;
         i {
           color: $darker-grey;
         }
