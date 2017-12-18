@@ -4,31 +4,14 @@
       <ul class="nav personal-actions">
         <li>
           <div class="btn-group notifications">
-            <button type="button" class="btn white-bg dropdown-toggle dropdown-toggle--no-caret"
+            <button type="button" id="notification_header"
+              class="btn white-bg dropdown-toggle dropdown-toggle--no-caret"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= render "layouts/shared/notification_icon",
                 counter: current_user.unread_notification_counter %>
             </button>
             <ul class="dropdown-menu dropdown-menu-right cart dropdown-animation"
-              aria-labelledby="header-drop-2">
-              <li class="">
-                <a href="/search.html">Trung tâm của bạn có 1 đánh giá mới</a>
-              </li>
-              <li class="">
-                <a href="#">Trung tâm của bạn có 1 đánh giá mới Trung tâm của bạn có 1 đánh giá mới Trung tâm của bạn có 1 đánh giá mới</a>
-              </li>
-              <li class="unread">
-                <a href="#">Trung tâm của bạn có 1 đánh giá mới Trung tâm của bạn có 1 đánh giá mới</a>
-              </li>
-              <li class="unread">
-                <a href="#">Trung tâm của bạn có 1 đánh giá mới</a>
-              </li>
-              <li class="unread">
-                <a href="#">Trung tâm của bạn có 1 đánh giá mới</a>
-              </li>
-              <li>
-                <a href="#">Xem tất cả thông báo</a>
-              </li>
+              aria-labelledby="header-drop-2" id="notification-header-list">
             </ul>
           </div>
         </li>

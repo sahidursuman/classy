@@ -14,7 +14,7 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
-//= require navbar
+
 //= require js/popper-v4.min
 //= require js/bootstrap-v4.min
 //= require vote
@@ -27,3 +27,4 @@
 //= require cable
 //= require center_map
 //= require js/review
+//= require notification

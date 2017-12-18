@@ -1,5 +1,5 @@
 class MyPage::BaseController < ApplicationController
-  before_action :user
+  before_action :require_sign_in!, :user
 
   private
   def user
