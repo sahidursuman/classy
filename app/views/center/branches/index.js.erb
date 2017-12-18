@@ -1,2 +1,3 @@
-$("#branch_list").html("<%= j render partial: :branch, collection: @branches, as: :branch %>");
+$("#branch_list").html("<%= j render partial: 'branch_group', collection: @branch_groups, \
+  as: :branch_group %>");
 draw_branch_map();

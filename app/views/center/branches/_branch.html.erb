@@ -1,9 +1,17 @@
-<li>
-  <strong><%= branch.full_name %></strong><br/>
-  <%= branch.full_address %><br/>
-  <tel><%= branch.phone_number %>
+<div class="detail-branch">
   <%= link_to "#", class: "branch_on_map", data: branch.map_data do %>
-    <%= t ".view_on_map" %>
+    <button class="btn-icon white-bg pull-right" data-toggle="tooltip" title="View on map" data-placement="right">
+      <span class="fa fa-map-o"></span>
+    </button>
   <% end %>
-</li>
-<br/>
+  <span class="title"><%= branch.name %></span>
+  <p class="mb-0">
+    <i class="fa fa-phone pr-2"></i>
+    <%= branch.phone_number %>
+  </p>
+  <p class="mb-0">
+    <i class="fa fa-map-marker pr-2"></i>
+    <%= branch.full_address %>
+  </p>
+  <div class="separator full"></div>
+</div>
