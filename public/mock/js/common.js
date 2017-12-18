@@ -6,8 +6,4 @@ $(document).ready(function() {
   $(".comment").hover(function() {
     $(this).find(".wrap-actions").toggleClass("active");
   })
-
-  $(".review-content").hover(function() {
-    $(this).find(".wrap-actions").toggleClass("active");
-  })
 });
