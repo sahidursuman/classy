@@ -10,5 +10,4 @@
 //= require icheck.min
 //= require skycons
 //= require_directory ../../../../vendor/assets/Flot/jquery-flot
-//= require build/date
 //= require js/gentelella

@@ -7,3 +7,7 @@
  *= require css/nprogress
  *= require css/bootstrap-progressbar-3.3.4.min
  */
+
+body .container.body .right_col {
+  background: #EEEEEE !important;
+}
