@@ -122,3 +122,60 @@ html, body {
 input::placeholder {
   color: @light-grey!important;
 }
+
+.btn-icon {
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  background: none;
+  outline: none;
+
+  &.active i, &:hover i {
+    color: @cyan;
+    font-weight: @base_font_weight + 200 !important;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.separator.full {
+  background: @light-grey;
+  &:after {
+    background: none;
+  }
+}
+
+form {
+  margin: 0;
+}
+
+.sort-options {
+  width: 100%;
+  margin-bottom: 15px!important;
+  background: @light-black;
+  li {
+    display: table-cell;
+    &:first-child {
+      padding-left: 0;
+    }
+
+    a {
+      padding: 10px 20px;
+      float: left;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    &.active {
+      border-bottom: 1px solid @cyan;
+      background: @white;
+      a {
+        color: @cyan!important;
+        font-weight: bold;
+      }
+    }
+  }
+}
