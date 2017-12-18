@@ -1,143 +1,82 @@
-<div class="header-container">
-  <div class="header-top colored">
-    <div class="container">
-      <div class="row">
-        <div class="col-2 col-md-5">
-          <div class="header-top-first clearfix">
-            <ul class="social-links circle small clearfix hidden-sm-down">
-              <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-              <li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
-              <li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-            <div class="social-links hidden-md-up circle small">
-              <div class="btn-group dropdown">
-                <button id="header-top-drop-1" type="button" class="btn dropdown-toggle dropdown-toggle--no-caret" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i></button>
-                <ul class="dropdown-menu dropdown-animation" aria-labelledby="header-top-drop-1">
+    <div class="header-container">
+      <div class="header-top colored">
+        <div class="container">
+          <div class="row">
+            <div class="col-2 col-md-5">
+              <div class="header-top-first clearfix">
+                <ul class="social-links circle small clearfix hidden-sm-down">
                   <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
                   <li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
                   <li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-10 col-md-7">
-          <div id="header-top-second" class="clearfix text-right">
-            <ul class="list-inline">
-              <li class="list-inline-item"><a class="link-light" href="#"><i class="fa fa-user-md pr-1"></i>Find a Doctor</a></li>
-              <li class="list-inline-item"><a class="link-light" href="#"><i class="fa fa-flask pr-1"></i>Researches</a></li>
-            </ul>
+            <div class="col-10 col-md-7">
+              <div id="header-top-second" class="clearfix text-right">
+                <ul class="list-inline">
+                  <li class="list-inline-item header-item"><strong class="pl-1">Liên hệ: </strong><a class="link-light" target="_blank" href="tel:+841234567890">0243 7552 999</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div id="sticked-navbar" class="sticky-wrapper">
-    <header class="header fixed fixed-desktop clearfix">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-auto hidden-md-down pl-3">
-            <div class="header-first clearfix">
-              <div id="logo" class="logo">
-                <%= link_to root_path do %>
-                  <h2 class="title logo-font text-left text-default mb-2">Classy</h2>
-                <% end %>
+      <div id="sticked-navbar" class="sticky-wrapper">
+        <header class="header fixed fixed-desktop clearfix">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-auto hidden-md-down pl-3">
+                <div class="header-first clearfix">
+                  <div id="logo" class="logo">
+                    <%= link_to root_path do %>
+                      <h2 class="title logo-font text-left text-default mb-2">Classy</h2>
+                    <% end %>
+                  </div>
+                </div>
               </div>
-
-            </div>
-          </div>
-          <div class="col-lg-8 ml-lg-auto">
-            <div class="header-second clearfix">
-              <div class="main-navigation main-navigation--mega-menu  animated">
-                <nav class="navbar navbar-expand-lg navbar-light p-0">
-                  <div class="navbar-brand clearfix hidden-lg-up">
-                    <div id="logo-mobile" class="logo">
-                      <a href="index.html"><h2 class="title logo-font text-left text-default mb-2">Classy</h2></a>
+              <div class="col-lg-auto ">
+                <div class="header-second clearfix">
+                  <div class="main-navigation main-navigation--mega-menu  animated">
+                    <nav class="navbar navbar-expand-lg navbar-light navbar-right">
+                      <ul class="navbar-nav ml-xl-auto">
+                        <li class="nav-seperated"></li>
+                        <li class="nav-item">
+                        </li>
+                        <li class="nav-item dropdown active">
+                          <a href="blog-large-image-right-sidebar.html" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trung tâm</a>
+                          <ul class="dropdown-menu">
+                            <li class="dropdown">
+                              <%= render partial: "layouts/shared/center_category_search",
+                                collection: global_center_categories, as: :center_category %>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-auto hidden-md-down">
+                <form class="navbar-form" role="search" action="./search.html">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Nhập tên trung tâm..." name="q">
+                    <div class="input-group-btn">
+                      <button class="btn btn-gray m-0 btn-search" type="submit">
+                        <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                      </button>
                     </div>
                   </div>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                  <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                    <ul class="navbar-nav ml-xl-auto">
-                      <li class="nav-item dropdown ">
-                        <a href="portfolio-grid-2-3-col.html" class="nav-link dropdown-toggle" id="fifth-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
-                        <ul class="dropdown-menu" aria-labelledby="fifth-dropdown">
-                          <li class="dropdown ">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Portfolio Grid 1</a>
-                            <ul class="dropdown-menu">
-                              <li><a href="portfolio-grid-1-2-col.html">2 Column</a></li>
-                            </ul>
-                          </li>
-                          <li class="dropdown ">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Portfolio Grid 2</a>
-                            <ul class="dropdown-menu">
-                              <li><a href="portfolio-grid-2-2-col.html">2 Column</a></li>
-                            </ul>
-                          </li>
-                          <li class="dropdown ">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Portfolio Grid 3 - Dark</a>
-                            <ul class="dropdown-menu">
-                              <li><a href="portfolio-grid-3-2-col.html">2 Column</a></li>
-                            </ul>
-                          </li>
-                          <li class="dropdown ">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Portfolio Fullwidth</a>
-                            <ul class="dropdown-menu">
-                              <li><a href="portfolio-fullwidth-2-col.html">2 Column</a></li>
-                            </ul>
-                          </li>
-                          <li class="dropdown ">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Portfolio List</a>
-                            <ul class="dropdown-menu">
-                              <li><a href="portfolio-list-1.html">List - Large Images</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="portfolio-item.html">Single Item 1</a></li>
-                        </ul>
-                      </li>
-                      <li class="nav-item dropdown ">
-                        <a href="index-shop.html" class="nav-link dropdown-toggle" id="sixth-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-                        <ul class="dropdown-menu" aria-labelledby="sixth-dropdown">
-                          <li><a href="index-shop.html">Shop Home 1</a></li>
-                        </ul>
-                      </li>
-                      <li class="nav-item dropdown ">
-                        <a href="blog-large-image-right-sidebar.html" class="nav-link dropdown-toggle" id="seventh-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
-                        <ul class="dropdown-menu" aria-labelledby="seventh-dropdown">
-                          <li><a href="index-blog.html">Blog Home <span class="badge">v1.1</span></a></li>
-                          <li><a href="index-blog-2.html">Blog Home 2 <span class="badge">v1.3</span></a></li>
-                          <li class="dropdown ">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Large Image</a>
-                            <ul class="dropdown-menu to-left">
-                              <li><a href="blog-large-image-right-sidebar.html">Right Sidebar</a></li>
-                            </ul>
-                          </li>
-                          <li class="dropdown ">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Medium Image</a>
-                            <ul class="dropdown-menu to-left">
-                              <li><a href="blog-medium-image-right-sidebar.html">Right Sidebar</a></li>
-                            </ul>
-                          </li>
-                          <li class="dropdown ">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Masonry</a>
-                            <ul class="dropdown-menu to-left">
-                              <li><a href="blog-masonry-right-sidebar.html">Right Sidebar</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="blog-timeline.html">Timeline</a></li>
-                          <li><a href="blog-post.html">Blog Post</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </nav>
+                </form>
+              </div>
+              <div class="col-lg-auto ml-lg-auto">
+                <% if user_signed_in? %>
+                  <%= render "layouts/shared/member_right_header" %>
+                <% else %>
+                  <%= render "layouts/shared/guest_right_header" %>
+                <% end %>
               </div>
             </div>
           </div>
-        </div>
+        </header>
       </div>
-    </header>
-  </div>
-</div>
+    </div>

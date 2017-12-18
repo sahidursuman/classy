@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :center_comments, class_name: CenterComment.name
   has_many :votes
   has_many :reports
-  has_many :received_notifications, class_name: User.name, foreign_key: :recipient_id
+  has_many :received_notifications, class_name: Notification.name, foreign_key: :recipient_id
   has_many :notifications
 
   PROFILE_PARAMS = [:first_name, :last_name, :phone_number, :avatar, :avatar_cache]
@@ -71,6 +71,10 @@ class User < ApplicationRecord
 
   def full_name
     first_name + " " + last_name
+  end
+
+  def unread_notification_counter
+    received_notifications.unread.count
   end
 
   class << self

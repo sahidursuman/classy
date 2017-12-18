@@ -6,8 +6,15 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
+  helper_method :global_center_categories
+
   def after_sign_in_path_for resource
     stored_location_for(resource) || path_after_sign_in
+  end
+
+  protected
+  def global_center_categories
+    CenterCategory.priority_desc.pluck :name, :key_name
   end
 
   private
