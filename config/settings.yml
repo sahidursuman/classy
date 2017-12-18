@@ -122,3 +122,6 @@ avatar:
 center_search:
   center_per_page: 5
   max_branches_on_result: 1
+admin:
+  centers:
+    per_page: 5

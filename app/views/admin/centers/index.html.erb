@@ -1,0 +1,42 @@
+<% content_for :sidebar_centers_activation, "active" %>
+<% content_for :page_title do %>
+  <div class="title_left">
+    <h3><%= t ".center_management" %></h3>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><%= t ".center_list" %></h2>
+        <%= link_to new_admin_center_path, class: "btn btn-success no-radius pull-right" do %>
+          <i class="fa fa-plus"></i>
+          <%= t ".new_center" %>
+        <% end %>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th><%= Center.human_attribute_name :avatar %></th>
+              <th><%= Center.human_attribute_name :name %></th>
+              <th><%= Center.human_attribute_name :category %></th>
+              <th><%= Center.human_attribute_name :email %></th>
+              <th><%= Center.human_attribute_name :phone_number %></th>
+              <th><%= Center.human_attribute_name :status %></th>
+              <th><%= t ".action" %></th>
+            </tr>
+          </thead>
+          <tbody id="center_list">
+            <%= render partial: "center", collection: @centers, as: :center %>
+          </tbody>
+        </table>
+        <div id="center_pagination">
+          <%= paginate @centers %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
