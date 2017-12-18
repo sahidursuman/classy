@@ -26,7 +26,8 @@ class Review < ApplicationRecord
     maximum: Settings.validations.review.content.max_length, allow_blank: true}
   validates :rating_criterion_1, :rating_criterion_2, :rating_criterion_3,
     :rating_criterion_4, :rating_criterion_5, presence: true,
-    numericality: {only_integer: true, allow_blank: true}
+    numericality: {only_integer: true, allow_blank: true, less_than_or_equal_to: 10,
+    greater_than_or_equal_to: 1}
   validates :email_verifiable, presence: true, email_format: true,
     length: {maximum: Settings.validations.review.email.max_length}
   validates :phone_number_verifiable, presence: true, phone_number_format: true

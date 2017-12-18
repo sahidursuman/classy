@@ -1,0 +1,5 @@
+<% if @review.errors.blank? %>
+  location.reload();
+<% else %>
+  $("#review_form").html("<%= j render 'shared/reviews/form', review: @review, support: @support %>");
+<% end %>

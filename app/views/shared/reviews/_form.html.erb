@@ -1,4 +1,5 @@
-<%= form_for review, url: center_review_path, remote: true do |f| %>
+<%= form_for review, url: (review.persisted? ? review_path : center_review_path),
+  remote: true do |f| %>
   <div class="modal-body">
     <div class="row">
       <div class="col-md-12 col-lg-12 mb-3">
@@ -17,7 +18,7 @@
       <div class="col-md-12 col-lg-12 mb-3">
         <div class="border-bottom rating">
         <%= render partial: "shared/reviews/criterion_input", collection: criterion_list,
-          as: :criterion, locals: {f: f, options: rating_values} %>
+          as: :criterion, locals: {f: f, options: rating_values, review: review} %>
         </div>
       </div>
       <div class="col-md-12 col-lg-12 mb-3">
@@ -36,13 +37,15 @@
           <div class="form-group row">
             <%= f.label :phone_number_verifiable, class: "bold col-md-3 col-lg-3 col-form-label" %>
             <div class="col-md-9 col-lg-9">
-              <%= f.text_field :phone_number_verifiable, class: "form-control" %>
+              <%= f.text_field :phone_number_verifiable, class: "form-control",
+                disabled: review.verified? %>
             </div>
           </div>
           <div class="form-group row">
             <%= f.label :email_verifiable, class: "bold col-md-3 col-lg-3 col-form-label" %>
             <div class="col-md-9 col-lg-9">
-              <%= f.email_field :email_verifiable, class: "form-control" %>
+              <%= f.email_field :email_verifiable, class: "form-control",
+                disabled: review.verified? %>
             </div>
           </div>
         </div>

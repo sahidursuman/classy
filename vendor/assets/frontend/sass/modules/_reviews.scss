@@ -17,16 +17,16 @@
     font-size: $base_font_size - 1;
     .comment-body {
       margin-left: 50px;
+      width: 90%;
     }
     .comment-avatar {
       width: 40px;
-      padding-top: 5px;
       margin-right: 5px;
     }
     &.new-comment {
       padding-top: 1px;
       .comment-body {
-        margin-top: 10px;
+        margin-top: 5px;
         textarea {
           width: 98%;
           padding-right: 50px;
@@ -59,10 +59,14 @@
   }
 
   &.style-1 {
-    height: 9px;
-
+    height: 6px;
+    border: none;
+    background-color: $grey;
+    border-radius: 0;
     .progress-bar {
-      height: 5px;
+      height: 100%;
+      border-radius: 0;
+      margin: 0;
     }
   }
 }
@@ -91,6 +95,12 @@
   padding: 0 5px;
 }
 
+.review-header .wrap-actions button.hidden-group-actions {
+  font-size: 30px;
+  margin-top: -30px!important;
+  margin-bottom: -10px;
+  margin-right: 7px;
+}
 .hidden-group-actions {
   cursor: pointer;
   padding: 0;
@@ -98,14 +108,14 @@
   background: none;
   outline: none;
   margin-left: 25px;
-  margin-top: -10px!important;
+  color: $dark-grey;
 
   &:focus {
     outline: none;
   }
 }
 
-.comment, .wrap-review {
+.comment {
   .wrap-actions {
     opacity: 0;
 
