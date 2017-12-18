@@ -25,3 +25,11 @@ function draw_review_chart(){
   var ctx = $("#review-chart")[0].getContext("2d");
   var myPieChart = new Chart(ctx, config);
 }
+
+function initBootstrapSlider(){
+  $(".criterial_slider").slider({});
+  $(".criterial_slider").on("change", function() {
+    var value = $(this).parent().find(".tooltip-main .tooltip-inner").text();
+    $(this).next(".criterial_slider_val").text(value);
+  });
+}
