@@ -1,0 +1,3 @@
+<li class="<%= 'unread' unless notification.is_read? %>">
+  <%= link_to notification.message, notification.url, class: "text-muted" %>
+</li>

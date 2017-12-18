@@ -7,6 +7,7 @@ class Notification < ApplicationRecord
   after_create :relay_notification
 
   scope :unread, ->{where is_read: false}
+  scope :recent_created, ->{order created_at: :desc}
 
   enum action: [:new_review_verification, :review_rejected, :review_verified,
     :review_voted_up, :review_voted_down]
