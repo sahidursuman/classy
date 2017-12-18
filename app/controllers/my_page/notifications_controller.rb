@@ -9,4 +9,9 @@ class MyPage::NotificationsController < MyPage::BaseController
       end
     end
   end
+
+  def update
+    @user.received_notifications.find(params[:id]).update is_read: true
+    render body: nil
+  end
 end

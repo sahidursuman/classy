@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resource :account, only: [:edit, :update]
     resource :password, only: [:edit, :update]
     resources :reports, only: [:index, :destroy]
-    resources :notifications, only: [:index]
+    resources :notifications, only: [:index, :update]
   end
 
   resources :reviews, only: [:edit, :update, :destroy] do
