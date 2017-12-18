@@ -1,0 +1,10 @@
+<% if notification.is_read? %>
+  <li class="">
+    <%= link_to notification.message, notification.url, class: "text-muted" %>
+  </li>
+<% else %>
+  <li class="unread">
+    <%= link_to notification.message, notification.url,
+      class: "text-muted", data: {notification: notification.id}, onclick: "readNotification($(this))" %>
+  </li>
+<% end %>
