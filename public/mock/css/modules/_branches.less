@@ -1,0 +1,31 @@
+.page-branch {
+  .group-branch {
+    &:not(:first-child) {
+      margin-top: 35px;
+    }
+    >span {
+     font-size: @base_font_size + 4;
+     margin-bottom: 0px;
+
+     +.separator {
+       margin-top: 5px;
+       background: @dark-grey;
+     }
+    }
+    .title {
+      text-transform: none;
+      font-weight: @base_font_weight + 100;
+    }
+    .detail-branch {
+      .title {
+        margin-bottom: 10px;
+        & a {
+          color: @darkest-grey;
+        }
+      }
+    }
+  }
+  .separator {
+    margin: 10px 0;
+  }
+}
