@@ -23,10 +23,13 @@
               <span class="sr-only">Toggle Dropdown</span>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="#"><i class="fa fa-cog pr-20"></i> Settings</a>
               <%= link_to user_path(current_user), class: "dropdown-item" do %>
                 <i class="fa fa-user pr-20"></i>
                 <%= t ".profile" %>
+              <% end %>
+              <%= link_to edit_my_page_profile_path, class: "dropdown-item" do %>
+                <i class="fa fa-cog pr-20"></i>
+                <%= t ".settings" %>
               <% end %>
               <div class="dropdown-divider"></div>
               <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>

@@ -1,2 +1,4 @@
-<%= render partial: "shared/reviews/review", collection: @reviews, as: :review,
-  locals: {center_displayed: true} %>
+<div class="reviews-list">
+  <%= render partial: "shared/reviews/review", collection: @reviews, as: :review,
+    locals: {center_displayed: true} %>
+</div>
