@@ -1,0 +1,70 @@
+.form {
+  &.form-sm {
+    width: 400px;
+  }
+
+  &.form-md {
+    width: 600px;
+  }
+
+  &.form-lg {
+    width: 800px;
+  }
+
+  .card {
+    padding: 15px 25px;
+    .card-body {
+      padding: 0;
+    }
+  }
+
+  .card:not([class*=card-outline-]) {
+    border: 1;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  }
+
+  .form-title {
+    font-size: $base_font_size + 10;
+  }
+
+  .input-group {
+    margin-bottom: 15px;
+    .input-group-addon {
+      width: 60px;
+      border-radius: 0;
+      span {
+        margin-left: 11px;
+      }
+    }
+  }
+
+  .btn {
+    border: none;
+    cursor: pointer;
+
+    &.btn-block {
+      min-height: 40px;
+    }
+  }
+
+  .social-links li {
+    &:not(:last-child) {
+      padding-right: 10px;
+    }
+    a {
+      width: 60px;
+    }
+  }
+  .input-inline {
+    input:not(:focus) {
+      &.first {
+        border-right: none;
+      }
+      &.second {
+        border-left: none;
+      }
+    }
+
+  }
+}
