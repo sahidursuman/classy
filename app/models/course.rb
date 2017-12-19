@@ -6,7 +6,7 @@ class Course < ApplicationRecord
 
   belongs_to :center
   belongs_to :course_category, class_name: CourseCategory.name, foreign_key: :category_id
-  has_many :course_classifications
+  has_many :course_classifications, dependent: :destroy
   has_many :course_sub_categories, through: :course_classifications
 
   validates :category_id, presence: true
