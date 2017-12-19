@@ -1,0 +1,10 @@
+<li class="<%= 'unread' unless notification.is_read? %>">
+  <% if notification.is_read? %>
+    <%= link_to notification.message, notification.url, class: "text-muted" %>
+  <% else %>
+    <%= link_to notification.message, notification.url,
+      class: "text-muted", data: {notification: notification.id}, onclick: "readNotification($(this))" %>
+  <% end %>
+  <br/>
+  <span class="text-dark-grey"><%= time_ago_in_words notification.created_at %> ago</span>
+</li>

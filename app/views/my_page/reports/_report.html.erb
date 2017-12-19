@@ -1,0 +1,25 @@
+<div id="report-<%= report.id %>">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%=
+        if policy(report).destroy?
+          link_to t(".delete"), my_page_report_path(report), remote: true,
+            method: :delete, data: {confirm: t(".confirm_delete")}, class: "pull-right"
+        end
+      %>
+      <b>
+        <%= t(".you_reported") %>
+        <%= report.display_report_target %>
+      </b>
+      <p>
+        <%= Report.human_attribute_name(:content) %>:
+        <%= report.content %>
+      </p>
+    </div>
+    <div class="panel-body">
+      <strong><%= t(".classy") %></strong>
+      <span class="<%= report.status_label_class %>"><%= t(report.status) %></span>
+      <p><%= report.display_response_message %></p>
+    </div>
+  </div>
+</div>

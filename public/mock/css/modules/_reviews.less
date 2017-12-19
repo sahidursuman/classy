@@ -1,0 +1,135 @@
+.reviews-list {
+  img.review-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .center-rate {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: @white;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .comment {
+    font-size: @base_font_size - 1;
+    .comment-body {
+      margin-left: 50px;
+      width: 90%;
+    }
+    .comment-avatar {
+      width: 40px;
+      margin-right: 5px;
+    }
+    &.new-comment {
+      padding-top: 1px;
+      .comment-body {
+        margin-top: 5px;
+        textarea {
+          width: 98%;
+          padding-right: 50px;
+          padding: .375rem .75rem;
+          border: 1px solid @light-grey;
+        }
+      }
+      button {
+        height: 33px;
+        margin-left: -50px;
+        margin-top: -16px;
+      }
+    }
+  }
+}
+
+.progress {
+  margin-bottom: 5px;
+  .text {
+    top: -21px;
+    text-transform: none;
+    color: @darkest-grey;
+    font-size: @base_font_size!important;
+  }
+
+  .label {
+    top: -21px;
+    color: @darkest-grey;
+    font-size: @base_font_size - 1!important;
+  }
+
+  &.style-1 {
+    height: 6px;
+    border: none;
+    background-color: @grey;
+    border-radius: 0;
+    .progress-bar {
+      height: 100%;
+      border-radius: 0;
+      margin: 0;
+    }
+  }
+}
+
+.icon-vote {
+  font-size: @base_font_size + 5;
+  font-weight: @base_font_weight + 100;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  background: none;
+  outline: none;
+
+  &.active i, &:hover i {
+    color: @cyan;
+    font-weight: @base_font_weight + 200 !important;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.vote-point {
+  padding: 0 5px;
+}
+
+.review-header .wrap-actions button.hidden-group-actions {
+  font-size: 30px;
+  margin-top: -30px!important;
+  margin-bottom: -10px;
+  margin-right: 7px;
+}
+.hidden-group-actions {
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  background: none;
+  outline: none;
+  margin-left: 25px;
+  color: @dark-grey;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.comment {
+  .wrap-actions {
+    opacity: 0;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+.btn-new-review {
+  width: 100%;
+}
+
+.review-content .review-header {
+  padding-top: 10px;
+  padding-bottom: 4px;
+}

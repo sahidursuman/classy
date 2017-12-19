@@ -1,0 +1,276 @@
+en:
+  in_review: In review
+  reviewed: Reviewed
+  rejected: Rejected
+  accepted: Accepted
+  Center: Center
+  Branch: Branch
+  Review: Review
+  Comment: Comment
+  currency_unit: ₫
+  dictionary:
+    app_name: &app_name Classy
+    select_city: &select_city Select city
+    select_district: &select_district Select district
+    preview: &preview Preview
+    edit: &edit Edit
+    finish: &finish Finish
+    delete: &delete Delete
+    select_course_category: &select_course_category Select course category
+    report: &report Report
+    login_as: &login_as You are logged in as %{name}
+    filter: &filter Filter
+    reviews: &reviews Reviews
+    number_of_branch_in_cities: &number_of_branch_in_cities "%{number_of_branch} branches in %{cities}."
+    in_review: &in_review In review
+    reviewed: &reviewed Reviewed
+    rejected: &rejected Rejected
+    accepted: &accepted Accepted
+    cancel: &cancel Cancel
+  select_course_sub_category: Select course sub category
+  select_districts: Select districts
+  layouts:
+    center:
+      center_details:
+        number_of_branch_in_cities: *number_of_branch_in_cities
+  home_pages:
+    index:
+      log_out: Log out
+      log_in: Log in
+      welcome_message: Welcome to Classy
+      profile: Profile
+  devise:
+    registrations:
+      new:
+        sign_up: Sign up
+      edit:
+        edit_user: Edit user
+        back: Back
+        update: Update
+    sessions:
+      new:
+        log_in: Log in
+    passwords:
+      new:
+        forgot_your_password: Forgot your password?
+        send_me: Send me reset password instructions
+      edit:
+        change_your_password: Change your password
+        new_password: New password
+        confirm_new_password: Confirm new password
+        change_my_password: Change my password
+        characters_minimum: chacracters minium
+        log_in: "Log in"
+  shared:
+    reviews:
+      criterion_input:
+        rating: Rating
+      review:
+        edit: Edit
+        delete: Delete
+        show_comments: &show_comments
+          zero: No comments
+          one: Show 1 comment
+          other: Show %{count} comments
+        confirm_delete: "Are you sure to delete this review?"
+        new_comment: New comment
+        report: *report
+      new_comment:
+        new_comment_placeholder: "Your comment..."
+      form:
+        title_holder: Your title
+        content_holder: Content holder
+    reports:
+      report_modal:
+        report: *report
+      report_form:
+        add_report_reason_placeholder: Tell us reason why you want to report?
+        report: *report
+        cancel: *cancel
+    google_map:
+      branch_info:
+        email: Email
+        phone_number: Phone number
+        rating: Rating
+    comments:
+      new_comment:
+        post: Post
+        add_comment_placeholder: Add a public comment...
+      comment:
+        confirm_delete: Are you sure to delete this comment?
+        delete: *delete
+        report: *report
+    votes:
+      vote_button:
+        up: Vote up
+        down: Vote down
+  management:
+    branches:
+      index:
+        index: Index
+        create_new_branch: Create new branch
+      branch_filter:
+        select_city: *select_city
+        filter: *filter
+        select_status: Select status
+      branch:
+        edit: *edit
+      new:
+        create_new_branch: Create new branch
+      edit:
+        edit_branch: Edit branch %{name}
+      preview:
+        edit: *edit
+        finish: *finish
+      form:
+        select_city: *select_city
+        select_district: *select_district
+        preview: *preview
+    review_verifications:
+      index:
+        index: Index
+        branch_name: Branch name
+        action: Action
+      review_verification_filter:
+        select_status: Select status
+        filter: *filter
+        select_branch: Select branch
+      review_verification:
+        accept: Accept
+        reject: Reject
+    centers:
+      edit:
+        preview: *preview
+        select_center_category: Select center category
+      preview:
+        edit: *edit
+        finish: *finish
+    courses:
+      new:
+        new_course: New course
+      edit:
+        edit_course: Edit course
+      form:
+        preview: *preview
+        select_course_category: *select_course_category
+      preview:
+        edit: *edit
+        finish: *finish
+    verification:
+      reviews:
+        filter:
+          all_statuses: All statuses
+          all_branches: All branches
+          filter: *filter
+  centers:
+    show:
+      edit: *edit
+      report: *report
+      branch_list: Branch list
+      reviews: *reviews
+  center:
+    branches:
+      index:
+        select_city: *select_city
+    reviews:
+      index:
+        recent_created: Newest
+        vote_points_desc: Most voting
+      review_level:
+        excellent: Excellent
+        good: Good
+        medium: Medium
+        bad: Bad
+  branches:
+    index:
+      select_city: "Select city"
+      filter: *filter
+    show:
+      edit: *edit
+      reviews: *reviews
+      report: *report
+  branch:
+    reviews:
+      index:
+        new_review: New review
+  reviews:
+    new:
+      new_review: New review
+      review: Review
+      create: Create
+    edit:
+      update: Update
+  users:
+    show:
+      profile: Profile
+      edit_personal_information: Edit personal information
+      edit_account_information: Edit account information
+      edit_avatar: Edit avatar
+      edit_password: Edit password
+      my_reports: My reports
+    omniauth_callbacks:
+      facebook:
+        login_as: *login_as
+      google_oauth2:
+        login_as: *login_as
+  review:
+    comments:
+      create:
+        show_comments: *show_comments
+        failed: Fail to create comment
+  reports:
+    create:
+      recorded: Thank for your report, we will review and inform you soon.
+      failed: Failed to create report.
+  comments:
+    destroy:
+      show_comments: *show_comments
+  search:
+    centers:
+      index:
+        search: Search
+      course_detail_filter:
+        select_course_category: *select_course_category
+      center:
+        tuition_fee: Tuition fee
+        tuition_fee_from: Tuition fee from
+        number_of_branch_in_cities: *number_of_branch_in_cities
+      search_control:
+        search: Search
+      sort_option:
+        recommendation_order: Recommendation
+        summary_rating_desc: Rating
+        minimum_tuition_fee_asc: Tuition fee Asc
+        minimum_tuition_fee_desc: Tuition fee Desc
+        minimum_price_asc: Price Asc
+        minimum_price_desc: Price Desc
+        number_of_branch: "%{number} branches"
+        in_location: "in %{location}."
+  admin:
+    reports:
+      update:
+        failed: Fail to response report.
+        success: You have responsed successfully
+      response_report_modal:
+        response_report: Response report
+      response_report_form:
+        add_response_report_placeholder: Add response message
+        report: *report
+        cancel: *cancel
+      report:
+        thank_you: Thank for your report, we will review and inform you soon!
+        response: Response
+        in_review: *in_review
+        reviewed: *reviewed
+      report_filter:
+        filter: *filter
+        select_status: Select status
+        select_report_target: Select report target
+        in_review: *in_review
+        reviewed: *reviewed
+        accepted: *accepted
+        rejected: *rejected
+        Center: Center
+        Branch: Branch
+        Review: Review
+        Comment: Comment

@@ -1,0 +1,13 @@
+<h2><%= t ".edit_review" %></h2>
+<strong><%= Review.human_attribute_name :status %></strong>
+<%= @review.status %>
+<hr/>
+<%= form_for @review do |f| %>
+  <%= render "shared/reviews/content_form", f: f, support: @support %>
+  <% unless @review.verified? %>
+    <%= render "shared/reviews/verification_form", f: f %>
+  <% end %>
+  <div class="form-group">
+    <%= f.submit  %>
+  </div>
+<% end %>

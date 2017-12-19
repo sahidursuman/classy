@@ -1,0 +1,33 @@
+<div class="review-header clearfix">
+  <div class="pull-right">
+    <div class="center-rate bg-<%= rating_label review.summary_rating %> pull-right">
+      <%= avarage_rating_format review.summary_rating %>
+    </div>
+    </br>
+    <div class="btn-group wrap-actions text-right">
+      <button type="button" class="hidden-group-actions mt-0 pt-0" data-toggle="dropdown" \
+        aria-haspopup="true" aria-expanded="false">...</button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <% if current_user.try(:id) == review.user_id %>
+            <%= link_to t(".edit"), edit_review_path(review), class: "dropdown-item",
+              remote: true %>
+            <%= link_to t(".delete"), review_path(review), method: :delete, class: "dropdown-item",
+              remote: true, data: {confirm: "Bạn chắc chắn muốn xóa review này?"} %>
+          <% else %>
+            <button class="dropdown-item" type="button">Report</button>
+          <% end %>
+        </div>
+    </div>
+  </div>
+  <div class="comment-avatar">
+    <%= link_to user_path(review.user) do %>
+      <%= image_tag review.user.avatar.small.url, class: "rounded-circle" %>
+    <% end %>
+  </div>
+  <div>
+    <div class="pt-2 pb-1 bold">
+      <%= link_to review.user.full_name, user_path(review.user) %>
+    </div>
+    <div class="comment-meta mb-0"><%= time_as_format review.created_at %></div>
+  </div>
+</div>

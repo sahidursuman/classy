@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Classy</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "admin/application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "admin/application", "data-turbolinks-track": "reload" %>
+  </head>
+
+  <body class="nav-md" style="font-size: 14px">
+    <div id="modal_holder"></div>
+    <div class="container body">
+      <div class="main_container">
+        <%= render "layouts/admin/sidebar" %>
+        <!-- top navigation -->
+        <%= render "layouts/admin/top_navigation" %>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+        <!-- top tiles -->
+          <div id="flash-messages">
+            <div class="clearfix"></div>
+            <%= render "layouts/shared/flash" %>
+          </div>
+          <div class>
+            <div class="page-title">
+              <%= yield :page_title %>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- /top tiles -->
+          <%= yield %>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <%= render "layouts/admin/footer" %>
+        <!-- /footer content -->
+      </div>
+    </div>
+  </body>
+</html>

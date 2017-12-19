@@ -1,0 +1,5 @@
+<span class="vote-widget">
+  <%= render "shared/votes/vote_button", review: review, vote_type: :up %>
+  <span class="bold vote-point"><%= review.vote_points_cached %></span>
+  <%= render "shared/votes/vote_button", review: review, vote_type: :down %>
+</span>

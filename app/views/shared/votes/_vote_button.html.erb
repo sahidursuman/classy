@@ -1,0 +1,6 @@
+<%= content_tag :button, Settings.vote.display_vote_type.send(vote_type),
+  data: {type: vote_type, review: review.id, toggle: "tooltip"}, title: t(".#{vote_type}"),
+  class: "vote_review #{'voted active' if review.current_user_voted_type == Vote::vote_types[vote_type]} \
+    icon-vote white-bg text-darker-grey" do %>
+  <i class="fa fa-angle-<%= vote_type %>" aria-hidden="true"></i>
+<% end %>

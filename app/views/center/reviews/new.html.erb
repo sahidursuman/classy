@@ -1,0 +1,7 @@
+<h1><%= "new review" %></h1>
+<%= form_for @review, url: center_review_path do |f| %>
+  <%= render "shared/reviews/content_form", f: f, support: @support %>
+  <div class="form-group">
+    <%= f.submit %>
+  </div>
+<% end %>

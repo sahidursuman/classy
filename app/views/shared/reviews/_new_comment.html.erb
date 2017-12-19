@@ -1,0 +1,13 @@
+<div class="comment new-comment clearfix">
+  <div class="comment-avatar pb-3">
+    <%= image_tag new_comment.owner.avatar.small.url, class: "rounded-circle" %>
+  </div>
+  <div class="comment-body text-justify clearfix">
+    <%= form_for Comment.new, url: review_comments_path(review), remote: true do |f| %>
+      <%= f.text_area :content, rows: 1, placeholder: t(".new_comment_placeholder") %>
+      <%= f.button class: "btn btn-primary" do %>
+        <i class="fa fa-paper-plane"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>

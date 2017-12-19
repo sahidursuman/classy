@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-lg-4 col-md-4 pr-0">
+    <%= image_tag "center.jpeg", width: "100%", height: 260 %>
+  </div>
+  <div class="col-lg-8 col-md-8 pl-20 white-bg py-2 center-general-info">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <h1 class="my-1"><span class="text-default"><%= center.name %></span></h1>
+        <div class="py-1">
+          <i class="fa fa-book mb-1" aria-hidden="true"></i>
+          <%= center.category_details %>
+        </div>
+        <div class="pb-1">
+          <i class="fa fa-map-marker mb-1" aria-hidden="true"></i>
+          <%= center.location %>
+        </div>
+        <div class="pb-1">
+          <i class="fa fa-envelope mb-1" aria-hidden="true"></i>
+          <%= center.email %>
+        </div>
+        <div class="pb-1"><i class="fa fa-phone mb-1" aria-hidden="true"></i>
+          <%= center.phone_number %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <hr class="col-lg-12 col-md-12 m-0">
+    </div>
+    <div class="row review-points text-center">
+      <div class="col-lg-1 col-md-1 pr-0">
+        <div class="center-rate bg-<%= rating_label center.summary_rating_cached %> pull-left">
+          <%= avarage_rating_format center.summary_rating_cached %>
+        </div>
+      </div>
+      <div class="col-lg-11 col-md-11">
+        <ul class="pl-2 mb-0">
+          <%= render partial: "layouts/center/criterion_avarage_rating", collection: criterion_list,
+            as: :criterion, locals: {avarage_rating: avarage_rating} %>
+          <li class="pl-4">
+            <span class="detail-point">
+              <strong><%= review_counter_format center.review_counter_cached %></strong>
+            </span>
+            <br/>
+            <span><%= t ".reviews" %></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

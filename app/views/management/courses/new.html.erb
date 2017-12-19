@@ -1,0 +1,4 @@
+<h2><%= t ".new_course" %></h2>
+<%= form_for [:management, @course] do |f| %>
+  <%= render "form", f: f, support: @support %>
+<% end %>

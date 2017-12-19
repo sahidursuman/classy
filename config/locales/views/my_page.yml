@@ -1,0 +1,57 @@
+en:
+  dictionary:
+    update: &update Update
+    cancel: &cancel Cancel
+    updated: &updated Your profile has been updated successfully
+  my_page:
+    accounts:
+      edit:
+        update: *update
+        cancel: *cancel
+        edit_account_information: Edit account information
+      update:
+        updated: *updated
+        faield: Failed to update your account information
+
+    profiles:
+      edit:
+        edit_personal_information: Edit personal information
+        update: *update
+        cancel: *cancel
+      update:
+        updated: *updated
+        failed: Failed to update your personal information
+    avatars:
+      edit:
+        edit_avatar: Edit avatar
+        update: *update
+        cancel: *cancel
+      update:
+        updated: *updated
+        failed: Failed to update your avatar
+    passwords:
+      edit:
+        edit_password: Edit password
+        update: *update
+        cancel: *cancel
+      update:
+        updated: *updated
+        failed: Failed to update your password
+    reports:
+      index:
+        index: Index
+        target: Target
+        action: Action
+      report_filter:
+        filter: Filter
+        select_report_target: Select report target
+        select_status: Select status
+      report:
+        thank_you: Thank for your report, we will review and inform you soon!
+        you_reported: You reported a
+        delete: Delete
+        confirm_delete: Are you sure to delete this report?
+        classy: Classy
+      destroy:
+        deleted: Your report has been deleted successfully!
+        failed: Fail to delete report.

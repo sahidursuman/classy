@@ -12,4 +12,19 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
+//= require jquery
+//= require jquery_ujs
+
+//= require js/popper-v4.min
+//= require js/bootstrap-v4.min
+//= require vote
+//= require comment
+//= require auto_submit_form
+//= require preview_image_upload
+//= require js/select2.full
+//= require center_search
+//= require load_dynamic_options
+//= require cable
+//= require center_map
+//= require js/review
+//= require notification

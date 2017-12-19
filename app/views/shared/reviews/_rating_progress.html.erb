@@ -1,0 +1,11 @@
+<div class="progress style-1 no-radius">
+  <div class="pull-right">
+    <span class="label">
+      <%= avarage_rating_format rating %>
+    </span>
+  </div>
+  <span class="text"><%= Review.human_attribute_name criterion %></span>
+  <div class="progress-bar progress-bar-default no-radius" role="progressbar"
+    style="width: <%= rating_to_percentage rating %>">
+  </div>
+</div>

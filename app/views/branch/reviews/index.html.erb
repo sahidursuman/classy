@@ -1,0 +1,12 @@
+<%= link_to new_review_path(branch_id: @branch.id) do %>
+  <button type="button" class="btn btn-primary"><%= t ".new_review" %></button>
+<% end %>
+<hr/>
+<%= form_for @q, url: branch_reviews_path(@branch.route_params), method: :get, remote: true,
+  html: {class: "auto-submit-form"} do |f| %>
+  <%= f.select :sorts, review_sorting_options %>
+<% end %>
+<div id="review-list">
+  <%= render partial: "shared/reviews/review", collection: @reviews, as: :review %>
+</div>
+<div class="report-modal"></div>

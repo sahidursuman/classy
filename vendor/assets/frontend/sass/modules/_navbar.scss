@@ -1,0 +1,134 @@
+.header {
+  .navbar.navbar-right {
+    float: right;
+    padding-right: 0;
+  }
+
+  nav .btn-block {
+    min-width: 110px!important;
+  }
+
+  .navbar-form {
+    margin: 15px 0;
+    min-width: 350px;
+
+    .form-control {
+      height: 33px
+    }
+
+    .input-group-btn {
+      .btn-search {
+        height: 33px;
+        border-left: 0px!important;
+      }
+    }
+  }
+
+  .navbar-nav li .nav-link {
+    padding: 0.5rem 10px;
+  }
+
+  .container .row>.col-md-auto, .col-lg-auto {
+    margin: 0px 0;
+  }
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  .header-first {
+    padding-top: 10px;
+  }
+  .header-second {
+    padding-top: 5px;
+    nav.navbar {
+      padding-bottom: 0;
+    }
+  }
+  .header-fourth {
+    padding-top: 8px;
+    nav.navbar {
+      padding-bottom: 0;
+    }
+  }
+
+  .personal-actions {
+    .btn-group {
+      margin-left: 15px;
+    }
+    .dropdown-menu {
+      border-radius: 0;
+      font-size: $base_font_size;
+    }
+    button {
+      box-shadow: none;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+    .profile-actions {
+      .avatar {
+        width: 27px;
+        height: 27px;
+        display: inline-block;
+      }
+      button {
+        display: inline-block;
+      }
+    }
+
+    .notifications {
+      button {
+        i {
+          color: $darker-grey;
+        }
+        span {
+          background: $red;
+          color: $white;
+        }
+      }
+      .dropdown-menu {
+        width: 300px;
+        font-size: $base_font_size - 1;
+        padding: 0;
+        max-height: 40em;
+        li {
+          padding: 10px;
+          border-bottom: 1px solid $light-grey;
+          min-height: 4em;
+          text-align: justify;
+          &.unread {
+            background-color: $grey;
+          }
+          &:hover {
+            opacity: .7;
+          }
+          a  {
+            text-decoration: none;
+            color: $darkest-grey;
+          }
+          &:last-child {
+            a {
+              color: $cyan;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.header-top {
+  .header-top-first {
+    margin-top: 6px;
+  }
+  .header-top-second .btn-business {
+    text-decoration: none;
+    border-color: $white;
+    margin: 0 0 0 15px;
+    &:hover {
+      background-color: $white;
+      color: $cyan;
+    }
+  }
+}

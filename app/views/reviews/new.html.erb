@@ -1,0 +1,19 @@
+<h2><%= t ".new_review" %></h2>
+<%= form_for @create_review_form, url: reviews_path(branch_id: @branch.id), method: :post do |f| %>
+  <%= render "shared/reviews/review_form", f: f %>
+
+  <div class="form-group">
+    <%= f.label :email_verify, ReviewVerification.human_attribute_name(:email) %><br/>
+    <%= f.email_field :email_verify %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone_number_verify, ReviewVerification.human_attribute_name(:phone_number) %>
+    <br/>
+    <%= f.text_field :phone_number_verify %><br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit t(".create") %>
+  </div>
+<% end %>

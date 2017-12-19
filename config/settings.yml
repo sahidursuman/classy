@@ -1,0 +1,131 @@
+flash:
+  notice: "alert-info"
+  error: "alert-error"
+  alert: "alert-warning"
+  success: "alert-success"
+  failed: "alert-danger"
+user:
+  username:
+    random_suffix_length: 3
+  first_name:
+    max_length: 30
+  last_name:
+    max_length: 30
+review:
+  per_page: 10
+  number_of_criteria: 5
+  criteria:
+    - {attr_name: rating_criterion_1, ratio: 20}
+    - {attr_name: rating_criterion_2, ratio: 20}
+    - {attr_name: rating_criterion_3, ratio: 20}
+    - {attr_name: rating_criterion_4, ratio: 20}
+    - {attr_name: rating_criterion_5, ratio: 20}
+  rating_values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  summary_rating_precision: 1
+  levels:
+    - {name: excellent, standard: 9}
+    - {name: good, standard: 7.5}
+    - {name: medium, standard: 5}
+    - {name: bad, standard: 0}
+  avarage: 5
+  max_rating: 10
+vote:
+  vote_type_point:
+    up: 1
+    down: -1
+  display_vote_type:
+    up: ▲
+    down: ▼
+review_verification:
+  per_page: 20
+report:
+  per_page: 20
+  target_models: [Center, Review, Comment]
+validations:
+  comment:
+    content:
+      max_length: 1000
+      min_length: 1
+  review:
+    title:
+      max_length: 255
+      min_length: 10
+    content:
+      max_length: 10000
+      min_length: 20
+    email:
+      max_length: 255
+  branch:
+    avatar:
+      max_size: 3.megabytes
+    name:
+      max_length: 50
+    address:
+      max_length: 100
+    description:
+      max_length: 1000
+  center:
+    logo:
+      max_size: 3.megabytes
+    avatar:
+      max_size: 3.megabytes
+    name:
+      max_length: 50
+    description:
+      max_length: 1000
+    email:
+      max_length: 255
+  user:
+    avatar:
+      max_size: 3.megabytes
+  course:
+    name:
+      max_length: 255
+    description:
+      max_length: 10000
+    sessions:
+      minimum: 1
+      maximum: 1000
+    duration:
+      minimum: 0.1
+      maximum: 100
+    tuition_fee:
+      minimum: 0
+      maximum: 1_000_000_000
+    class_size:
+      minimum: 1
+      maximum: 1000
+  report:
+    content:
+      max_length: 1000
+      min_length: 10
+    response_message:
+      max_length: 1000
+      min_length: 10
+google_map:
+  src: https://maps.googleapis.com/maps/api/js
+  key: AIzaSyAX6x28nsjEWmeL-10FkZZSo1yFmUfn3JU
+  libraries: places
+  sensor: false
+  language: vi
+  region: VN
+  tilt: 45
+  branch_info:
+    icon_url: /assets/80x20.jpg
+    avatar:
+      height: 100px
+      width: 100%
+  zoom: 15
+business_avatar:
+  versions:
+    medium: [400, 200]
+avatar:
+  versions:
+    medium: [200, 200]
+    small: [50, 50]
+center_search:
+  center_per_page: 5
+  max_branches_on_result: 1
+admin:
+  centers:
+    per_page: 5

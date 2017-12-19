@@ -1,0 +1,52 @@
+en:
+  not_authorized: You are not authorized to perform this action.
+  require_sign_in: You must sign in to perform this action.
+  management:
+    review_verifications:
+      update:
+        success: Verify review success
+        failed: Fail to verify review
+    branches:
+      create:
+        success: Create branch success
+        failed: Fail to create branch
+      update:
+        success: Update branch success
+        failed: Fail to update branch
+    centers:
+      update:
+        success: Update center success
+        failed: Fail to update center
+    courses:
+      create:
+        success: Create course success
+        failed: Fail to create course
+      update:
+        success: Update course success
+        failed: Fail to update course
+  reviews:
+    create:
+      success: Create review success
+      failed: Fail to create review
+    update:
+      success: Update review success
+      failed: Fail to update review
+    destroy:
+      success: Delete review success
+      failed: Fail to delete review
+  review:
+    votes:
+      create:
+        failed: "Fail to vote"
+      destroy:
+        failed: "Fail to unvote"
+  center:
+    reviews:
+      create:
+        success: Create review success
+        failed: Fail to create review
+  admin:
+    centers:
+      create:
+        success: Create center success
+        failed: Fail to create center

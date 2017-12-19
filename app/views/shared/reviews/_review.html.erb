@@ -1,0 +1,36 @@
+<div class="row white-bg wrap-review mb-3 pb-2" id="review-details-<%= review.id %>">
+  <div class="review-content">
+    <div class="col-md-12 col-lg-12">
+      <%= render "shared/reviews/header", review: review %>
+    </div>
+    <div class="col-md-12 col-lg-12 px-0">
+      <hr class="m-0">
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <%= render partial: "shared/reviews/rating_criterion", collection: criterion_list, as: :criterion,
+        locals: {review: review} %>
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <hr class="mb-2">
+      <div class="mb-1 bold"><%= review.title %></div>
+      <div class="text-justify"><%= custom_simple_format review.content %></div>
+    </div>
+    <%= render "shared/reviews/branch_info", branch: review.branch if review.branch.present? %>
+    <div class="col-md-12 col-lg-12 px-0">
+      <hr class="my-2">
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <%= render "shared/votes/vote_widget", review: review %>
+      <% if review.comments_count > 0 %>
+        <%= link_to t(".show_comments", count: review.comments_count),
+          review_comments_path(review), remote: true, class: "comments-count pull-right pt-1" %>
+      <% end %>
+      <%= link_to new_review_comment_path(review), class: "text-darker-grey pl-3", remote: true do %>
+        <i class="fa fa-commenting-o" aria-hidden="true"></i>
+        <span><%= t ".comment" %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-12 col-lg-12 comment_list">
+  </div>
+</div>

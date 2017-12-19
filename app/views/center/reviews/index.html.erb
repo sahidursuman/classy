@@ -1,0 +1,29 @@
+<% content_for :center_reviews_activation, "active" %>
+<div class="col-lg-10 col-md-10">
+  <div class="row">
+    <%= render "branch_filter", center: @center, q: @q, support: @support %>
+    <div class="col-md-8 col-lg-8 reviews-list">
+      <div id="review-list">
+        <%= render partial: "shared/reviews/review", collection: @reviews, as: :review %>
+      </div>
+      <div id="review_pagination">
+        <%= paginate @reviews, remote: true %>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-lg-4 pr-0">
+      <div id="review_statistics">
+        <%= render "review_statistics", support: @support %>
+      </div>
+      <div class="text-center">
+        <%= link_to new_center_review_path(@center.route_params), remote: true,
+          class: "btn btn-default btn-new-review my-3" do %>
+          <i class="fa fa-comment pr-2" aria-hidden="true"></i>
+          <%= t ".new_review" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="report-modal"></div>
+<script type="text/javascript">draw_review_chart()</script>

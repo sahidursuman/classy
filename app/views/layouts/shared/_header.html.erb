@@ -1,0 +1,83 @@
+    <div class="header-container">
+      <div class="header-top colored">
+        <div class="container">
+          <div class="row">
+            <div class="col-2 col-md-5">
+              <div class="header-top-first clearfix">
+                <ul class="social-links circle small clearfix hidden-sm-down">
+                  <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                  <li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
+                  <li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-10 col-md-7">
+              <div class="clearfix text-right header-top-second">
+                <ul class="list-inline">
+                  <li class="list-inline-item header-item"><strong class="pl-1">Liên hệ: </strong><a class="link-light" target="_blank" href="tel:+841234567890">0243 7552 999</a></li>
+                  <%= link_to t(".for_business"), "/business", class: "btn btn-gray-transparent btn-sm btn-business" %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="" class="sticky-wrapper">
+        <header class="header fixed fixed-desktop clearfix">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-auto hidden-md-down pl-3">
+                <div class="header-first clearfix">
+                  <div id="logo" class="logo">
+                    <%= link_to root_path do %>
+                      <h2 class="title logo-font text-left text-default mb-2">Classy</h2>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-auto ">
+                <div class="header-second clearfix">
+                  <div class="main-navigation main-navigation--mega-menu  animated">
+                    <nav class="navbar navbar-expand-lg navbar-light navbar-right">
+                      <ul class="navbar-nav ml-xl-auto">
+                        <li class="nav-seperated"></li>
+                        <li class="nav-item">
+                        </li>
+                        <li class="nav-item dropdown active">
+                          <a href="blog-large-image-right-sidebar.html" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trung tâm</a>
+                          <ul class="dropdown-menu">
+                            <li class="dropdown">
+                              <%= render partial: "layouts/shared/center_category_search",
+                                collection: global_center_categories, as: :center_category %>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-auto hidden-md-down">
+                <form class="navbar-form" role="search" action="./search.html">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Nhập tên trung tâm..." name="q">
+                    <div class="input-group-btn">
+                      <button class="btn btn-gray m-0 btn-search" type="submit">
+                        <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-lg-auto ml-lg-auto">
+                <% if user_signed_in? %>
+                  <%= render "layouts/shared/member_right_header" %>
+                <% else %>
+                  <%= render "layouts/shared/guest_right_header" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>

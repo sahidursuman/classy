@@ -1,0 +1,53 @@
+$(document).on("turbolinks:load", function(){
+  $("#branch_list").on("click", ".branch_on_map", function(event){
+    event.preventDefault();
+    var branch_data = new Array($(this).data());
+    draw_map(branch_data);
+  });
+});
+
+function draw_branch_map(){
+  var branch_data = new Array();
+  $(".branch_on_map").each(function(){
+    branch_data.push($(this).data());
+  });
+  draw_map(branch_data);
+}
+
+function draw_map(branch_data){
+  var mapOptions = {
+    mapTypeId: "roadmap"
+  };
+
+  var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  map.setTilt(<%= Settings.google_map.tilt %>);
+
+  var bounds = new google.maps.LatLngBounds();
+  var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+  len = branch_data.length
+  for(i = 0; i < len; i++){
+    var branch = branch_data[i];
+    var position = new google.maps.LatLng(branch["lat"], branch["long"]);
+    bounds.extend(position);
+    marker = new google.maps.Marker({
+      position: position,
+      map: map,
+      title: branch["name"]
+    });
+
+    google.maps.event.addListener(marker, "click", (function(marker, i) {
+      return function() {
+        var content = "<strong>" + branch["name"] + "</strong><br/>" + branch["address"]
+          + "<br/>" + branch["phone"];
+        infoWindow.setContent(content);
+        infoWindow.open(map, marker);
+      }
+    })(marker, i));
+
+    map.fitBounds(bounds);
+    if (len == 1){
+      map.setZoom(parseFloat("<%= Settings.google_map.zoom %>"));
+    }
+  }
+}

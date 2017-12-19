@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <%= index_on_pagination center_counter, assigns["centers"].current_page,
+      Settings.admin.centers.per_page %>
+  </td>
+  <td><%= image_tag center.avatar.small.url %></td>
+  <td><%= center.name %></td>
+  <td><%= center.center_category.name %></td>
+  <td><%= center.email %></td>
+  <td><%= center.phone_number %></td>
+  <td><%= t ".#{center.status}" %></td>
+  <td><%= t ".action" %></td>
+</tr>

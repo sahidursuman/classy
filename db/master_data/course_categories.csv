@@ -1,0 +1,17 @@
+id,name,parent_id,key_name,priority
+5,Trẻ em,1,tieng-anh-tre-em,1
+6,Giao tiếp,1,tieng-anh-giao-tiep,1
+7,Luyện thi ielts,1,luyen-thi-ielts,1
+8,Luyện thi toeic,1,luyen-thi-toeic,1
+9,Luyện thi bằng châu âu (B1),1,luyen-thi-bang-chau-au-b1,1
+10,Luyện thi toefl,1,luyen-thi-toefl,1
+11,Giao tiếp,2,tieng-nhat-giao-tiep,1
+12,Luyện thi chứng chỉ JLPT,2,luyen-thi-JLPT,1
+13,Cho người đi làm,2,tieng-nhat-cho-nguoi-di-lam,1
+14,Giao tiếp,3,tieng-trung-giao-tiep,1
+15,ôn thi HSK (1-6),3,tieng-trung-on-thi-HSK,1
+16,Học hán ngữ,3,hoc-han-ngu,1
+17,Giao tiếp,4,tieng-han-giao-tiep,1
+18,"Xuất khẩu lao động, du học",4,tieng-han-xuat-khau-lao-dong-du-hoc,1
+19,Tiếng Hàn cho doanh nghiệp,4,tieng-han-doanh-nghiep,1
+20,Luyện thi Topik,4,luyen-thi-topik,1

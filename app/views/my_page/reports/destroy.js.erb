@@ -1,0 +1,4 @@
+<% if @report.errors.blank? %>
+  $("#report-<%= @report.id %>").remove();
+<% end %>
+$("#flash-messages").html("<%= j render 'layouts/shared/flash' %>");

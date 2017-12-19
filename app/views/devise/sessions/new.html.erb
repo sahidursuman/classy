@@ -1,0 +1,60 @@
+<div class="row mx-auto">
+  <div class="form form-sm mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <div class="text-center">
+          <span class="form-title">Đăng nhập</span>
+        </div>
+        <%= form_for resource, as: resource_name, url: session_path(resource_name),
+          html: {class: "new_user form"} do |f| %>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <span class="fa fa-envelope"></span>
+            </div>
+            <%= f.text_field :login, autofocus: true, class: "form-control",
+              placeholder: "Email/username" %>
+          </div>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <span class="fa fa-lock"></span>
+            </div>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control",
+              placeholder: "Mật khẩu" %>
+          </div>
+          <div class="md-form pb-2">
+            <p class="font-small blue-text d-flex justify-content-end">
+              <a href="/users/password/new">Forgot your password?</a>
+            </p>
+          </div>
+          <div class="actions mb-3">
+            <%= f.submit t(".log_in"), class: "btn btn-default btn-block" %>
+          </div>
+        <% end %>
+        <p class="d-flex justify-content-center mb-0">
+          Hoặc đăng nhập bằng:
+        </p>
+        <div class="row d-flex justify-content-center">
+          <ul class="social-links colored square my-2">
+            <li class="facebook">
+              <%= link_to omniauth_authorize_path(resource_name, :facebook) do %>
+                <i class="fa fa-facebook"></i>
+              <% end %>
+            </li>
+            <li class="googleplus">
+              <%= link_to omniauth_authorize_path(resource_name, :google_oauth2) do %>
+                <i class="fa fa-google-plus"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="">
+        <p class="text-right">
+          Chưa có tài khoản?
+          <a href="/users/sign_up">Đăng ký</a><br>
+          <a href="/users/confirmation/new">Không nhận được email xác thực?</a><br>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

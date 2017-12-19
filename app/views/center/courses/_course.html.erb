@@ -1,0 +1,8 @@
+<tr>
+  <td>
+    <%= link_to course.name, center_course_path(course.route_params) %>
+  </td>
+  <td><%= course.course_category.name %></td>
+  <td><%= number_with_precision course.duration, strip_insignificant_zeros: true %></td>
+  <td><%= currency_format course.tuition_fee %></td>
+</tr>

@@ -1,0 +1,15 @@
+<h1><%= t ".profile" %></h1>
+<%= image_tag @user.avatar %></br>
+<%= @user.full_name %></br>
+<%= @user.email %></br>
+<%= @user.phone_number %></br>
+<%= @user.role %></br>
+<%= link_to t(".reviews"), user_reviews_path(@user) %>
+<%  if policy(@user).update? %>
+  <div>
+    <%= link_to t(".edit_personal_information"), edit_my_page_profile_path %></br>
+    <%= link_to t(".edit_account_information"), edit_my_page_account_path %></br>
+    <%= link_to t(".edit_password"), edit_my_page_password_path %></br>
+    <%= link_to t(".my_reports"), my_page_reports_path %></br>
+  </div>
+<% end %>
