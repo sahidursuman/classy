@@ -1,3 +1,4 @@
+<% content_for :cm_edit_center_activation, "active" %>
 <%= form_for [:management, @center] do |f| %>
   <div class="form-group">
     <%= f.label :logo, Center.human_attribute_name(:logo) %>
@@ -18,7 +19,7 @@
 
   <div class="form-group">
     <%= f.label :category_id, Center.human_attribute_name(:center_category) %>
-    <%= f.select :category_id, @support.center_category_options, 
+    <%= f.select :category_id, @support.center_category_options,
       {include_blank: t(".select_center_category")} %>
   </div>
 

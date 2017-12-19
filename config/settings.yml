@@ -23,7 +23,7 @@ review:
   rating_values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   summary_rating_precision: 1
   levels:
-    - {name: excellent, standard: 9}
+    - {name: excellent, standard: 8}
     - {name: good, standard: 7.5}
     - {name: medium, standard: 5}
     - {name: bad, standard: 0}
