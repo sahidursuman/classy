@@ -1,0 +1,20 @@
+<% content_for :notifications_activation, "active" %>
+<div class="card user-setting-group">
+  <div class="section-title-line">
+    <h5><%= t ".notifications" %></h5>
+    <hr class="filler-line">
+  </div>
+  <div class="card-block">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <ul>
+          <%= render partial: "shared/notifications/notification", collection: @notifications,
+            as: :notification %>
+        </ul>
+      </div>
+      <div class="col-md-12">
+        <%= paginate @notifications %>
+      </div>
+    </div>
+  </div>
+</div>
