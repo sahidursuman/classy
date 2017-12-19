@@ -10,7 +10,7 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :branch, optional: true
   has_many :comments, dependent: :destroy
-  has_many :votes
+  has_many :votes, dependent: :destroy
   has_many :review_verifications, dependent: :destroy
   has_many :reports, as: :reportable, dependent: :destroy
   has_many :created_notifications, class_name: Notification.name, as: :creatable,

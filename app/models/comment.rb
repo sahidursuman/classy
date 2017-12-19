@@ -3,7 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :review
   has_one :center, through: :review
   has_many :reports, as: :reportable, dependent: :destroy
-  has_many :notifications, as: :notifiable
+  has_many :notifications, as: :notifiable, dependent: :destroy
 
   scope :earlier_created, ->{order created_at: :asc}
 

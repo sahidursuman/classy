@@ -4,8 +4,6 @@ class Branch < ApplicationRecord
   belongs_to :center
   belongs_to :city
   belongs_to :district
-  has_many :branch_managements
-  has_many :branch_managers, through: :branch_managements, source: :user
   has_many :reviews
 
   validates :name, presence: true, length: {maximum: Settings.validations.branch.name.max_length}
