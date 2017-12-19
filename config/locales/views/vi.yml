@@ -1,4 +1,7 @@
 vi:
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
   in_review: In review
   reviewed: Reviewed
   Center: Center

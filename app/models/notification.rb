@@ -4,7 +4,7 @@ class Notification < ApplicationRecord
   belongs_to :recipient, class_name: User.name, foreign_key: :recipient_id
   belongs_to :user
 
-  after_create :relay_notification
+  after_commit :relay_notification
 
   scope :unread, ->{where is_read: false}
   scope :recent_created, ->{order created_at: :desc}
@@ -14,6 +14,6 @@ class Notification < ApplicationRecord
 
   private
   def relay_notification
-    NotificationRelayJob.perform_later self
+    NotificationRelayJob.perform_later self if persisted?
   end
 end
