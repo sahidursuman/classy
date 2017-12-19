@@ -1,0 +1,5 @@
+<div>Có <b><%= @centers.size %></b> trung tâm khi được tìm kiếm với <b><%= params[:center_name] %></b>
+<% if @centers.size > 0 %>
+  <hr/>
+  <%= render partial: "center", collection: @centers, as: :center %>
+<% end %>

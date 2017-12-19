@@ -58,9 +58,10 @@
                 </div>
               </div>
               <div class="col-md-auto hidden-md-down">
-                <form class="navbar-form" role="search" action="./search.html">
+                <form class="navbar-form" role="search" action="/ft_search/centers">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nhập tên trung tâm..." name="q">
+                    <input type="text" class="form-control" placeholder="Nhập tên trung tâm..."
+                      name="center_name" value="<%= params[:center_name] %>">
                     <div class="input-group-btn">
                       <button class="btn btn-gray m-0 btn-search" type="submit">
                         <i class="fa fa-search fa-lg" aria-hidden="true"></i>
