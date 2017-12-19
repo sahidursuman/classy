@@ -1,0 +1,21 @@
+<div class="col-md-3 col-lg-3">
+  <div class="user-setting-sidebar no-radius">
+    <div class="list-group">
+      <%= link_to edit_management_center_path,
+        class: "#{content_for :cm_edit_center_activation} list-group-item" do %>
+        <i aria-hidden="true" class="fa fa-info-circle fa-fw"></i>
+        <%= t ".edit_center_info" %>
+      <% end %>
+      <%= link_to management_branches_path,
+        class: "#{content_for :cm_branches_activation} list-group-item" do %>
+        <i aria-hidden="true" class="fa fa-map-marker fa-fw"></i>
+        <%= t ".branches" %>
+      <% end %>
+      <%= link_to management_courses_path,
+        class: "#{content_for :cm_courses_activation} list-group-item" do %>
+        <i aria-hidden="true" class="fa fa-book fa-fw"></i>
+        <%= t ".courses" %>
+      <% end %>
+    </div>
+  </div>
+</div>

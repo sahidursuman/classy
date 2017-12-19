@@ -1,3 +1,4 @@
+<% content_for :cm_branches_activation, "active" %>
 <%= link_to t(".create_new_branch"), new_management_branch_path %>
 <%= render "branch_filter", q: @q, support: @support %>
 <table class="table">

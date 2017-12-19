@@ -27,6 +27,12 @@
                 <i class="fa fa-user pr-20"></i>
                 <%= t ".profile" %>
               <% end %>
+              <% if current_user.center_manager? %>
+                <%= link_to management_branches_path, class: "dropdown-item" do %>
+                  <i class="fa fa-mortar-board pr-10"></i>
+                  <%= t ".my_center" %>
+                <% end %>
+              <% end %>
               <%= link_to edit_my_page_profile_path, class: "dropdown-item" do %>
                 <i class="fa fa-cog pr-20"></i>
                 <%= t ".settings" %>

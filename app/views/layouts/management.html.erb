@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Classy</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "management/application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "management/application", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "#{Settings.google_map.src}?key=#{Settings.google_map.key}
-      &libraries=#{Settings.google_map.libraries}&sensor=#{Settings.google_map.sensor}
-      &language=#{Settings.google_map.language}&region=#{Settings.google_map.region}" %>
-  </head>
+  <%= render "layouts/shared/head" %>
 
-  <body>
-    <div class="container">
-      <div id="flash-messages">
-        <%= render "layouts/shared/flash" %>
-      </div>
-      <%= yield %>
+  <body class="front-page wide">
+    <div id="modal_holder"></div>
+    <div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
+    <div class="page-wrapper">
+      <%= render "layouts/shared/header" %>
+
+      <section id="content-container" class="pv-30 grey-bg clearfix">
+        <div class="container">
+          <div id="flash-messages">
+            <%= render "layouts/shared/flash" %>
+          </div>
+          <div class="row">
+            <%= render "layouts/management/sidebar" %>
+            <div class="col-md-9 col-lg-9">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </section>
+      <%= render "layouts/shared/footer" %>
     </div>
   </body>
 </html>
