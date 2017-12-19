@@ -1,0 +1,44 @@
+<% content_for :sidebar_reports_activation, "active" %>
+<% content_for :page_title do %>
+  <div class="title_left">
+    <h3><%= t ".report_management" %></h3>
+  </div>
+<% end %>
+<div class="row">
+
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><%= t ".report_list" %></h2>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="x_content">
+        <div class="">
+          <%= render "report_filter" %>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+        <table class="table table-striped">
+          <thead>
+            <tr width="100%">
+              <th width="5%">#</th>
+              <th width="10%"><%= t ".owner" %></th>
+              <th width="10%"><%= t ".target" %></th>
+              <th width="35%"><%= Report.human_attribute_name :content %></th>
+              <th width="25%"><%= Report.human_attribute_name :response_message %></th>
+              <th width="10%"><%= Report.human_attribute_name :status %></th>
+              <th width="5%"><%= t ".action" %></th>
+            </tr>
+          </thead>
+          <tbody id="report_list">
+            <%= render partial: "report", collection: @reports, as: :report %>
+          </tbody>
+        </table>
+        <div id="report_pagination">
+          <%= paginate @reports %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<%= form_for @q, url: admin_reports_path, method: :get, html: {class: "form-inline auto-submit-form"} do |f| %>
+  <div class="form-group">
+    <%= f.select :reportable_type_eq, report_target_options, {include_blank: t(".select_report_target")}, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.select :status_eq, report_status_options, {include_blank: t(".select_status")}, class: "form-control" %>
+  </div>
+<% end %>

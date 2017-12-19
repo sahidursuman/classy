@@ -1,0 +1,18 @@
+<tr id="report-<%= report.id %>">
+  <td><%= index_on_pagination report_counter, @reports.current_page, Settings.report.per_page %></td>
+    <td><%= link_to report.owner_full_name, report.user %></td>
+  <td><%= report.display_report_target %></td>
+  <td><%= report.content %></td>
+  <td class="response-message"><%= report.display_response_message %></td>
+  <td class="status"><%= report.display_status %></td>
+  <td>
+    <% if policy(report).can_review? %>
+      <%= link_to edit_admin_report_path(report, status: :accepted), remote: true do %>
+        <i class="fa fa-check fa-lg" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to edit_admin_report_path(report, status: :rejected), remote: true do %>
+        <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
+</td>
+</tr>

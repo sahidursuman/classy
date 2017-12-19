@@ -1,0 +1,14 @@
+<%= form_for report, url: admin_report_path, remote: true do |f| %>
+  <div class="response-report-error-messages"></div>
+  <div class="modal-body no-radius">
+    <div class="field">
+      <%= f.hidden_field :status, value: status %>
+      <%= f.label :response_message, Report.human_attribute_name(:response_message) %></br>
+      <%= f.text_area :response_message, placeholder: t(".add_response_report_placeholder"), class: "form-control" %>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <%= f.button t(status), class: "btn btn-primary no-radius" %>
+    <%= f.button :cancel, data: {dismiss: :modal}, class: "btn btn-sucess no-radius" %>
+  </div>
+<% end %>

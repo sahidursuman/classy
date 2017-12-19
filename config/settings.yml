@@ -39,7 +39,8 @@ vote:
 review_verification:
   per_page: 20
 report:
-  target_models: [Center, Branch, Review, Comment]
+  per_page: 20
+  target_models: [Center, Review, Comment]
 validations:
   comment:
     content:
@@ -96,6 +97,9 @@ validations:
       maximum: 1000
   report:
     content:
+      max_length: 1000
+      min_length: 10
+    response_message:
       max_length: 1000
       min_length: 10
 google_map:
