@@ -1,23 +1,43 @@
-<h2><%= t ".edit_account_information" %></h2>
-
-<%= form_for @user, url: my_page_account_path do |f| %>
-  <div class="field">
-    <%= f.label :username, User.human_attribute_name(:username) %><br />
-    <%= f.text_field :username %>
+<% content_for :edit_account_activation, "active" %>
+<div class="card user-setting-group">
+  <div class="section-title-line">
+    <h5><%= t ".edit_account_information" %></h5>
+    <hr class="filler-line">
   </div>
-
-  <div class="field">
-    <%= f.label :email, User.human_attribute_name(:email) %><br />
-    <%= f.email_field :email %>
+  <div class="card-block">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <%= form_for @user, url: my_page_account_path do |f| %>
+          <div class="form-group row">
+            <%= f.label :username, User.human_attribute_name(:username),
+              class: "col-md-3 col-form-label text-right" %>
+            <div class="col-md-6">
+              <%= f.text_field :username, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :email, User.human_attribute_name(:email),
+              class: "col-md-3 col-form-label text-right" %>
+            <div class="col-md-6">
+              <%= f.text_field :email, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :current_password, User.human_attribute_name(:current_password),
+              class: "col-md-3 col-form-label text-right" %>
+            <div class="col-md-6">
+              <%= f.password_field :current_password, class: "form-control" %>
+            </div>
+          </div>
+          <hr/>
+          <div class="form-group row">
+            <div class="col-md-6 offset-md-3">
+              <%= f.submit class: "btn btn-default mr-2" %>
+              <a class="btn btn-gray" href="/users/member1">Cancel</a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :current_password, User.human_attribute_name(:current_password) %><br />
-    <%= f.password_field :current_password %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t(".update") %>
-    <%= link_to t(".cancel"), user_path(@user), class: "btn btn-default" %>
-  </div>
-<% end %>
+</div>
