@@ -5,6 +5,7 @@ class Review::CommentsController < Review::BaseController
   def index
     @comment = build_comment.decorate if user_signed_in?
     @comments = @review.comments.earlier_created.includes(:user, :center).decorate
+    binding.pry
   end
 
   def new
@@ -31,7 +32,7 @@ class Review::CommentsController < Review::BaseController
 
   def build_comment
     if current_user.try(:managed_center) == @review.center
-      current_user.center_comments.build
+      current_user.center_comments.build review: @review
     else
       current_user.user_comments.build
     end
