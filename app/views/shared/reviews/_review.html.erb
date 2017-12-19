@@ -1,7 +1,8 @@
 <div class="row white-bg wrap-review mb-3 pb-2" id="review-details-<%= review.id %>">
   <div class="review-content">
     <div class="col-md-12 col-lg-12">
-      <%= render "shared/reviews/header", review: review %>
+      <%= render "shared/reviews/header", review: review,
+        center_displayed: local_assigns[:center_displayed] %>
     </div>
     <div class="col-md-12 col-lg-12 px-0">
       <hr class="m-0">
