@@ -1,15 +1,29 @@
 <% content_for :cm_courses_activation, "active" %>
-<%= link_to t(".new_course"), new_management_course_path %>
-<table class="table">
-  <thead>
-    <th><%= t ".index" %></th>
-    <th><%= Course.human_attribute_name :name %></th>
-    <th><%= Course.human_attribute_name :category %></th>
-    <th><%= Course.human_attribute_name :duration %></th>
-    <th><%= Course.human_attribute_name :tuition_fee %></th>
-    <th><%= t ".action" %></th>
-  </thead>
-  <tbody>
-    <%= render partial: :course, collection: @courses, as: :course %>
-  </tbody>
-</table>
+<div class="card user-setting-group">
+  <div class="section-title-line">
+    <h4><%= t ".course_management" %></h4>
+    <hr class="filler-line">
+  </div>
+  <div class="card-block">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <%= link_to new_management_course_path, class: "btn btn-default pull-right mt-0 mb-3" do %>
+          <i class="fa fa-plus"></i><%= t ".new_course" %>
+        <% end %>
+        <table class="table">
+          <thead>
+            <th>#</th>
+            <th><%= Course.human_attribute_name :name %></th>
+            <th><%= Course.human_attribute_name :category %></th>
+            <th><%= Course.human_attribute_name :duration %></th>
+            <th><%= Course.human_attribute_name :tuition_fee %></th>
+            <th><%= t ".action" %></th>
+          </thead>
+          <tbody>
+            <%= render partial: :course, collection: @courses, as: :course %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

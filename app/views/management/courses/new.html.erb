@@ -1,5 +1,16 @@
 <% content_for :cm_courses_activation, "active" %>
-<h2><%= t ".new_course" %></h2>
-<%= form_for [:management, @course] do |f| %>
-  <%= render "form", f: f, support: @support %>
-<% end %>
+<div class="card user-setting-group">
+  <div class="section-title-line">
+    <h4><%= t ".new_course" %></h4>
+    <hr class="filler-line">
+  </div>
+  <div class="card-block">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <%= form_for [:management, @course] do |f| %>
+          <%= render "form", f: f, support: @support %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

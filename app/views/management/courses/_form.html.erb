@@ -1,47 +1,87 @@
-<div class="form-group">
-  <%= f.label :name, Course.human_attribute_name(:name) %>
-  <%= f.text_field :name %>
+<div class="form-group row">
+  <%= f.label :name, Course.human_attribute_name(:name),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-8">
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
 </div>
-<div class="form-group">
-  <%= f.label :category_id, Course.human_attribute_name(:course_category) %>
-  <%= f.select :category_id, support.course_category_options,
-    {include_blank: t(".select_course_category")}, class: "course_category_selection" %>
+<div class="form-group row">
+  <%= f.label :category_id, Branch.human_attribute_name(:course_category),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-8">
+    <%= f.select :category_id, support.course_category_options,
+      {include_blank: t(".select_course_category")},
+      class: "course_category_selection form-control" %>
+  </div>
 </div>
-<div class="form-group">
-  <%= f.label :tmp_course_sub_category_ids, Course.human_attribute_name(:course_sub_categories) %>
-  <%= f.select :tmp_course_sub_category_ids, support.course_sub_category_options, {},
-    multiple: true, class: "select2_course_sub_categories" %>
+<div class="form-group row">
+  <%= f.label :tmp_course_sub_category_ids, Course.human_attribute_name(:course_sub_categories),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-8">
+    <%= f.select :tmp_course_sub_category_ids, support.course_sub_category_options, {},
+      multiple: true, class: "select2_course_sub_categories form-control" %>
+  </div>
 </div>
-<div class="form-group">
-  <%= f.label :intended_student, Course.human_attribute_name(:intended_student) %>
-  <%= f.text_area :intended_student %>
+<div class="form-group row">
+  <%= f.label :intended_student, Course.human_attribute_name(:intended_student),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-8">
+    <%= f.text_area :intended_student, class: "form-control", rows: 5 %>
+  </div>
 </div>
-<div class="form-group">
-  <%= f.label :target, Course.human_attribute_name(:target) %>
-  <%= f.text_area :target %>
+<div class="form-group row">
+  <%= f.label :target, Course.human_attribute_name(:target),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-8">
+    <%= f.text_area :target, class: "form-control", rows: 5 %>
+  </div>
 </div>
-<div class="form-group">
-  <%= f.label :sessions, Course.human_attribute_name(:sessions) %>
-  <%= f.number_field :sessions %>
+<div class="form-group row">
+  <%= f.label :sessions, Course.human_attribute_name(:sessions),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-4">
+    <%= f.number_field :sessions, class: "form-control" %>
+  </div>
 </div>
-<div class="form-group">
-  <%= f.label :duration, Course.human_attribute_name(:duration) %>
-  <%= f.text_field :duration %>
+<div class="form-group row">
+  <%= f.label :duration, Course.human_attribute_name(:duration),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-4">
+    <%= f.text_field :duration, class: "form-control" %>
+  </div>
 </div>
-<div class="form-group">
-  <%= f.label :class_size, Course.human_attribute_name(:class_size) %>
-  <%= f.number_field :class_size %>
+<div class="form-group row">
+  <%= f.label :class_size, Course.human_attribute_name(:class_size),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-4">
+    <%= f.number_field :class_size, class: "form-control" %>
+  </div>
 </div>
-<div class="form-group">
-  <%= f.label :curriculum, Course.human_attribute_name(:curriculum) %>
-  <%= f.text_area :curriculum %>
+<div class="form-group row">
+  <%= f.label :curriculum, Course.human_attribute_name(:curriculum),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-8">
+    <%= f.text_area :curriculum, class: "form-control", rows: 5 %>
+  </div>
 </div>
-<div class="form-group">
-  <%= f.label :teaching_methods, Course.human_attribute_name(:teaching_methods) %>
-  <%= f.text_area :teaching_methods %>
+<div class="form-group row">
+  <%= f.label :teaching_methods, Course.human_attribute_name(:teaching_methods),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-8">
+    <%= f.text_area :teaching_methods, class: "form-control", rows: 5 %>
+  </div>
 </div>
-<div class="form-group">
-  <%= f.label :tuition_fee, Course.human_attribute_name(:tuition_fee) %>
-  <%= f.number_field :tuition_fee %>
+<div class="form-group row">
+  <%= f.label :tuition_fee, Course.human_attribute_name(:tuition_fee),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-4">
+    <%= f.number_field :tuition_fee, class: "form-control" %>
+  </div>
 </div>
-<%= f.submit %>
+<hr/>
+<div class="form-group row">
+  <div class="col-md-8 offset-md-3">
+    <%= f.submit class: "btn btn-default mr-2" %>
+    <%= link_to t(".cancel"), management_branches_path, class: "btn btn-gray" %>
+  </div>
+</div>
