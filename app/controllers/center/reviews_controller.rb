@@ -7,6 +7,7 @@ class Center::ReviewsController < Center::BaseController
     @q.order_by ||= Review::SORT_OPTIONS.first
     @reviews = @q.result.page(params[:page]).per(Settings.review.per_page).includes(:user).decorate
     @support = Supports::CenterReview.new @center, params[:q]
+    impressionist @center
   end
 
   def new
