@@ -1,4 +1,4 @@
-en:
+vi:
   in_review: In review
   reviewed: Reviewed
   Center: Center
@@ -23,6 +23,13 @@ en:
   select_course_sub_category: Lựa chọn các loại chương trình học
   select_districts: Lựa chọn quận/ huyện
   layouts:
+    shared:
+      header:
+        for_business: Bạn là trung tâm?
+      guest_right_header:
+        log_in: Đăng nhập
+        sign_up: Đăng ký
+
     center:
       center_details:
         number_of_branch_in_cities: *number_of_branch_in_cities
@@ -43,6 +50,7 @@ en:
     sessions:
       new:
         log_in: Đăng nhập
+        forgot_your_password: Bạn quên mật khẩu?
     passwords:
       new:
         forgot_your_password: Bạn quên mật khẩu?
