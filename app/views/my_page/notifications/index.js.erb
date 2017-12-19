@@ -1,2 +1,7 @@
-$("#notification-header-list").html("<%= j render partial: 'shared/notifications/notification',\
-  collection: @notifications, as: :notification %>");
+<% if @notifications.present? %>
+  $("#notification-header-list").html("<%= j render partial: 'shared/notifications/notification',\
+    collection: @notifications, as: :notification %>");
+  $("#notification-header-list").append("<li class='text-center'><%= j link_to 'Xem tất cả thông báo', my_page_notifications_path %></li>");
+<% else %>
+  $("#notification-header-list").html("<li>Bạn chưa có thông báo nào</li>");
+<% end %>
