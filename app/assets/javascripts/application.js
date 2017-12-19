@@ -28,3 +28,4 @@
 //= require center_map
 //= require js/review
 //= require notification
+//= require persist_course

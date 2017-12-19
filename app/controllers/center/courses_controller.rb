@@ -1,6 +1,6 @@
 class Center::CoursesController < Center::BaseController
   def index
-    @courses = @center.courses.includes :course_category
+    @courses = @center.courses.includes(:course_category).decorate
     impressionist @center
   end
 

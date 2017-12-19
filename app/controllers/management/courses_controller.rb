@@ -3,7 +3,7 @@ class Management::CoursesController < Management::BaseController
   before_action :course, :authorize_modify_course!, only: [:edit, :update]
 
   def index
-    @courses = @center.courses.includes(:course_category)
+    @courses = @center.courses.includes(:course_category).decorate
   end
 
   def new
