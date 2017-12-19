@@ -1,0 +1,232 @@
+en:
+  in_review: In review
+  reviewed: Reviewed
+  Center: Center
+  Branch: Branch
+  Review: Review
+  Comment: Comment
+  currency_unit: ₫
+  dictionary:
+    app_name: &app_name Classy
+    select_city: &select_city Lựa chọn thành phố/ tỉnh thành
+    select_district: &select_district Lựa chọn quận/ huyện
+    preview: &preview Xem trước
+    edit: &edit Chỉnh sửa
+    finish: &finish Kết thúc
+    delete: &delete Xóa
+    select_course_category: &select_course_category Lựa chọn chương trình học
+    report: &report Báo cáo
+    login_as: &login_as Bạn đã đăng nhập với tài khoản %{name}
+    filter: &filter Lọc
+    reviews: &reviews Các đánh giá
+    number_of_branch_in_cities: &number_of_branch_in_cities "%{number_of_branch} chi nhánh ở %{cities}."
+  select_course_sub_category: Lựa chọn các loại chương trình học
+  select_districts: Lựa chọn quận/ huyện
+  layouts:
+    center:
+      center_details:
+        number_of_branch_in_cities: *number_of_branch_in_cities
+  home_pages:
+    index:
+      log_out: Đăng xuất
+      log_in: Đăng nhập
+      welcome_message: Chào mừng đến với Classy
+      profile: Hồ sơ
+  devise:
+    registrations:
+      new:
+        sign_up: Đăng kí
+      edit:
+        edit_user: Chỉnh sửa thông tin người dùng
+        back: Quay về
+        update: Chỉnh sửa
+    sessions:
+      new:
+        log_in: Đăng nhập
+    passwords:
+      new:
+        forgot_your_password: Bạn quên mật khẩu?
+        send_me: Gửi tôi hướng dẫn đặt lại mật khẩu
+      edit:
+        change_your_password: Thay đổi mật khẩu của bạn
+        new_password: Mật khẩu mới
+        confirm_new_password: Xác nhận mật khẩu mới
+        change_my_password: Đổi mật khẩu của tôi
+        characters_minimum: Số lượng kí tự nhỏ nhất
+        log_in: "Đăng nhập"
+  shared:
+    reviews:
+      criterion_input:
+        rating: Điểm đánh giá
+      review:
+        edit: Chỉnh sửa
+        delete: Xóa
+        show_comments: &show_comments
+          zero: Không có bình luận nào
+          one: Hiển thị một bình luật
+          other: Hiển thị %{count} bình luật
+        confirm_delete: "Bạn có chắc muốn xóa đánh giá này?"
+        new_comment: Bình luận mới
+        report: *report
+      new_comment:
+        new_comment_placeholder: "Bình luận của bạn..."
+      form:
+        title_holder: Tiêu đề của bạn
+        content_holder: Nội dung
+    reports:
+      report_modal:
+        report: *report
+      report_form:
+        add_report_reason_placeholder: Tại sao bạn lại muốn báo cáo?
+        report: *report
+        cancel: Hủy bỏ
+    comments:
+      new_comment:
+        post: Post
+        add_comment_placeholder: Thêm mới một bình luậtn công khai
+      comment:
+        confirm_delete: Bạn có muốn xóa bình luận này
+        delete: *delete
+        report: *report
+    votes:
+      vote_button:
+        up: Tăng đánh giá
+        down: Giảm đánh giá
+  management:
+    branches:
+      index:
+        index: Mục lục
+        create_new_branch: Tạo mới một chi nhánh
+      branch_filter:
+        select_city: *select_city
+        filter: Lọc
+        select_status: Lựa chọn trạng thái
+      branch:
+        edit: *edit
+      new:
+        create_new_branch: Tạo mới một chi nhánh
+      edit:
+        edit_branch: Chỉnh sửa chi nhánh %{name}
+      preview:
+        edit: *edit
+        finish: *finish
+      form:
+        select_city: *select_city
+        select_district: *select_district
+        preview: *preview
+    review_verifications:
+      index:
+        index: Mục lục
+        branch_name: Tên chi nhánh
+        action: Hành động
+      review_verification_filter:
+        select_status: Lựa chọn trạng thái
+        filter: Filter
+        select_branch: Lựa chọn chi nhánh
+      review_verification:
+        accept: Đồng ý
+        reject: Từ chối
+    centers:
+      edit:
+        preview: *preview
+        select_center_category: Chọn loại trung tâm
+      preview:
+        edit: *edit
+        finish: *finish
+    courses:
+      new:
+        new_course: Chương trình học mới
+      edit:
+        edit_course: Chỉnh sửa chương trình học
+      form:
+        preview: *preview
+        select_course_category: *select_course_category
+      preview:
+        edit: *edit
+        finish: *finish
+    verification:
+      reviews:
+        filter:
+          all_statuses: Tất cả các trạng thái
+          all_branches: Tất cả các chi nhánh
+          filter: *filter
+  centers:
+    show:
+      edit: *edit
+      report: *report
+      branch_list: Danh sách các trugn tâm
+      reviews: *reviews
+  center:
+    branches:
+      index:
+        select_city: *select_city
+    reviews:
+      index:
+        recent_created: Mới nhất
+        vote_points_desc: Điểm đánh giá cao nhất
+      review_level:
+        excellent: Xuất sắc
+        good: Tốt
+        medium: Trung bình
+        bad: Không tốt
+  branches:
+    index:
+      select_city: "Lựa chọn thành phố"
+      filter: "Lọc"
+    show:
+      edit: *edit
+      reviews: *reviews
+      report: *report
+  branch:
+    reviews:
+      index:
+        new_review: Đánh giá mới
+  reviews:
+    new:
+      new_review: Đánh giá mới
+      review: Đánh giá
+      create: Tạo mới
+    edit:
+      update: Chỉnh sửa
+  users:
+    show:
+      profile: Hồ sơ
+      edit_personal_information: Chỉnh sửa thông tin gười dùng
+      edit_account_information: Chỉnh sửa thông tin tài khoản
+      edit_avatar: Chỉnh sửa ảnh đại diện
+      edit_password: Chỉnh sửa mật khẩu
+      my_reports: Các báo cáo của tôi
+    omniauth_callbacks:
+      facebook:
+        login_as: *login_as
+      google_oauth2:
+        login_as: *login_as
+  review:
+    comments:
+      create:
+        show_comments: *show_comments
+        failed: Tạo mới bình luận thất bại
+  reports:
+    create:
+      recorded: Cảm ơn về báo cáo của bạn, chúng tôi sẽ xác thực và thông báo đến bạn sớm nhất.
+      failed: Tạo mới báo cáo thất bại.
+  comments:
+    destroy:
+      show_comments: *show_comments
+  search:
+    centers:
+      index:
+        search: Tìm kiếm
+      course_detail_filter:
+        select_course_category: *select_course_category
+      center:
+        tuition_fee: học phí
+        tuition_fee_from: học phí từ
+        number_of_branch_in_cities: *number_of_branch_in_cities
+      search_control:
+        search: Tìm kiếm
+      sort_option:
+        recommendation_order: Đề xuất
+        summary_rating_desc: Điểm đánh giá
+        minimum_tuition_fee_asc: Học phí tăng dần
+        minimum_tuition_fee_desc: Học phí giảm dần

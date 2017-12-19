@@ -13,7 +13,7 @@ module Classy
     config.eager_load_paths += Dir[Rails.root.join("app", "forms", "concerns"), Rails.root.join("app", "services")]
     config.paths["config/routes.rb"] << Rails.root.join("config", "routes", "rule.rb")
     config.paths["config/routes.rb"] << Rails.root.join("config", "routes", "admin.rb")
-    # config.i18n.default_locale = :vi
+    config.i18n.default_locale = :vi
     config.time_zone = "Hanoi"
     config.active_job.queue_adapter = :sidekiq
   end

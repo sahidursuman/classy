@@ -1,0 +1,26 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        first_name: Tên
+        last_name: Họ
+        full_name: Họ và tên
+        email: Email
+        password: Mật khẩu
+        password_confirmation: Xác nhận mật khẩu
+        login: Tên đăng nhập/Email
+      review:
+        title: Tiêu đề
+        content: Nội dung
+        summary_rating: Điểm trung bình
+        rating_criterion_1: Tiêu chí thứ nhất
+        rating_criterion_2: Tiêu chí thứ hai
+        rating_criterion_3: Tiêu chí thứ ba
+        rating_criterion_4: Tiêu chí thứ tư
+        rating_criterion_5: Tiêu chí thứ năm
+      review_verification:
+        email: Email xác thực
+        phone_number: Số điện thoại xác thực
+      branch:
+        name: Tên
+        status: Trạng thái
