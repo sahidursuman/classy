@@ -1,0 +1,47 @@
+en:
+  not_authorized: You are not authorized to perform this action.
+  require_sign_in: You must sign in to perform this action.
+  management:
+    review_verifications:
+      update:
+        success: Xác thực đánh giá thành công
+        failed: Xác thực đánh giá thất bại
+    branches:
+      create:
+        success: Tạo mới chi nhánh thành công
+        failed: Tạo mới chi nhánh thất bại
+      update:
+        success: Cập nhật chi nhánh thành công
+        failed: Cập nhật chi nhánh thất bại
+    centers:
+      update:
+        success: Cập nhật trung tâm thành công
+        failed: Cập nhật trung tâm thất bại
+    courses:
+      create:
+        success: Tạo mới chương trình học thành công
+        failed: Tạo mới chương trình học thất bại
+      update:
+        success: Cập nhật chương trình học thành công
+        failed: Cập nhật chương trình học thất bại
+  reviews:
+    create:
+      success: Tạo mới đánh giá thành công
+      failed: Tạo mới đánh giá thất bại
+    update:
+      success: Cập nhật đánh giá thành công
+      failed: Cập nhật đánh giá thất bại
+    destroy:
+      success: Xóa bỏ đánh giá thành công
+      failed: Xóa bỏ đánh giá thất bại
+  review:
+    votes:
+      create:
+        failed: "Fail to vote"
+      destroy:
+        failed: "Fail to unvote"
+  center:
+    reviews:
+      create:
+        success: Tạo mới review thành công
+        failed: Tạo mới review thất bại

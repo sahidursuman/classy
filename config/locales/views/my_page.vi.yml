@@ -1,0 +1,57 @@
+en:
+  dictionary:
+    update: &update Update
+    cancel: &cancel Cancel
+    updated: &updated Your profile has been updated successfully
+  my_page:
+    accounts:
+      edit:
+        update: *update
+        cancel: *cancel
+        edit_account_information: Chỉnh sửa thông tin tài khoản
+      update:
+        updated: *updated
+        faield: Chỉnh sửa thông tin tài khoản thất bại
+
+    profiles:
+      edit:
+        edit_personal_information: Chỉnh sửa thông tin người dùng
+        update: *update
+        cancel: *cancel
+      update:
+        updated: *updated
+        failed: Chỉnh sửa thông tin người dùng thất bại
+    avatars:
+      edit:
+        edit_avatar: Chỉnh sửa ảnh đại diện
+        update: *update
+        cancel: *cancel
+      update:
+        updated: *updated
+        failed: Chỉnh sửa ảnh đại diện thất bại
+    passwords:
+      edit:
+        edit_password: Thay đổi mật khẩu
+        update: *update
+        cancel: *cancel
+      update:
+        updated: *updated
+        failed: Thay đổi mật khẩu thất bại
+    reports:
+      index:
+        index: Mục lục
+        target: Đối tượng
+        action: Hành động
+      report_filter:
+        filter: Lọc
+        select_report_target: Lựa chọn đối tượng báo cáo
+        select_status: Lựa chọn trạng thái
+      report:
+        thank_you: Cảm ơn về báo cáo của bạn, chúng tôi sẽ xác thực và thông báo đến bạn sớm nhất.
+        you_reported: Bạn đã báo cáo một
+        delete: Xóa
+        confirm_delete: Bạn có chắc muốn xóa báo cáo này?
+        classy: Classy
+      destroy:
+        deleted: Báo cáo của bạn đã được xóa thành công.
+        failed: Xóa báo cáo thất bại.
