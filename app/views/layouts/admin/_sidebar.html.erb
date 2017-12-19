@@ -29,7 +29,9 @@
         <h3><%= t ".general" %></h3>
         <ul class="nav side-menu">
           <li class="<%= content_for :sidebar_users_activation %>">
-            <a><i class="fa fa-user"></i><%= t ".users" %></a>
+            <%= link_to admin_users_path do %>
+              <i class="fa fa-user"></i><%= t ".users" %>
+            <% end %>
           </li>
           <li class="<%= content_for :sidebar_centers_activation %>">
             <%= link_to admin_centers_path do %>

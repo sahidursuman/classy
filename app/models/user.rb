@@ -18,6 +18,7 @@ class User < ApplicationRecord
   PROFILE_PARAMS = [:first_name, :last_name, :phone_number, :avatar, :avatar_cache]
   ACCOUNT_INFORMATION_PARAMS = [:username, :email, :current_password]
   PASSWORD_PARAMS = [:password, :password_confirmation, :current_password]
+  USER_CREATE_PARAMS = [:first_name, :last_name, :email, :password, :role]
 
   validates :first_name, presence: true, length: {maximum: Settings.user.first_name.max_length}
   validates :last_name, presence: true, length: {maximum: Settings.user.last_name.max_length}
@@ -31,8 +32,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :trackable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
-  enum role: [:root, :moderator, :center_manager, :branch_manager, :normal_user]
+  enum role: [:root, :moderator, :center_manager, :normal_user]
 
+  scope :moderator_and_center_manager, ->{where(role: [:moderator, :center_manager])}
   mount_uploader :avatar, AvatarUploader
 
   friendly_findable :username
@@ -76,7 +78,7 @@ class User < ApplicationRecord
   def unread_notification_counter
     received_notifications.unread.count
   end
-  
+
   def is_system_admin?
     moderator? || root?
   end

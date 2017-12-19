@@ -129,3 +129,5 @@ center_search:
 admin:
   centers:
     per_page: 5
+  users:
+    per_page: 10
