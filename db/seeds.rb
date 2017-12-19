@@ -14,7 +14,7 @@ puts "Creating admin account"
 User.create! email: "admin@gmail.com",
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  role: :admin,
+  role: :root,
   password: "123456",
   password_confirmation: "123456",
   confirmed_at: Time.zone.now,
@@ -50,7 +50,9 @@ puts "Creating center"
   center = Center.create! name: Faker::Educator.university,
     center_category: center_category,
     status: :active,
-    description: Faker::Lorem.paragraphs.join("\n"),
+    overview: Faker::Lorem.paragraphs.join("\n"),
+    teacher_staff_intro: Faker::Lorem.paragraphs.join("\n"),
+    curriculum_overview: Faker::Lorem.paragraphs.join("\n"),
     phone_number: Faker::Number.number(10),
     email: Faker::Internet.email
 end
@@ -202,3 +204,17 @@ centers.each do |center|
   end
 end
 
+puts "Creating impression"
+ActiveRecord::Base.transaction do
+  centers = Center.first(2)
+  30.times do |i|
+    centers.each do |center|
+      views_on_day = rand(100)
+      views_on_day.times do
+        Impression.create! impressionable: center,
+          session_hash: SecureRandom.hex,
+          created_at: i.days.ago
+      end
+    end
+  end
+end

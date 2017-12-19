@@ -1,0 +1,63 @@
+<% content_for :cm_dashboard_activation, "active" %>
+<div class="card user-setting-group">
+  <div class="section-title-line">
+    <h5><%= t ".page_views" %></h5>
+    <hr class="filler-line">
+  </div>
+  <div class="card-block">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+      <canvas id="page_views_chart" width="800" height="300"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var config = {
+    type: "line",
+    data: {
+      labels: <%= @support.page_views_statistics[:days].to_json.html_safe %>,
+      datasets: [{
+        label: "Page views",
+        borderColor: "#2aa4a5",
+        backgroundColor: "#2aa4a5",
+        fill: false,
+        data: <%= @support.page_views_statistics[:views] %>,
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      spanGaps: false,
+      elements: {
+        line: {
+          tension: 0.000001
+        }
+      },
+      spanGaps: false,
+      responsive: true,
+      tooltips: {
+        mode: "index",
+      },
+      hover: {
+        mode: "index"
+      },
+      scales: {
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: "Day"
+          }
+        }],
+        yAxes: [{
+          stacked: true,
+          scaleLabel: {
+            display: true,
+            labelString: "Page views"
+          }
+        }]
+      }
+    }
+  };
+  var ctx = document.getElementById("page_views_chart").getContext("2d");
+  window.myLine = new Chart(ctx, config);
+</script>

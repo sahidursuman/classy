@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     namespace :verification do
       resources :reviews, only: [:index, :update]
     end
+    resource :dashboard, only: :show
   end
 
   namespace :supports do
