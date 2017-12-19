@@ -28,7 +28,7 @@
                 <%= t ".profile" %>
               <% end %>
               <% if current_user.center_manager? %>
-                <%= link_to management_branches_path, class: "dropdown-item" do %>
+                <%= link_to management_dashboard_path, class: "dropdown-item" do %>
                   <i class="fa fa-mortar-board pr-10"></i>
                   <%= t ".my_center" %>
                 <% end %>

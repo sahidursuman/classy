@@ -1,6 +1,11 @@
 <div class="col-md-3 col-lg-3">
   <div class="user-setting-sidebar no-radius">
     <div class="list-group">
+      <%= link_to management_dashboard_path,
+        class: "#{content_for :cm_dashboard_activation} list-group-item" do %>
+        <i aria-hidden="true" class="fa fa-tachometer fa-fw"></i>
+        <%= t ".dashboard" %>
+      <% end %>
       <%= link_to edit_management_center_path,
         class: "#{content_for :cm_edit_center_activation} list-group-item" do %>
         <i aria-hidden="true" class="fa fa-info-circle fa-fw"></i>
@@ -15,6 +20,11 @@
         class: "#{content_for :cm_courses_activation} list-group-item" do %>
         <i aria-hidden="true" class="fa fa-book fa-fw"></i>
         <%= t ".courses" %>
+      <% end %>
+      <%= link_to management_verification_reviews_path,
+        class: "#{content_for :cm_review_verifications_activation} list-group-item" do %>
+        <i aria-hidden="true" class="fa fa-file-text fa-fw"></i>
+        <%= t ".review_verifications" %>
       <% end %>
     </div>
   </div>
