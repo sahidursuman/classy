@@ -117,3 +117,18 @@
     }
   }
 }
+
+.header-top {
+  .header-top-first {
+    margin-top: 6px;
+  }
+  .header-top-second .btn-business {
+    text-decoration: none;
+    border-color: $white;
+    margin: 0 0 0 15px;
+    &:hover {
+      background-color: $white;
+      color: $cyan;
+    }
+  }
+}
