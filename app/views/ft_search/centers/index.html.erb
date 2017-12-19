@@ -1,0 +1,7 @@
+<div class="mb-20">
+  Có <b><%= @centers.size %></b> trung tâm khi được tìm kiếm với <b><%= params[:center_name] %></b>
+</div>
+<% if @centers.size > 0 %>
+  <%= render partial: "center", collection: @centers, as: :center %>
+  <%= paginate @centers %>
+<% end %>

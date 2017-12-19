@@ -1,0 +1,41 @@
+<div class="row center-result white-bg ">
+  <div class="col-lg-2 col-md-2 no-padding ">
+    <img class="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJz4qClm0VjUDMNdfIfdEaU08abtnyDNPoonKs9Wjg2KbbjuhB" width="100%" height="150" />
+  </div>
+  <div class="col-lg-8 col-md-8">
+    <div>
+      <h3 class="mb-1 mt-2">
+        <%= link_to center.name, center_path(center.route_params), target: "_blank",
+          class: "text-default" %>
+      </h3>
+      <span>
+        <i class="fa fa-book" aria-hidden="true"></i>
+        <%= center.category_details %>
+      </span></br>
+      <span>
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <%= center.location %>
+      </span>
+    </div>
+  </div>
+  <div class="col-lg-2 col-md-2 pt-3 extra-info ">
+    <div class="pull-right">
+      <div class="center-rate bg-<%= rating_label center.summary_rating_cached %> pull-right">
+        <%= avarage_rating_format center.summary_rating_cached %>
+      </div><br/><br/>
+      <div class="reviews-count">
+        <i class="fa fa-file-text" aria-hidden="true"></i>
+        <span>
+          <%= review_counter_format center.review_counter_cached %>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="price">
+    <i class="fa fa-tag text-important" aria-hidden="true"></i>
+    <span><%= t ".#{center.courses.size > 1 ? 'tuition_fee_from' : 'tuition_fee'}" %></span>
+    <span class="text-default text-important">
+      <%= currency_format center.courses.order(tuition_fee: :asc).first.tuition_fee %>
+    </span>
+  </div>
+</div>

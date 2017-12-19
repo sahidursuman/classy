@@ -53,4 +53,8 @@ Rails.application.routes.draw do
       resources :reviews, only: :index
     end
   end
+
+  namespace :ft_search do
+    resources :centers, only: :index
+  end
 end
