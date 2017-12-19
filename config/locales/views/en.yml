@@ -118,7 +118,8 @@ en:
       new:
         create_new_branch: Create new branch
       edit:
-        edit_branch: Edit branch %{name}
+        edit_branch: Edit branch
+        branch_name: "Branch: %{name}"
       preview:
         edit: *edit
         finish: *finish

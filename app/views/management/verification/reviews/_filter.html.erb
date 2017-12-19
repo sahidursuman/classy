@@ -1,5 +1,8 @@
-<%= form_for q, url: management_verification_reviews_path, method: :get do |f| %>
-  <%= f.select :status_eq, review_verification_status_options, {include_blank: t(".all_statuses")}%>
-  <%= f.select :branch_slug_eq, support.branch_options, {include_blank: t(".all_branches")} %>
-  <%= f.submit t(".filter") %>
+<%= form_for q, url: management_verification_reviews_path, method: :get,
+  html: {class: "auto-submit-form form-inline"} do |f| %>
+  <%= f.select :status_eq, review_verification_status_options, {include_blank: t(".all_statuses")},
+    class: "form-control mr-sm-2" %>
+  <%= f.select :branch_slug_eq, support.branch_options, {include_blank: t(".all_branches")},
+    class: "form-control" %>
 <% end %>
+<br/>

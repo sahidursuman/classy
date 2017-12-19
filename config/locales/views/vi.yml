@@ -117,7 +117,8 @@ vi:
       new:
         create_new_branch: Tạo mới một chi nhánh
       edit:
-        edit_branch: Chỉnh sửa chi nhánh %{name}
+        edit_branch: Chỉnh sửa chi nhánh
+        branch_name: "Cơ sở/chi nhánh: %{name}"
       preview:
         edit: *edit
         finish: *finish

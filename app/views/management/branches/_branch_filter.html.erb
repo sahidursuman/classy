@@ -1,5 +1,7 @@
-<%= form_for @q, url: management_branches_path, method: :get, remote: true do |f| %>
-  <%= f.select :city_key_name_eq, support.city_options, {include_blank: t(".select_city")} %>
-  <%= f.select :status_eq, branch_status_options, {include_blank: t(".select_status")}%>
-  <%= f.submit t(".filter") %>
+<%= form_for @q, url: management_branches_path, method: :get, remote: true,
+  html: {class: "form-inline auto-submit-form"} do |f| %>
+  <%= f.select :city_key_name_eq, support.city_options, {include_blank: t(".select_city")},
+    class: "form-control mr-sm-2" %>
+  <%= f.select :status_eq, branch_status_options, {include_blank: t(".select_status")},
+    class: "form-control" %>
 <% end %>
