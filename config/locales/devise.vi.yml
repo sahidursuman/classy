@@ -1,6 +1,6 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
-en:
+vi:
   devise:
     confirmations:
       confirmed: "Xác thưc tài khoản thành công! Bạn đã được tự động đăng nhập."
@@ -28,7 +28,7 @@ en:
       password_change:
         subject: "Thay đổi mật khẩu"
     omniauth_callbacks:
-      failure: "Không thể đăng nhập qua tài khoản %{kind} vì \"%{reason}\"."
+      failure: Không thể đăng nhập qua tài khoản %{kind} vì \"%{reason}\".
       success: "Đăng nhập thành công bằng tài khỏan %{kind}."
     passwords:
       no_token: "Bạn không thể truy cập trang này mà không cần đến từ email đặt lại mật khẩu. Nếu bạn đến từ email đặt lại mật khẩu, vui lòng chắc chắn bạn đã sử dụng URL đầy đủ được cung cấp."
@@ -42,7 +42,7 @@ en:
       signed_up_but_inactive: "Bạn đã đăng ký thành công. Tuy nhiên tài khoản của bạn chưa được kích hoạt nên chưa thể đăng nhập được."
       signed_up_but_locked: "Bạn đã đăng ký thành công. Tuy nhiên tài khoản của bạn đã bị khóa nên không thể đăng nhập được."
       signed_up_but_unconfirmed: "Một email chứa đường dẫn để xác thực tài khoản đã được gửi cho bạn. Bạn vui lòng kiểm tra email."
-      update_needs_confirmation: ""Thông tin tài khoản đã được cập nhật thành công, nhưng bạn cần xác thực địa chỉ email mới. Bạn vui lòng kiểm tra email và nhấn vào đường dẫn xác thực tài khoản để hoàn tất việc thay đổi địa chỉ email."
+      update_needs_confirmation: Thông tin tài khoản đã được cập nhật thành công, nhưng bạn cần xác thực địa chỉ email mới. Bạn vui lòng kiểm tra email và nhấn vào đường dẫn xác thực tài khoản để hoàn tất việc thay đổi địa chỉ email."
       updated: "Bạn đã cập nhật thông tin tài khoản thành công."
     sessions:
       signed_in: "Đăng nhập thành công."
