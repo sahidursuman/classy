@@ -1,0 +1,5 @@
+<%= form_for @q, url: admin_users_path, method: :get, html: {class: "form-inline auto-submit-form"} do |f| %>
+  <div class="form-group">
+    <%= f.select :role_eq, admin_user_role_options, {include_blank: t(".select_role")}, class: "form-control" %>
+  </div>
+<% end %>

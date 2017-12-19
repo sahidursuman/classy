@@ -1,0 +1,73 @@
+
+<% content_for :sidebar_users_activation, "active" %>
+<% content_for :page_title do %>
+  <div class="title_left">
+    <h3><%= t ".user_management" %></h3>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><%= t ".user_list" %></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <%= form_for [:admin, @user], html: {class: "form-horizontal form-label-left"} do |f|%>
+          <div class="form-group">
+            <%= f.label :role, class: "control-label col-md-2 col-sm-2 col-xs-12" do %>
+              <%= t ".role "%><span class="required">*</span>
+            <% end %>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+              <%= f.select :role, admin_user_role_options.map{|x| [x[0], x[0]]}, {include_blank: t(".select_role")},
+                class: "form-control" %>
+            </div>
+          </div>
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <%= f.label :first_name, class: "control-label col-md-2 col-sm-2 col-xs-12" do %>
+              <%= t ".first_name "%><span class="required">*</span>
+            <% end %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :first_name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :last_name, class: "control-label col-md-2 col-sm-2 col-xs-12" do %>
+              <%= t ".last_name "%><span class="required">*</span>
+            <% end %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :last_name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <%= f.label :email, class: "control-label col-md-2 col-sm-2 col-xs-12" do %>
+              <%= t ".email "%><span class="required">*</span>
+            <% end %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.email_field :email, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, class: "control-label col-md-2 col-sm-2 col-xs-12" do %>
+              <%= t ".password "%><span class="required">*</span>
+            <% end %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.password_field :password, class: "form-control" %>
+            </div>
+          </div>
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
+              <%= link_to admin_centers_path, class: "btn btn-default no-radius" do %>
+                <%= t ".cancel" %>
+              <% end %>
+              <%= f.submit class: "btn btn-success no-radius" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
 
   def path_after_sign_in
     case current_user.role.to_sym
-    when :admin
+    when :root
       admin_root_path
     when :moderator
       root_path
