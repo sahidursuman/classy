@@ -1,0 +1,70 @@
+<div class="form-group row">
+  <%= f.label :name, Center.human_attribute_name(:name),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-9">
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :avatar, Center.human_attribute_name(:avatar),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-9"><%= f.file_field :avatar %></div>
+</div>
+<div class="form-group row">
+  <%= f.label :cover_image, Center.human_attribute_name(:cover_image),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-9"><%= f.file_field :cover_image %></div>
+</div>
+
+<div class="form-group row">
+  <%= f.label :category_id, Center.human_attribute_name(:center_category),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-9">
+    <%= f.select :category_id, @support.center_category_options,
+      {include_blank: t(".select_center_category")}, disabled: true, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group row">
+  <%= f.label :overview, Center.human_attribute_name(:overview),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-9">
+    <%= f.text_area :overview, class: "form-control", rows: 5 %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :curriculum_overview, Center.human_attribute_name(:curriculum_overview),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-9">
+    <%= f.text_area :curriculum_overview, class: "form-control", rows: 5 %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :teacher_staff_intro, Center.human_attribute_name(:teacher_staff_intro),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-9">
+    <%= f.text_area :teacher_staff_intro, class: "form-control", rows: 5 %>
+  </div>
+</div>
+
+<div class="form-group row">
+  <%= f.label :email, Center.human_attribute_name(:email),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-9">
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group row">
+  <%= f.label :phone_number, Center.human_attribute_name(:phone_number),
+    class: "col-md-3 col-form-label text-right" %>
+  <div class="col-md-9">
+    <%= f.text_field :phone_number, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-md-9 offset-md-3">
+    <%= f.submit class: "btn btn-default mr-2" %>
+    <%= link_to t(".cancel"), management_branches_path, class: "btn btn-gray" %>
+  </div>
+</div>

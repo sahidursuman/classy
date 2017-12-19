@@ -5,7 +5,6 @@ class Review::CommentsController < Review::BaseController
   def index
     @comment = build_comment.decorate if user_signed_in?
     @comments = @review.comments.earlier_created.includes(:user, :center).decorate
-    binding.pry
   end
 
   def new

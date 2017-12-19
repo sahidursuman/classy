@@ -155,7 +155,7 @@ end
 Review.set_callback :save, :after, :notify_new_review_verification
 
 puts "Creating comments"
-reviews = Review.verified.limit(50).includes :user, branch: :branch_managers
+reviews = Review.verified.limit(50).includes :user
 reviews.each do |review|
   review_count = rand 10
   review_count.times do
