@@ -4,5 +4,6 @@ class Center::BranchesController < Center::BaseController
     @branch_groups = @q.result.order_name_asc.includes(:center, :city, :district).decorate
       .group_by{|branch| branch.city}.sort_by{|k, v| k.priority}.reverse
     @support = Supports::Center.new center
+    impressionist @center
   end
 end
