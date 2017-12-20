@@ -9,3 +9,9 @@ section#content-container {
 .footer h2.title {
   font-size: 30px;
 }
+
+.pagination .page-item:first-child .page-link, .pagination .page-item:last-child .page-link, ul.pager .page-item .page-link, ul.pagination .page-item .page-link {
+  min-width: 50px;
+  min-height: 50px;
+  line-height: 49px;
+}
