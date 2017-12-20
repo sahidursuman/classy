@@ -17,8 +17,7 @@ User.create! email: "admin@gmail.com",
   role: :root,
   password: "123456",
   password_confirmation: "123456",
-  confirmed_at: Time.zone.now,
-  avatar: open("app/assets/images/default-avatar.png")
+  confirmed_at: Time.zone.now
 
 puts "Creating moderator account"
 User.create! email: "moderator@gmail.com",
@@ -27,8 +26,7 @@ User.create! email: "moderator@gmail.com",
   role: :moderator,
   password: "123456",
   password_confirmation: "123456",
-  confirmed_at: Time.zone.now,
-  avatar: open("app/assets/images/default-avatar.png")
+  confirmed_at: Time.zone.now
 
 puts "Creating normal users"
 15.times.each do |i|
@@ -38,8 +36,7 @@ puts "Creating normal users"
     role: :normal_user,
     password: "123456",
     password_confirmation: "123456",
-    confirmed_at: Time.zone.now,
-    avatar: open("app/assets/images/default-avatar.png")
+    confirmed_at: Time.zone.now
 end
 
 center_categories = CenterCategory.all
@@ -101,8 +98,7 @@ Center.find_each do |center|
       role: :center_manager,
       password: "123456",
       password_confirmation: "123456",
-      confirmed_at: Time.zone.now,
-      avatar: open("app/assets/images/default-avatar.png")
+      confirmed_at: Time.zone.now
     center.center_managements.create! user: user
   end
 end

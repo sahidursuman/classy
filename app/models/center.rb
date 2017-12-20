@@ -47,6 +47,7 @@ class Center < ApplicationRecord
   acts_as_url :name, url_attribute: :slug, sync_url: true, callback_method: :before_save
 
   mount_uploader :avatar, AvatarUploader
+  mount_uploader :cover_image, CoverImageUploader
 
   delegate :name, to: :center_category, prefix: true, allow_nil: true
 
