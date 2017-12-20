@@ -1,15 +1,3 @@
 <% content_for :center_home_page_activation, "active" %>
-<span class="pull-right">
-  <%=
-    if policy(@center).can_edit?
-      link_to t(".edit"), edit_management_center_path
-    end
 
-    if policy(@center).can_report?
-
-    end
-  %>
-</span>
-<%=   link_to t(".report"), new_report_path(report: {reportable_id: @center.id,
-        reportable_type: @center.model_name}), remote: true, class: "btn-new-report" %>
 <div class="report-modal"></div>

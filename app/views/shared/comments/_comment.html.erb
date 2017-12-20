@@ -1,9 +1,19 @@
 <div class="comment clearfix mb-1" id="comment-<%= comment.id %>">
   <div class="btn-group pull-right wrap-actions">
-    <button type="button" class="hidden-group-actions mt-0 pt-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+    <button type="button" class="hidden-group-actions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      ...
+    </button>
     <div class="dropdown-menu dropdown-menu-right">
-      <button class="dropdown-item" type="button">Edit</button>
-      <button class="dropdown-item" type="button">Delete</button>
+    <% if comment.is_a?(UserComment) %>
+      <% if comment.user == current_user %>
+        <button class="dropdown-item" type="button">Edit</button>
+        <button class="dropdown-item" type="button">Delete</button>
+      <% else %>
+        <button class="dropdown-item" type="button">Report</button>
+      <% end %>
+    <% else %>
+      <button class="dropdown-item" type="button">Report</button>
+    <% end %>
     </div>
   </div>
   <div class="comment-avatar pb-3">

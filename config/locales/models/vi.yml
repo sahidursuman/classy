@@ -1,6 +1,15 @@
 vi:
   activerecord:
+    errors:
+      models:
+        report:
+          attributes:
+            content:
+              blank: không thể để trống
+              too_short: quá ngắn 
     attributes:
+      report:
+        content: Nội dung
       user:
         first_name: Tên
         last_name: Họ

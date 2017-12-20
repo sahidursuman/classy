@@ -27,5 +27,6 @@
 //= require cable
 //= require center_map
 //= require js/review
+//= require js/common
 //= require notification
 //= require persist_course

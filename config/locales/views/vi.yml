@@ -26,7 +26,7 @@ vi:
     finish: &finish Kết thúc
     delete: &delete Xóa
     select_course_category: &select_course_category Lựa chọn chương trình học
-    report: &report Báo cáo
+    report: &report Báo lỗi
     login_as: &login_as Bạn đã đăng nhập với tài khoản %{name}
     filter: &filter Lọc
     reviews: &reviews Các đánh giá
@@ -199,7 +199,9 @@ vi:
         good: Tốt
         medium: Trung bình
         bad: Kém
+        reviews: Đánh giá
       review_statistics:
+        reviews: Đánh giá
         excellent: Xuất sắc
         good: Tốt
         medium: Trung bình

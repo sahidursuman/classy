@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).on("turbolinks:load", function() {
   $('[data-toggle="tooltip"]').tooltip({
     trigger: 'hover'
   })
 
-  $(".comment").hover(function() {
+  $("#review-list").on("mouseenter mouseleave", ".comment", function(){
     $(this).find(".wrap-actions").toggleClass("active");
-  })
+  });
 });

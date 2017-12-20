@@ -1,16 +1,15 @@
 <%= form_for report, remote: true do |f| %>
-  <div class="report-error-messages"></div>
   <div class="modal-body">
     <%= f.hidden_field :reportable_id %>
     <%= f.hidden_field :reportable_type %>
     <div class="field">
       <%= f.label :content, Report.human_attribute_name(:content) %></br>
       <%= f.text_area :content,
-        class: "new-report-content", placeholder: t(".add_report_reason_placeholder") %>
+        class: "new-report-content form-control", placeholder: t(".add_report_reason_placeholder") %>
     </div>
   </div>
-  <div class="modal-footer">
-    <%= f.button t(".report"), class: "btn-submit-report" %>
-    <%= f.button :cancel, class: "btn-cancel-report", data: {dismiss: :modal} %>
+  <div class="modal-footer no-radius white-bg">
+    <%= f.button t(".report"), class: "btn btn-default btn-submit-report" %>
+    <%= f.button "Hủy", class: "btn btn-gray  btn-cancel-report", data: {dismiss: :modal} %>
   </div>
 <% end %>
