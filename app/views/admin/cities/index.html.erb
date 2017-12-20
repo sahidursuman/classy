@@ -1,0 +1,35 @@
+<% content_for :sidebar_cities_activation, "active" %>
+<% content_for :page_title do %>
+  <div class="title_left">
+    <h3><%= t ".city_management" %></h3>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><%= t ".city_list" %></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <button class="btn btn-success no-radius pull-right">
+          <i class="fa fa-plus"></i>
+          <%= t ".add_new_city" %>
+        </button>
+        <table class="table table-striped">
+          <thead>
+            <th>#</th>
+            <th><%= City.human_attribute_name :name %></th>
+            <th><%= City.human_attribute_name :key_name %></th>
+            <th><%= t ".district_counter" %></th>
+            <th><%= City.human_attribute_name :priority %></th>
+            <th><%= t ".action" %></th>
+          </thead>
+          <tbody id="city_list">
+            <%= render partial: "city", collection: @cities, as: :city %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
