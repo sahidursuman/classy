@@ -25,22 +25,28 @@
             <div class="dropdown-menu dropdown-menu-right">
               <%= link_to user_path(current_user), class: "dropdown-item" do %>
                 <i class="fa fa-user pr-20"></i>
-                <%= t ".profile" %>
-              <% end %>
-              <% if current_user.center_manager? %>
-                <%= link_to management_dashboard_path, class: "dropdown-item" do %>
-                  <i class="fa fa-mortar-board pr-10"></i>
-                  <%= t ".my_center" %>
-                <% end %>
+                Trang cá nhân
               <% end %>
               <%= link_to edit_my_page_profile_path, class: "dropdown-item" do %>
                 <i class="fa fa-cog pr-20"></i>
-                <%= t ".settings" %>
+                Cài đặt tài khoản
               <% end %>
+              <% if current_user.center_manager? %>
+                <div class="dropdown-divider"></div>
+                <%= link_to center_path(current_user.managed_center.route_params), class: "dropdown-item" do %>
+                  <i class="fa fa-mortar-board pr-10"></i>
+                  Trung tâm của tôi
+                <% end %>
+                <%= link_to management_dashboard_path, class: "dropdown-item" do %>
+                  <i class="fa fa-wrench pr-10" aria-hidden="true"></i>
+                  Quản lý trung tâm
+                <% end %>
+              <% end %>
+
               <div class="dropdown-divider"></div>
               <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
                 <i class="fa fa-sign-out pr-20"></i>
-                <%= t ".log_out" %>
+                Đăng xuất
               <% end %>
               <a class="dropdown-item" href="#"></a>
             </div>

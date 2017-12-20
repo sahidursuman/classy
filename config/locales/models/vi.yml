@@ -6,7 +6,7 @@ vi:
           attributes:
             content:
               blank: không thể để trống
-              too_short: quá ngắn 
+              too_short: quá ngắn
     attributes:
       report:
         content: Nội dung
@@ -18,6 +18,8 @@ vi:
         password: Mật khẩu
         password_confirmation: Xác nhận mật khẩu
         login: Tên đăng nhập/Email
+        username: Tên tài khoản
+        current_password: Mật khẩu hiện tại 
       review:
         title: Tiêu đề
         content: Nội dung
