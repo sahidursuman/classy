@@ -4,11 +4,10 @@
   </div>
   <div class="comment-body text-justify clearfix">
     <%= form_for Comment.new, url: review_comments_path(review), remote: true, html: {class: "form-inline"} do |f| %>
-      <%= f.text_area :content, rows: 1, placeholder: t(".new_comment_placeholder") %>
+      <%= f.text_area :content, rows: 1, placeholder: t(".new_comment_placeholder"), class: "new_comment_content" %>
       <%= f.button class: "btn btn-primary" do %>
         <i class="fa fa-paper-plane"></i>
       <% end %>
     <% end %>
-  
   </div>
 </div>

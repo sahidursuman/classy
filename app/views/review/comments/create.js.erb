@@ -3,7 +3,7 @@
     .append("<%= j (render 'shared/comments/comment', comment: @comment) %>");
   $("#review-details-<%= @review.id %> .comments-count")
     .text("<%= t('.show_comments', count: @review.comments_count) %>");
-  $("#review-details-<%= @review.id %> .new_comment #comment_content").val("");
+  $("#review-details-<%= @review.id %> .new_comment_content").val("");
 <% else %>
   $(".comment-error-messages").html("<%= j render 'layouts/shared/flash' %>");
 <% end %>
