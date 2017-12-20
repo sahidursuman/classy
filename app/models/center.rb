@@ -70,7 +70,7 @@ class Center < ApplicationRecord
   end
 
   def generate_normalized_name
-    self.normalized_name = name.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,"")
+    self.normalized_name = name.to_url.gsub "-", " "
   end
 
   def min_tuition_fee
