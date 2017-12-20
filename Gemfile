@@ -6,7 +6,6 @@ git_source(:github) do |repo_name|
 end
 
 gem "rails", "~> 5.1.4"
-gem "pg", "~> 0.18"
 gem "puma", "~> 3.7"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
@@ -21,7 +20,6 @@ group :development, :test do
   gem "selenium-webdriver"
   gem "rspec-rails", "~> 3.6"
   gem "factory_bot_rails"
-  gem "faker"
   gem "pry-rails"
 end
 
@@ -53,9 +51,21 @@ gem "geocoder"
 gem "wicked"
 gem "carrierwave"
 gem "mini_magick"
+gem "fog"
 gem "file_validators"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
+
 gem "impressionist"
 gem "pg_search"
+gem "aws-sdk", "~> 2"
+
+group :production do
+  gem "rails_12factor"
+end
+
+group :development, :test, :production do
+  gem "faker"
+  gem "pg"
+end

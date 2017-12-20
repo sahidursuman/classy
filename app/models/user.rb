@@ -40,19 +40,11 @@ class User < ApplicationRecord
   friendly_findable :username
 
   def working_center
-    if center_manager?
-      managed_center
-    elsif branch_manager?
-      managed_branches.first.try :center
-    end
+    managed_center
   end
 
   def branches_under_management
-    if center_manager?
-      managed_center.branches
-    elsif branch_manager?
-      managed_branches
-    end
+    managed_center.branches
   end
 
   def manage_branch? branch

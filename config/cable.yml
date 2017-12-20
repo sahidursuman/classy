@@ -7,5 +7,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://h:p4d2f2d1241d9710ac517ec2f0fb48bbacecbe21473c877176a71ebd6d98aa1c7@ec2-35-168-41-119.compute-1.amazonaws.com:24659
   channel_prefix: classy_production
