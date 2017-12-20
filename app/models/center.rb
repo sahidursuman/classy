@@ -25,7 +25,8 @@ class Center < ApplicationRecord
 
   validates :cover_image, file_size: {less_than_or_equal_to: eval(Settings.validations.center.logo.max_size)}
   validates :avatar, file_size: {less_than_or_equal_to: eval(Settings.validations.center.avatar.max_size)}
-  validates :name, presence: true, length: {maximum: Settings.validations.center.name.max_length}
+  validates :name, presence: true, length: {maximum: Settings.validations.center.name.min_length,
+    maximum: Settings.validations.center.name.max_length}
   validates :category_id, presence: true
   validates :overview, presence: true, length: {maximum: Settings.validations.center.description.max_length}
   validates :curriculum_overview, :teacher_staff_intro,
