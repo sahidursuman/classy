@@ -6,7 +6,7 @@ class Supports::CenterDashboard
   end
 
   def page_views_statistics
-    (1..10).to_a.reverse.inject({days: [], views: []}) do |result, i|
+    (1..15).to_a.reverse.inject({days: [], views: []}) do |result, i|
       selected_time = i.days.ago
       result[:days] << selected_time.to_date
       result[:views] << center.impressionist_count(filter: :session_hash,

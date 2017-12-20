@@ -220,6 +220,8 @@ vi:
       branch_filter:
         recent_created: Mới nhất
         vote_points_desc: Hữu ích nhất
+        summary_rating_desc: Điểm cao nhất
+        summary_rating_asc: Điểm thấp nhất
   branches:
     index:
       select_city: "Lựa chọn thành phố"

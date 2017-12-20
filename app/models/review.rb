@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  SORT_OPTIONS = [:recent_created, :vote_points_desc]
+  SORT_OPTIONS = [:recent_created, :vote_points_desc, :summary_rating_desc, :summary_rating_asc]
   ATTRIBUTES_TO_PERSIST_CONTENT = [:branch_id, :rating_criterion_1, :rating_criterion_2,
     :rating_criterion_3, :rating_criterion_4, :rating_criterion_5, :title, :content]
   ATTRIBUTES_TO_PERSIST_VERIFICATION = [:email_verifiable, :phone_number_verifiable]
@@ -19,7 +19,7 @@ class Review < ApplicationRecord
   before_save :calculate_summary_rating, if: :rating_criteria_changed?
   after_save :update_center_summary_rating_cached, if: :influence_center_rating?
   after_save :notify_new_review_verification, if: :new_verification_request?
-  
+
   validates :title, presence: true, length: {minimum: Settings.validations.review.title.min_length,
     maximum: Settings.validations.review.title.max_length, allow_blank: true}
   validates :content, presence: true, length: {minimum: Settings.validations.review.content.min_length,
@@ -39,6 +39,8 @@ class Review < ApplicationRecord
       ON #{Review.table_name}.id = #{Vote.table_name}.review_id AND #{Vote.table_name}.user_id = #{user.id}")
       .select("#{Review.table_name}.*, #{Vote.table_name}.vote_type AS voted_type")
   end
+  scope :summary_rating_desc, ->{order summary_rating: :desc}
+  scope :summary_rating_asc, ->{order summary_rating: :asc}
   scope :order_by, ->(sort_scope){public_send sort_scope}
 
   enum status: [:unverified, :verified, :rejected]
