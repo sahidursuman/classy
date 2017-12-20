@@ -2,7 +2,7 @@ class Notification < ApplicationRecord
   belongs_to :notifiable, polymorphic: true
   belongs_to :creatable, polymorphic: true, optional: true
   belongs_to :recipient, class_name: User.name, foreign_key: :recipient_id
-  belongs_to :user
+  belongs_to :user, optional: true
 
   after_commit :relay_notification
 

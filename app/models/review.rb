@@ -101,6 +101,9 @@ class Review < ApplicationRecord
   end
 
   def notify_new_review_verification
-    NotifyNewReviewVerificationJob.perform_later self
+    center.managers.each do |manager|
+      manager.received_notifications.create notifiable: center,
+        action: :new_review_verification
+    end
   end
 end
