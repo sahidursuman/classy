@@ -20,7 +20,7 @@ class NotificationDecorator < ApplicationDecorator
       }
     when :review_rejected
       {
-        url: user_reviews_path(current_user),
+        url: user_path(current_user),
         message: "Yêu cầu đánh giá của bạn bị từ chối, vui lòng kiểm tra lại thông tin xác thực."
       }
     when :review_verified
