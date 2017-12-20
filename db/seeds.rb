@@ -1,12 +1,14 @@
 Rake::Task["master_data:import"].invoke
 
+password = "classy@95"
+
 puts "Creating admin account"
 User.create! email: "admin@gmail.com",
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   role: :root,
-  password: "123456",
-  password_confirmation: "123456",
+  password: password,
+  password_confirmation: password,
   confirmed_at: Time.zone.now
 
 puts "Creating moderator account"
@@ -14,8 +16,8 @@ User.create! email: "moderator@gmail.com",
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   role: :moderator,
-  password: "123456",
-  password_confirmation: "123456",
+  password: password,
+  password_confirmation: password,
   confirmed_at: Time.zone.now
 
 puts "Creating normal users"
@@ -24,17 +26,21 @@ puts "Creating normal users"
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     role: :normal_user,
-    password: "123456",
-    password_confirmation: "123456",
+    password: password,
+    password_confirmation: password,
     confirmed_at: Time.zone.now
 end
 
 center_categories = CenterCategory.all
 districts = District.all.includes :city
 puts "Creating center"
-20.times.each do
-  center_category = center_categories.sample
-  center = Center.create! name: Faker::Educator.university,
+50.times.each do |i|
+  center_category = if i < 5
+    center_categories[i]
+  else
+    center_categories.sample
+  end
+  center = Center.create! name: "Trung tâm #{center_category.name} #{Faker::Name.first_name} #{Faker::Name.last_name}",
     center_category: center_category,
     status: :active,
     overview: Faker::Lorem.paragraphs.join("\n"),
@@ -79,21 +85,21 @@ Branch.set_callback :save, :before, :geocode
 puts "Create center managers"
 total_center_manager = 0
 Center.find_each do |center|
-  manager_count = rand(3) + 1
+  manager_count = center.id > 40 ? (rand(3) + 1) : 1
   manager_count.times.each do
     total_center_manager += 1
     user = User.create! email: "centermanager#{total_center_manager}@gmail.com",
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       role: :center_manager,
-      password: "123456",
-      password_confirmation: "123456",
+      password: password,
+      password_confirmation: password,
       confirmed_at: Time.zone.now
     center.center_managements.create! user: user
   end
 end
 
-centers = Center.all.includes :branches, :center_category
+
 # puts "Create branch managers"
 # total_branch_manager = 0
 # centers.each do |center|
@@ -115,12 +121,13 @@ centers = Center.all.includes :branches, :center_category
 #   end
 # end
 
+centers = Center.offset(2).includes :branches, :center_category
 puts "Creating reviews"
 Review.skip_callback :save, :after, :notify_new_review_verification
 normal_users = User.normal_user
 centers.each do |center|
   center.branches.each do |branch|
-    review_count = rand normal_users.size
+    review_count = rand 5
     normal_users.sample(review_count).each do |user|
       status = rand(4) > 0 ? :verified : [:unverified, :rejected].sample
       center.reviews.create! user: user,
@@ -176,7 +183,7 @@ centers.each do |center|
     course_category = course_categories.sample
     course_sub_category_ids = course_category.course_sub_categories
       .ids.sample(Faker::Number.between 1, 3)
-    course = center.courses.create! name: "Course #{course_category.name} k#{i+1}",
+    course = center.courses.create! name: "Khóa học  #{course_category.name} v-#{i+1}",
       category_id: course_category.id,
       intended_student: Faker::Lorem.paragraphs.join("\n"),
       target: Faker::Lorem.paragraphs.join("\n"),
