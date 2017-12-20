@@ -9,9 +9,10 @@
   <td><%= review.branch_name %></td>
   <td>
     <% if review.unverified? %>
-      <%= link_to t(".accept"),
+      <%= link_to "Chấp nhận",
         management_verification_review_path(review, status: :verified), method: :put %>
-      <%= link_to t(".reject"),
+        |
+      <%= link_to "Từ chối",
         management_verification_review_path(review, status: :rejected), method: :put %>
     <% end %>
   </td>
