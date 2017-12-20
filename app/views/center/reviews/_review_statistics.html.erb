@@ -23,6 +23,15 @@
   <div class="text-center pb-3">
     <span class="text-<%= rating_label support.avarage_rating_criteria.summary_rating_avg %> bold">
       <%= avarage_rating_format support.avarage_rating_criteria.summary_rating_avg %>
+
     </span>
+    <%
+      label = support.avarage_rating_criteria.summary_rating_avg.present? && Settings.review.levels.find do |level|
+        support.avarage_rating_criteria.summary_rating_avg > level.standard
+      end
+    %>
+    <% if label.present? %>
+      <b>- <%= t ".#{label.name}" %></b>
+    <% end %>
   </div>
 </div>
