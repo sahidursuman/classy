@@ -10,10 +10,12 @@
           <i class="fa fa-book mb-1" aria-hidden="true"></i>
           <%= center.category_details %>
         </div>
-        <div class="pb-1">
-          <i class="fa fa-map-marker mb-1" aria-hidden="true"></i>
-          <%= center.location %>
-        </div>
+        <% if center.active_branches.size > 0 %>
+          <div class="pb-1">
+            <i class="fa fa-map-marker mb-1" aria-hidden="true"></i>
+            <%= center.location %>
+          </div>
+        <% end %>
         <div class="pb-1">
           <i class="fa fa-envelope mb-1" aria-hidden="true"></i>
           <%= center.email %>

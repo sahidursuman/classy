@@ -10,7 +10,7 @@ class Admin::CentersController < Admin::BaseController
   end
 
   def create
-    @center = Center.new center_params
+    @center = Center.new center_params.merge status: :active
     if @center.save
       flash[:success] = t ".success"
       redirect_to admin_centers_path

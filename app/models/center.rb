@@ -73,6 +73,10 @@ class Center < ApplicationRecord
     self.normalized_name = name.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,"")
   end
 
+  def min_tuition_fee
+    courses.order(tuition_fee: :asc).first.try :tuition_fee
+  end
+
   class << self
     def ransackable_scopes auth_object = nil
       %i(order_by)
