@@ -32,7 +32,8 @@ vi:
       guest_right_header:
         log_in: Đăng nhập
         sign_up: Đăng ký
-
+      footer:
+        app_description: Classy - Hệ thống tìm kiếm và đánh giá trung tâm đào tạo ngoại ngữ được phát triển từ tháng 9 năm 2017 bởi nhóm sinh viên trường Đại học FPT.
     center:
       center_details:
         number_of_branch_in_cities: *number_of_branch_in_cities
