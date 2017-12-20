@@ -1,15 +1,5 @@
 Rake::Task["master_data:import"].invoke
 
-puts "Create temporary 'course_sub_categories'"
-CourseCategory.all.each do |category|
-  count = Faker::Number.between 3, 5
-  count.times do |i|
-    category.course_sub_categories.create! name: "Level #{i + 1}",
-      key_name: category.key_name + "-level-#{i + 1}"
-  end
-end
-
-
 puts "Creating admin account"
 User.create! email: "admin@gmail.com",
   first_name: Faker::Name.first_name,
@@ -30,7 +20,7 @@ User.create! email: "moderator@gmail.com",
 
 puts "Creating normal users"
 15.times.each do |i|
-  User.create! email: "member#{i}@gmail.com",
+  User.create! email: "member#{i+1}@gmail.com",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     role: :normal_user,
