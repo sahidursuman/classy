@@ -12,10 +12,12 @@
         <i class="fa fa-book" aria-hidden="true"></i>
         <%= center.category_details %>
       </span></br>
-      <span>
-        <i class="fa fa-map-marker" aria-hidden="true"></i>
-        <%= center.location %>
-      </span>
+      <% if center.active_branches.size > 0 %>
+        <span>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <%= center.location %>
+        </span>
+      <% end %>
     </div>
   </div>
   <div class="col-lg-2 col-md-2 pt-3 extra-info ">
@@ -32,11 +34,13 @@
       </div>
     </div>
   </div>
+  <% if center.min_tuition_fee.present? %>
   <div class="price">
     <i class="fa fa-tag text-important" aria-hidden="true"></i>
     <span><%= t ".#{center.courses.size > 1 ? 'tuition_fee_from' : 'tuition_fee'}" %></span>
     <span class="text-default text-important">
-      <%= currency_format center.courses.order(tuition_fee: :asc).first.tuition_fee %>
+      <%= currency_format center.min_tuition_fee %>
     </span>
   </div>
+  <% end %>
 </div>
