@@ -1,0 +1,63 @@
+id,type,parent_id,name,key_name,priority
+1,CenterCategory,,Tiếng Anh,tieng-anh,10
+2,CourseCategory,1,Toeic,tieng-anh-toeic,10
+3,CourseSubCategory,2,Cơ bản,tieng-anh-toeic-co-ban,10
+4,CourseSubCategory,2,Trung cấp,tieng-anh-toeic-trung-cap,9
+5,CourseSubCategory,2,Nâng cao,tieng-anh-toeic-nang-cao,8
+6,CourseSubCategory,2,Thành thạo,tieng-anh-toeic-thanh-thao,7
+7,CourseCategory,1,IELTS,tieng-anh-IELTS,9
+8,CourseSubCategory,7,Pre IELTS,tieng-anh-pre-IELTS,10
+9,CourseSubCategory,7,Pre Intermediate,tieng-anh-IELTS-pre-intermediate,9
+10,CourseSubCategory,7,Intermediate,tieng-anh-IELTS-intermediate,8
+11,CourseSubCategory,7,Upper Intermediate,tieng-anh-IELTS-upper-intermediate,7
+12,CourseSubCategory,7,Advanced,tieng-anh-IELTS-advanced,6
+13,CourseCategory,1,Toefl,tieng-anh-toefl,8
+14,CourseSubCategory,13,Pre Toefl,tieng-anh-pre-toefl,10
+15,CourseSubCategory,13,Pre Intermediate,tieng-anh-toefl-pre-intermediate,9
+16,CourseSubCategory,13,Intermediate,tieng-anh-toefl-intermediate,8
+17,CourseSubCategory,13,Upper Intermediate,tieng-anh-toefl-upper-intermediate,7
+18,CourseSubCategory,13,Advanced,tieng-anh-toefl-advanced,6
+19,CourseCategory,1,Trẻ em,tieng-anh-tre-em,7
+20,CourseSubCategory,19,3-6 tuổi,tieng-anh-tre-em-3-6,10
+21,CourseSubCategory,19,6-11 tuổi,tieng-anh-tre-em-6-11,9
+22,CourseSubCategory,19,11-16 tuổi,tieng-anh-tre-em-11-16,8
+23,CourseCategory,1,Người lớn,tieng-anh-nguoi-lon,6
+24,CourseSubCategory,23,Giao tiếp cơ bản,tieng-anh-nguoi-lon-giao-tiep-co-ban,10
+25,CourseSubCategory,23,Business English,tieng-anh-nguoi-lon-buisness,9
+26,CenterCategory,,Tiếng Nhật,tieng-nhat,9
+27,CourseCategory,26,Tiếng Nhật cơ bản,tieng-nhat-co-ban,10
+28,CourseCategory,26,Tiếng Nhật giao tiếp,tieng-nhat-giao-tiep,9
+29,CourseCategory,26,Chứng chỉ JLPT,tieng-nhat-chung-chi-JLPT,8
+30,CourseSubCategory,29,N5,tieng-nhat-n5,10
+31,CourseSubCategory,29,N4,tieng-nhat-n4,9
+32,CourseSubCategory,29,N3,tieng-nhat-n3,8
+33,CourseSubCategory,29,N2,tieng-nhat-n2,7
+34,CourseSubCategory,29,N1,tieng-nhat-n1,6
+35,CenterCategory,,Tiếng Trung,tieng-trung,8
+36,CourseCategory,35,Giao tiếp cơ bản,tieng-trung-giao-tiep,10
+37,CourseCategory,35,Hán ngữ,tieng-trung-han-ngu,9
+38,CourseSubCategory,37,Hán ngữ cơ bản,tieng-trung-han-ngu-co-ban,10
+39,CourseSubCategory,37,Hán ngữ trung cấp,tieng-trung-han-ngu-trung-cap,9
+40,CourseSubCategory,37,Hán ngữ nâng cao,tieng-trung-han-ngu-nang-cao,8
+41,CourseCategory,35,Chứng chỉ HSK,tieng-trung-chung-chi-HSK,8
+42,CourseSubCategory,41,HSK 1-3,tieng-trung-HSK-1-3,10
+43,CourseSubCategory,41,HSK 4-6,tieng-trung-HSK-4-6,9
+44,CourseSubCategory,41,HSK 7-8,tieng-trung-HSK-7-8,8
+45,CenterCategory,,Tiếng Hàn,tieng-han,7
+46,CourseCategory,45,Tiếng Hàn cơ bản,tieng-han-co-ban,10
+47,CourseCategory,45,Tiếng Hàn giao tiếp,tieng-han-giao-tiep,9
+48,CourseCategory,45,Luyện thi TOPIK,tieng-han-thi-TOPIK,8
+49,CourseSubCategory,48,TOPIK 1,tieng-han-TOPIK-1,10
+50,CourseSubCategory,48,TOPIK 2,tieng-han-TOPIK-2,9
+51,CourseSubCategory,48,TOPIK 3,tieng-han-TOPIK-3,8
+52,CourseSubCategory,48,TOPIK 4,tieng-han-TOPIK-4,7
+53,CourseSubCategory,48,TOPIK 5,tieng-han-TOPIK-5,6
+54,CourseSubCategory,48,TOPIK 6,tieng-han-TOPIK-6,5
+55,CenterCategory,,Tiếng Nga,tieng-nga,6
+56,CourseCategory,55,Tiếng Nga cơ bản,tieng-nga-co-ban,10
+57,CourseCategory,55,Tiếng Nga giao tiếp,tieng-nga-giao-tiep,9
+58,CourseCategory,55,Luyện thi TRKI,tieng-nga-thi-TRKI,8
+59,CourseSubCategory,58,TRKI-1,tieng-nga-TRKI-1,10
+60,CourseSubCategory,58,TRKI-2,tieng-nga-TRKI-2,9
+61,CourseSubCategory,58,TRKI-3,tieng-nga-TRKI-3,8
+62,CourseSubCategory,58,TRKI-4,tieng-nga-TRKI-4,7
