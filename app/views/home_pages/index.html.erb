@@ -1,7 +1,13 @@
-<h2><%= t ".welcome_message" %></h2>
-<% if user_signed_in? %>
-  <%= link_to t(".log_out"), destroy_user_session_path, method: :delete %></br>
-  <%= link_to t(".profile"), user_path(@current_user) %></br>
-<% else %>
-  <%= link_to t(".log_in"), new_user_session_path %>
-<% end %>
+<div class="banner dark-translucent-bg" style="background-image:url('https://s3-ap-southeast-1.amazonaws.com/classyy/fu-hl-1.jpg'); background-position: 50% 32%; min-height: 600px;">
+  <div class="container">
+    <div class="row justify-content-lg-center">
+      <div class="col-lg-8 text-center py-5">
+        <h2 class="title object-non-visible animated object-visible fadeIn pt-5" data-animation-effect="fadeIn" data-effect-delay="100">Chào mừng bạn đến với Classy!</h2>
+        <div class="separator with-icon"><i class="fa fa-diamond bordered"></i></div>
+        <p class="text-center text-important object-non-visible animated object-visible fadeIn" data-animation-effect="fadeIn" data-effect-delay="100">
+          Classy - Hệ thống tìm kiếm và đánh giá các trung tâm ngoại ngữ tại Việt Nam
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

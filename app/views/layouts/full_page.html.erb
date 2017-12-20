@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <%= render "layouts/shared/head" %>
+
+  <body class="front-page wide">
+    <div id="modal_holder"></div>
+    <div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
+    <div class="page-wrapper">
+      <%= render "layouts/shared/header" %>
+
+      <section id="content-container" class="">
+        <div id="flash-messages">
+          <%= render "layouts/shared/flash" %>
+        </div>
+        <%= yield %>
+      </section>
+
+      <%= render "layouts/shared/footer" %>
+    </div>
+  </body>
+</html>
