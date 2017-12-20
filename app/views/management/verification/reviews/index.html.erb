@@ -1,7 +1,7 @@
 <% content_for :cm_review_verifications_activation, "active" %>
 <div class="card user-setting-group">
   <div class="section-title-line">
-    <h4><%= t ".review_verifications" %></h4>
+    <h4>Xác thực đánh giá</h4>
     <hr class="filler-line">
   </div>
   <div class="card-block">
@@ -16,7 +16,7 @@
             <th><%= Review.human_attribute_name :phone_number_verifiable %></th>
             <th><%= Review.human_attribute_name :status %></th>
             <th><%= Review.human_attribute_name :branch %></th>
-            <th><%= t ".action" %></th>
+            <th></th>
           </thead>
           <tbody id="review-verification-list">
             <%= render partial: "review", collection: @reviews, as: :review %>

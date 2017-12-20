@@ -184,6 +184,13 @@ vi:
           all_statuses: Tất cả các trạng thái
           all_branches: Tất cả các chi nhánh
           filter: *filter
+          unverified: Chưa xác thực
+          verified: Đã xác thực
+          rejected: Đã từ chối
+        review:
+          unverified: Chưa xác thực
+          verified: Đã xác thực
+          rejected: Đã từ chối
   centers:
     show:
       edit: *edit

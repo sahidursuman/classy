@@ -8,6 +8,29 @@ vi:
               blank: không thể để trống
               too_short: quá ngắn
     attributes:
+      center:
+        name: Tên
+        avatar: Ảnh đại diện
+        cover: Ảnh bìa
+        center_category: Loại trung tâm
+        overview: Tổng quan
+        curriculum_overview: Tổng quan giáo trình
+        teacher_staff_intro: Tổng quan đội ngũ giáo viên
+        phone_number: Số điện thoại
+      course:
+        name: Tên
+        category: Thể loại
+        tuition_fee: Học phí
+        action: Hành động
+        course_sub_categories: Cấp độ
+        intended_student: Đối tượng học viên
+        target: Mục tiêu khóa học
+        sessions: Số buổi học
+        class_size: Số học viên/lớp
+        curriculum: Giáo trình
+        teaching_methods: Phương pháp giảng dạy
+
+
       report:
         content: Nội dung
       user:
@@ -19,7 +42,7 @@ vi:
         password_confirmation: Xác nhận mật khẩu
         login: Tên đăng nhập/Email
         username: Tên tài khoản
-        current_password: Mật khẩu hiện tại 
+        current_password: Mật khẩu hiện tại
       review:
         title: Tiêu đề
         content: Nội dung
@@ -29,9 +52,17 @@ vi:
         rating_criterion_3: Mức độ uy tín
         rating_criterion_4: Học phí
         rating_criterion_5: Cơ sở vật chất
+        email_verifiable: Email xác thực
+        phone_number_verifiable: Số điện thoại
+        status: Trạng thái
+        branch: Chi nhánh
+        
       review_verification:
         email: Email xác thực
         phone_number: Số điện thoại xác thực
       branch:
         name: Tên
         status: Trạng thái
+        district: Quận/Huyện
+        address: Địa chỉ
+        phone_number: Số điện thoại
