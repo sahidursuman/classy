@@ -181,7 +181,12 @@ vi:
         excellent: Xuất sắc
         good: Tốt
         medium: Trung bình
-        bad: Không tốt
+        bad: Kém
+      review_statistics:
+        excellent: Xuất sắc
+        good: Tốt
+        medium: Trung bình
+        bad: Kém
   branches:
     index:
       select_city: "Lựa chọn thành phố"
