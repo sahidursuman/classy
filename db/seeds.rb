@@ -118,7 +118,7 @@ centers = Center.all.includes :branches, :center_category
 #       password: "123456",
 #       password_confirmation: "123456",
 #       confirmed_at: Time.zone.now,
-#       avatar: open("app/assets/images/default-avatar.png")
+#       avatar: nil
 #     center.branches.sample(rand(branch_count) + 1).each do |branch|
 #       user.branch_managements.create! branch: branch
 #     end
