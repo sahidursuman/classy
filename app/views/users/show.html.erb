@@ -1,15 +1,27 @@
-<h1><%= t ".profile" %></h1>
-<%= image_tag @user.avatar %></br>
-<%= @user.full_name %></br>
-<%= @user.email %></br>
-<%= @user.phone_number %></br>
-<%= @user.role %></br>
-<%= link_to t(".reviews"), user_reviews_path(@user) %>
-<%  if policy(@user).update? %>
-  <div>
-    <%= link_to t(".edit_personal_information"), edit_my_page_profile_path %></br>
-    <%= link_to t(".edit_account_information"), edit_my_page_account_path %></br>
-    <%= link_to t(".edit_password"), edit_my_page_password_path %></br>
-    <%= link_to t(".my_reports"), my_page_reports_path %></br>
+
+<div class="row">
+  <div class="col-md-3">
+
+    <div class="box box-primary white-bg py-4">
+      <div class="box-body box-profile">
+        <%= image_tag @user.avatar.medium.url, style: "margin: auto; border-radius: 50%",
+          class: "profile-user-img img-responsive pb-3 img-circle" %>
+        <h3 class="profile-username text-center"><%= @user.full_name %></h3>
+        <p class="text-muted text-center">
+          <%= t(@user.role) %>
+          <% if @user.center_manager? %>
+            <br/>
+            <%= link_to @user.managed_center.name, @user.managed_center.route_params %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+
   </div>
-<% end %>
+  <div class="col-md-9">
+    <div class="reviews-list">
+      <%= render partial: "shared/reviews/review", collection: @reviews, as: :review,
+        locals: {center_displayed: true} %>
+    </div>
+  </div>
+</div>

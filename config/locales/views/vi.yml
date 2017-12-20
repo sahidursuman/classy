@@ -1,4 +1,8 @@
 vi:
+  normal_user: Thành viên
+  center_manager: Quản lý trung tâm
+  moderator: Quản trị viên
+  admin: Quản trị hệ thống
   supports:
     categories:
       index:
