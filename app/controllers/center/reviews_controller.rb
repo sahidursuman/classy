@@ -1,6 +1,6 @@
 class Center::ReviewsController < Center::BaseController
   before_action :require_sign_in!, only: [:new, :create]
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authorize_create_review!, only: [:new, :create]
 
   def index
     @q = displayable_reviews.ransack params[:q]
@@ -25,8 +25,8 @@ class Center::ReviewsController < Center::BaseController
   end
 
   private
-  def authenticate_user!
-    raise Pundit::NotAuthorizedError unless user_signed_in?
+  def authorize_create_review!
+    raise Pundit::NotAuthorizedError unless policy(@center).can_review?
   end
 
   def review_params

@@ -8,7 +8,7 @@ class ApplicationPolicy
 
   private
   def member?
-    user && (user.center_manager? || user.branch_manager? || user.normal_user?)
+    user && (user.center_manager? || user.normal_user?)
   end
 
   def record_owner?
