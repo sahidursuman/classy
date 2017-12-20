@@ -5,6 +5,20 @@
   <div class="col-lg-8 col-md-8 pl-20 white-bg py-2 center-general-info">
     <div class="row">
       <div class="col-lg-12 col-md-12">
+        <span class="pull-right">
+          <%=
+            if policy(@center).can_edit?
+              link_to t(".edit"), edit_management_center_path
+            end
+
+            if policy(@center).can_report?
+              link_to new_report_path(report: {reportable_id: @center.id,
+                reportable_type: @center.model_name}), remote: true, class: "btn-new-report" do
+                  '<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>'.html_safe
+                end
+            end
+          %>
+        </span>
         <h1 class="my-1"><span class="text-default"><%= center.name %></span></h1>
         <div class="py-1">
           <i class="fa fa-book mb-1" aria-hidden="true"></i>

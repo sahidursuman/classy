@@ -14,7 +14,12 @@
             <%= link_to t(".delete"), review_path(review), method: :delete, class: "dropdown-item",
               remote: true, data: {confirm: "Bạn chắc chắn muốn xóa review này?"} %>
           <% else %>
-            <button class="dropdown-item" type="button">Report</button>
+            <%=
+              if policy(review).can_report?
+                link_to t(".report"), new_report_path(report: {reportable_id: review.id,
+                  reportable_type: review.model_name}), remote: true, class: "btn-new-report"
+              end
+            %>
           <% end %>
         </div>
     </div>
