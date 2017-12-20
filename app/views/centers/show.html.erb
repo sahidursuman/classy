@@ -1,3 +1,21 @@
 <% content_for :center_home_page_activation, "active" %>
 
-<div class="report-modal"></div>
+<div class="col-md-10 white-bg py-3">
+  <h3><%= @center.name %></h3>
+  <div class="separator-2"></div>
+  <div>
+    <strong><%= Center.human_attribute_name :overview %></strong><br/>
+    <%= @center.overview %>
+  </div>
+  <hr/>
+  <div>
+    <strong><%= Center.human_attribute_name :teacher_staff_intro %></strong><br/>
+    <%= custom_simple_format @center.teacher_staff_intro %>
+  </div>
+  <hr/>
+  <div>
+    <strong><%= Center.human_attribute_name :curriculum_overview %></strong><br/>
+    <%= custom_simple_format @center.curriculum_overview %>
+  </div>
+  <hr/>
+</div>

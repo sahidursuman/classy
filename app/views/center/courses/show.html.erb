@@ -1,10 +1,10 @@
 <% content_for :center_courses_activation, "active" %>
-<div class="col-md-10">
-  <h2><%= @course.name %></h2>
-  <hr/>
+<div class="col-md-10 white-bg py-3">
+  <h3><%= @course.name %></h3>
+  <div class="separator-2"></div>
   <div>
     <strong><%= Course.human_attribute_name :course_category %></strong>
-    <%= @course.course_category.name %>
+    <%= @course.decorate.full_categories %>
   </div>
   <hr/>
   <div>
@@ -18,13 +18,8 @@
   </div>
   <hr/>
   <div>
-    <strong><%= Course.human_attribute_name :sessions %></strong>
-    <%= @course.sessions %>
-  </div>
-  <hr/>
-  <div>
-    <strong><%= Course.human_attribute_name :duration %></strong>
-    <%= number_with_precision @course.duration, strip_insignificant_zeros: true %>
+    <strong>Thời lượng học</strong>
+    <%= number_with_precision @course.decorate.full_duration, strip_insignificant_zeros: true %>
   </div>
   <hr/>
   <div>
