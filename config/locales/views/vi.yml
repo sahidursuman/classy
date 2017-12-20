@@ -1,4 +1,12 @@
 vi:
+  supports:
+    categories:
+      index:
+        all_course_categories: Thể loại
+        all_course_sub_categories: Cấp độ
+    districts:
+      index:
+        select_district: Chọn Quận/Huyện
   time:
     formats:
       default: "%d/%m/%Y %H:%M"
@@ -37,6 +45,12 @@ vi:
     center:
       center_details:
         number_of_branch_in_cities: *number_of_branch_in_cities
+        reviews: Đánh giá
+      center_side_bar:
+        home_page: Trang chủ
+        reviews: Đánh giá
+        branches: Chi nhánh
+        courses: Chương trình học
   home_pages:
     index:
       log_out: Đăng xuất
@@ -68,15 +82,18 @@ vi:
         log_in: "Đăng nhập"
   shared:
     reviews:
+      branch_info:
+        branch: Chi nhánh
       criterion_input:
         rating: Điểm đánh giá
       review:
         edit: Chỉnh sửa
         delete: Xóa
+        comment: Bình luận
         show_comments: &show_comments
           zero: Không có bình luận nào
-          one: Hiển thị một bình luật
-          other: Hiển thị %{count} bình luật
+          one: Hiển thị một bình luận
+          other: Hiển thị %{count} bình luận
         confirm_delete: "Bạn có chắc muốn xóa đánh giá này?"
         new_comment: Bình luận mới
         report: *report
@@ -95,7 +112,7 @@ vi:
     comments:
       new_comment:
         post: Post
-        add_comment_placeholder: Thêm mới một bình luậtn công khai
+        add_comment_placeholder: Thêm mới một bình luận công khai
       comment:
         confirm_delete: Bạn có muốn xóa bình luận này
         delete: *delete
@@ -233,10 +250,15 @@ vi:
       show_comments: *show_comments
   search:
     centers:
+      location_filter:
+        location: Địa điểm
+        all_disticts: Chọn Quận/Huyện
       index:
         search: Tìm kiếm
       course_detail_filter:
-        select_course_category: *select_course_category
+        all_course_categories: Thể loại
+        all_course_sub_categories: Cấp độ
+        course_details: Chương trình học
       center:
         tuition_fee: học phí
         tuition_fee_from: học phí từ
