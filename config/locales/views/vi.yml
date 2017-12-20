@@ -206,6 +206,9 @@ vi:
         good: Tốt
         medium: Trung bình
         bad: Kém
+      branch_filter:
+        recent_created: Mới nhất
+        vote_points_desc: Hữu ích nhất
   branches:
     index:
       select_city: "Lựa chọn thành phố"

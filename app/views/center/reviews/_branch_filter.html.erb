@@ -4,7 +4,7 @@
       html: {class: "auto-submit-form"} do |f| %>
       <ul class="filter-nav mb-0 pl-0 text-center">
         <li class="pull-right m-1">
-          <%= f.select :branch_slug_eq, support.branch_options, {include_blank: t(".all_branches")},
+          <%= f.select :branch_slug_eq, support.branch_options, {include_blank: "Chọn chi nhánh"},
             class: "form-control" %>
         </li>
         <li class="pull-right m-1">
