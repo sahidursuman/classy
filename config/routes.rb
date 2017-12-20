@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   mount ActionCable.server => "/cable"
   root "home_pages#index"
   get '/404', :to => redirect("/404.html")
-  get '/business', :to => redirect("/business.html")
+  get "pages/:page", to: "home_pages#show", as: :page
+
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
