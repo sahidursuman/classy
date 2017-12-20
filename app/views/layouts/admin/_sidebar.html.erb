@@ -45,18 +45,28 @@
           </li>
         </ul>
       </div>
-      <div class="menu_section">
-        <h3><%= t ".master_data" %></h3>
-        <ul class="nav side-menu">
-          <li class="<%= content_for :sidebar_location_activation %>">
-            <a><i class="fa fa-road"></i><%= t ".location" %></a>
-          </li>
-          <li class="<%= content_for :sidebar_categories_activation %>">
-            <a><i class="fa fa-book"></i><%= t ".categories" %></a>
-          </li>
-        </ul>
-      </div>
-
+      <% if current_user.root? %>
+        <div class="menu_section">
+          <h3><%= t ".master_data" %></h3>
+          <ul class="nav side-menu">
+            <li class="<%= content_for :sidebar_cities_activation %>">
+              <%= link_to admin_cities_path do %>
+                <i class="fa fa-road"></i><%= t ".cities" %>
+              <% end %>
+            </li>
+            <li class="<%= content_for :sidebar_districts_activation %>">
+              <%= link_to admin_districts_path do %>
+                <i class="fa fa-road"></i><%= t ".districts" %>
+              <% end %>
+            </li>
+            <li class="<%= content_for :sidebar_categories_activation %>">
+              <%= link_to admin_categories_path do %>
+                <i class="fa fa-book"></i><%= t ".categories" %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
     </div>
     <!-- /sidebar menu -->
 

@@ -1,0 +1,39 @@
+<% content_for :sidebar_categories_activation, "active" %>
+<% content_for :page_title do %>
+  <div class="title_left">
+    <h3><%= t ".category_management" %></h3>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><%= t ".category_list" %></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <button class="btn btn-success no-radius pull-right">
+          <i class="fa fa-plus"></i>
+          <%= t ".add_new_category" %>
+        </button>
+        <table class="table table-striped">
+          <thead>
+            <th>#</th>
+            <th><%= Category.human_attribute_name :parent %></th>
+            <th><%= Category.human_attribute_name :type %></th>
+            <th><%= Category.human_attribute_name :name %></th>
+            <th><%= Category.human_attribute_name :key_name %></th>
+            <th><%= Category.human_attribute_name :priority %></th>
+            <th><%= t ".action" %></th>
+          </thead>
+          <tbody id="category_list">
+            <%= render partial: "category", collection: @categories, as: :category %>
+          </tbody>
+        </table>
+        <div id="category_pagination">
+          <%= paginate @categories %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

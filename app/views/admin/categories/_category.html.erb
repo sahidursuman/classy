@@ -1,0 +1,9 @@
+<tr>
+  <td><%= index_on_pagination category_counter, @categories.current_page, 20 %></td>
+  <td><%= category.parent_category.present? ? category.parent_category.name : "--" %></td>
+  <td><%= category.type %></td>
+  <td><%= category.name %></td>
+  <td><%= category.key_name %></td>
+  <td><%= category.priority %></td>
+  <td>Edit | Update</td>
+</tr>

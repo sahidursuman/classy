@@ -1,0 +1,38 @@
+<% content_for :sidebar_districts_activation, "active" %>
+<% content_for :page_title do %>
+  <div class="title_left">
+    <h3><%= t ".district_management" %></h3>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><%= t ".district_list" %></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <button class="btn btn-success no-radius pull-right">
+          <i class="fa fa-plus"></i>
+          <%= t ".add_new_district" %>
+        </button>
+        <table class="table table-striped">
+          <thead>
+            <th>#</th>
+            <th><%= District.human_attribute_name :city %></th>
+            <th><%= District.human_attribute_name :name %></th>
+            <th><%= District.human_attribute_name :key_name %></th>
+            <th><%= City.human_attribute_name :priority %></th>
+            <th><%= t ".action" %></th>
+          </thead>
+          <tbody id="district_list">
+            <%= render partial: "district", collection: @districts, as: :district %>
+          </tbody>
+        </table>
+        <div id="district_pagination">
+          <%= paginate @districts %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
