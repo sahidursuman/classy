@@ -7,7 +7,11 @@ class UsersController < ApplicationController
   private
   def displayable_reviews
     if user_signed_in?
-      @user.reviews.verified.with_voted_type_by_user(current_user)
+      if @user == current_user
+        @user.reviews.with_voted_type_by_user(current_user)
+      else
+        @user.reviews.verified.with_voted_type_by_user(current_user)
+      end
     else
       @user.reviews.verified
     end
