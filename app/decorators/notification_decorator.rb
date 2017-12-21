@@ -38,6 +38,16 @@ class NotificationDecorator < ApplicationDecorator
         url: center_reviews_path(notifiable.center.route_params),
         message: "Đánh giá của bạn bị nhận 1 vote kém."
       }
+    when :report_accepted
+      {
+        url: user_path(current_user),
+        message: "Report của bạn đã được chấp nhận. Cảm ơn phản hồi của bạn!"
+      }
+    when :report_accepted
+      {
+        url: user_path(current_user),
+        message: "Report của bạn không được chấp nhận. Cảm ơn phản hồi của bạn!"
+      }
     end
   end
 end

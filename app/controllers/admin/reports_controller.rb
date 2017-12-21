@@ -12,6 +12,7 @@ class Admin::ReportsController < Admin::BaseController
 
   def update
     if @report.update_attributes report_params
+      notify_user
       @report = @report.decorate
       flash.now[:success] = t ".success"
     else
@@ -26,5 +27,10 @@ class Admin::ReportsController < Admin::BaseController
 
   def report
     @report = Report.find params[:id]
+  end
+
+  def notify_user
+    action = @report.accepted? ? :report_accepted : :report_rejected
+    @report.user.received_notifications.create notifiable: Comment.first, action: action
   end
 end

@@ -10,7 +10,7 @@ class Notification < ApplicationRecord
   scope :recent_created, ->{order created_at: :desc}
 
   enum action: [:new_review_verification, :review_rejected, :review_verified,
-    :review_voted_up, :review_voted_down]
+    :review_voted_up, :review_voted_down, :report_accepted, :report_rejected]
 
   private
   def relay_notification
